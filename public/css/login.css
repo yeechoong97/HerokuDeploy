@@ -1,0 +1,19 @@
+.vertical-center{
+    margin-top:20%;
+}
+
+.login-center{
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+}
+
+.btn-size{
+    width:100px;
+    margin-left: 5%;
+}
+
+.register-btn{
+    background-color: #84F755;
+    color:black;
+}
