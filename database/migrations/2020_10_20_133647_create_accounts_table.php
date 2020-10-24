@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateAccountsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('accounts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('user_id')->unique();
+            $table->decimal('balance',8,2);
+            $table->decimal('margin',8,2);
+            $table->decimal('margin_used',8,2);
+            $table->string('leverage',6);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('accounts');
+    }
+}

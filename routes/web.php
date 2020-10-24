@@ -15,10 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('index','MainController@getOANDA')->name("index");
+// Route::post('/index/api','MainController@getCandle');
+// Route::post('index/instrument','MainController@getCandleStick');
 
-Route::get('home','MainController@getOANDA')->name("home");
-Route::post('/home/api','MainController@getCandle');
-Route::post('home/instrument','MainController@getCandleStick');
+Route::get('index','MainController@index')->name("index");
 
 Auth::routes();
 

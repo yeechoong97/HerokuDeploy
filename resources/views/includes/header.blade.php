@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-light navbar-expand-md navbar-dark navbar-custom justify-content-center">
     <img src="{{asset('Logo.png')}}" width="40" height="40" class="d-inline-block align-top" alt="">
-    <a href="{{route('home')}}" class="navbar-brand d-flex w-50 mr-auto">ES FOREX Trading</a>
+    <a href="{{route('index')}}" class="navbar-brand d-flex w-50 mr-auto">ES FOREX Trading</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
         <span class="navbar-toggler-icon"></span>
     </button>
