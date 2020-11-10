@@ -20,7 +20,7 @@
       color:black;
       border-top:1px solid #030C5D;
       border-bottom:1px solid #030C5D;
-      width:10%;
+      width:9%;
     }
 
     h6{
@@ -67,7 +67,7 @@
     }
 
     .fa-times-circle{
-      color:red;
+      color:#030C5D;
     }
 
     .fa-check-circle{

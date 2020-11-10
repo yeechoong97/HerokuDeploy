@@ -69,10 +69,9 @@
          });
       }
       </script> -->
-
+      
       <div >
          <div class = "left-container">
-           
             <div class="chart-container">
                <!-- TradingView Widget BEGIN -->
                <div class="tradingview-widget-container" style="z-index:0" >
@@ -81,8 +80,7 @@
                  
                      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
                      <script type="text/javascript">
-                     var instrument = "OANDA:EURUSD";
-                     LoadCharts(instrument);
+                     LoadCharts("OANDA:EURUSD");
 
                      function changeInstrument(currency){
                         instrument = "OANDA:" + currency
@@ -93,31 +91,35 @@
 
                      //Change the remarks of the selected instrument
                      function setRemarks(currency){
-                        var instrument_lists = ["EURUSD","AUDUSD","GBPUSD","USDJPY","EURJPY"];
 
-                        for (i = 0;i<instrument_lists.length;i++){
-                           var base = instrument_lists[i].slice(0,3);
-                           var quote = instrument_lists[i].slice(3);
-                           var instrument = base + "_" + quote;
+                        var instrument_lists = {
+                           EURUSD:{title:"EURUSD",pair:"EUR_USD",preview:"EUR/USD"},
+                           AUDUSD:{title:"AUDUSD",pair:"AUD_USD",preview:"AUD/USD"},
+                           GBPUSD:{title:"GBPUSD",pair:"GBP_USD",preview:"GBP/USD"},
+                           USDJPY:{title:"USDJPY",pair:"USD_JPY",preview:"USD/JPY"},
+                           EURJPY:{title:"EURJPY",pair:"EUR_JPY",preview:"EUR/JPY"},
+                        }
 
-                           if(currency!=instrument_lists[i]){ 
-                              //If the instrument is not matched to the array item
-                              document.getElementById(instrument_lists[i]+"_span").style.display = "none";
-                              document.getElementById(instrument+"_header").style.backgroundColor = "whitesmoke";
-                              document.getElementById(instrument+"_Buy").style.backgroundColor = "white";
-                              document.getElementById(instrument+"_Sell").style.backgroundColor = "white";
-                              document.getElementById(instrument+"_Pips").style.backgroundColor = "whitesmoke";
+                        for (var key in instrument_lists){
+                           if(currency != instrument_lists[key].title){
+                              document.getElementById(instrument_lists[key].title+"_span").style.display = "none";
+                              document.getElementById(instrument_lists[key].pair+"_header").style.backgroundColor = "whitesmoke";
+                              document.getElementById(instrument_lists[key].pair+"_Buy").style.backgroundColor = "white";
+                              document.getElementById(instrument_lists[key].pair+"_Sell").style.backgroundColor = "white";
+                              document.getElementById(instrument_lists[key].pair+"_Pips").style.backgroundColor = "whitesmoke";
                            }
                            else{
                               // The instrument matched the array item
-                              document.getElementById(currency+"_span").style.display = "inline";
-                              document.getElementById(instrument+"_header").style.backgroundColor = "#fff7eb";
-                              document.getElementById(instrument+"_Buy").style.backgroundColor = "#e0f0ff";
-                              document.getElementById(instrument+"_Sell").style.backgroundColor = "#ffeded";
-                              document.getElementById(instrument+"_Pips").style.backgroundColor = "#f5edff";
+                              document.getElementById(instrument_lists[key].title+"_span").style.display = "inline";
+                              document.getElementById(instrument_lists[key].pair+"_header").style.backgroundColor = "#fff7eb";
+                              document.getElementById(instrument_lists[key].pair+"_Buy").style.backgroundColor = "#e0f0ff";
+                              document.getElementById(instrument_lists[key].pair+"_Sell").style.backgroundColor = "#ffeded";
+                              document.getElementById(instrument_lists[key].pair+"_Pips").style.backgroundColor = "#f5edff";
+                              document.getElementById("lightbox-title").innerHTML = instrument_lists[key].preview;
                            }
                         }
                      }
+                     
 
                      //Load and Change the Chart accordingly
                      function LoadCharts(currency){
@@ -145,13 +147,11 @@
 
                      //Append selected instrument data into button
                      function appendData(currency){
-                        var base = currency.slice(0,3);
-                        var quote = currency.slice(3);
-                        var instrument = base + "_" + quote ;
-
+                        var instrument = currency.slice(0,3) + "_" + currency.slice(3);
                         var sell = document.getElementById(instrument+"_Sell").innerHTML;
                         var buy = document.getElementById(instrument+"_Buy").innerHTML;
                         var pips = document.getElementById(instrument+"_Pips").innerHTML;
+                        
                         document.getElementById("sell-action").innerHTML = sell;
                         document.getElementById("buy-action").innerHTML = buy;
                         document.getElementById("pips-action").innerHTML = pips;
@@ -160,7 +160,7 @@
                   </div>
                </div>
             <div class="record-container">
-               <div class="table_record">
+               <div class="table_record" id="table_all_records">
                   <table id="all_orders">
                      <thead>
                      <tr>
@@ -168,6 +168,7 @@
                         <th>Pair</th>
                         <th>Units</th>
                         <th>Type</th>
+                        <th>Margin</th>
                         <th>Price</th>
                         <th>Current</th>
                         <th>Profit(USD)</th>
@@ -181,14 +182,15 @@
                            <tr>
                               <td>{{$record->ticketID}}</td>
                               <td>{{$record->pair}}</td>
-                              <td>{{$record->units}}</td>
+                              <td>{{$record->remaining_units}}</td>
                               <td>{{$record->type}}</td>
+                              <td></td>
                               <td>{{$record->entry_price}}</td>
                               <td></td>
                               <td></td>
                               <td></td>
                               <td></td>
-                              <td><a class="close_position"><span class="far fa-times-circle"></span></a></td>
+                              <td><a class="close_position" onclick="openOrderBox('{{$record->ticketID}}',100)"><span class="far fa-times-circle"></span></a></td>
                            </tr>
                         @endforeach
                      </tbody>
@@ -196,29 +198,112 @@
                </div>
             </div>
          </div>
+         
+         <div id="testing_case"></div>
+         <!-- Lightbox for executing orders -->
+         <div id ="Lightbox" class="lightbox">
+               <div class="modal-content modal fade">
+                  <div class="modal-header">
+                     <div class="modal-title">Order</div>
+                     <span aria-hidden="true" class="close" aria-label="Close" onclick="closeLightbox('Lightbox')">&times;</span>
+                  </div>
+                  <div class="modal-body">
+                     <div class="upper-body">
+                        <div class="instrument-title" id="lightbox-title">EUR/USD</div>
+                           <div class="order-container">
+                              <div class="order-sell" id="order-sell">
+                                 <a href="#" class="order-btns" onclick="openLightbox('sell')">
+                                    <span class="buy-span-title">SELL</span>
+                                    <span class="buy-span-data" id="order-sell-data"></span>
+                                 </a>
+                              </div>
+                              <div class="order-buy" id="order-buy">
+                                 <a href="#" class="order-btns" onclick="openLightbox('buy')">
+                                    <span class="buy-span-title">BUY</span>
+                                    <span class="buy-span-data" id="order-buy-data"></span>
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="order-spread">
+                              <span class="spread-span-data" id="order-spread-data"></span>
+                           </div>
+                           <div class="lower-title">Market</div>
+                        </div>
+
+                     <div class="lower-body">
+                        <input type="number" id="order-units" min="1" max="10000000" class="form-control col-md-8 units" placeholder="Enter Units"></input>
+                           <span class="unit-remark"><b>*</b>Units Available: 10,000,000</span>
+                              <div>
+                                 <span id="order-type" style="display:none"></span>
+                                 <button type="submit" class="btn submit-btn" onclick="saveOrder()">Submit</button>
+                              </div>
+                     </div>
+                  </div>
+               </div>
+         </div>
+
+         <!-- Lightbox for close Position -->
+         <div id ="Position_box" class="lightbox">
+               <div class="modal-content modal fade">
+                  <div class="modal-header">
+                     <div class="modal-title">Reduce/Close</div>
+                     <span aria-hidden="true" class="close" aria-label="Close" onclick="closeLightbox('Position_box')">&times;</span>
+                  </div>
+                  <div class="modal-body">
+                     <div class="upper-body">
+                        <div class="instrument-title" id="position-title">EUR/USD</div>
+                           <div class="position-units">
+                              <div class="units-label">Units Available :</div>
+                              <div class="units-quantity" id="units_orders_quantity"></div>
+                           </div>
+                           <div class="second-units-title">Units to Close</div>
+                           <input type="number" id="position-total-units" min="1" max="10000000" class="form-control col-md-8 position-order-units" placeholder="Enter Units" onkeyup="updateRemaining()" onclick="updateRemaining()"></input>
+                     </div>
+
+                     <div class="lower-body">
+                        <div class="units-container">
+                           <div class="left-units-percentage" id="first-left-units" onclick="openOrderBox('T',25)">25%</div>
+                           <div class="units-percentage" id="second-left-units" onclick="openOrderBox('T',50)">50%</div>
+                           <div class="units-percentage" id="third-left-units" onclick="openOrderBox('T',75)">75%</div>
+                           <div class="right-units-percentage" id="fourth-left-units" onclick="openOrderBox('T',100)">100%</div>
+                        </div>
+                        <div class="detail-container">
+                              <div class="title-label">Units Remaining :</div>
+                              <div class="data-label" id="units_remaining"></div>
+                              <div class="title-label">Profit/Loss :</div>
+                              <div class="data-label" id="units-profit"></div>
+                        </div>
+                              <div>
+                                 <span id="position-ticket-id" style="display:none"></span>
+                                 <button type="submit" class="btn submit-btn" onclick="closePosition()">Submit</button>
+                              </div>
+                     </div>
+                  </div>
+               </div>
+         </div>
 
          <div class="mydiv" id ="mydiv">
             <div class="mydivheader" id ="mydivheader"></div>
                <div class="order_button" id ="sell">
-                 <a href="#" class="sell_btn">
+                 <a href="#" class="sell_btn" onclick="openLightbox('sell')">
                      <span class="span-title-sell">SELL</span>
-                     <span class="span-data" id="sell-action">123.60</span>
+                     <span class="span-data" id="sell-action"></span>
                   </a> 
                </div>
             <div class="order_button" id ="buy">
                <div class="order_button" id ="buy">
-                  <a href="#" class="buy_btn">
+                  <a href="#" class="buy_btn" onclick="openLightbox('buy')">
                      <span class="span-title-buy">BUY</span>
-                     <span class="span-data" id="buy-action">112.30</span>
+                     <span class="span-data" id="buy-action"></span>
                   </a> 
                </div>
             </div>
                
             <div class="order_button" id ="pips">
                <div class="order_button" id ="buy">
-                  <a class="spread_btn">
+                  <a class="spread_btn" onclick="testing()">
                      <span class="span-title-spread">SPREAD</span>
-                     <span class="span-data" id="pips-action">5.2</span>
+                     <span class="span-data" id="pips-action"></span>
                   </a> 
                </div>
             </div>
@@ -240,18 +325,17 @@
                      </div>
                      <div class="rTableRow">
                         <div class="rTableCell_label">Margin :</div>
-                        <div class="rTableCell_data">${{$account->margin}}</div>
+                        <div class="rTableCell_data"  id="account-margin">${{$account->margin}}</div>
                      </div>
                      <div class="rTableRow">
                         <div class="rTableCell_label">Margin Used :</div>
-                        <div class="rTableCell_data">{{$account->margin_used}}</div>
+                        <div class="rTableCell_data" id="account-margin-used">{{$account->margin_used}}</div>
                      </div>
                      <div class="rTableRow">
                         <div class="rTableCell_label">Leverage :</div>
                         <div class="rTableCell_data">{{$account->leverage}}</div>
                      </div>
                   </div>
-               
                <div class="temp"></div>
             </div>
             <div class="price-container">
@@ -261,7 +345,6 @@
                
                <div class="price">
                   <div class="rates">
-                     <!-- <div class="indicator" id="EUR_USD_indicator"></div> -->
                      <div class="header" id="EUR_USD_header" onclick="changeInstrument('EURUSD')" style="background-color:#fff7eb">EUR/USD <span class="fas fa-check-circle" id="EURUSD_span"></span></div>
                      <div class="rates-container">
                         <div class="sell-rates" id="EUR_USD_Sell" style="background-color:#ffeded"></div>
@@ -273,7 +356,6 @@
 
                <div class="price">
                   <div class="rates">
-                     <!-- <div class="indicator" id="AUD_USD_indicator"></div> -->
                      <div class="header" id="AUD_USD_header" onclick="changeInstrument('AUDUSD')">AUD/USD <span class="fas fa-check-circle" id="AUDUSD_span" style="display:none"> </div>
                      <div class="rates-container">
                         <div class="sell-rates" id="AUD_USD_Sell"></div>
@@ -285,7 +367,6 @@
 
                <div class="price">
                   <div class="rates">
-                     <!-- <div class="indicator" id="GBP_USD_indicator"></div> -->
                      <div class="header" id="GBP_USD_header" onclick="changeInstrument('GBPUSD')">GBP/USD <span class="fas fa-check-circle" id="GBPUSD_span" style="display:none"></div>
                      <div class="rates-container">
                         <div class="sell-rates" id="GBP_USD_Sell"></div>
@@ -297,7 +378,6 @@
 
                <div class="price">
                   <div class="rates">
-                     <!-- <div class="indicator" id="USD_JPY_indicator"></div> -->
                      <div class="header" id="USD_JPY_header" onclick="changeInstrument('USDJPY')">USD/JPY<span class="fas fa-check-circle" id="USDJPY_span" style="display:none"></div>
                      <div class="rates-container">
                         <div class="sell-rates" id="USD_JPY_Sell"></div>
@@ -309,7 +389,6 @@
 
                <div class="price">
                   <div class="rates">
-                     <!-- <div class="indicator" id="EUR_JPY_indicator"></div> -->
                      <div class="header" id="EUR_JPY_header" onclick="changeInstrument('EURJPY')">EUR/JPY <span class="fas fa-check-circle" id="EURJPY_span" style="display:none"></div>
                      <div class="rates-container">
                         <div class="sell-rates" id="EUR_JPY_Sell"></div>
@@ -327,54 +406,57 @@
             'id' => 'btn',
             'onClick'=>'getMessage()',
             'display'=>'none',]); ?>
-<script>
-document.getElementById("btn").style.display = "none";
-dragElement(document.getElementById("mydiv"));
 
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
+<!----------------------- Javascript Function ------------------------------------------->
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+   <script>
+      document.getElementById("btn").style.display = "none";
+      dragElement(document.getElementById("mydiv"));
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+      function dragElement(elmnt) {
+      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+      if (document.getElementById(elmnt.id + "header")) {
+         // if present, the header is where you move the DIV from:
+         document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+      } else {
+         // otherwise, move the DIV from anywhere inside the DIV:
+         elmnt.onmousedown = dragMouseDown;
+      }
 
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-</script>
+      function dragMouseDown(e) {
+         e = e || window.event;
+         e.preventDefault();
+         // get the mouse cursor position at startup:
+         pos3 = e.clientX;
+         pos4 = e.clientY;
+         document.onmouseup = closeDragElement;
+         // call a function whenever the cursor moves:
+         document.onmousemove = elementDrag;
+      }
+
+      function elementDrag(e) {
+         e = e || window.event;
+         e.preventDefault();
+         // calculate the new cursor position:
+         pos1 = pos3 - e.clientX;
+         pos2 = pos4 - e.clientY;
+         pos3 = e.clientX;
+         pos4 = e.clientY;
+         // set the element's new position:
+         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+
+      function closeDragElement() {
+         // stop moving when mouse button is released:
+         document.onmouseup = null;
+         document.onmousemove = null;
+      }
+      }
+   </script>
 
 
-<script>
+   <script>
       var socket = io.connect('http://127.0.0.1:1337');
       var json =""
       socket.on('news', function (data)
@@ -396,29 +478,26 @@ function dragElement(elmnt) {
                   var header = document.getElementById(id[3]);
                   var date_split = json.time.split("T");
                   var time_split = date_split[1].split(".");
-
                   var previous_sell_price = sell.innerHTML;
                   var previous_buy_price = buy.innerHTML;
+
                   if (previous_sell_price < json.bids[0].price && previous_buy_price < json.asks[0].price)
                   {
-                     highlight(header,buy,sell,'greenyellow','#11c900');
+                     highlight(header,buy,sell,'#11c900');
                   }
                   else if (previous_sell_price > json.bids[0].price && previous_buy_price > json.asks[0].price)
                   {
-                     highlight(header,buy,sell,'#fc3030','#fc3030');
+                     highlight(header,buy,sell,'#fc3030');
                   }
                   sell.innerHTML = json.bids[0].price;
                   buy.innerHTML = json.asks[0].price;
 
                   var selected_pair = document.getElementById("reference").innerHTML;
                   var splited = selected_pair.split(" ");
-                  var base = splited[0].slice(0,3);
-                  var quote = splited[0].slice(3);
-                  var currency_pair = base + "_" + quote ;
-                  
+                  var currency_pair = splited[0].slice(0,3) + "_" + splited[0].slice(3);
                   var multiply = 10000;
-                  if (currency.includes("JPY")==true)
-                  {
+                  
+                  if (currency.includes("JPY")==true){
                      multiply = 100;
                   }
                   pips.innerHTML = ((json.asks[0].price-json.bids[0].price)*multiply).toFixed(1);
@@ -428,16 +507,19 @@ function dragElement(elmnt) {
                     document.getElementById("sell-action").innerHTML = json.bids[0].price;
                     document.getElementById("buy-action").innerHTML = json.asks[0].price;
                     document.getElementById("pips-action").innerHTML = ((json.asks[0].price-json.bids[0].price)*multiply).toFixed(1);
+                    document.getElementById("order-sell-data").innerHTML = json.bids[0].price;
+                    document.getElementById("order-buy-data").innerHTML = json.asks[0].price;
+                    document.getElementById("order-spread-data").innerHTML = ((json.asks[0].price-json.bids[0].price)*multiply).toFixed(1);
                   }
-
                   updateTable(currency,json.bids[0].price,json.asks[0].price);
+                  updateAccount();
 
                }
             }
          }
       });
 
-      function highlight(header,buy,sell,bgcolor,color){
+      function highlight(header,buy,sell,color){
          header.style.color = color ;
          buy.style.color = color;
          sell.style.color = color;
@@ -452,34 +534,294 @@ function dragElement(elmnt) {
       function updateTable(currency,sell,buy){
          var table = document.getElementById("all_orders");
          var e_currency = currency.replace("_","/");
+         buy = parseFloat(buy);
+         sell = parseFloat(sell);
+
+         for (i= 1;i< table.rows.length;i++) {
+            let row = table.rows[i] 
+            var id = row.cells[0].innerHTML;
+            var pairs = row.cells[1].innerHTML;
+            var type = row.cells[3].innerHTML;
+            var units = row.cells[2].innerHTML;
+            var entry = row.cells[5].innerHTML;
+            var decimal = 1;
+            var multiply = 10000;
+            var profit_usd, pre_profit = 0;
+            var init_leverage = "{{$account->leverage}}";
+            var leverage = init_leverage.split(":");
+            leverage[1] = parseInt(leverage[1]);
+            var margin = 0;
+
+            switch(pairs){
+               case "EUR/USD":
+                  var temp_sell = document.getElementById("EUR_USD_Sell").innerHTML;
+                  var temp_buy = document.getElementById("EUR_USD_Buy").innerHTML;
+                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
+                  margin = units/leverage[1]*midpoint;
+                  pre_profit = 0.0001 * units ;
+                  break;
+               case "GBP/USD":
+                  var temp_sell = document.getElementById("GBP_USD_Sell").innerHTML;
+                  var temp_buy = document.getElementById("GBP_USD_Buy").innerHTML;
+                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
+                  margin = units/leverage[1]*midpoint;
+                  pre_profit = 0.0001 * units ;
+                  break;
+               case "AUD/USD":
+                  var temp_sell = document.getElementById("AUD_USD_Sell").innerHTML;
+                  var temp_buy = document.getElementById("AUD_USD_Buy").innerHTML;
+                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
+                  margin = units/leverage[1]*midpoint;
+                  pre_profit = 0.0001 * units ;
+                  break;
+               case "USD/JPY":
+                  var temp_sell = document.getElementById("USD_JPY_Sell").innerHTML;
+                  var temp_buy = document.getElementById("USD_JPY_Buy").innerHTML;
+                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
+                  margin = units/leverage[1]*1;
+                  pre_profit = 0.01 * units / midpoint ;
+                  multiply = 100;
+                  decimal = 0.01;
+                  break;
+               case "EUR/JPY":
+                  var temp_sell = document.getElementById("EUR_USD_Sell").innerHTML;
+                  var temp_buy = document.getElementById("EUR_USD_Buy").innerHTML;
+                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
+                  margin = units/leverage[1]*midpoint;
+
+                  var temp_sell_p = document.getElementById("USD_JPY_Sell").innerHTML;
+                  var temp_buy_p = document.getElementById("USD_JPY_Buy").innerHTML;
+                  var midpoint_p = (parseFloat(temp_sell_p) + parseFloat(temp_buy_p))/2;
+                  pre_profit = 0.01 * units / midpoint_p ;
+                  multiply = 100;
+                  decimal = 0.01;
+                  break;
+            }
+
+            if(e_currency == pairs && type=="Long"){
+               var pips = (sell - entry) * multiply;
+               profit_usd = pre_profit * pips;
+               var profit_percent = profit_usd/(((buy+sell)/2)*(units*decimal))*100;
+               row.cells[4].innerHTML = margin.toFixed(4);
+               row.cells[6].innerHTML = sell;
+               row.cells[7].innerHTML = profit_usd.toFixed(2);
+               row.cells[8].innerHTML = pips.toFixed(1);
+               row.cells[9].innerHTML = profit_percent.toFixed(2);
+            }
+            else if(e_currency == pairs && type=="Short"){
+               var pips = (entry - buy) * multiply;
+               profit_usd = pre_profit * pips;
+               var profit_percent = profit_usd/(((buy+sell)/2)*(units*decimal))*100;
+               row.cells[4].innerHTML = margin.toFixed(4);
+               row.cells[6].innerHTML = buy;
+               row.cells[7].innerHTML = profit_usd.toFixed(2);
+               row.cells[8].innerHTML = pips.toFixed(1);
+               row.cells[9].innerHTML = profit_percent.toFixed(2);
+            }
+
+            if(e_currency == pairs && profit_usd>0){
+               row.cells[7].style.color = "#1cbd00";
+               row.cells[8].style.color = "#1cbd00";
+               row.cells[9].style.color = "#1cbd00";
+            }
+            else if (e_currency == pairs && profit_usd<0){
+               row.cells[7].style.color = "red";
+               row.cells[8].style.color = "red";
+               row.cells[9].style.color = "red";
+            }
+
+            var exit_id = document.getElementById('position-ticket-id').innerHTML;
+            if (exit_id == id && e_currency == pairs){
+               document.getElementById('units-profit').innerHTML = profit_usd.toFixed(2);
+            }
+
+         }  
+      }
+
+      function updateAccount(){
+         var table = document.getElementById("all_orders");
+         var total_margin = 0;
+         for (i= 1;i< table.rows.length;i++) {
+            let row = table.rows[i] 
+            total_margin = total_margin + parseFloat(row.cells[4].innerHTML);
+         }
+         var account_margin = {{$account->margin}};
+         document.getElementById("account-margin").innerHTML =  "$" + (account_margin - total_margin).toFixed(2);
+         document.getElementById("account-margin-used").innerHTML = (total_margin / account_margin).toFixed(2);
+      }
+
+      function openLightbox(type) {
+         document.getElementById('Lightbox').style.display = 'block';
+         if (type=="sell"){
+            document.getElementById("order-sell").style.backgroundColor= "#ffb9b9";
+            document.getElementById("order-buy").style.backgroundColor = "white";
+         }
+         else{
+            document.getElementById("order-buy").style.backgroundColor = "#9ecdfc";
+            document.getElementById("order-sell").style.backgroundColor = "white";
+         }
+         document.getElementById("order-type").innerHTML = type;
+      }
+
+      function openOrderBox(ticketID,percentage) {
+         if (ticketID == "T"){
+         ticketID = document.getElementById('position-ticket-id').innerHTML;
+         }
+
+         var instrument, units, type, entry, profit;
+         var table = document.getElementById("all_orders");
          for (i= 1;i< table.rows.length;i++) {
             let row = table.rows[i]
             for (let j in row.cells) {
-
-               var pairs = row.cells[1].innerHTML;
-               var type = row.cells[3].innerHTML;
-               var units = row.cells[2].innerHTML;
-               var entry = row.cells[5].innerHTML;
-
-               if(e_currency == pairs && type=="Long")
+               var id = row.cells[0].innerHTML;
+               if(id == ticketID)
                {
-                  var pips = buy - entry;
-                  row.cells[6].innerHTML = buy;
-               // row.cells[7].innerHTML = "500";
-               // row.cells[8].innerHTML = pips * 10000;
-               // row.cells[9].innerHTML = "8";
+                  instrument= row.cells[1].innerHTML;
+                  units = row.cells[2].innerHTML;
+                  type = row.cells[3].innerHTML;
+                  entry = row.cells[5].innerHTML;
+                  profit = row.cells[7].innerHTML;
                }
-               else if(e_currency == pairs && type=="Short"){
-                  row.cells[6].innerHTML = sell;
-               // row.cells[7].innerHTML = "500";
-               // row.cells[8].innerHTML = "700";
-               // row.cells[9].innerHTML = "8";
-               }
+            }}
 
-            }  
-         }
+            document.getElementById('Position_box').style.display = 'block';
+            document.getElementById('position-ticket-id').innerHTML = ticketID;
+            document.getElementById('position-title').innerHTML = instrument;
+            document.getElementById('units_orders_quantity').innerHTML = units;
+            document.getElementById('position-total-units').value = units;
+            document.getElementById('units-profit').innerHTML = profit;
+
+            var array = {
+               first:{ value:25 , name: "first-left-units"},
+               second:{ value:50, name: "second-left-units"},
+               third:{ value:75, name:"third-left-units"},
+               fourth:{ value:100,name: "fourth-left-units"}};
+
+            for(var key in array){
+               if (percentage == array[key].value){
+                  document.getElementById(array[key].name).style.backgroundColor = "#9ecdfc";
+                  document.getElementById('position-total-units').value = units * (percentage/100) ;
+                  document.getElementById('units_remaining').innerHTML = units - (units * (percentage/100));
+               }
+               else{
+                  document.getElementById(array[key].name).style.backgroundColor = "white";
+               }
+            }
       }
 
+      function updateRemaining(){
+         var deduct = document.getElementById('position-total-units').value;
+         var units = document.getElementById('units_orders_quantity').innerHTML;
+         document.getElementById('units_remaining').innerHTML = units - deduct;
+      }
+
+      function closeLightbox(container) {
+         document.getElementById(container).style.display = 'none';
+      };
+
+      function saveOrder() {
+         var token = $('meta[name="csrf-token"]').attr('content');
+         var units = document.getElementById("order-units").value;
+         var type = document.getElementById("order-type").innerHTML;
+         var entry = document.getElementById("order-"+type+"-data").innerHTML;
+         var instrument = document.getElementById("lightbox-title").innerHTML;
+
+         if(type=="sell"){
+            type="Short";
+         }
+         else{
+         type="Long";
+         }
+
+         $.ajax({
+               type:'POST',
+               url:'/index/store',
+               data: {
+                  _token:token,
+                  instrument:instrument,
+                  unit:units,
+                  type:type,
+                  entry:entry,
+               },
+               success:function(data) {
+                  closeLightbox("Lightbox");
+                  reload();
+                  alert("Order ("+ data.ticketID +") is created successfully.");
+               },
+               error: function(data){
+                  console.log(JSON.stringify(data));
+                  }
+         });
+      }
+
+      function closePosition(){
+         var token = $('meta[name="csrf-token"]').attr('content');
+         var exit, cost, profit;
+         var ticketID = document.getElementById('position-ticket-id').innerHTML;
+         var remaining_units = document.getElementById('units_remaining').innerHTML;
+
+         var table = document.getElementById("all_orders");
+         for (i= 1;i< table.rows.length;i++) {
+            let row = table.rows[i]
+               var id = row.cells[0].innerHTML;
+               if(id == ticketID)
+               {
+                  entry = row.cells[5].innerHTML;
+                  exit = row.cells[6].innerHTML;
+                  cost = row.cells[7].innerHTML;
+                  profit = row.cells[8].innerHTML;
+               }
+            }
+
+         $.ajax({
+               type:'PUT',
+               url:'/index/close',
+               data: {
+                  _token:token,
+                  ticketID:ticketID,
+                  entry:entry,
+                  exit:exit,
+                  cost:cost,
+                  profit:profit,
+                  remaining_units:remaining_units,
+               },
+               success:function(data) {
+                  closeLightbox('Position_box');
+                  reload();
+                  alert("Order ("+ data.ticketID +") is reduced/closed successfully.");
+               },
+               error: function(data){
+                  console.log(JSON.stringify(data));
+                  }
+         });
+      }
+
+      function testing(){
+         var token = $('meta[name="csrf-token"]').attr('content');
+        
+         $.ajax({
+               type:'GET',
+               url:'/index/testing',
+               data: {
+                  _token:token,
+               },
+               success:function(data) {
+                  $("#testing_case").html(data);
+                  document.getElementById('testingbox').style.display = 'block';
+               },
+               error: function(data){
+                  console.log(JSON.stringify(data));
+                  }
+         });
+      }
+
+      function reload(){
+            var url = '/index';
+            $("#table_all_records").load(url+" #table_all_records","");
+            document.getElementById("order-units").value = 0;
+         }
+
+      
 
     </script> 
 

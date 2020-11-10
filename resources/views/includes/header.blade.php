@@ -11,13 +11,13 @@
 
         @else
             <li class="nav-item ">
-                <a class="nav-link " href="#">Home</a>
+                <a class="nav-link " href="{{route('index')}}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Learning Materials</a>
             </li>
             <li class="nav-item">
-                <a class=" nav-link" href="#">Order History</a>
+                <a class=" nav-link" href="{{route('view')}}">Order History</a>
             </li>
             <li class="nav-item">
                 <a class=" nav-link" href="#">Funds Management</a>

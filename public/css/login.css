@@ -17,3 +17,8 @@
     background-color: #84F755;
     color:black;
 }
+
+.register-btn:hover{
+    background-color: #75d84e;
+    color:black;
+}

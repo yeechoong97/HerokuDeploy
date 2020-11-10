@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Order;
 use Carbon\Carbon;
 use App\Account;
+use App\Trades;
 use Auth;
 
 class MainController extends Controller
@@ -19,18 +20,94 @@ class MainController extends Controller
 
     public function index()
     {
-        $records = Order::where('status','pending')->get();
-        if(!$records) throw new ModelNotFoundException;
-
         $id = Auth::user()->user_id;
         $account = Account::where('user_id',$id)->first();
         if(!$account) throw new ModelNotFoundException;
         
+        $records = Order::where('user_id',$id)->where('status',0)->orderBy('ticketID','asc')->get();
+        if(!$records) throw new ModelNotFoundException;
+
         return view('trade.index',[
             'records' => $records,
             'account' => $account,
         ]); 
     }
+
+    public function create(Request $request)
+    {
+        $last_record_id = Order::latest()->first();
+        $id = Auth::user()->user_id;
+
+        if(!$last_record_id){
+            $ticketid = "AOD1" ;
+        } 
+        else{
+            $ticketid = "AOD" . ($last_record_id->id + 1);
+        }
+        $order = new Order();
+        $order->user_id = $id;
+        $order->ticketID = $ticketid;
+        $order->pair = $request->instrument;
+        $order->total_units = $request->unit;
+        $order->remaining_units = $request->unit;
+        $order->type = $request->type;
+        $order->entry_price = $request->entry;
+        $order->save();
+
+        return response()->json(['ticketID'=> $ticketid]);
+    }
+
+    public function close(Request $request)
+    {
+        $order = Order::where('ticketID',$request->ticketID)->first();
+        $units_used = $order->remaining_units;
+        $pair = $order->pair;
+        $type= $order->type;
+        if ($request->remaining_units ==0){ $order->status = 1;}
+        $order->remaining_units = $request->remaining_units;
+        $order->save();
+
+        $trades = new Trades();
+        $trades->ticketID = $request->ticketID;
+        $trades->pair =  $pair;
+        $trades->type = $type;
+        $trades->units = $units_used - $request->remaining_units;
+        $trades->entry_price = $request->entry;
+        $trades->exit_price =  $request->exit;
+        $trades->cost =  $request->cost;
+        $trades->profit =  $request->profit;
+        $trades->save();
+
+        return response()->json(['ticketID'=> $request->ticketID]);
+    }
+
+    public function view(Request $request)
+    {
+        $id = Auth::user()->user_id;
+        $trades = Trades::where('user_id',$id)->orderBy('ticketID','asc')->paginate(10);
+        $start = Trades::where('user_id',$id)->oldest()->value('created_at');
+
+        return view('trade.orders',[
+            'trades'=> $trades,
+            'start'=> $start,
+        ]);
+    }
+
+    public function fetch(Request $request)
+    {
+        if ($request->ajax()) {
+        $id = Auth::user()->user_id;
+        $trades = Trades::where('user_id',$id)
+                    ->whereDate('created_at','>=',$request->start)
+                    ->whereDate('created_at','<=',$request->end)
+                    ->orderBy('ticketID','asc')
+                    ->paginate(10);
+        return view('trade.pagination',[
+                'trades' => $trades,
+            ])->render();
+        }
+    }
+
 
     // public function getOANDA()
     // {

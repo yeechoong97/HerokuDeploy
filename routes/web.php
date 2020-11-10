@@ -20,6 +20,16 @@ Route::get('/', function () {
 // Route::post('index/instrument','MainController@getCandleStick');
 
 Route::get('index','MainController@index')->name("index");
+Route::post('index/store','MainController@create');
+Route::put('index/close','MainController@close');
+Route::get('view','MainController@view')->name("view");
+Route::get('view/fetch','MainController@fetch');
+
+Route::get('index/testing',function(){
+    return View::make("trade.testing")
+        ->render();
+});
+
 
 Auth::routes();
 
