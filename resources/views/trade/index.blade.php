@@ -69,8 +69,8 @@
          });
       }
       </script> -->
-      
-      <div >
+        
+      <div>
          <div class = "left-container">
             <div class="chart-container">
                <!-- TradingView Widget BEGIN -->
@@ -182,9 +182,9 @@
                            <tr>
                               <td>{{$record->ticketID}}</td>
                               <td>{{$record->pair}}</td>
-                              <td>{{$record->remaining_units}}</td>
+                              <td>{{$record->available_units}}</td>
                               <td>{{$record->type}}</td>
-                              <td></td>
+                              <td>{{$record->margin}}</td>
                               <td>{{$record->entry_price}}</td>
                               <td></td>
                               <td></td>
@@ -266,6 +266,7 @@
                            <div class="units-percentage" id="second-left-units" onclick="openOrderBox('T',50)">50%</div>
                            <div class="units-percentage" id="third-left-units" onclick="openOrderBox('T',75)">75%</div>
                            <div class="right-units-percentage" id="fourth-left-units" onclick="openOrderBox('T',100)">100%</div>
+                           <input type="hidden" id="hidden_percent" value=100></input>
                         </div>
                         <div class="detail-container">
                               <div class="title-label">Units Remaining :</div>
@@ -314,26 +315,28 @@
                <div class="header">
                   <h6>Account Details</h6>
                </div>
+                  <div id="account-table">
                      <div class="rTable">
-                     <div class="rTableRow">
-                        <div class="rTableCell_label">Currency :</div>
-                        <div class="rTableCell_data">USD</div>
-                     </div>
-                     <div class="rTableRow">
-                        <div class="rTableCell_label">Balance :</div>
-                        <div class="rTableCell_data">${{$account->balance}}</div>
-                     </div>
-                     <div class="rTableRow">
-                        <div class="rTableCell_label">Margin :</div>
-                        <div class="rTableCell_data"  id="account-margin">${{$account->margin}}</div>
-                     </div>
-                     <div class="rTableRow">
-                        <div class="rTableCell_label">Margin Used :</div>
-                        <div class="rTableCell_data" id="account-margin-used">{{$account->margin_used}}</div>
-                     </div>
-                     <div class="rTableRow">
-                        <div class="rTableCell_label">Leverage :</div>
-                        <div class="rTableCell_data">{{$account->leverage}}</div>
+                        <div class="rTableRow">
+                           <div class="rTableCell_label">Currency :</div>
+                           <div class="rTableCell_data">USD</div>
+                        </div>
+                        <div class="rTableRow">
+                           <div class="rTableCell_label">Balance :</div>
+                           <div class="rTableCell_data">${{$account->balance}}</div>
+                        </div>
+                        <div class="rTableRow">
+                           <div class="rTableCell_label">Margin :</div>
+                           <div class="rTableCell_data"  id="account-margin">${{$account->margin}}</div>
+                        </div>
+                        <div class="rTableRow">
+                           <div class="rTableCell_label">Margin Used :</div>
+                           <div class="rTableCell_data" id="account-margin-used">{{$account->margin_used}}</div>
+                        </div>
+                        <div class="rTableRow">
+                           <div class="rTableCell_label">Leverage :</div>
+                           <div class="rTableCell_data">{{$account->leverage}}</div>
+                        </div>
                      </div>
                   </div>
                <div class="temp"></div>
@@ -456,7 +459,7 @@
    </script>
 
 
-   <script>
+   <script >
       var socket = io.connect('http://127.0.0.1:1337');
       var json =""
       socket.on('news', function (data)
@@ -512,8 +515,7 @@
                     document.getElementById("order-spread-data").innerHTML = ((json.asks[0].price-json.bids[0].price)*multiply).toFixed(1);
                   }
                   updateTable(currency,json.bids[0].price,json.asks[0].price);
-                  updateAccount();
-
+                  // updateAccount();
                }
             }
          }
@@ -547,54 +549,30 @@
             var decimal = 1;
             var multiply = 10000;
             var profit_usd, pre_profit = 0;
-            var init_leverage = "{{$account->leverage}}";
-            var leverage = init_leverage.split(":");
-            leverage[1] = parseInt(leverage[1]);
             var margin = 0;
 
             switch(pairs){
-               case "EUR/USD":
-                  var temp_sell = document.getElementById("EUR_USD_Sell").innerHTML;
-                  var temp_buy = document.getElementById("EUR_USD_Buy").innerHTML;
-                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
-                  margin = units/leverage[1]*midpoint;
-                  pre_profit = 0.0001 * units ;
-                  break;
-               case "GBP/USD":
-                  var temp_sell = document.getElementById("GBP_USD_Sell").innerHTML;
-                  var temp_buy = document.getElementById("GBP_USD_Buy").innerHTML;
-                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
-                  margin = units/leverage[1]*midpoint;
-                  pre_profit = 0.0001 * units ;
-                  break;
-               case "AUD/USD":
-                  var temp_sell = document.getElementById("AUD_USD_Sell").innerHTML;
-                  var temp_buy = document.getElementById("AUD_USD_Buy").innerHTML;
-                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
-                  margin = units/leverage[1]*midpoint;
-                  pre_profit = 0.0001 * units ;
-                  break;
+
                case "USD/JPY":
                   var temp_sell = document.getElementById("USD_JPY_Sell").innerHTML;
                   var temp_buy = document.getElementById("USD_JPY_Buy").innerHTML;
                   var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
-                  margin = units/leverage[1]*1;
                   pre_profit = 0.01 * units / midpoint ;
                   multiply = 100;
                   decimal = 0.01;
                   break;
-               case "EUR/JPY":
-                  var temp_sell = document.getElementById("EUR_USD_Sell").innerHTML;
-                  var temp_buy = document.getElementById("EUR_USD_Buy").innerHTML;
-                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
-                  margin = units/leverage[1]*midpoint;
 
-                  var temp_sell_p = document.getElementById("USD_JPY_Sell").innerHTML;
-                  var temp_buy_p = document.getElementById("USD_JPY_Buy").innerHTML;
-                  var midpoint_p = (parseFloat(temp_sell_p) + parseFloat(temp_buy_p))/2;
-                  pre_profit = 0.01 * units / midpoint_p ;
+               case "EUR/JPY":
+                  var temp_sell = document.getElementById("USD_JPY_Sell").innerHTML;
+                  var temp_buy = document.getElementById("USD_JPY_Buy").innerHTML;
+                  var midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
+                  pre_profit = 0.01 * units / midpoint;
                   multiply = 100;
                   decimal = 0.01;
+                  break;
+
+               default:
+                  pre_profit = 0.0001 * units ;
                   break;
             }
 
@@ -602,7 +580,6 @@
                var pips = (sell - entry) * multiply;
                profit_usd = pre_profit * pips;
                var profit_percent = profit_usd/(((buy+sell)/2)*(units*decimal))*100;
-               row.cells[4].innerHTML = margin.toFixed(4);
                row.cells[6].innerHTML = sell;
                row.cells[7].innerHTML = profit_usd.toFixed(2);
                row.cells[8].innerHTML = pips.toFixed(1);
@@ -612,7 +589,6 @@
                var pips = (entry - buy) * multiply;
                profit_usd = pre_profit * pips;
                var profit_percent = profit_usd/(((buy+sell)/2)*(units*decimal))*100;
-               row.cells[4].innerHTML = margin.toFixed(4);
                row.cells[6].innerHTML = buy;
                row.cells[7].innerHTML = profit_usd.toFixed(2);
                row.cells[8].innerHTML = pips.toFixed(1);
@@ -631,24 +607,25 @@
             }
 
             var exit_id = document.getElementById('position-ticket-id').innerHTML;
+            var percent = document.getElementById('hidden_percent').value;
             if (exit_id == id && e_currency == pairs){
-               document.getElementById('units-profit').innerHTML = profit_usd.toFixed(2);
+               document.getElementById('units-profit').innerHTML = (profit_usd*(percent/100)).toFixed(2);
             }
 
          }  
       }
 
-      function updateAccount(){
-         var table = document.getElementById("all_orders");
-         var total_margin = 0;
-         for (i= 1;i< table.rows.length;i++) {
-            let row = table.rows[i] 
-            total_margin = total_margin + parseFloat(row.cells[4].innerHTML);
-         }
-         var account_margin = {{$account->margin}};
-         document.getElementById("account-margin").innerHTML =  "$" + (account_margin - total_margin).toFixed(2);
-         document.getElementById("account-margin-used").innerHTML = (total_margin / account_margin).toFixed(2);
-      }
+      // function updateAccount(){
+      //    var table = document.getElementById("all_orders");
+      //    var total_margin = 0;
+      //    for (i= 1;i< table.rows.length;i++) {
+      //       let row = table.rows[i] 
+      //       total_margin = total_margin + parseFloat(row.cells[4].innerHTML);
+      //    }
+      //    var account_margin = {{$account->margin}};
+      //    document.getElementById("account-margin").innerHTML =  "$" + (account_margin - total_margin).toFixed(2);
+      //    document.getElementById("account-margin-used").innerHTML = (total_margin / account_margin).toFixed(2);
+      // }
 
       function openLightbox(type) {
          document.getElementById('Lightbox').style.display = 'block';
@@ -661,11 +638,22 @@
             document.getElementById("order-sell").style.backgroundColor = "white";
          }
          document.getElementById("order-type").innerHTML = type;
+         updateLive();
+      }
+
+      function updateLive(){
+         var sell = document.getElementById('sell-action').innerHTML;
+         var buy = document.getElementById('buy-action').innerHTML;
+         var pips = document.getElementById('pips-action').innerHTML;
+         document.getElementById('order-sell-data').innerHTML = sell;
+         document.getElementById('order-buy-data').innerHTML = buy;
+         document.getElementById('order-spread-data').innerHTML = pips;
       }
 
       function openOrderBox(ticketID,percentage) {
          if (ticketID == "T"){
          ticketID = document.getElementById('position-ticket-id').innerHTML;
+         document.getElementById('hidden_percent').value = percentage;
          }
 
          var instrument, units, type, entry, profit;
@@ -702,6 +690,7 @@
                   document.getElementById(array[key].name).style.backgroundColor = "#9ecdfc";
                   document.getElementById('position-total-units').value = units * (percentage/100) ;
                   document.getElementById('units_remaining').innerHTML = units - (units * (percentage/100));
+                  document.getElementById('units-profit').innerHTML = (profit * (percentage/100)).toFixed(2);
                }
                else{
                   document.getElementById(array[key].name).style.backgroundColor = "white";
@@ -710,14 +699,50 @@
       }
 
       function updateRemaining(){
+         var table = document.getElementById("all_orders");
+         var ticketID = document.getElementById('position-ticket-id').innerHTML;
+         var profit;
+         for (i= 1;i< table.rows.length;i++) {
+            let row = table.rows[i]
+            for (let j in row.cells) {
+               var id = row.cells[0].innerHTML;
+               if(id == ticketID)
+               {
+                  profit = row.cells[7].innerHTML;
+               }
+            }}
          var deduct = document.getElementById('position-total-units').value;
          var units = document.getElementById('units_orders_quantity').innerHTML;
          document.getElementById('units_remaining').innerHTML = units - deduct;
+         var percentage = 100 - ((units - deduct)/units*100);
+         document.getElementById('hidden_percent').value = percentage;
+         document.getElementById('units-profit').innerHTML = (profit * (percentage/100)).toFixed(2);
       }
 
       function closeLightbox(container) {
          document.getElementById(container).style.display = 'none';
       };
+
+      function calculateMargin(instrument,units,leverage,entry,exit){
+         var midpoint = (parseFloat(entry)+parseFloat(exit))/2;
+         switch(instrument){
+            case "USD/JPY":
+               margin = (units/leverage*1).toFixed(4);
+               break;
+
+            case "EUR/JPY":
+               var temp_sell = document.getElementById("EUR_USD_Sell").innerHTML;
+               var temp_buy = document.getElementById("EUR_USD_Buy").innerHTML;
+               midpoint = (parseFloat(temp_sell) + parseFloat(temp_buy))/2;
+               margin = (units/leverage*midpoint).toFixed(4);
+               break;
+
+            default: 
+               margin = (units/leverage*midpoint).toFixed(4);
+               break;
+         }
+         return margin;
+      }
 
       function saveOrder() {
          var token = $('meta[name="csrf-token"]').attr('content');
@@ -725,13 +750,20 @@
          var type = document.getElementById("order-type").innerHTML;
          var entry = document.getElementById("order-"+type+"-data").innerHTML;
          var instrument = document.getElementById("lightbox-title").innerHTML;
+         var init_leverage = "{{$account->leverage}}";
+         var leverage = init_leverage.split(":");
+         leverage[0] = parseInt(leverage[0]);
+         var exit;
 
          if(type=="sell"){
+            exit=document.getElementById("order-buy-data").innerHTML;
             type="Short";
          }
          else{
-         type="Long";
+            exit=document.getElementById("order-sell-data").innerHTML;
+            type="Long";
          }
+         var margin = calculateMargin(instrument,units,leverage[0],entry,exit);
 
          $.ajax({
                type:'POST',
@@ -742,6 +774,7 @@
                   unit:units,
                   type:type,
                   entry:entry,
+                  margin:margin,
                },
                success:function(data) {
                   closeLightbox("Lightbox");
@@ -759,6 +792,10 @@
          var exit, cost, profit;
          var ticketID = document.getElementById('position-ticket-id').innerHTML;
          var remaining_units = document.getElementById('units_remaining').innerHTML;
+         var instrument = document.getElementById("position-title").innerHTML;
+         var init_leverage = "{{$account->leverage}}";
+         var leverage = init_leverage.split(":");
+         leverage[0] = parseInt(leverage[0]);
 
          var table = document.getElementById("all_orders");
          for (i= 1;i< table.rows.length;i++) {
@@ -772,6 +809,7 @@
                   profit = row.cells[8].innerHTML;
                }
             }
+         var margin = calculateMargin(instrument,remaining_units,leverage[0],entry,exit);
 
          $.ajax({
                type:'PUT',
@@ -779,6 +817,7 @@
                data: {
                   _token:token,
                   ticketID:ticketID,
+                  margin:margin,
                   entry:entry,
                   exit:exit,
                   cost:cost,
@@ -818,6 +857,7 @@
       function reload(){
             var url = '/index';
             $("#table_all_records").load(url+" #table_all_records","");
+            $("#account-table").load(url+" #account-table","");
             document.getElementById("order-units").value = 0;
          }
 

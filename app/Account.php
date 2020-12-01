@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Order;
 
 class Account extends Model
 {
+    protected $table = 'accounts';
+
     protected $fillable =[
         'username',
         'balance',
@@ -15,10 +19,10 @@ class Account extends Model
     ];
 
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->hasOne(User::class);
     }
 
     public function order(){
-        return $this->hasMany('App\Models\Order');
+        return $this->hasMany(Order::class);
     }
 }

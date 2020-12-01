@@ -1,3 +1,4 @@
+
 .orders-history-container{
     width:80%;
     height:800px;
@@ -13,7 +14,7 @@
     padding:10px;
     font-size: 28px;
     font-weight: bold;
-    height:8%;
+    height:10%;
     margin-top: 1%;
 }
 
@@ -94,4 +95,8 @@
     border: 1px solid black;
     background-color: white;
     width:10%;
+}
+
+#th-created_at, #th-pair, #th-units, #th-type, #th-cost, #th-profit{
+    cursor:pointer;
 }

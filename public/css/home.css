@@ -24,6 +24,7 @@
     background-color: #030C5D;
     color: white;
     text-align: center;
+    z-index:2;
  }
 
 .body-background {

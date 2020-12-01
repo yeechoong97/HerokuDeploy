@@ -17,14 +17,12 @@ class CreateOrderTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('ticketID')->unique();
-            $table->string('pair');
-            $table->integer('total_units');
-            $table->integer('remaining_units');
             $table->string('type',5);
+            $table->string('pair');
+            $table->double('margin');
+            $table->integer('total_units');
+            $table->integer('available_units');
             $table->double('entry_price');
-            // $table->double('exit_price')->nullable();
-            // $table->decimal('cost')->nullable();
-            // $table->decimal('profit')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
 

@@ -47,13 +47,27 @@ class MainController extends Controller
         $order = new Order();
         $order->user_id = $id;
         $order->ticketID = $ticketid;
+        $order->margin = $request->margin;
         $order->pair = $request->instrument;
         $order->total_units = $request->unit;
-        $order->remaining_units = $request->unit;
+        $order->available_units = $request->unit;
         $order->type = $request->type;
         $order->entry_price = $request->entry;
         $order->save();
 
+        $all_orders = Order::where('user_id',$id)->where('status',0)->get();
+        $used_margin = 0;
+        foreach($all_orders as $order)
+        {
+            $used_margin += $order->margin;
+        }
+
+        $account = Account::where('user_id',$id)->first();
+        $account->balance = $account->balance - $request->margin;
+        $account->margin = $account->margin - $request->margin;
+        $account->margin_used = $used_margin/($account->margin+ $used_margin)*100;
+        $account->save();
+    
         return response()->json(['ticketID'=> $ticketid]);
     }
 
@@ -64,10 +78,11 @@ class MainController extends Controller
         $pair = $order->pair;
         $type= $order->type;
         if ($request->remaining_units ==0){ $order->status = 1;}
-        $order->remaining_units = $request->remaining_units;
+        $order->available_units = $request->remaining_units;
         $order->save();
 
         $trades = new Trades();
+        $trades->user_id = Auth::user()->user_id;
         $trades->ticketID = $request->ticketID;
         $trades->pair =  $pair;
         $trades->type = $type;
@@ -78,35 +93,23 @@ class MainController extends Controller
         $trades->profit =  $request->profit;
         $trades->save();
 
+        $all_orders = Order::where('user_id',$id)->where('status',0)->get();
+        $used_margin = 0;
+        foreach($all_orders as $order)
+        {
+            $used_margin += $order->margin;
+        }
+
+        $account = Account::where('user_id',$id)->first();
+        $account->balance = $account->balance + $request->profit + $request->margin;
+        $account->margin = $account->margin + $request->profit + $request->margin;
+        $account->margin_used = $used_margin/($account->margin+ $used_margin)*100;
+        $account->save();
+
         return response()->json(['ticketID'=> $request->ticketID]);
     }
 
-    public function view(Request $request)
-    {
-        $id = Auth::user()->user_id;
-        $trades = Trades::where('user_id',$id)->orderBy('ticketID','asc')->paginate(10);
-        $start = Trades::where('user_id',$id)->oldest()->value('created_at');
 
-        return view('trade.orders',[
-            'trades'=> $trades,
-            'start'=> $start,
-        ]);
-    }
-
-    public function fetch(Request $request)
-    {
-        if ($request->ajax()) {
-        $id = Auth::user()->user_id;
-        $trades = Trades::where('user_id',$id)
-                    ->whereDate('created_at','>=',$request->start)
-                    ->whereDate('created_at','<=',$request->end)
-                    ->orderBy('ticketID','asc')
-                    ->paginate(10);
-        return view('trade.pagination',[
-                'trades' => $trades,
-            ])->render();
-        }
-    }
 
 
     // public function getOANDA()

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Account;
 
 class User extends Authenticatable
 {
@@ -38,6 +39,6 @@ class User extends Authenticatable
     ];
 
     public function account(){
-        return $this->hasOne('App\Models\Account');
+        return $this->belongsTo(Account::class);
     }
 }

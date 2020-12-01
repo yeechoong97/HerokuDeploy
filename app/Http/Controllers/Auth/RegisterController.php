@@ -80,7 +80,7 @@ class RegisterController extends Controller
         $account->balance = 50000.00;
         $account->margin = 50000.00;
         $account->margin_used = 0.00;
-        $account->leverage = "1:30" ;
+        $account->leverage = "30 : 1" ;
         $account->save();
 
         return User::create([
