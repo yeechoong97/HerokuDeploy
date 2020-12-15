@@ -23,13 +23,21 @@ class OrderController extends Controller
     public function show(Request $request)
     {
         $id = Auth::user()->user_id;
-        $start = Trades::where('user_id',$id)->oldest()->value('created_at');
+
+        $start = DB::table('orders')
+		->where('orders.user_id',$id)
+		->join('trades', 'orders.ticketID', '=', 'trades.ticketID')
+        ->select('trades.created_at')
+        ->orderby('trades.created_at','asc')
+        ->first();
+
         $trades = DB::table('orders')
 		->where('orders.user_id',$id)
 		->join('trades', 'orders.ticketID', '=', 'trades.ticketID')
 		->select('orders.user_id','orders.ticketID','orders.pair','orders.type','orders.entry_price','trades.units','trades.exit_price','trades.cost','trades.profit','trades.created_at')
 		->orderby('created_at','desc')
         ->paginate(10);
+
 
         return view('order.index',[
             'trades'=> $trades,

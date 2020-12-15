@@ -21,92 +21,252 @@ class MainController extends Controller
     public function index()
     {
         $id = Auth::user()->user_id;
-        $account = Account::where('user_id',$id)->first();
+        $account = Account::with(['order' => function($query){
+                    $query->where('status',0)->orderBy('ticketID','asc');
+                    }])->where('user_id',$id)->first();
         if(!$account) throw new ModelNotFoundException;
-        
-        $records = Order::where('user_id',$id)->where('status',0)->orderBy('ticketID','asc')->get();
-        if(!$records) throw new ModelNotFoundException;
 
         return view('trade.index',[
-            'records' => $records,
             'account' => $account,
         ]); 
     }
 
     public function create(Request $request)
     {
-        $last_record_id = Order::latest()->first();
         $id = Auth::user()->user_id;
+        $user_leverage = Account::where('user_id',$id)->first()->value('leverage');
+        $arr_leverage = explode(":",$user_leverage);
+        $leverage = intval($arr_leverage[0]);
+        $flag = false;
+        $remaining_unit = $request->unit;
+        $margin = 0;
+        $ticketid = "";
+        $message = "";
 
-        if(!$last_record_id){
-            $ticketid = "AOD1" ;
-        } 
-        else{
-            $ticketid = "AOD" . ($last_record_id->id + 1);
-        }
-        $order = new Order();
-        $order->user_id = $id;
-        $order->ticketID = $ticketid;
-        $order->margin = $request->margin;
-        $order->pair = $request->instrument;
-        $order->total_units = $request->unit;
-        $order->available_units = $request->unit;
-        $order->type = $request->type;
-        $order->entry_price = $request->entry;
-        $order->save();
-
-        $all_orders = Order::where('user_id',$id)->where('status',0)->get();
-        $used_margin = 0;
-        foreach($all_orders as $order)
+        //Loop to check any opposite orders to new order
+        while($flag!=true)
         {
-            $used_margin += $order->margin;
-        }
+            //Retrieve the oldest order 
+            $order = Order::where('user_id',$id)
+            ->where('pair',$request->instrument)
+            ->where('type','!=',$request->type)
+            ->where('status',0)
+            ->oldest()
+            ->first();
+            
+            //Check is there any orders
+            if ($order!=null)
+            {
+                $existing = $remaining_unit;
+                $remaining_unit = $remaining_unit - $order->available_units;
+                $reduced_unit = 0;
+                
+                //Check the new order units comparing to exisiting orders
+                if($remaining_unit>0)
+                {
+                    $reduced_unit = $order->available_units;
+                    $order->available_units = 0;
+                    $order->status = 1;
+                    $flag=false;
+                }
+                else
+                {
+                    $reduced_unit = $request->unit;
+                    $order->available_units = $order->available_units - $existing;
+                    $flag=true;
+                    $message="Orders have been reduced/closed successfully.";
+                }
 
-        $account = Account::where('user_id',$id)->first();
-        $account->balance = $account->balance - $request->margin;
-        $account->margin = $account->margin - $request->margin;
-        $account->margin_used = $used_margin/($account->margin+ $used_margin)*100;
-        $account->save();
-    
-        return response()->json(['ticketID'=> $ticketid]);
+                $ticketid = $order->ticketID;
+                if ($order->available_units ==0){ $order->status = 1;}
+
+                //Calculate the margin
+                $midpoint = (floatval($request->entry) + floatval($request->exit))/2;
+                 switch($request->instrument)
+                 {
+                    case "USD/JPY":
+                        $margin = round(($reduced_unit/$leverage),4);
+                        break;
+            
+                    case "EUR/JPY":
+                        $temp_sell = $request->EURUSD_sell;
+                        $temp_buy = $request->EURUSD_buy;
+                        $midpoint = (floatval($temp_sell) + floatval($temp_buy))/2;
+                        $margin = round(($reduced_unit/$leverage*$midpoint),4);
+                        break;
+            
+                    default: 
+                        $margin = round(($reduced_unit/$leverage*$midpoint),4);
+                        break;
+                }
+
+                if($remaining_unit>0)
+                {
+                    $margin = $order->margin;
+                }
+                $order->margin = $order->margin - $margin;
+                $order->save();
+
+                $pre_profit=0;
+                $multiply = 10000;
+                $pips = 0;
+
+                //Compute the profit and cost
+                switch($request->instrument)
+                {
+                    case "USD/JPY":
+                        $sell = $request->USDJPY_sell;
+                        $buy = $request->USDJPY_buy;
+                        $midpoint = (floatval($sell) + floatval($buy)) /2;
+                        $pre_profit = 0.01 * $reduced_unit / $midpoint ;
+                        $multiply = 100;
+                        break;
+
+                    case "EUR/JPY":
+                        $sell = $request->USDJPY_sell;
+                        $buy = $request->USDJPY_buy;
+                        $midpoint = (floatval($sell) + floatval($buy)) /2;
+                        $pre_profit = 0.01 * $reduced_unit / $midpoint ;
+                        $multiply = 100;
+                        break;
+         
+                    default:
+                        $pre_profit = 0.0001 * $reduced_unit ;
+                        break;
+                }
+
+                if($request->type == "Short")
+                {
+                    $pips = ($request->entry - $order->entry_price) * $multiply;
+                }
+                else
+                {
+                    $pips = ($order->entry_price - $request->entry) * $multiply;
+                }
+
+                //Insert new trade record
+                $trades = new Trades();
+                $trades->ticketID =  $ticketid;
+                $trades->units = $reduced_unit;
+                $trades->exit_price =  $request->entry;
+                $trades->cost =  $pips;
+                $trades->profit =  $pre_profit * $pips;
+                $trades->save();
+
+                //Update the account balance and margin
+                $used_margin = 0;
+                $account = Account::with(['order' => function($query){
+                            $query->where('status',0);
+                            }])->where('user_id',$id)->first();
+                foreach($account->order as $order)
+                {
+                    $used_margin += $order->margin;
+                }
+                $account->balance = $account->balance + ($pre_profit * $pips);
+                $account->margin = $account->margin + ($pre_profit * $pips) + $margin;
+                $account->margin_used = $used_margin/($account->margin+ $used_margin)*100;
+                $account->save();
+            }
+            else
+            {
+               // $last_record_id = Order::latest()->first();
+                $last_record_id = Order::orderBy('id','desc')->first();
+                if(!$last_record_id){
+                    $ticketid = "AOD1" ;
+                } 
+                else{
+                    $ticketid = "AOD" . ($last_record_id->id + 1);
+                }
+
+                $margin = $request->margin;
+                if($request->unit != $remaining_unit)
+                {
+                    $midpoint = (floatval($request->entry) + floatval($request->exit))/2;
+                    switch($request->instrument)
+                    {
+                        case "USD/JPY":
+                            $margin = round(($reduced_unit/$leverage),4);
+                            break;
+                
+                        case "EUR/JPY":
+                            $temp_sell = $request->EURUSD_sell;
+                            $temp_buy = $request->EURUSD_buy;
+                            $midpoint = (floatval($temp_sell) + floatval($temp_buy))/2;
+                            $margin = round(($reduced_unit/$leverage*$midpoint),4);
+                            break;
+                
+                        default: 
+                            $margin = round(($reduced_unit/$leverage*$midpoint),4);
+                            break;
+                    }
+                }
+                $order = new Order();
+                $order->user_id = $id;
+                $order->ticketID = $ticketid;
+                $order->margin = $margin;
+                $order->pair = $request->instrument;
+                $order->total_units = $remaining_unit;
+                $order->available_units = $remaining_unit;
+                $order->type = $request->type;
+                $order->entry_price = $request->entry;
+                $order->save();
+
+                $used_margin = 0;
+                $account = Account::with(['order' => function($query){
+                            $query->where('status',0);
+                            }])->where('user_id',$id)->first();
+                foreach($account->order as $order)
+                {
+                    $used_margin += $order->margin;
+                }
+                $account->balance = $account->balance ;
+                $account->margin = $account->margin - $margin;
+                $account->margin_used = $used_margin/($account->margin + $used_margin)*100;
+                $account->save();
+                $message="New Order has been created successfully.";
+                $flag=true;
+            }
+
+        }
+        return response()->json(['message'=> $message]);
     }
 
     public function close(Request $request)
     {
+        $id = Auth::user()->user_id;
+        //Update the order table 
         $order = Order::where('ticketID',$request->ticketID)->first();
-        $units_used = $order->remaining_units;
-        $pair = $order->pair;
-        $type= $order->type;
+        $units_used = $order->available_units;
         if ($request->remaining_units ==0){ $order->status = 1;}
         $order->available_units = $request->remaining_units;
+        $return_margin = $order->margin - $request->margin;
+        $order->margin = $request->margin;
         $order->save();
 
+        //Insert new trade record
         $trades = new Trades();
-        $trades->user_id = Auth::user()->user_id;
         $trades->ticketID = $request->ticketID;
-        $trades->pair =  $pair;
-        $trades->type = $type;
         $trades->units = $units_used - $request->remaining_units;
-        $trades->entry_price = $request->entry;
         $trades->exit_price =  $request->exit;
         $trades->cost =  $request->cost;
         $trades->profit =  $request->profit;
         $trades->save();
 
-        $all_orders = Order::where('user_id',$id)->where('status',0)->get();
-        $used_margin = 0;
-        foreach($all_orders as $order)
+        //Update the account balance and margin
+        $margin = 0;
+        $account = Account::with(['order' => function($query){
+                    $query->where('status',0);
+                    }])->where('user_id',$id)->first();
+        foreach($account->order as $order)
         {
-            $used_margin += $order->margin;
+            $margin += $order->margin;
         }
-
-        $account = Account::where('user_id',$id)->first();
-        $account->balance = $account->balance + $request->profit + $request->margin;
-        $account->margin = $account->margin + $request->profit + $request->margin;
-        $account->margin_used = $used_margin/($account->margin+ $used_margin)*100;
+        $account->balance = $account->balance + $request->profit;
+        $account->margin = $account->margin + $request->profit + $return_margin;
+        $account->margin_used = $margin/($account->margin + $margin)*100;
         $account->save();
 
-        return response()->json(['ticketID'=> $request->ticketID]);
+        return response()->json(['message'=> "Orders have been reduced/closed successfully."]);
     }
 
 

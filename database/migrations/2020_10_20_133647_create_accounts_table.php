@@ -14,14 +14,15 @@ class CreateAccountsTable extends Migration
     public function up()
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('user_id')->unique();
+            $table->string('user_id')->primary();
             $table->decimal('balance',8,2);
             $table->decimal('margin',8,2);
             $table->decimal('margin_used',8,2);
             $table->string('leverage',6);
             $table->timestamps();
         });
+
+        DB::statement('ALTER Table accounts add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT FIRST;');
     }
 
     /**

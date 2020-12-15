@@ -178,7 +178,7 @@
                      </tr>
                      </thead>
                      <tbody>
-                        @foreach($records as $record)
+                        @foreach($account->order as $record)
                            <tr>
                               <td>{{$record->ticketID}}</td>
                               <td>{{$record->pair}}</td>
@@ -231,12 +231,21 @@
                         </div>
 
                      <div class="lower-body">
-                        <input type="number" id="order-units" min="1" max="10000000" class="form-control col-md-8 units" placeholder="Enter Units"></input>
-                           <span class="unit-remark"><b>*</b>Units Available: 10,000,000</span>
+                        <div class="unit-check">
+                              <input type="number" id="order-units" class="form-control col-md-8 units" placeholder="Enter Units" onkeyup="validateUnits()" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==7 && event.keyCode!=8) return false;"></input> 
+                              <span class="fas fa-check tick-check" id="tick" style="display:none"></span>    
+                              <span class="fas fa-times cross-check" id="cross" style="display:none"></span>      
+                        </div>
+                           <span class="unit-remark"><b>*</b>Units Available: 1,000,000</span>
+                           <div class="margin-check">
+                              <div class="label">Margin Required: </div>
+                              <div class="value" id="margin-value">0</div>
+                           </div>
                               <div>
                                  <span id="order-type" style="display:none"></span>
                                  <button type="submit" class="btn submit-btn" onclick="saveOrder()">Submit</button>
                               </div>
+                              
                      </div>
                   </div>
                </div>
@@ -257,7 +266,11 @@
                               <div class="units-quantity" id="units_orders_quantity"></div>
                            </div>
                            <div class="second-units-title">Units to Close</div>
-                           <input type="number" id="position-total-units" min="1" max="10000000" class="form-control col-md-8 position-order-units" placeholder="Enter Units" onkeyup="updateRemaining()" onclick="updateRemaining()"></input>
+                           <div class="close-check">
+                              <input type="number" id="position-total-units" class="form-control col-md-8 position-order-units" placeholder="Enter Units" onkeyup="updateRemaining()" onclick="updateRemaining()" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==7 && event.keyCode!=8) return false;"></input>
+                              <span class="fas fa-check tick-close" id="tick-close" style="display:none"></span>    
+                              <span class="fas fa-times cross-close" id="cross-close" style="display:none"></span>      
+                           </div>
                      </div>
 
                      <div class="lower-body">
@@ -651,6 +664,7 @@
       }
 
       function openOrderBox(ticketID,percentage) {
+
          if (ticketID == "T"){
          ticketID = document.getElementById('position-ticket-id').innerHTML;
          document.getElementById('hidden_percent').value = percentage;
@@ -698,6 +712,40 @@
             }
       }
 
+      function validateUnits(){
+         var units = document.getElementById('order-units').value;
+         var type = document.getElementById("order-type").innerHTML;
+         var instrument = document.getElementById('lightbox-title').innerHTML;
+         var init_leverage = "{{$account->leverage}}";
+         var leverage = init_leverage.split(":");
+         leverage[0] = parseInt(leverage[0]);
+         var account_margin = document.getElementById('account-margin').innerHTML;
+         account_margin = parseFloat(account_margin.substring(1));
+         var entry = document.getElementById("order-"+type+"-data").innerHTML;
+         var exit;
+
+         if(type=="sell"){
+            exit=document.getElementById("order-buy-data").innerHTML;
+         }
+         else{
+            exit=document.getElementById("order-sell-data").innerHTML;
+         }
+         var margin = calculateMargin(instrument,units,leverage[0],entry,exit);
+
+         if (margin>=account_margin || units>1000000 || units==0)
+         {
+            document.getElementById('tick').style.display = 'none';
+            document.getElementById('cross').style.display = 'inline';
+         }
+         else
+         {
+            document.getElementById('tick').style.display = 'inline';
+            document.getElementById('cross').style.display = 'none';
+         }
+         document.getElementById('margin-value').innerHTML = margin;
+
+      }
+
       function updateRemaining(){
          var table = document.getElementById("all_orders");
          var ticketID = document.getElementById('position-ticket-id').innerHTML;
@@ -717,10 +765,43 @@
          var percentage = 100 - ((units - deduct)/units*100);
          document.getElementById('hidden_percent').value = percentage;
          document.getElementById('units-profit').innerHTML = (profit * (percentage/100)).toFixed(2);
+
+         var array = {
+               first:{ value:25 , name: "first-left-units"},
+               second:{ value:50, name: "second-left-units"},
+               third:{ value:75, name:"third-left-units"},
+               fourth:{ value:100,name: "fourth-left-units"}};
+
+            for(var key in array){
+               if (percentage == array[key].value){
+                  document.getElementById(array[key].name).style.backgroundColor = "#9ecdfc";
+               }
+               else{
+                  document.getElementById(array[key].name).style.backgroundColor = "white";
+               }
+            }
+         
+         if(deduct> parseInt(units) || deduct == 0 || deduct=="")
+         {
+            document.getElementById('tick-close').style.display = 'none';
+            document.getElementById('cross-close').style.display = 'inline';
+         }
+         else
+         {
+            document.getElementById('tick-close').style.display = 'inline';
+            document.getElementById('cross-close').style.display = 'none';
+         }
       }
 
       function closeLightbox(container) {
          document.getElementById(container).style.display = 'none';
+         document.getElementById('tick').style.display = 'none';
+         document.getElementById('cross').style.display = 'none';
+         document.getElementById('tick-close').style.display = 'none';
+         document.getElementById('cross-close').style.display = 'none';
+         document.getElementById('order-units').value = "";
+         document.getElementById('margin-value').innerHTML = 0;
+
       };
 
       function calculateMargin(instrument,units,leverage,entry,exit){
@@ -745,94 +826,123 @@
       }
 
       function saveOrder() {
-         var token = $('meta[name="csrf-token"]').attr('content');
+
+         var status = document.getElementById('cross').style.display;
          var units = document.getElementById("order-units").value;
-         var type = document.getElementById("order-type").innerHTML;
-         var entry = document.getElementById("order-"+type+"-data").innerHTML;
-         var instrument = document.getElementById("lightbox-title").innerHTML;
-         var init_leverage = "{{$account->leverage}}";
-         var leverage = init_leverage.split(":");
-         leverage[0] = parseInt(leverage[0]);
-         var exit;
-
-         if(type=="sell"){
-            exit=document.getElementById("order-buy-data").innerHTML;
-            type="Short";
+         if (status=="inline" || units<=0 || units=="")
+         {
+            alert('Please Enter Proper Units in the field provided.');
          }
-         else{
-            exit=document.getElementById("order-sell-data").innerHTML;
-            type="Long";
-         }
-         var margin = calculateMargin(instrument,units,leverage[0],entry,exit);
+         else
+         {
+            var units = document.getElementById("order-units").value;
+            var token = $('meta[name="csrf-token"]').attr('content');
+            var type = document.getElementById("order-type").innerHTML;
+            var entry = document.getElementById("order-"+type+"-data").innerHTML;
+            var instrument = document.getElementById("lightbox-title").innerHTML;
+            var USDJPY_sell = document.getElementById("USD_JPY_Sell").innerHTML;
+            var USDJPY_buy = document.getElementById("USD_JPY_Buy").innerHTML;
+            var EURJPY_sell = document.getElementById("EUR_USD_Sell").innerHTML;
+            var EURJPY_buy = document.getElementById("EUR_USD_Buy").innerHTML;
+            var init_leverage = "{{$account->leverage}}";
+            var leverage = init_leverage.split(":");
+            leverage[0] = parseInt(leverage[0]);
+            var exit;
 
-         $.ajax({
-               type:'POST',
-               url:'/index/store',
-               data: {
-                  _token:token,
-                  instrument:instrument,
-                  unit:units,
-                  type:type,
-                  entry:entry,
-                  margin:margin,
-               },
-               success:function(data) {
-                  closeLightbox("Lightbox");
-                  reload();
-                  alert("Order ("+ data.ticketID +") is created successfully.");
-               },
-               error: function(data){
-                  console.log(JSON.stringify(data));
-                  }
-         });
+            if(type=="sell"){
+               exit=document.getElementById("order-buy-data").innerHTML;
+               type="Short";
+            }
+            else{
+               exit=document.getElementById("order-sell-data").innerHTML;
+               type="Long";
+            }
+            var margin = calculateMargin(instrument,units,leverage[0],entry,exit);
+
+            $.ajax({
+                  type:'POST',
+                  url:'/index/store',
+                  data: {
+                     _token:token,
+                     instrument:instrument,
+                     unit:units,
+                     type:type,
+                     entry:entry,
+                     exit:exit,
+                     margin:margin,
+                     USDJPY_sell:USDJPY_sell,
+                     USDJPY_buy:USDJPY_buy,
+                     EURJPY_sell:EURJPY_sell,
+                     EURJPY_buy:EURJPY_buy,
+                  },
+                  success:function(data) {
+                     closeLightbox("Lightbox");
+                     reload();
+                     alert(data.message);
+                  },
+                  error: function(data){
+                     console.log(JSON.stringify(data));
+                     }
+            });
+         }
       }
 
       function closePosition(){
-         var token = $('meta[name="csrf-token"]').attr('content');
-         var exit, cost, profit;
-         var ticketID = document.getElementById('position-ticket-id').innerHTML;
-         var remaining_units = document.getElementById('units_remaining').innerHTML;
-         var instrument = document.getElementById("position-title").innerHTML;
-         var init_leverage = "{{$account->leverage}}";
-         var leverage = init_leverage.split(":");
-         leverage[0] = parseInt(leverage[0]);
 
-         var table = document.getElementById("all_orders");
-         for (i= 1;i< table.rows.length;i++) {
-            let row = table.rows[i]
-               var id = row.cells[0].innerHTML;
-               if(id == ticketID)
-               {
-                  entry = row.cells[5].innerHTML;
-                  exit = row.cells[6].innerHTML;
-                  cost = row.cells[7].innerHTML;
-                  profit = row.cells[8].innerHTML;
-               }
-            }
-         var margin = calculateMargin(instrument,remaining_units,leverage[0],entry,exit);
+         var status = document.getElementById('cross-close').style.display;
+         var deduct = document.getElementById('position-total-units').value;
+         if (status == "inline" || deduct=="" || deduct<=0 )
+         {
+            alert("Please Enter Proper Units in the field provided.");
+         }
+         else
+         {
+            var token = $('meta[name="csrf-token"]').attr('content');
+            var exit, cost, profit;
+            var ticketID = document.getElementById('position-ticket-id').innerHTML;
+            var remaining_units = document.getElementById('units_remaining').innerHTML;
+            var instrument = document.getElementById("position-title").innerHTML;
+            var init_leverage = "{{$account->leverage}}";
+            var leverage = init_leverage.split(":");
+            leverage[0] = parseInt(leverage[0]);
 
-         $.ajax({
-               type:'PUT',
-               url:'/index/close',
-               data: {
-                  _token:token,
-                  ticketID:ticketID,
-                  margin:margin,
-                  entry:entry,
-                  exit:exit,
-                  cost:cost,
-                  profit:profit,
-                  remaining_units:remaining_units,
-               },
-               success:function(data) {
-                  closeLightbox('Position_box');
-                  reload();
-                  alert("Order ("+ data.ticketID +") is reduced/closed successfully.");
-               },
-               error: function(data){
-                  console.log(JSON.stringify(data));
+            var table = document.getElementById("all_orders");
+            for (i= 1;i< table.rows.length;i++) {
+               let row = table.rows[i]
+                  var id = row.cells[0].innerHTML;
+                  if(id == ticketID)
+                  {
+                     entry = row.cells[5].innerHTML;
+                     exit = row.cells[6].innerHTML;
+                     cost = row.cells[7].innerHTML;
+                     profit = row.cells[8].innerHTML;
                   }
-         });
+               }
+            var margin = calculateMargin(instrument,remaining_units,leverage[0],entry,exit);
+
+            $.ajax({
+                  type:'PUT',
+                  url:'/index/close',
+                  data: {
+                     _token:token,
+                     ticketID:ticketID,
+                     margin:margin,
+                     entry:entry,
+                     exit:exit,
+                     cost:cost,
+                     profit:profit,
+                     remaining_units:remaining_units,
+                  },
+                  success:function(data) {
+                     closeLightbox('Position_box');
+                     reload();
+                     alert(data.message);
+                  },
+                  error: function(data){
+                     console.log(JSON.stringify(data));
+                     }
+            });
+         }
       }
 
       function testing(){

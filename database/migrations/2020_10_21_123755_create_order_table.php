@@ -14,9 +14,8 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->string('ticketID')->primary();
             $table->string('user_id');
-            $table->string('ticketID')->unique();
             $table->string('type',5);
             $table->string('pair');
             $table->double('margin');
@@ -27,7 +26,11 @@ class CreateOrderTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('user_id')->on('accounts');
+
         });
+
+        
+        DB::statement('ALTER Table orders add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT FIRST;');
     }
 
     /**

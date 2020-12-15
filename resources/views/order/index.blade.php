@@ -50,7 +50,7 @@
 
 <script>
     var page,temp_start,temp_end;
-    var start_date = "{{$start}}".split(" ");
+    var start_date = "{{$start->created_at}}".split(" ");
     var now = new Date();
     var year = now.getFullYear();
     var month = now.getMonth() + 1;

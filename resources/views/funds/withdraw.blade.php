@@ -12,7 +12,7 @@
                 <div class="rTable">
                         <div class="rTableRow">
                             <div class="rTableCell_label">Name: </div>
-                            <div class="rTableCell_data">{{$name}}</div>
+                            <div class="rTableCell_data">{{$account->user->name}}</div>
                         </div>
                         <div class="rTableRow">
                             <div class="rTableCell_label">Currency :</div>
@@ -61,12 +61,12 @@
         var acc_balance = parseFloat(balance);
         amount = parseFloat(amount);
 
-        if (amount<acc_balance && amount!=0)
+        if (amount<acc_balance && amount!=0 && (acc_balance-amount)>=100.00)
         {
             document.getElementById('cross').style.display= 'none';
             document.getElementById('tick').style.display= 'inline';
         }
-        else if(amount>=acc_balance)
+        else if(amount>=acc_balance || (acc_balance-amount)<100.00)
         {
             document.getElementById('tick').style.display= 'none';
             document.getElementById('cross').style.display= 'inline';

@@ -11,7 +11,7 @@
                 <div class="rTable">
                         <div class="rTableRow">
                             <div class="rTableCell_label">Name: </div>
-                            <div class="rTableCell_data">{{$name}}</div>
+                            <div class="rTableCell_data">{{$account->user->name}}</div>
                         </div>
                         <div class="rTableRow">
                             <div class="rTableCell_label">Currency :</div>
@@ -47,23 +47,26 @@
 <script>
 
     function editLeverage(){
-
-        var data = `<form action="{!! route('fund-update') !!}" method="post" id="myForm">
-                    {{ method_field('PUT') }}
-                    {{ csrf_field() }}
-                    <select class="select-lev" name="leverage" id="leverage-list" required>
-                            <option value="placeholder" disabled selected>Select Leverage</option>
-                            <option value="50 : 1">50 : 1</option>
-                            <option value="30 : 1">30 : 1</option>
-                            <option value="10 : 1">10 : 1</option>
-                    </select>
-                    <a href="#" class="a-btn" onclick="submitForm()">Submit</a>
-                    <a href="#" class="a-btn" onclick="cancelEdit()">Cancel</a>
-                    </form>
-                    <span id="alert-box" class="alert-span"></span>
-                    `;
-        document.getElementById('leverage-id').innerHTML = data;
-
+        @if (count($account->order)==0)
+            var data = `<form action="{!! route('fund-update') !!}" method="post" id="myForm">
+                        {{ method_field('PUT') }}
+                        {{ csrf_field() }}
+                        <select class="select-lev" name="leverage" id="leverage-list" required>
+                                <option value="placeholder" disabled selected>Select Leverage</option>
+                                <option value="50 : 1">50 : 1</option>
+                                <option value="30 : 1">30 : 1</option>
+                                <option value="10 : 1">10 : 1</option>
+                        </select>
+                        <a href="#" class="a-btn" onclick="submitForm()">Submit</a>
+                        <a href="#" class="a-btn" onclick="cancelEdit()">Cancel</a>
+                        </form>
+                        <span id="alert-box" class="alert-span"></span>
+                        `;
+            document.getElementById('leverage-id').innerHTML = data;
+        @else
+             alert('You are not allowed to edit leverage unless all of your orders are completed.');
+        @endif
+        
     }
 
     function submitForm(){
@@ -83,7 +86,7 @@
     }
 
     function cancelEdit(){
-        var data = `{{$account->leverage}} <a href="#" class="edit-btn" onclick="editLeverage()">Edit</a>`
+        var data = `{{$account->leverage}} <a href="#" class="edit-btn" onclick="editLeverage()">Edit</a>`;
         document.getElementById('leverage-id').innerHTML = data;
     }
 

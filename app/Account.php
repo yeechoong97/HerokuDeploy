@@ -11,7 +11,7 @@ class Account extends Model
     protected $table = 'accounts';
 
     protected $fillable =[
-        'username',
+        'user_id',
         'balance',
         'margin',
         'margin_used',
@@ -19,10 +19,10 @@ class Account extends Model
     ];
 
     public function user(){
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class,'user_id','user_id');
     }
 
     public function order(){
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class,'user_id','user_id');
     }
 }
