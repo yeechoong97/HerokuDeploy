@@ -35,6 +35,10 @@ Route::put('fund/deposit','FundController@deposit_update')->name("deposit-update
 
 Route::get('learning','LearningController@index')->name("learning-index");
 
+// Route::get('charttest','MainController@getOANDA');
+Route::post('index/data','MainController@getCandle');
+Route::post('index/chart','MainController@changeSeries');
+
 
 Route::get('index/testing',function(){
     return View::make("trade.testing")

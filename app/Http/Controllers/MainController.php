@@ -9,6 +9,7 @@ use App\Order;
 use Carbon\Carbon;
 use App\Account;
 use App\Trades;
+use DateTime;
 use Auth;
 
 class MainController extends Controller
@@ -22,11 +23,47 @@ class MainController extends Controller
     {
         $id = Auth::user()->user_id;
         $account = Account::with(['order' => function($query){
-                    $query->where('status',0)->orderBy('ticketID','asc');
+                    $query->where('status',0)->orderBy('created_at','asc');
                     }])->where('user_id',$id)->first();
         if(!$account) throw new ModelNotFoundException;
 
+        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/EUR_USD/candles?count=500&price=M&granularity=S5&smooth=true";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
+                'Content-Type: application/json'
+            ),
+        ));
+        
+        $response = curl_exec($curl);
+        curl_close($curl);       
+        //Pass the EURUSD data from server to front end
+        $data = "";
+        $parseResponse = json_decode($response,true);
+
+        foreach($parseResponse['candles'] as $pResponse)
+        {
+            $tempDate = substr($pResponse['time'],0,-7);
+            $tempDate = $tempDate."Z";
+            $myDate = strtotime($tempDate);
+            $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
+            $data = $data . $tempResult;
+        }
+        $instrument = $parseResponse['instrument'];
+
         return view('trade.index',[
+            'instrument' => $instrument,
+            'data' => $data,
             'account' => $account,
         ]); 
     }
@@ -225,7 +262,6 @@ class MainController extends Controller
                 $message="New Order has been created successfully.";
                 $flag=true;
             }
-
         }
         return response()->json(['message'=> $message]);
     }
@@ -273,8 +309,8 @@ class MainController extends Controller
 
     // public function getOANDA()
     // {
-    //  $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/EUR_USD/candles?count=5000&price=M&granularity=M1&smooth=true";
-    //  $curl = curl_init();
+    //     $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/EUR_USD/candles?count=500&price=M&granularity=S5&smooth=true";
+    //     $curl = curl_init();
     //     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
     //     curl_setopt_array($curl, array(
     //         CURLOPT_URL => $url,
@@ -291,80 +327,113 @@ class MainController extends Controller
     //         ),
     //     ));
         
-    //     $res = curl_exec($curl);
-    //     $err = curl_error($curl);
-    //     curl_close($curl);
-    //     $response = json_encode($res);
+    //     $response = curl_exec($curl);
+    //     curl_close($curl);       
+    //     //Pass the EURUSD data from server to front end
+    //     $data = "";
+    //     $parseResponse = json_decode($response,true);
 
-    //     //Retrieve all the records
-    //     $records = Order::where('status','pending')->get();
-    //     if(!$records) throw new ModelNotFoundException;
-
+    //     foreach($parseResponse['candles'] as $pResponse)
+    //     {
+    //         $tempDate = substr($pResponse['time'],0,-7);
+    //         $tempDate = $tempDate."Z";
+    //         $myDate = strtotime($tempDate);
+    //         $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
+    //         $data = $data . $tempResult;
+    //     }
+    //     $instrument = $parseResponse['instrument'];
     //     $id = Auth::user()->user_id;
     //     $account = Account::where('user_id',$id)->first();
-        
-
-    //     return view('trade.index',[
+            
+    //     return view('trade.chart5',[
+    //         'instrument' => $instrument,
     //         'response' => $response,
-    //         'records' => $records,
-    //         'account' => $account,
+    //         'data' => $data,
     //     ]); 
 
-    // }
+    //  }
 
-    // public function getCandle(Request $request)
-    // {
-    //     $instrument = $request->ins;
-    //     $granularity = $request->gra;
-    //     $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrument."/candles?count=1&price=M&granularity=".$granularity."&smooth=true";
-    //     $curl = curl_init();
-    //     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
-    //     curl_setopt_array($curl, array(
-    //         CURLOPT_URL => $url,
-    //         CURLOPT_RETURNTRANSFER => true,
-    //         CURLOPT_FOLLOWLOCATION => true,
-    //         CURLOPT_ENCODING => "",
-    //         CURLOPT_MAXREDIRS => 10,
-    //         CURLOPT_TIMEOUT => 30,
-    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //         CURLOPT_CUSTOMREQUEST => "GET",
-    //         CURLOPT_HTTPHEADER => array(
-    //             'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
-    //             'Content-Type: application/json'
-    //         ),
-    //     ));
-    //     $response = curl_exec($curl);
-    //     $err = curl_error($curl);
-    //     curl_close($curl);
-    //     return response()->json(array('response'=> $response),200);
-    // }
+   
+     public function getCandle(Request $request)
+    {
+        $instrument = $request->instrument;
+        $interval = $request->interval;
+        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrument."/candles?count=1&price=M&granularity=".$interval."&smooth=true";
+       $curl = curl_init();
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
+                'Content-Type: application/json'
+            ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
 
-    // public function getCandleStick(Request $request)
-    // {
-    //     $instrument = $request->ins;
-    //     $granularity = $request->gra;
-    //     $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrument."/candles?count=5000&price=M&granularity=".$granularity."&smooth=true";
-    //     $curl = curl_init();
-    //     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
-    //     curl_setopt_array($curl, array(
-    //         CURLOPT_URL => $url,
-    //         CURLOPT_RETURNTRANSFER => true,
-    //         CURLOPT_FOLLOWLOCATION => true,
-    //         CURLOPT_ENCODING => "",
-    //         CURLOPT_MAXREDIRS => 10,
-    //         CURLOPT_TIMEOUT => 30,
-    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //         CURLOPT_CUSTOMREQUEST => "GET",
-    //         CURLOPT_HTTPHEADER => array(
-    //             'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
-    //             'Content-Type: application/json'
-    //         ),
-    //     ));
-    //     $response = curl_exec($curl);
-    //     $err = curl_error($curl);
-    //     curl_close($curl);
-    //     return response()->json(array('response'=> $response),200);
-    // }
+        $data = "";        
+        $parseResponse = json_decode($response,true);
+        foreach($parseResponse['candles'] as $pResponse)
+        {
+            $tempDate = substr($pResponse['time'],0,-7);
+            $tempDate = $tempDate."Z";
+            $myDate = strtotime($tempDate);
+            $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
+            $data = $data . $tempResult;
+        }
+        $instrument = $parseResponse['instrument'];
+        return response()->json(array('response'=> $data,'instrument'=> $instrument),200);
+    }
+
+    public function changeSeries(Request $request)
+    {
+        $instrument = $request->instrument;
+        $interval = $request->interval;
+        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrument."/candles?count=500&price=M&granularity=".$interval."&smooth=true";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
+                'Content-Type: application/json'
+            ),
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+        $data = "";        
+        $parseResponse = json_decode($response,true);
+
+        foreach($parseResponse['candles'] as $pResponse)
+        {
+            $tempDate = substr($pResponse['time'],0,-7);
+            $tempDate = $tempDate."Z";
+            $myDate = strtotime($tempDate);
+            $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
+            $data = $data . $tempResult;
+        }
+
+        $instrument = $parseResponse['instrument'];
+        return response()->json(array('response'=> $data,'instrument'=> $instrument),200);
+    }
+
 
 
 }

@@ -1,20 +1,26 @@
+@if(count($trades)>0)
 @foreach($trades as $trade)
     <tr>
-        <td>{{$trade->ticketID}}</td>
-        <td>{{$trade->created_at}}</td>
-        <td>{{$trade->pair}}</td>
-        <td>{{$trade->units}}</td>
-        <td>{{$trade->type}}</td>
-        <td>{{$trade->entry_price}}</td>
-        <td>{{$trade->exit_price}}</td>
-        <td>{{$trade->cost}}</td>
-        <td>{{$trade->profit}}</td>
+        <td class="col1">{{$trade->ticketID}}</td>
+        <td class="col4">{{$trade->created_at}}</td>
+        <td class="col3">{{$trade->pair}}</td>
+        <td class="col2">{{$trade->units}}</td>
+        <td class="col2">{{$trade->type}}</td>
+        <td class="col2">{{$trade->entry_price}}</td>
+        <td class="col2">{{$trade->exit_price}}</td>
+        <td class="col3">{{$trade->cost}}</td>
+        <td class="col3">{{$trade->profit}}</td>
     </tr>
 @endforeach
+@else
+    <tr>
+        <td class="alert-col"><b>No result was Found !</b></td>
+    </tr>
+@endif
 
 @if ($trades->hasPages())
-    <tr>
-        <td colspan="9" align="center">{{ $trades->links() }}</td>                
+    <tr>             
+        <td class="pagination-links">{{ $trades->links() }}</td> 
     </tr>   
 @endif
 
