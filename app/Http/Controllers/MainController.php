@@ -169,7 +169,6 @@ class MainController extends Controller
             }
             else
             {
-               // $last_record_id = Order::latest()->first();
                 $last_record_id = Order::orderBy('id','desc')->first();
                 if(!$last_record_id){
                     $ticketid = "AOD1" ;

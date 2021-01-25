@@ -472,9 +472,14 @@
    </script>
 
 
+<!-- <script src ="http://127.0.0.1:3000/socket.io/socket.io.js"></script> --> 
    <script >
-      var socket = io.connect('http://127.0.0.1:1337');
-      var json =""
+      const socket = io('mighty-headland-26950.herokuapp.com', {
+            transports: ['websocket'], 
+            upgrade: false
+            });
+     
+     var json =""
       socket.on('news', function (data)
       {
          var strLines = data.split("\n");
@@ -528,13 +533,14 @@
                     document.getElementById("order-spread-data").innerHTML = ((json.asks[0].price-json.bids[0].price)*multiply).toFixed(1);
                   }
                   updateTable(currency,json.bids[0].price,json.asks[0].price);
-                  // updateAccount();
                }
             }
          }
       });
 
-      function highlight(header,buy,sell,color){
+      //Update the font colour in the live streaming box
+      function highlight(header,buy,sell,color)
+      {
          header.style.color = color ;
          buy.style.color = color;
          sell.style.color = color;
@@ -546,12 +552,15 @@
          
       }
 
-      function updateTable(currency,sell,buy){
+      //Update the order table
+      function updateTable(currency,sell,buy)
+      {
          var table = document.getElementById("all_orders");
          var e_currency = currency.replace("_","/");
          buy = parseFloat(buy);
          sell = parseFloat(sell);
 
+         //Update the order record in the table
          for (i= 1;i< table.rows.length;i++) {
             let row = table.rows[i] 
             var id = row.cells[0].innerHTML;
@@ -564,8 +573,8 @@
             var profit_usd, pre_profit = 0;
             var margin = 0;
 
+            //Check the input with switch case for dedicated formula
             switch(pairs){
-
                case "USD/JPY":
                   var temp_sell = document.getElementById("USD_JPY_Sell").innerHTML;
                   var temp_buy = document.getElementById("USD_JPY_Buy").innerHTML;
@@ -589,6 +598,7 @@
                   break;
             }
 
+            //Check the instrument and type
             if(e_currency == pairs && type=="Long"){
                var pips = (sell - entry) * multiply;
                profit_usd = pre_profit * pips;
@@ -608,6 +618,7 @@
                row.cells[9].innerHTML = profit_percent.toFixed(2);
             }
 
+            //Update the colour of font according to profit or loss
             if(e_currency == pairs && profit_usd>0){
                row.cells[7].style.color = "#1cbd00";
                row.cells[8].style.color = "#1cbd00";
@@ -628,19 +639,9 @@
          }  
       }
 
-      // function updateAccount(){
-      //    var table = document.getElementById("all_orders");
-      //    var total_margin = 0;
-      //    for (i= 1;i< table.rows.length;i++) {
-      //       let row = table.rows[i] 
-      //       total_margin = total_margin + parseFloat(row.cells[4].innerHTML);
-      //    }
-      //    var account_margin = {{$account->margin}};
-      //    document.getElementById("account-margin").innerHTML =  "$" + (account_margin - total_margin).toFixed(2);
-      //    document.getElementById("account-margin-used").innerHTML = (total_margin / account_margin).toFixed(2);
-      // }
-
-      function openLightbox(type) {
+      //Open the Lightbox
+      function openLightbox(type) 
+      {
          document.getElementById('Lightbox').style.display = 'block';
          if (type=="sell"){
             document.getElementById("order-sell").style.backgroundColor= "#ffb9b9";
@@ -654,7 +655,9 @@
          updateLive();
       }
 
-      function updateLive(){
+      //Update the data in the lightbox
+      function updateLive()
+      {
          var sell = document.getElementById('sell-action').innerHTML;
          var buy = document.getElementById('buy-action').innerHTML;
          var pips = document.getElementById('pips-action').innerHTML;
@@ -663,8 +666,9 @@
          document.getElementById('order-spread-data').innerHTML = pips;
       }
 
-      function openOrderBox(ticketID,percentage) {
-
+      //Open the Close Position Order Lightbox
+      function openOrderBox(ticketID,percentage) 
+      {
          if (ticketID == "T"){
          ticketID = document.getElementById('position-ticket-id').innerHTML;
          document.getElementById('hidden_percent').value = percentage;
@@ -674,7 +678,6 @@
          var table = document.getElementById("all_orders");
          for (i= 1;i< table.rows.length;i++) {
             let row = table.rows[i]
-            for (let j in row.cells) {
                var id = row.cells[0].innerHTML;
                if(id == ticketID)
                {
@@ -684,7 +687,7 @@
                   entry = row.cells[5].innerHTML;
                   profit = row.cells[7].innerHTML;
                }
-            }}
+         }
 
             document.getElementById('Position_box').style.display = 'block';
             document.getElementById('position-ticket-id').innerHTML = ticketID;
@@ -712,6 +715,7 @@
             }
       }
 
+      //Validate the input in the Lightbox Units
       function validateUnits(){
          var units = document.getElementById('order-units').value;
          var type = document.getElementById("order-type").innerHTML;
@@ -746,7 +750,9 @@
 
       }
 
-      function updateRemaining(){
+      //Update the profit and margin while inputting in Lightbox
+      function updateRemaining()
+      {
          var table = document.getElementById("all_orders");
          var ticketID = document.getElementById('position-ticket-id').innerHTML;
          var profit;
@@ -793,7 +799,9 @@
          }
       }
 
-      function closeLightbox(container) {
+      //Close the lightbox
+      function closeLightbox(container) 
+      {
          document.getElementById(container).style.display = 'none';
          document.getElementById('tick').style.display = 'none';
          document.getElementById('cross').style.display = 'none';
@@ -802,9 +810,11 @@
          document.getElementById('order-units').value = "";
          document.getElementById('margin-value').innerHTML = 0;
 
-      };
+      }
 
-      function calculateMargin(instrument,units,leverage,entry,exit){
+      //Calculate the margin for instrument
+      function calculateMargin(instrument,units,leverage,entry,exit)
+      {
          var midpoint = (parseFloat(entry)+parseFloat(exit))/2;
          switch(instrument){
             case "USD/JPY":
@@ -825,13 +835,14 @@
          return margin;
       }
 
-      function saveOrder() {
-
+      //Save the order into database
+      function saveOrder() 
+      {
          var status = document.getElementById('cross').style.display;
          var units = document.getElementById("order-units").value;
          if (status=="inline" || units<=0 || units=="")
          {
-            alert('Please Enter Proper Units in the field provided.');
+            alert('Please enter valid units in the field provided.');
          }
          else
          {
@@ -887,13 +898,14 @@
          }
       }
 
-      function closePosition(){
-
+      //Update the order in the database
+      function closePosition()
+      {
          var status = document.getElementById('cross-close').style.display;
          var deduct = document.getElementById('position-total-units').value;
          if (status == "inline" || deduct=="" || deduct<=0 )
          {
-            alert("Please Enter Proper Units in the field provided.");
+            alert("Please enter valid units in the field provided.");
          }
          else
          {
@@ -945,6 +957,16 @@
          }
       }
 
+      //Refresh the table after perform an order / close a position
+      function reload()
+      {
+            var url = '/index';
+            $("#table_all_records").load(url+" #table_all_records","");
+            $("#account-table").load(url+" #account-table","");
+            document.getElementById("order-units").value = 0;
+      }
+
+      
       function testing(){
          var token = $('meta[name="csrf-token"]').attr('content');
         
@@ -963,15 +985,6 @@
                   }
          });
       }
-
-      function reload(){
-            var url = '/index';
-            $("#table_all_records").load(url+" #table_all_records","");
-            $("#account-table").load(url+" #account-table","");
-            document.getElementById("order-units").value = 0;
-         }
-
-      
 
     </script> 
 

@@ -53,7 +53,7 @@
     var start_date = "{{$start->created_at}}".split(" ");
     var now = new Date();
     var year = now.getFullYear();
-    var month = now.getMonth() + 1;
+    var month = ((now.getMonth()+ 1) <10)? "0"+(now.getMonth()+1):now.getMonth()+1;
     var date = (now.getDate()<10)? "0"+now.getDate():now.getDate();
     var end_date = year+"-"+month+"-"+date;
 
