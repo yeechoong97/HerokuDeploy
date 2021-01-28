@@ -1,67 +1,92 @@
-
 /* Fixed sidenav, full height */
+
 .sidenav {
     height: 100%;
     width: 200px;
     position: fixed;
     left: 0;
-    background-color: #111;
     overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  /* Style the sidenav links and the dropdown button */
-  .sidenav a, .dropdown-btn {
+    padding-top: 6%;
+    background: linear-gradient(90deg, #7f70f5, #7276f7);
+}
+
+
+/* Style the sidenav links and the dropdown button */
+
+.sidenav a,
+.dropdown-btn {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
-    color: #818181;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: white;
     display: block;
     border: none;
     background: none;
     width: 100%;
+    height: 5%;
     text-align: left;
     cursor: pointer;
     outline: none;
-  }
-  
-  /* On mouse-over */
-  .sidenav a:hover, .dropdown-btn:hover {
-    color: #f1f1f1;
+    font-weight: 700;
+    font-family: "Lato", sans-serif;
+}
+
+
+/* On mouse-over */
+
+.sidenav a:hover,
+.dropdown-btn:hover {
+    color: rgb(201, 201, 201);
     text-decoration: none;
-  }
-  
-  /* Main content */
-  .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
-    font-size: 20px; /* Increased text to enable scrolling */
+}
+
+
+/* Main content */
+
+.main {
+    margin-left: 200px;
+    /* Same as the width of the sidenav */
+    font-size: 20px;
+    /* Increased text to enable scrolling */
     padding: 0px 10px;
-  }
-  
-  /* Add an active class to the active dropdown button */
-  .sidenav .active {
-    background-color:rgb(60, 151, 255);
+}
+
+
+/* Add an active class to the active dropdown button */
+
+.sidenav .active {
+    background-color: rgb(60, 151, 255);
     color: white;
-  }
-  
-  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-  .dropdown-container {
+}
+
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+
+.dropdown-container {
     display: none;
-    background-color: #262626;
+    background: linear-gradient(90deg, #7088f5, #728bf7);
     padding-left: 8px;
-  }
-  
-  /* Optional: Style the caret down icon */
-  .sidenav .fa-caret-down, 
-  .sidenav .fa-caret-up {
+}
+
+
+/* Optional: Style the caret down icon */
+
+.sidenav .fa-caret-down,
+.sidenav .fa-caret-up {
     float: right;
     padding-right: 8px;
-    padding-top:5px;
-  }
+    padding-top: 5px;
+}
 
-  
-  /* Some media queries for responsiveness */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+
+/* Some media queries for responsiveness */
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}

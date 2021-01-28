@@ -412,39 +412,40 @@ function validateValue(value) {
 //Create annotations
 function create() {
     var select = document.getElementById("typeSelect");
-    plot.annotations().startDrawing(select.value);
+    if (select.value == "reset")
+        removeAll();
+    else
+        plot.annotations().startDrawing(select.value);
 }
 
 // remove all annotations
 function removeAll() {
     plot.annotations().removeAllAnnotations();
+    document.getElementById("typeSelect").value = "default"
 }
 
 function removeSelected() {
-    // get the selected annotation
     var selectedAnnotation = plot.annotations().getSelectedAnnotation();
-    // remove the selected annotation
     plot.annotations().removeAnnotation(selectedAnnotation);
 }
 
 //reset chart
 function resetChart() {
+    clearInterval(streaming);
     chart.plot(1).enabled(!chart.plot(1).enabled());
     chart.plot(1).dispose();
-    removeAll();
     while (chart.plot(0).getSeriesCount() > 1) {
         var count = 0;
-        if (plot.getSeriesAt(count).name().includes("USD") == false || plot.getSeriesAt(count).name().includes("EUR") == false) {
+        if (plot.getSeriesAt(count).name().includes("USD") == true || plot.getSeriesAt(count).name().includes("EUR") == true) {
             count = 1;
         }
         plot.removeSeriesAt(count);
     }
-    document.getElementById('seriesSelect').value = "candlestick";
-    document.getElementById('intervalSelect').value = "S5";
-    document.getElementById('instrumentSelect').value = "EUR_USD";
     document.getElementById('indicatorSelect').value = "default";
-    setRemarks("EUR_USD");
-    changeSeries();
+    removeAll();
+    streaming = setInterval(stream, 1000);
+    // setRemarks("EUR_USD");
+    // changeSeries();
 }
 
 //Change the chart series according to the input
@@ -462,7 +463,9 @@ function changeSeries() {
             instrument: instrument,
         },
         success: function(data) {
+            clearInterval(streaming);
             changeChartSeries(series, data);
+            streaming = setInterval(stream, 1000);
         }
     });
 };
@@ -525,5 +528,35 @@ function changeChartSeries(chartSeries, data) {
 
 function changeIndicator() {
     var tool = document.getElementById('indicatorSelect').value;
-    checkTools(tool);
+
+    if (tool == "AMA") {
+        openLightboxIndicator();
+    }
+
+    // if (tool != "reset") {
+    //     checkTools(tool);
+    // } else {
+    //     removeIndicator();
+    // }
+}
+
+function removeIndicator() {
+    removeLowerIndicator();
+    removeUpperIndicator();
+    document.getElementById('indicatorSelect').value = "default";
+}
+
+function removeUpperIndicator() {
+    while (chart.plot(0).getSeriesCount() > 1) {
+        var count = 0;
+        if (plot.getSeriesAt(count).name().includes("USD") == true || plot.getSeriesAt(count).name().includes("EUR") == true) {
+            count = 1;
+        }
+        plot.removeSeriesAt(count);
+    }
+}
+
+function removeLowerIndicator() {
+    chart.plot(1).enabled(!chart.plot(1).enabled());
+    chart.plot(1).dispose();
 }

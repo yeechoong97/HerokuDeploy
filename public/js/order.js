@@ -103,3 +103,24 @@ function filterDate() {
 function displayMessage() {
     document.getElementById('alert-box').innerHTML = "No result was found";
 }
+
+function toggleOrderLightbox() {
+
+    var check = document.getElementById('order-history-lightbox').style.display;
+    if (check == "" || check == "none") {
+        // document.getElementById('order-history-lightbox').style.display = "block";
+        $('#order-history-lightbox').fadeIn(300);
+    } else {
+        //document.getElementById('order-history-lightbox').style.display = "none";
+        $('#order-history-lightbox').fadeOut(300);
+    }
+}
+
+
+window.onclick = function(event) {
+    var lightbox = document.getElementById('order-history-lightbox');
+    if (event.target == lightbox) {
+        //lightbox.style.display = "none";
+        $('#order-history-lightbox').fadeOut(300);
+    }
+}

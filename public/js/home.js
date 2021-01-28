@@ -1,52 +1,5 @@
 //Update the font colour in the live streaming box
 function highlight(header, buy, sell, color) {
-
-    // var fadeIn = setInterval(fadeInColor, 50)
-    // var fadeOut;
-    // var green, red = 0;
-
-    // function fadeInColor() {
-    //     if (color == "red") {
-    //         header.style.color = "rgb(" + red + ",0,0)";
-    //         buy.style.color = "rgb(" + red + ",0,0)";
-    //         sell.style.color = "rgb(" + red + ",0,0)";
-    //         red += 60;
-    //         if (red > 255) {
-    //             clearInterval(fadeIn);
-    //             fadeOut = setInterval(fadeOutColor, 50);
-    //         }
-    //     } else {
-    //         header.style.color = "rgb(0," + green + ",0)";
-    //         buy.style.color = "rgb(0," + green + ",0)";
-    //         sell.style.color = "rgb(0," + green + ",0)";
-    //         green += 60;
-    //         if (green > 255) {
-    //             clearInterval(fadeIn);
-    //             fadeOut = setInterval(fadeOutColor, 50);
-    //         }
-    //     }
-    // }
-
-    // function fadeOutColor() {
-    //     if (color == "red") {
-    //         header.style.color = "rgb(" + red + ",0,0)";
-    //         buy.style.color = "rgb(" + red + ",0,0)";
-    //         sell.style.color = "rgb(" + red + ",0,0)";
-    //         red -= 60;
-    //         if (red == 00) {
-    //             clearInterval(fadeOut);
-    //         }
-    //     } else {
-    //         header.style.color = "rgb(0," + green + ",0)";
-    //         buy.style.color = "rgb(0," + green + ",0)";
-    //         sell.style.color = "rgb(0," + green + ",0)";
-    //         green -= 60;
-    //         if (green == 00) {
-    //             clearInterval(fadeOut);
-    //         }
-    //     }
-    // }
-
     header.style.color = color;
     buy.style.color = color;
     sell.style.color = color;
@@ -236,8 +189,8 @@ function validateUnits() {
         document.getElementById('cross').style.display = 'none';
     }
     document.getElementById('margin-value').innerHTML = margin;
-    document.getElementById('error-msg').innerHTML = "";
-
+    document.getElementById('order-error-msg').innerHTML = "";
+    document.getElementById('close-error-msg').innerHTML = "";
 }
 
 //Update the profit and margin while inputting in Lightbox
@@ -292,7 +245,8 @@ function closeLightbox(container) {
     document.getElementById('cross-close').style.display = 'none';
     document.getElementById('order-units').value = "";
     document.getElementById('margin-value').innerHTML = 0;
-    document.getElementById('error-msg').innerHTML = "";
+    document.getElementById('order-error-msg').innerHTML = "";
+    document.getElementById('close-error-msg').innerHTML = "";
 }
 
 //Calculate the margin for instrument
@@ -319,6 +273,7 @@ function calculateMargin(instrument, units, leverage, entry, exit) {
 
 function changeInstrument(instrument) {
     document.getElementById('instrumentSelect').value = instrument;
+    removeIndicator();
     changeSeries();
     setRemarks(instrument);
     appendData(instrument);
@@ -377,7 +332,7 @@ function saveOrder() {
     var status = document.getElementById('cross').style.display;
     var units = document.getElementById("order-units").value;
     if (status == "inline" || units <= 0 || units == "") {
-        document.getElementById('error-msg').innerHTML = "*Please enter valid units in the field provided";
+        document.getElementById('order-error-msg').innerHTML = "*Please enter valid units in the field provided";
     } else {
         var units = document.getElementById("order-units").value;
         var token = $('meta[name="csrf-token"]').attr('content');
@@ -419,9 +374,11 @@ function saveOrder() {
                 EURJPY_buy: EURJPY_buy,
             },
             success: function(data) {
+                clearInterval(streaming);
                 closeLightbox("Lightbox");
-                reload();
                 alert(data.message);
+                reload();
+                streaming = setInterval(stream, 1000);
             },
             error: function(data) {
                 console.log(JSON.stringify(data));
@@ -435,7 +392,7 @@ function closePosition() {
     var status = document.getElementById('cross-close').style.display;
     var deduct = document.getElementById('position-total-units').value;
     if (status == "inline" || deduct == "" || deduct <= 0) {
-        document.getElementById('error-msg').innerHTML = "*Please enter valid units in the field provided";
+        document.getElementById('close-error-msg').innerHTML = "*Please enter valid units in the field provided";
     } else {
         var token = $('meta[name="csrf-token"]').attr('content');
         var exit, cost, profit;
@@ -473,13 +430,77 @@ function closePosition() {
                 remaining_units: remaining_units,
             },
             success: function(data) {
+                clearInterval(streaming);
                 closeLightbox('Position_box');
-                reload();
                 alert(data.message);
+                reload();
+                streaming = setInterval(stream, 1000);
             },
             error: function(data) {
                 console.log(JSON.stringify(data));
             }
         });
+    }
+}
+
+function appendTempData(arrayInstrument) {
+    for (var i in arrayInstrument) {
+        var componentID = ["_Sell", "_Buy", "_Pips", "_header"];
+        for (var j in componentID) {
+            componentID[j] = arrayInstrument[i][0] + componentID[j];
+        }
+        var sell = document.getElementById(componentID[0]);
+        var buy = document.getElementById(componentID[1]);
+        var pips = document.getElementById(componentID[2]);
+        var header = document.getElementById(componentID[3]);
+        sell.innerHTML = arrayInstrument[i][1];
+        buy.innerHTML = arrayInstrument[i][2];
+
+        var instrument = "EUR_USD";
+        var multiply = 10000;
+        if (arrayInstrument[i][0].includes("JPY") == true) { multiply = 100; }
+        pips.innerHTML = ((arrayInstrument[i][2] - arrayInstrument[i][1]) * multiply).toFixed(1);
+
+        if (arrayInstrument[i][0] == instrument) {
+            document.getElementById("sell-action").innerHTML = arrayInstrument[i][1];
+            document.getElementById("buy-action").innerHTML = arrayInstrument[i][2];
+            document.getElementById("pips-action").innerHTML = ((arrayInstrument[i][2] - arrayInstrument[i][1]) * multiply).toFixed(1);
+            document.getElementById("order-sell-data").innerHTML = arrayInstrument[i][1];
+            document.getElementById("order-buy-data").innerHTML = arrayInstrument[i][2];
+            document.getElementById("order-spread-data").innerHTML = ((arrayInstrument[i][2] - arrayInstrument[i][1]) * multiply).toFixed(1);
+        }
+        updateTable(arrayInstrument[i][0], parseFloat(arrayInstrument[i][1]), parseFloat(arrayInstrument[i][2]));
+    }
+}
+
+// function updateTableWithData() {
+//     console.log("asdas");
+//     var rate_table = [
+//         { "instrument": "EUR_USD", "sell": "EUR_USD_Sell", "buy": "EUR_USD_Buy" },
+//         { "instrument": "AUD_USD", "sell": "AUD_USD_Sell", "buy": "AUD_USD_Buy" },
+//         { "instrument": "GBP_USD", "sell": "GBP_USD_Sell", "buy": "GBP_USD_Buy" },
+//         { "instrument": "USD_JPY", "sell": "USD_JPY_Sell", "buy": "USD_JPY_Buy" },
+//         { "instrument": "EUR_JPY", "sell": "EUR_JPY_Sell", "buy": "EUR_JPY_Buy" }
+//     ];
+//     for (var i in rate_table) {
+//         var sell = document.getElementById(rate_table[i].sell).innerHTML;
+//         var buy = document.getElementById(rate_table[i].buy).innerHTML;
+//         updateTable(rate_table[i].instrument, parseFloat(sell), parseFloat(buy));
+//     }
+// }
+
+function toggleMainHelpLightbox(div) {
+    var check = document.getElementById('main-help-lightbox').style.display;
+    var array = ["account-lightbox", "rates-lightbox", "rates-lightbox1", "order-lightbox", "order-lightbox1", "order-lightbox2", "account-lightbox-indicator", "rates-lightbox-indicator", "rates-lightbox-indicator1", "order-lightbox-indicator", "order-lightbox-indicator1", "order-lightbox-indicator2"]
+    if (check == "" || check == "none") {
+        var selected = div + "-lightbox";
+        document.getElementById(selected).classList.add('active');
+        document.getElementById(selected + "-indicator").classList.add('active');
+        $('#main-help-lightbox').fadeIn(300);
+    } else {
+        for (var i in array) {
+            document.getElementById(array[i]).classList.remove('active');
+        }
+        $('#main-help-lightbox').fadeOut(300);
     }
 }

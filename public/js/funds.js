@@ -47,3 +47,15 @@ function validateDepositInput(balance) {
     }
     document.getElementById('error-msg').innerHTML = "";
 }
+
+function toggleFundsLightbox() {
+
+    var check = document.getElementById('funds-lightbox').style.display;
+    if (check == "" || check == "none") {
+        // document.getElementById('order-history-lightbox').style.display = "block";
+        $('#funds-lightbox').fadeIn(300);
+    } else {
+        //document.getElementById('order-history-lightbox').style.display = "none";
+        $('#funds-lightbox').fadeOut(300);
+    }
+}

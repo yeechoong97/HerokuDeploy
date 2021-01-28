@@ -14,6 +14,7 @@ use App\Common;
             <div class="chart-container-btn">
                 <select class="form-control col-md-2" id="typeSelect" onchange="create()">
                     <option value="default" selected disabled>Annotation Type</option>
+                    <option value="reset">Reset Annotation</option>
                     @foreach(Common::$annotation as $key=> $value)
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
@@ -30,16 +31,15 @@ use App\Common;
                 </select>
                 <select class="form-control col-md-3"  id="indicatorSelect" onchange ="changeIndicator()">
                     <option value="default" selected disabled>Add Indicator</option>
+                    <option value="reset">Reset Indicator</option>
                     @foreach(Common::$indicator as $key=> $value)
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
                 </select>
-                <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset</button>
-                <!-- <button class="form-control col-md-1" onclick="removeAll()">Remove All</button> -->
-                <!-- <button class="form-control col-md-1" onclick ="removeSelected()">Remove</button> -->
-                <button class="question-btn">
+                <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset All</button>
+                <div class="question-btn">
                     <i class="far fa-question-circle"></i>
-                </button>
+                </div>
 
                 <div class="f_control col-md-1 spread_order_button" onclick="testing()">
                     <a href="#" class="spread_btn">
@@ -72,7 +72,7 @@ use App\Common;
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th colspan="2" class="col" >Account Details &ensp;<i class="far fa-question-circle"></i></th>
+                                    <th colspan="2" class="col" >Account Details &ensp;<i class="far fa-question-circle" onclick="toggleMainHelpLightbox('account')"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,10 +121,10 @@ use App\Common;
                                 <th class="col1">Margin</th>
                                 <th class="col1">Price</th>
                                 <th class="col1">Current</th>
-                                <th class="col1">Profit (USD)</th>
-                                <th class="col2">Profit (Pips)</th>
-                                <th class="col1">Profit (%)</th>
-                                <th class="col1">Action <i class="far fa-question-circle"></i></th>
+                                <th class="col1">Profit(USD)</th>
+                                <th class="col2">Profit(Spread)</th>
+                                <th class="col1">Profit(%)</th>
+                                <th class="col1">Action <i class="far fa-question-circle" onclick="toggleMainHelpLightbox('order')"></i></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -153,7 +153,7 @@ use App\Common;
         <div class="col-md-6 col-xl-2 offset-xl-0 price-section">
             <div class="price-container bg-white rounded shadow mx-auto">
                 <div class="header">
-                    <h6>Rates &ensp;<i class="far fa-question-circle"></i></h6>
+                    <h6>Rates &ensp;<i class="far fa-question-circle" onclick="toggleMainHelpLightbox('rates')"></i></h6>
                 </div>
                 <div class="price mx-auto">
                     <div class="rates">
@@ -211,16 +211,30 @@ use App\Common;
 </div>
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
+@include('subpage_indicator.lightbox')
+@include('subpage.main-help-lightbox')
 </body>
-
+<script type="text/javascript" src="{{ URL::asset('js/socket.js') }}"></script>   
 <script type="text/javascript">
+//Append Temporary Data into Table
+var arrayInstrument = [];
+@foreach($tempData as $key=>$value)
+    var tempArray = [];
+    @foreach($value as $id => $info)
+        tempArray.push("{{$info}}");
+    @endforeach
+    arrayInstrument.push(tempArray);
+@endforeach
+appendTempData(arrayInstrument);
 
+//Plot Chart
 var token = $('meta[name="csrf-token"]').attr('content');
 var result,mapping,secondPlot = "";
 var result = `{!!$data!!}`;
 var chart = anychart.stock();
 var plot = chart.plot(0);
 var dataTable = anychart.data.table();
+var streaming;
 
 anychart.onDocumentReady(function ()
 {
@@ -280,59 +294,93 @@ anychart.onDocumentReady(function ()
     document.getElementById("typeSelect").value = "default";
     });
 
-
-    //   window.setInterval(stream, 500);
+    //streaming = setInterval(stream, 1000);
+});
 
 //Updating chart
 function stream() {
-    var series = document.getElementById('seriesSelect').value;
-    var interval = document.getElementById('intervalSelect').value;
-    var instrument = document.getElementById('instrumentSelect').value;
-    $.ajax({
-        type:'POST',
-        url:'index/data',
-        data: {
-            _token:token,
-            series:series,
-            interval:interval,
-            instrument:instrument,
-        },
-        success:function(data) {
-        dataTable.addData(data.response);
-    }});
-    };
-});
+        var series = document.getElementById('seriesSelect').value;
+        var interval = document.getElementById('intervalSelect').value;
+        var instrument = document.getElementById('instrumentSelect').value;
+        $.ajax({
+            type:'POST',
+            url:'index/data',
+            data: {
+                _token:token,
+                series:series,
+                interval:interval,
+                instrument:instrument,
+            },
+            success:function(data) {
+            dataTable.addData(data.response);
+        }});
+};
 
 function checkTools(tool)
 {
-    @foreach(Common::$indicatorFunc as $key=> $value)
-    if (tool == "{{$key}}")
+    var seriesCheck = chart.getPlotsCount();
+    var status = "False";
+    var upperArray = ["AMA","BBands","EMA","KDJ","KeltnerChannels","MMA","PSAR","PriceChannels","SMA"];
+    for(var i in upperArray)
     {
-        eval("{{$value}}");
+        if(tool == upperArray[i])
+        {
+            status = true;
+            break;
+        }
     }
+    if(seriesCheck==1)
+    {
+        var upperCheck = chart.plot(0).getSeriesCount();
+        if(upperCheck>1 && status==true)
+            removeUpperIndicator();
+    }
+    else if (seriesCheck ==2)
+    {
+        var upperCheck = chart.plot(0).getSeriesCount();
+        if(upperCheck>1 && status==true)
+            removeUpperIndicator();
+        else 
+        {
+            if(upperCheck=1 && status==false)
+                removeLowerIndicator();
+            else
+                removeUpperIndicator();
+        }
+    }
+    @foreach(Common::$indicatorFunc as $key=> $value)
+        if (tool == "{{$key}}")
+        {
+            eval("{{$value}}");
+            document.getElementById('indicatorSelect').value = "default";
+        }
     @endforeach
 }
 
-function testing(){
-    var token = $('meta[name="csrf-token"]').attr('content');
+//Stop the ajax and socket before refresh
+window.onbeforeunload = () => {
+    clearInterval(streaming);
+    socket.off();
+}
 
-    $.ajax({
-        type:'GET',
-        url:'/index/testing',
-        data: {
-            _token:token,
-        },
-        success:function(data) {
-            $("#testing_case").html(data);
-            document.getElementById('testingbox').style.display = 'block';
-        },
-        error: function(data){
-            console.log(JSON.stringify(data));
-            }
-    });
+//Close Lightbox
+window.onclick = function(event) {
+    var lightbox = document.getElementById('main-help-lightbox');
+    if (event.target == lightbox) {
+        toggleMainHelpLightbox('div');
+    }
 }
 
 
+//Open the Lightbox
+function openLightboxIndicator() {
+    document.getElementById('indicator_box').style.display = 'block';
+}
+
+//Close the lightbox
+function closeLightboxIndicator(){
+    document.getElementById('indicator_box').style.display = 'none';
+}
 </script>
 
 @stop

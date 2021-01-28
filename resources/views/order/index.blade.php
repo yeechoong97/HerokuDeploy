@@ -3,9 +3,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<body style="overflow:hidden">
+<body style="overflow-y:auto">
 <div class="orders-history-container mx-auto">
-        <div class="orders-history-header">Order Details  &ensp;<i class="far fa-question-circle"></i></div>
+        <div class="orders-history-header">Order Details  &ensp;<i class="far fa-question-circle" onclick="toggleOrderLightbox()"></i></div>
             <div class="orders-history-subcontainer">
                 <div class="orders-upper-container">
                     <div class="orders-date-input">
@@ -53,5 +53,6 @@
     </div>
 </div>
 </body>
-
+@include('order.order-history-lightbox')
 @stop
+

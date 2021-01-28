@@ -35,7 +35,7 @@
                         </div>
                               <div>
                                  <span id="position-ticket-id" style="display:none"></span>
-                                 <div class="chart-error-label" id="error-msg"></div>
+                                 <div class="chart-error-label" id="close-error-msg"></div>
                                  <div class="form-group chart-align-btn">
                                     <button type="submit" class="btn-primary form-control mx-auto col-md-5" onclick="closePosition()">Submit</button>
                                  </div>

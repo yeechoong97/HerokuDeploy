@@ -26,7 +26,6 @@
                            </div>
                            <div class="lower-title">Market</div>
                         </div>
-
                      <div class="lower-body">
                         <div class="unit-check">
                               <input type="number" id="order-units" class="form-control col-md-8 units" placeholder="Enter Units" onkeyup="validateUnits()" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==7 && event.keyCode!=8) return false;"></input> 
@@ -40,7 +39,7 @@
                            </div>
                               <div>
                                  <span id="order-type" style="display:none"></span>
-                                 <div class="chart-error-label" id="error-msg"></div>
+                                 <div class="chart-error-label" id="order-error-msg"></div>
                                  <div class="form-group chart-align-btn">
                                     <button type="submit" class="btn-primary form-control mx-auto col-md-5" onclick="saveOrder()">Submit</button>
                                  </div>

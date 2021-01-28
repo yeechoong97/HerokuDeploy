@@ -23,7 +23,7 @@ class MainController extends Controller
     {
         $id = Auth::user()->user_id;
         $account = Account::with(['order' => function($query){
-                    $query->where('status',0)->orderBy('created_at','asc');
+                    $query->where('status',0)->orderBy('created_at','desc');
                     }])->where('user_id',$id)->first();
         if(!$account) throw new ModelNotFoundException;
 
@@ -61,10 +61,43 @@ class MainController extends Controller
         }
         $instrument = $parseResponse['instrument'];
 
+        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/pricing?instruments=EUR_USD%2CAUD_USD%2CGBP_USD%2CUSD_JPY%2CEUR_JPY";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
+                'Content-Type: application/json'
+            ),
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);    
+        $parseResponse = json_decode($response,true);
+        $tempData = [];
+
+        foreach($parseResponse['prices'] as $pResponse)
+        {
+            $tempInstrument= $pResponse['instrument'];
+            $tempSell=$pResponse['closeoutBid'];
+            $tempBuy=$pResponse['closeoutAsk'];
+            $tempResult = [];
+            array_push($tempResult,$tempInstrument,$tempSell,$tempBuy);
+            array_push($tempData,$tempResult);
+        }
+ 
         return view('trade.index',[
             'instrument' => $instrument,
             'data' => $data,
             'account' => $account,
+            'tempData' => $tempData
         ]); 
     }
 
@@ -119,8 +152,8 @@ class MainController extends Controller
 
                 //Calculate the margin
                 $midpoint = (floatval($request->entry) + floatval($request->exit))/2;
-                 switch($request->instrument)
-                 {
+                switch($request->instrument)
+                {
                     case "USD/JPY":
                         $margin = round(($reduced_unit/$leverage),4);
                         break;
@@ -166,7 +199,7 @@ class MainController extends Controller
                         $pre_profit = 0.01 * $reduced_unit / $midpoint ;
                         $multiply = 100;
                         break;
-         
+
                     default:
                         $pre_profit = 0.0001 * $reduced_unit ;
                         break;
@@ -305,61 +338,12 @@ class MainController extends Controller
     }
 
 
-
-
-    // public function getOANDA()
-    // {
-    //     $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/EUR_USD/candles?count=500&price=M&granularity=S5&smooth=true";
-    //     $curl = curl_init();
-    //     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
-    //     curl_setopt_array($curl, array(
-    //         CURLOPT_URL => $url,
-    //         CURLOPT_RETURNTRANSFER => true,
-    //         CURLOPT_FOLLOWLOCATION => true,
-    //         CURLOPT_ENCODING => "",
-    //         CURLOPT_MAXREDIRS => 10,
-    //         CURLOPT_TIMEOUT => 30,
-    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //         CURLOPT_CUSTOMREQUEST => "GET",
-    //         CURLOPT_HTTPHEADER => array(
-    //             'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
-    //             'Content-Type: application/json'
-    //         ),
-    //     ));
-        
-    //     $response = curl_exec($curl);
-    //     curl_close($curl);       
-    //     //Pass the EURUSD data from server to front end
-    //     $data = "";
-    //     $parseResponse = json_decode($response,true);
-
-    //     foreach($parseResponse['candles'] as $pResponse)
-    //     {
-    //         $tempDate = substr($pResponse['time'],0,-7);
-    //         $tempDate = $tempDate."Z";
-    //         $myDate = strtotime($tempDate);
-    //         $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
-    //         $data = $data . $tempResult;
-    //     }
-    //     $instrument = $parseResponse['instrument'];
-    //     $id = Auth::user()->user_id;
-    //     $account = Account::where('user_id',$id)->first();
-            
-    //     return view('trade.chart5',[
-    //         'instrument' => $instrument,
-    //         'response' => $response,
-    //         'data' => $data,
-    //     ]); 
-
-    //  }
-
-   
-     public function getCandle(Request $request)
+    public function getCandle(Request $request)
     {
         $instrument = $request->instrument;
         $interval = $request->interval;
         $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrument."/candles?count=1&price=M&granularity=".$interval."&smooth=true";
-       $curl = curl_init();
+        $curl = curl_init();
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
         curl_setopt_array($curl, array(
             CURLOPT_URL => $url,
@@ -417,7 +401,6 @@ class MainController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-
         $data = "";        
         $parseResponse = json_decode($response,true);
 
@@ -429,11 +412,7 @@ class MainController extends Controller
             $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
             $data = $data . $tempResult;
         }
-
         $instrument = $parseResponse['instrument'];
         return response()->json(array('response'=> $data,'instrument'=> $instrument),200);
     }
-
-
-
 }

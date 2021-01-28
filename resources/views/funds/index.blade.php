@@ -8,7 +8,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <body style="overflow:hidden">
 <div class="funds-container mx-auto">
-    <div class="main-funds-header">Account Details  &ensp;<i class="far fa-question-circle"></i></div>
+    <div class="main-funds-header">Account Details  &ensp;<i class="far fa-question-circle" onclick="toggleFundsLightbox()"></i></div>
         <div class="funds-subcontainer">
             <div class="funds-left-div">
                 <div class="form-group1 mx-auto">
@@ -54,8 +54,16 @@
         </div>
     </div>
 </div>
+@include('funds.funds-lightbox')
 </body>
 <script>
+window.onclick = function(event) {
+    var lightbox = document.getElementById('funds-lightbox');
+    if (event.target == lightbox) {
+        $('#funds-lightbox').fadeOut(300);
+    }
+}
+
 function editLeverage(){
     @if (count($account->order)==0)
         var data = `<form action="{!! route('fund-update') !!}" method="post" id="myForm">
@@ -106,8 +114,7 @@ function cancelEdit(){
 <script>
     var msg = '{{Session::get('alert')}}';
     var exist = '{{Session::has('alert')}}';
-    if(exist){
+    if(exist)
     alert(msg);
-    }
 </script>
 @stop
