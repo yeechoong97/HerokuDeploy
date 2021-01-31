@@ -33,18 +33,21 @@ Route::put('fund/withdraw','FundController@withdraw_update')->name("withdraw-upd
 Route::get('fund/deposit','FundController@deposit_index')->name("fund-deposit");
 Route::put('fund/deposit','FundController@deposit_update')->name("deposit-update");
 
-Route::get('learning','LearningController@index')->name("learning-index");
-
-// Route::get('charttest','MainController@getOANDA');
 Route::post('index/data','MainController@getCandle');
 Route::post('index/chart','MainController@changeSeries');
 
 
-Route::get('index/testing',function(){
-    return View::make("trade.testing")
-        ->render();
-});
+Route::get('learning/introduction','ElearningController@intro')->name("learning-introduction");
+Route::get('learning/player','ElearningController@player')->name("learning-player");
+Route::get('learning/benefits','ElearningController@benefit')->name("learning-benefit");
+Route::get('learning/stock','ElearningController@forexnstock')->name("learning-stock");
+Route::get('learning/currency','ElearningController@currency')->name("learning-currency");
+Route::get('learning/leverage','ElearningController@leverage')->name("learning-leverage");
 
+Route::get('learning/fundamental','ElearningController@fundamental')->name("learning-fundamental");
+Route::get('learning/watch','ElearningController@watch')->name("learning-watch");
+
+Route::get('learning/technical','ElearningController@technical')->name("learning-technical");
 
 Auth::routes();
 

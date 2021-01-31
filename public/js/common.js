@@ -11,9 +11,9 @@ function ADL() {
 }
 
 //Adaptive Moving Average
-function AMA() {
+function AMA(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
-    var ama = plot.ama(mapping).series();
+    var ama = plot.ama(mapping, obj.period, obj.fast, obj.slow, obj.type).series();
     ama.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     chart.scroller().line(mapping);
 }
@@ -54,9 +54,9 @@ function AOscillator() {
 }
 
 //Bollinger Bands
-function BBands() {
+function BBands(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
-    var bbands = plot.bbands(mapping);
+    var bbands = plot.bbands(mapping, obj.period, obj.deviation, obj.type, obj.type, obj.type);
     bbands.upperSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     bbands.middleSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     bbands.lowerSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -192,12 +192,12 @@ function MMA() {
 }
 
 //Momentum
-function Momentum() {
+function Momentum(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4, "value": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    var momentum = secondPlot.momentum(mapping, 10).series();
+    var momentum = secondPlot.momentum(mapping, obj.period, obj.type).series();
     momentum.stroke("2 red");
 }
 
@@ -212,14 +212,14 @@ function MFI() {
 }
 
 //Moving Average Convergence Divergence (MACD)
-function MACD() {
+function MACD(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
     setDecimalPlot2();
 
-    var macd = secondPlot.macd(mapping, 12, 26, 9);
+    var macd = secondPlot.macd(mapping, obj.fast, obj.slow, obj.signal, obj.type, obj.type, obj.type2);
     macd.macdSeries().stroke('#bf360c');
     macd.macdSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     macd.signalSeries().stroke('#ff6d00');
@@ -286,24 +286,24 @@ function RCI() {
 }
 
 //Rate of change
-function ROC() {
+function ROC(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    var roc14 = secondPlot.roc(mapping, 14).series();
+    var roc14 = secondPlot.roc(mapping, obj.period, obj.type).series();
     roc14.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}")
     roc14.stroke('#bf360c');
     setDecimalPlot2();
 }
 
 //Relative Strength Index
-function RSI() {
+function RSI(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    var rsi14 = secondPlot.rsi(mapping, 14).series();
+    var rsi14 = secondPlot.rsi(mapping, obj.period, obj.type).series();
     rsi14.stroke('#bf360c');
 }
 
@@ -316,12 +316,12 @@ function SMA() {
 }
 
 //Stochastic Oscillator
-function Stochastic() {
+function Stochastic(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4, "value": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    var stochastic = secondPlot.stochastic(mapping, 10, "EMA", 10, "SMA", 20);
+    var stochastic = secondPlot.stochastic(mapping, obj.period, obj.kma, obj.d, obj.ktype, obj.dtype, obj.type);
     stochastic_k = stochastic.kSeries();
     stochastic_k.stroke("#bf360c");
     stochastic_d = stochastic.dSeries();
@@ -350,12 +350,12 @@ function VolumeMA() {
 }
 
 //Williams %R
-function WilliamsR() {
+function WilliamsR(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    var williamsR = secondPlot.williamsR(mapping, 4).series();
+    var williamsR = secondPlot.williamsR(mapping, obj.period, obj.type).series();
     williamsR.stroke("2 red");
 }
 
@@ -528,16 +528,10 @@ function changeChartSeries(chartSeries, data) {
 
 function changeIndicator() {
     var tool = document.getElementById('indicatorSelect').value;
-
-    if (tool == "AMA") {
-        openLightboxIndicator();
-    }
-
-    // if (tool != "reset") {
-    //     checkTools(tool);
-    // } else {
-    //     removeIndicator();
-    // }
+    if (tool == "reset")
+        removeIndicator();
+    else
+        toggleLightboxIndicator(tool);
 }
 
 function removeIndicator() {
