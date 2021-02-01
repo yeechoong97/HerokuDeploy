@@ -1,7 +1,7 @@
 <div id ="Position_box" class="lightbox">
                <div class="modal-content modal">
                   <div class="modal-header">
-                     <div class="modal-title">Reduce/Close</div>
+                     <div class="modal-title">Reduce/Close <i class="far fa-question-circle" onclick="toggleMainHelpLightbox('close')"></i></div>
                      <span aria-hidden="true" class="close" aria-label="Close" onclick="closeLightbox('Position_box')">&times;</span>
                   </div>
                   <div class="modal-body">

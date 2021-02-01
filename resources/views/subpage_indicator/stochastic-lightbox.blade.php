@@ -58,15 +58,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('stochastic_indicator_btn').addEventListener("click",function(){
-        var period = document.getElementById("stochastic-period").value;
-        var kma = document.getElementById("stochastic-kma").value;
-        var d = document.getElementById("stochastic-d").value;
-        var ktype = document.getElementById("stochastic-kma-type").value;
-        var dtype = document.getElementById("stochastic-dma-type").value;
-        var obj = {"period": parseInt(period), "kma": parseInt(kma),"d":parseInt(d),"ktype":ktype, "dtype":dtype, "type": "line"};
-        checkTools("Stochastic",obj);
-    })
-</script>

@@ -28,13 +28,13 @@ function Aroon() {
 }
 
 //Average True Range
-function ATR() {
+function ATR(obj) {
     mapping = dataTable.mapAs({ "high": 1, "open": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
 
-    var atr = secondPlot.atr(mapping).series();
+    var atr = secondPlot.atr(mapping, obj.period, obj.type).series();
     atr.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     atr.stroke('#bf360c');
     setDecimalPlot2();
@@ -103,39 +103,39 @@ function CHO() {
 }
 
 //Commodity Channel Index (CCI)
-function CCI() {
+function CCI(obj) {
     mapping = dataTable.mapAs({ "high": 1, "low": 3, "close": 4, "volume": 5, "value": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    secondPlot.cci(mapping).series();
+    secondPlot.cci(mapping, obj.period, obj.type).series();
 }
 
 //Directional Movement Index (DMI)
-function DMI() {
+function DMI(obj) {
     mapping = dataTable.mapAs({ "high": 1, "low": 3, "close": 4, "volume": 5, "value": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    secondPlot.dmi(mapping);
+    secondPlot.dmi(mapping, obj.period, obj.adx, obj.smooth, obj.type, obj.type, obj.type);
 }
 
 //Envelope (ENV)
-function ENV() {
+function ENV(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
     secondPlot.yAxis(1).orientation('right');
-    var env = secondPlot.env(mapping);
+    var env = secondPlot.env(mapping, obj.period, obj.deviation, obj.ma, obj.type, obj.type);
     env.upperSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
-    env.middleSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
+    env.lowerSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     setDecimalPlot2();
 }
 
 //Exponential Moving Average
-function EMA() {
+function EMA(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
-    var ema = plot.ema(mapping, 20).series();
+    var ema = plot.ema(mapping, obj.period, obj.type).series();
     ema.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
 }
 
@@ -184,9 +184,9 @@ function KeltnerChannels() {
 }
 
 //Modified Moving Average
-function MMA() {
+function MMA(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
-    var mma10 = plot.mma(mapping, 10).series();
+    var mma10 = plot.mma(mapping, obj.period, obj.type).series();
     mma10.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     mma10.stroke('#bf360c');
 }
@@ -238,9 +238,9 @@ function OBV() {
 }
 
 //Parabolic SAR (PSAR)
-function PSAR() {
+function PSAR(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
-    var psar = plot.psar(mapping, 0.08, 0.60, 0.10).series();
+    var psar = plot.psar(mapping, obj.start, obj.increment, obj.max, obj.type).series();
     psar.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     psar.stroke("0.5 lightGray");
     setDecimalPlot1();
@@ -531,7 +531,7 @@ function changeIndicator() {
     if (tool == "reset")
         removeIndicator();
     else
-        toggleLightboxIndicator(tool);
+        appendLightbox(tool);
 }
 
 function removeIndicator() {

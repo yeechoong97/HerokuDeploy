@@ -85,6 +85,38 @@
                             </div>
                         </div>
                     </div>
+                    <div class="carousel-item" id="buy-lightbox">
+                        <div class="carousel-item-div">
+                            <div class="item-div-size-3">
+                                <img src="{{asset('pictures/BuyOrder.png')}}" class="img-customization-1" alt="Start Date">
+                                <ol class="mx-auto item-desc">
+                                    <li><b class="l-size">EUR/USD</b> - Currency pair selected</li>
+                                    <li><b class="l-size">SELL (1.20871)</b> - Selling price of selected currency pair</li>
+                                    <li><b class="l-size">BUY (1.20886)</b> - Buying price of selected currency pair</li>
+                                    <li><b class="l-size">1.5</b> - Spread of the currency pair</li>
+                                    <li><b class="l-size">Text Box</b> - Amount of units to be entered for the order</li>
+                                    <li><b class="l-size">Margin Required</b> - Margin required to maintain the order</li>
+                                    <li><b class="l-size">Submit</b> - Click to submit the order</li>
+                                </ol>            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" id="close-lightbox">
+                        <div class="carousel-item-div">
+                            <div class="item-div-size-3">
+                                <img src="{{asset('pictures/ClosePosition.png')}}" class="img-customization-1" alt="Start Date">
+                                <ol class="mx-auto item-desc">
+                                    <li><b class="l-size">EUR/USD</b> - Currency pair selected</li>
+                                    <li><b class="l-size">1000</b> - Units available for the order</li>
+                                    <li><b class="l-size">Text Box</b> - Units to be entered to reduce/close order</li>
+                                    <li><b class="l-size">100%</b> - Calculate the units for closing the order according user's choice.</li>
+                                    <li><b class="l-size">0</b> - Remaining of units for the order</li>
+                                    <li><b class="l-size">-3.12</b> - Profit/Loss to reduce/close the order</li>
+                                    <li><b class="l-size">Submit</b> - Click to reduce/close the order</li>
+                                </ol>            
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div>
                 <ol class="carousel-indicators">
@@ -94,6 +126,8 @@
                     <li data-target="#carousel-1" data-slide-to="3" id="order-lightbox-indicator" class=""></li>
                     <li data-target="#carousel-1" data-slide-to="4" id="order-lightbox-indicator1" class=""></li>
                     <li data-target="#carousel-1" data-slide-to="5" id="order-lightbox-indicator2" class=""></li>
+                    <li data-target="#carousel-1" data-slide-to="6" id="buy-lightbox-indicator" class=""></li>
+                    <li data-target="#carousel-1" data-slide-to="7" id="close-lightbox-indicator" class=""></li>
                 </ol>
         </div>
     </div>

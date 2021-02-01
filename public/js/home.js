@@ -92,7 +92,7 @@ function updateTable(instrument, sell, buy) {
 
 //Open the Lightbox
 function openLightbox(type) {
-    document.getElementById('Lightbox').style.display = 'block';
+    $('#Lightbox').fadeIn(300);
     if (type == "sell") {
         document.getElementById("order-sell").style.backgroundColor = "#ffb9b9";
         document.getElementById("order-buy").style.backgroundColor = "white";
@@ -134,8 +134,7 @@ function openOrderBox(ticketID, percentage) {
             profit = row.cells[8].innerHTML;
         }
     }
-
-    document.getElementById('Position_box').style.display = 'block';
+    $('#Position_box').fadeIn(300);
     document.getElementById('position-ticket-id').innerHTML = ticketID;
     document.getElementById('position-title').innerHTML = instrument;
     document.getElementById('units_orders_quantity').innerHTML = units;
@@ -238,7 +237,7 @@ function updateRemaining() {
 
 //Close the lightbox
 function closeLightbox(container) {
-    document.getElementById(container).style.display = 'none';
+    $('#' + container).fadeOut(300);
     document.getElementById('tick').style.display = 'none';
     document.getElementById('cross').style.display = 'none';
     document.getElementById('tick-close').style.display = 'none';
@@ -473,34 +472,31 @@ function appendTempData(arrayInstrument) {
     }
 }
 
-// function updateTableWithData() {
-//     console.log("asdas");
-//     var rate_table = [
-//         { "instrument": "EUR_USD", "sell": "EUR_USD_Sell", "buy": "EUR_USD_Buy" },
-//         { "instrument": "AUD_USD", "sell": "AUD_USD_Sell", "buy": "AUD_USD_Buy" },
-//         { "instrument": "GBP_USD", "sell": "GBP_USD_Sell", "buy": "GBP_USD_Buy" },
-//         { "instrument": "USD_JPY", "sell": "USD_JPY_Sell", "buy": "USD_JPY_Buy" },
-//         { "instrument": "EUR_JPY", "sell": "EUR_JPY_Sell", "buy": "EUR_JPY_Buy" }
-//     ];
-//     for (var i in rate_table) {
-//         var sell = document.getElementById(rate_table[i].sell).innerHTML;
-//         var buy = document.getElementById(rate_table[i].buy).innerHTML;
-//         updateTable(rate_table[i].instrument, parseFloat(sell), parseFloat(buy));
-//     }
-// }
-
 function toggleMainHelpLightbox(div) {
     var check = document.getElementById('main-help-lightbox').style.display;
-    var array = ["account-lightbox", "rates-lightbox", "rates-lightbox1", "order-lightbox", "order-lightbox1", "order-lightbox2", "account-lightbox-indicator", "rates-lightbox-indicator", "rates-lightbox-indicator1", "order-lightbox-indicator", "order-lightbox-indicator1", "order-lightbox-indicator2"]
+    var array_lightbox = ["account-lightbox", "rates-lightbox", "rates-lightbox1", "order-lightbox", "order-lightbox1", "order-lightbox2", "buy-lightbox", "close-lightbox"];
+    var array_lightbox_indicator = ["account-lightbox-indicator", "rates-lightbox-indicator", "rates-lightbox-indicator1", "order-lightbox-indicator", "order-lightbox-indicator1", "order-lightbox-indicator2", "buy-lightbox-indicator", "close-lightbox-indicator"]
     if (check == "" || check == "none") {
         var selected = div + "-lightbox";
         document.getElementById(selected).classList.add('active');
         document.getElementById(selected + "-indicator").classList.add('active');
         $('#main-help-lightbox').fadeIn(300);
     } else {
-        for (var i in array) {
-            document.getElementById(array[i]).classList.remove('active');
+        for (var i in array_lightbox) {
+            document.getElementById(array_lightbox[i]).classList.remove('active');
+            document.getElementById(array_lightbox_indicator[i]).classList.remove('active');
         }
         $('#main-help-lightbox').fadeOut(300);
+    }
+}
+
+function toggleLightboxIndicator(tool) {
+    var id = tool + '_indicator_box';
+    var check = document.getElementById(id).style.display;
+    if (check == "" || check == "none") {
+        $('#' + id).fadeIn(300);
+    } else {
+        $('#' + id).fadeOut(300);
+        document.getElementById('indicatorSelect').value = "default";
     }
 }

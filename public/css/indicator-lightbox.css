@@ -116,6 +116,14 @@
     height: 25% !important;
 }
 
+.decrease-height {
+    height: 52% !important;
+}
+
+.decrease-width {
+    width: 29% !important;
+}
+
 .lightbox .modal-body-indicator .button-series {
     float: left;
     width: 30%;

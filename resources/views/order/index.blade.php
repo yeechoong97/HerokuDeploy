@@ -38,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @include('subpage.order-table')
+                                @include('order.order-table')
                             </tbody>
                         </table>
                         <input type="hidden" name="hidden_page" id="hidden_page" value="1" />

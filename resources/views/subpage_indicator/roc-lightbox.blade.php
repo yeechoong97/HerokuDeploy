@@ -35,11 +35,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('roc_indicator_btn').addEventListener("click",function(){
-        var period = document.getElementById('roc_period').value;
-        var obj = {"period": parseInt(period),"type": "line"};
-        checkTools("ROC",obj);
-    })
-</script>

@@ -43,13 +43,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('macd_indicator_btn').addEventListener("click",function(){
-        var fast = document.getElementById('macd_fast').value;
-        var slow = document.getElementById('macd_slow').value;
-        var signal = document.getElementById('macd_signal').value;
-        var obj = {"fast": parseInt(fast), "slow": parseInt(slow), "signal": parseInt(signal), "type": "line", "type2":"column"};
-        checkTools("MACD",obj);
-    })
-</script>

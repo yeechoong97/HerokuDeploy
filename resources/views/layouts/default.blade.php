@@ -35,6 +35,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/funds.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('js/order.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>   
+
    
   <!-- Bootstrap Studio -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

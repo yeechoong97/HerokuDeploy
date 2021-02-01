@@ -36,7 +36,7 @@ use App\Common;
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
                 </select>
-                <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset All</button>
+                <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset</button>
                 <div class="question-btn">
                     <i class="far fa-question-circle"></i>
                 </div>
@@ -124,7 +124,7 @@ use App\Common;
                                 <th class="col1">Profit(USD)</th>
                                 <th class="col2">Profit(Spread)</th>
                                 <th class="col1">Profit(%)</th>
-                                <th class="col1">Action<i class="far fa-question-circle" onclick="toggleMainHelpLightbox('order')"></i></th>
+                                <th class="col1">Action <i class="far fa-question-circle" onclick="toggleMainHelpLightbox('order')"></i></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -209,18 +209,12 @@ use App\Common;
         </div>
     </div>
 </div>
+<div id="indicator-lightbox"></id>
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
 @include('subpage.main-help-lightbox')
-@include('subpage_indicator.ama-lightbox')
-@include('subpage_indicator.macd-lightbox')
-@include('subpage_indicator.rsi-lightbox')
-@include('subpage_indicator.bollinger-lightbox')
-@include('subpage_indicator.stochastic-lightbox')
-@include('subpage_indicator.momentum-lightbox')
-@include('subpage_indicator.roc-lightbox')
-@include('subpage_indicator.william-lightbox')
 </body>
+<script type="text/javascript" src="{{ URL::asset('js/indicator.js') }}"></script>   
 <script type="text/javascript" src="{{ URL::asset('js/socket.js') }}"></script>   
 <script type="text/javascript">
 //Append Temporary Data into Table
@@ -379,16 +373,60 @@ window.onclick = function(event) {
     }
 }
 
-function toggleLightboxIndicator(tool){
-    var id = tool +'_indicator_box';
-    var check = document.getElementById(id).style.display;
-    if (check == "" || check == "none") {
-        $('#'+ id).fadeIn(300);
-    } else {
-        $('#'+ id).fadeOut(300);
-        document.getElementById('indicatorSelect').value = "default";
+
+function appendLightbox(tool)
+{
+    switch (tool) {
+        case "AMA":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.ama-lightbox')`;
+            break;
+        case "MACD":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.macd-lightbox')`;
+            break
+        case "RSI":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.rsi-lightbox')`;
+            break;
+        case "BBands":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.bollinger-lightbox')`;
+            break;
+        case "Stochastic":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.stochastic-lightbox')`;
+            break;
+        case "Momentum":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.momentum-lightbox')`;
+            break;
+        case "ROC":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.roc-lightbox')`;
+            break;
+        case "WilliamsR":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.william-lightbox')`;
+            break;
+        case "CCI":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.cci-lightbox')`;
+            break;
+        case "PSAR":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.psar-lightbox')`;
+            break;
+        case "DMI":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.dmi-lightbox')`;
+            break;
+        case "ATR":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.atr-lightbox')`;
+            break;
+        case "ENV":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.envelope-lightbox')`;
+            break;
+        case "EMA":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.ema-lightbox')`;
+            break;
+        case "MMA":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.mma-lightbox')`;
+        break;
     }
+toggleLightboxIndicator(tool);
+appendFuncBtn(tool);
 }
+
 
 </script>
 

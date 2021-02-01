@@ -23,9 +23,15 @@ Route::get('index','MainController@index')->name("index");
 Route::post('index/store','MainController@create');
 Route::put('index/close','MainController@close');
 
+Route::post('index/data','MainController@getCandle');
+Route::post('index/chart','MainController@changeSeries');
+
+
+//Order History
 Route::get('order','OrderController@show')->name("order-show");
 Route::get('order/fetch','OrderController@fetch');
 
+//Funds Management
 Route::get('fund','FundController@index')->name("fund-index");
 Route::put('fund/update','FundController@update')->name("fund-update");
 Route::get('fund/withdraw','FundController@withdraw_index')->name("fund-withdraw");
@@ -33,8 +39,6 @@ Route::put('fund/withdraw','FundController@withdraw_update')->name("withdraw-upd
 Route::get('fund/deposit','FundController@deposit_index')->name("fund-deposit");
 Route::put('fund/deposit','FundController@deposit_update')->name("deposit-update");
 
-Route::post('index/data','MainController@getCandle');
-Route::post('index/chart','MainController@changeSeries');
 
 
 Route::get('learning/introduction','ElearningController@intro')->name("learning-introduction");

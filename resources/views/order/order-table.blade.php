@@ -14,7 +14,7 @@
 @endforeach
 @else
     <tr>
-        <td class="alert-col"><b>No result was Found !</b></td>
+        <td class="alert-col"><b>No result was found !</b></td>
     </tr>
 @endif
 

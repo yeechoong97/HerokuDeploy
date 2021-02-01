@@ -40,12 +40,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('bbands_indicator_btn').addEventListener("click",function(){
-        var period = document.getElementById('bbands_period').value;
-        var deviation = document.getElementById('bbands_deviation').value;
-        var obj = {"period": parseInt(period), "deviation": parseInt(deviation), "type": "line"};
-        checkTools("BBands",obj);
-    })
-</script>

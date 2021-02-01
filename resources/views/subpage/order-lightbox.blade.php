@@ -1,7 +1,7 @@
 <div id ="Lightbox" class="lightbox">
                <div class="modal-content modal">
                   <div class="modal-header">
-                     <div class="modal-title">Order</div>
+                     <div class="modal-title">Order <i class="far fa-question-circle" onclick="toggleMainHelpLightbox('buy')"></i></div>
                      <span aria-hidden="true" class="close" aria-label="Close" onclick="closeLightbox('Lightbox')">&times;</span>
                   </div>
                   <div class="modal-body">

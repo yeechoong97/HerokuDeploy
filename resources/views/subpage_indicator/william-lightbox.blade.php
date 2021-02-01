@@ -32,11 +32,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('william_indicator_btn').addEventListener("click",function(){
-        var period = document.getElementById('william_period').value;
-        var obj = {"period": parseInt(period),"type": "line"};
-        checkTools("WilliamsR",obj);
-    })
-</script>

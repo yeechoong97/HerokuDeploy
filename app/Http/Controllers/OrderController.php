@@ -68,7 +68,7 @@ class OrderController extends Controller
             ->orderBy($request->sort,$request->order)
             ->paginate(8);
 
-            return view('subpage.order-table',[
+            return view('order.order-table',[
                     'trades' => $trades,
                     ])->render();
         }

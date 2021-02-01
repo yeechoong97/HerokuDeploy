@@ -3,8 +3,7 @@ function submitForm() {
     var amount = document.getElementById('amount_input').value;
     amount = parseFloat(amount);
     var status = document.getElementById('cross').style.display;
-
-    if (amount <= 0 || isNaN(amount) == true || status == "inline") {
+    if (amount <= 0 || isNaN(amount) == true || status == "inline" || amount == "") {
         document.getElementById('error-msg').innerHTML = "*Invalid amount is entered";
     } else {
         document.getElementById("myForm").submit();
@@ -52,10 +51,8 @@ function toggleFundsLightbox() {
 
     var check = document.getElementById('funds-lightbox').style.display;
     if (check == "" || check == "none") {
-        // document.getElementById('order-history-lightbox').style.display = "block";
         $('#funds-lightbox').fadeIn(300);
     } else {
-        //document.getElementById('order-history-lightbox').style.display = "none";
         $('#funds-lightbox').fadeOut(300);
     }
 }

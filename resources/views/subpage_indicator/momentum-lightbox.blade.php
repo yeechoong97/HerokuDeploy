@@ -35,11 +35,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('momentum_indicator_btn').addEventListener("click",function(){
-        var period = document.getElementById('momentum_period').value;
-        var obj = {"period": parseInt(period),"type": "line"};
-        checkTools("Momentum",obj);
-    })
-</script>

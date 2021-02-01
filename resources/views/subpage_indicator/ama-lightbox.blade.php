@@ -40,13 +40,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('ama_indicator_btn').addEventListener("click",function(){
-        var period = document.getElementById('ama_period').value;
-        var fast = document.getElementById('ama_fast').value;
-        var slow = document.getElementById('ama_slow').value;
-        var obj = {"period": parseInt(period), "fast": parseInt(fast), "slow": parseInt(slow), "type": "line"};
-        checkTools("AMA",obj);
-    })
-</script>

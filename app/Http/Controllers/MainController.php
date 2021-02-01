@@ -235,6 +235,9 @@ class MainController extends Controller
                 $account->balance = $account->balance + ($pre_profit * $pips);
                 $account->margin = $account->margin + ($pre_profit * $pips) + $margin;
                 $account->margin_used = $used_margin/($account->margin+ $used_margin)*100;
+                if($account->margin > $account->balance){
+                    $account->margin = $account->balance;
+                }
                 $account->save();
             }
             else
@@ -332,6 +335,9 @@ class MainController extends Controller
         $account->balance = $account->balance + $request->profit;
         $account->margin = $account->margin + $request->profit + $return_margin;
         $account->margin_used = $margin/($account->margin + $margin)*100;
+        if($account->margin > $account->balance){
+            $account->margin = $account->balance;
+        }
         $account->save();
 
         return response()->json(['message'=> "Orders have been reduced/closed successfully."]);

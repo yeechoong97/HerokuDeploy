@@ -35,11 +35,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('rsi_indicator_btn').addEventListener("click",function(){
-        var period = document.getElementById('rsi_period').value;
-        var obj = {"period": parseInt(period),"type": "line"};
-        checkTools("RSI",obj);
-    })
-</script>
