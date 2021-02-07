@@ -30,7 +30,7 @@
 .lightbox .modal-content2 {
     display: inline-block;
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;
@@ -45,7 +45,7 @@
 
 .add-body-height {
     height: 700px !important;
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 .lightbox .close:before,

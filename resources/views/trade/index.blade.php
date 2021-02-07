@@ -209,7 +209,7 @@ use App\Common;
         </div>
     </div>
 </div>
-<div id="indicator-lightbox"></id>
+<div id="indicator-lightbox"></div>
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
 @include('subpage.main-help-lightbox')
@@ -295,7 +295,7 @@ anychart.onDocumentReady(function ()
     document.getElementById("typeSelect").value = "default";
     });
 
-    //streaming = setInterval(stream, 1000);
+    streaming = setInterval(stream, 1000);
 });
 
 //Updating chart
@@ -344,9 +344,9 @@ function checkTools(tool,obj)
         else 
         {
             if(upperCheck=1 && status==false)
-                removeLowerIndicator();
-            else
                 removeUpperIndicator();
+            else
+                removeLowerIndicator();
         }
     }
     @foreach(Common::$indicatorFunc as $key=> $value)
@@ -377,9 +377,6 @@ window.onclick = function(event) {
 function appendLightbox(tool)
 {
     switch (tool) {
-        case "AMA":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.ama-lightbox')`;
-            break;
         case "MACD":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.macd-lightbox')`;
             break
@@ -413,14 +410,23 @@ function appendLightbox(tool)
         case "ATR":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.atr-lightbox')`;
             break;
-        case "ENV":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.envelope-lightbox')`;
-            break;
         case "EMA":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.ema-lightbox')`;
             break;
-        case "MMA":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.mma-lightbox')`;
+        case "SMA":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.sma-lightbox')`;
+        break;
+        case "ADL":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.adl-lightbox')`;
+        break;
+        case "OBV":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.obv-lightbox')`;
+        break;
+        case "MFI":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.mfi-lightbox')`;
+        break;
+        case "Aroon":
+            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.aroon-lightbox')`;
         break;
     }
 toggleLightboxIndicator(tool);

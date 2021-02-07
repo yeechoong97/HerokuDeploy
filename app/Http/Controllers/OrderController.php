@@ -11,6 +11,7 @@ use App\Account;
 use App\Trades;
 use Carbon\Carbon;
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class OrderController extends Controller
 {
@@ -46,7 +47,7 @@ class OrderController extends Controller
 		->select('orders.user_id','orders.ticketID','orders.pair','orders.type','orders.entry_price','trades.units','trades.exit_price','trades.cost','trades.profit','trades.created_at')
 		->orderby('created_at','desc')
         ->paginate(8);
-
+        
         return view('order.index',[
             'trades'=> $trades,
             'start'=> $start,

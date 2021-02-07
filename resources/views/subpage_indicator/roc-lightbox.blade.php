@@ -9,7 +9,7 @@
             <div class="upper-body">
                 <div class="button-series">
                     <label class="mx-left">Period</label>
-                    <input type="text" id="roc_period" class="form-control col-md-15" value="20" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;"/>
+                    <input type="number" id="roc_period" class="form-control col-md-15" value="20" maxlength="5" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"/>
                 </div>
             </div>
             <hr>

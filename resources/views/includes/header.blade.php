@@ -10,7 +10,7 @@
                         <a class="nav-link" href="{{route('index')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('learning-introduction')}}">Learning Materials</a>
+                        <a class="nav-link" href="{{route('learning-intro')}}">Learning Materials</a>
                     </li>
                     <li class="nav-item">
                         <a class=" nav-link" href="{{route('order-show')}}">Order History</a>

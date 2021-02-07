@@ -149,3 +149,16 @@ ul {
     padding-bottom: 3%;
     padding-top: 2%;
 }
+
+.elearning-container {
+    margin: 20px;
+    margin-bottom: 20px;
+    margin-top: 130px;
+    height: 680px;
+}
+
+.elearning-subcontainer {
+    height: 680px;
+    margin-right: 0px;
+    margin-left: 0px;
+}

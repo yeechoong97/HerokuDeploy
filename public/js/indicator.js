@@ -77,7 +77,8 @@ function appendFuncBtn(tool) {
                 var start = document.getElementById('psar_start').value;
                 var increment = document.getElementById('psar_increment').value;
                 var max = document.getElementById('psar_max').value;
-                var obj = { "start": parseInt(start), "increment": parseInt(increment), "max": parseInt(max), "type": "marker" };
+                var obj = { "start": parseFloat(start), "increment": parseFloat(increment), "max": parseFloat(max), "type": "marker" };
+                console.log(obj);
                 checkTools("PSAR", obj);
             });
             break;
@@ -118,6 +119,39 @@ function appendFuncBtn(tool) {
                 var period = document.getElementById('mma_period').value;
                 var obj = { "period": parseInt(period), "type": "line" };
                 checkTools("MMA", obj);
+            });
+            break;
+        case "SMA":
+            document.getElementById('sma_indicator_btn').addEventListener("click", function() {
+                var period = document.getElementById('sma_period').value;
+                var obj = { "period": parseInt(period), "type": "line" };
+                checkTools("SMA", obj);
+            });
+            break;
+        case "ADL":
+            document.getElementById('adl_indicator_btn').addEventListener("click", function() {
+                var obj = { "type": "line" };
+                checkTools("ADL", obj);
+            });
+            break;
+        case "OBV":
+            document.getElementById('obv_indicator_btn').addEventListener("click", function() {
+                var obj = { "type": "line" };
+                checkTools("OBV", obj);
+            });
+            break;
+        case "MFI":
+            document.getElementById('mfi_indicator_btn').addEventListener("click", function() {
+                var period = document.getElementById('mfi_period').value;
+                var obj = { "period": parseInt(period), "type": "line" };
+                checkTools("MFI", obj);
+            });
+            break;
+        case "Aroon":
+            document.getElementById('aroon_indicator_btn').addEventListener("click", function() {
+                var period = document.getElementById('aroon_period').value;
+                var obj = { "period": parseInt(period), "type": "line" };
+                checkTools("Aroon", obj);
             });
             break;
     }

@@ -9,15 +9,15 @@
             <div class="upper-body add-height">
                 <div class="button-series decrease-width">
                     <label class="mx-left">Acceleration Factor Start</label>
-                    <input type="text" id="psar_start" class="form-control col-md-10" value="0.02" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;"/>
+                    <input type="number" id="psar_start" class="form-control col-md-10" value="0.02"  maxlength="5" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 ||  event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"/>
                 </div>
                 <div class="button-series">
                     <label class="mx-left">Acceleration Factor Increment</label>
-                    <input type="text" id="psar_increment" class="form-control col-md-10" value="0.02" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" />
+                    <input type="number" id="psar_increment" class="form-control col-md-10" value="0.02"  maxlength="5" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109  || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"/>
                 </div>
                 <div class="button-series">
                     <label class="mx-left">Acceleration Factor Maximum</label>
-                    <input type="text" id="psar_max" class="form-control col-md-10" value="0.2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" />
+                    <input type="number" id="psar_max" class="form-control col-md-10" value="0.2"  maxlength="5" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109  || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"/>
                 </div>
             </div>
             <hr>

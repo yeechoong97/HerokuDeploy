@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Input;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Order;
 use Carbon\Carbon;
 use App\Account;
@@ -44,13 +45,13 @@ class MainController extends Controller
                 'Content-Type: application/json'
             ),
         ));
-        
+
         $response = curl_exec($curl);
         curl_close($curl);       
         //Pass the EURUSD data from server to front end
         $data = "";
         $parseResponse = json_decode($response,true);
-
+   
         foreach($parseResponse['candles'] as $pResponse)
         {
             $tempDate = substr($pResponse['time'],0,-7);

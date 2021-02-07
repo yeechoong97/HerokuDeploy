@@ -9,15 +9,15 @@
             <div class="upper-body add-height">
                 <div class="button-series">
                     <label class="mx-left">K-Period</label>
-                    <input type="text" id="stochastic-period" class="form-control col-md-10" value="14" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;"/>
+                    <input type="number" id="stochastic-period" class="form-control col-md-10" value="14" maxlength="5" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"/>
                 </div>
                 <div class="button-series">
                     <label class="mx-left">Kma Period</label>
-                    <input type="text" id="stochastic-kma" class="form-control col-md-10" value="3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" />
+                    <input type="number" id="stochastic-kma" class="form-control col-md-10" value="3" maxlength="5" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)" />
                 </div>
                 <div class="button-series">
                     <label class="mx-left">D-Period</label>
-                    <input type="text" id="stochastic-d" class="form-control col-md-10" value="3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" />
+                    <input type="number" id="stochastic-d" class="form-control col-md-10" value="3" maxlength="5" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"/>
                 </div>
                 <div class="button-series">
                     <label class="mx-left">Kma Type</label>

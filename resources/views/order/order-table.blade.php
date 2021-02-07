@@ -23,5 +23,3 @@
         <td class="pagination-links">{{ $trades->links() }}</td> 
     </tr>   
 @endif
-
-                           

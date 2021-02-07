@@ -5,13 +5,13 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-<div style="margin: 20px;margin-bottom: 20px;margin-top: 130px;height: 680px;">
-    <div class="row" style="height: 680px;margin-right: 0px;margin-left: 0px;">
+<div class="elearning-container">
+    <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="margin-bottom: 0px;margin-left: 0px;margin-top: 0px;height: 1880px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1880px;">
             <div class="sidenav-content-details">
             <h3 id="learning-title">Currency Pair</h3>
-            <p>A currency pair is the quotation of two different currencies, with the value of one currency being quoted against the other. The first listed currency of a currency pair is called the base currency, and the second currency is called the quote currency.</h5>
+            <p>A currency pair is the quotation of two different currencies, with the value of one currency being quoted against the other. The first listed currency of a currency pair is called the base currency, and the second currency is called the quote currency.</p>
             <p>Currency pairs compare the value of one currency to another—the base currency (or the first one) versus the second, or the quote currency. It indicates how much of the quote currency is needed to purchase one unit of the base currency. Currencies are identified by an ISO currency code, or the three-letter alphabetic code they are associated with on the international market. So, for the U.S. dollar, the ISO code would be USD.</p>
             <img src ="{{asset('pictures/Currency.png')}}" class="img-padding" >
             <h5>The Basics of Currency Pairs</h5>
@@ -26,7 +26,7 @@
             <h5>Minor and Exotic Pairs</h5>
             <p>Currency pairs that are not associated with the U.S. dollar are referred to as minor currencies or crosses. These pairs have slightly wider spreads and are not as liquid as the majors, but they are sufficiently liquid markets nonetheless. The crosses that trade the most volume are among the currency pairs in which the individual currencies are also majors. Some examples of crosses include the EUR/GBP, GBP/JPY and EUR/CHF.</p>
             <p>Exotic currencies pairs include currencies of emerging markets. These pairs are not as liquid, and the spreads are much wider. An example of an exotic currency pair is the USD/SGD (U.S. dollar/Singapore dollar).</p>
-            <p>*Adapted from "<b>Currency Pair Definition</b>" by <b>Investopedia</b> (https://www.investopedia.com/terms/c/currencypair.asp)</p>
+            <p>*Adapted from <b>CHEN, J. (2020). Currency Pair Definition. https://www.investopedia.com/terms/c/currencypair.asp</b></p>
         </div>
         </div>
     </div>

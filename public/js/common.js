@@ -1,10 +1,9 @@
 //Accumulation Distribution Line (ADL)
-function ADL() {
+function ADL(obj) {
     mapping = dataTable.mapAs({ "high": 1, "open": 2, "low": 3, "close": 4, "volume": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
-    var adl = secondPlot.adl(mapping).series();
+    var adl = secondPlot.adl(mapping, obj.type).series();
     adl.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     chart.scroller().line(mapping);
     setDecimalPlot2();
@@ -19,12 +18,11 @@ function AMA(obj) {
 }
 
 //Aroon
-function Aroon() {
+function Aroon(obj) {
     mapping = dataTable.mapAs({ "high": 2, "low": 3 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
-    secondPlot.aroon(mapping, 25);
+    secondPlot.aroon(mapping, obj.period, obj.type);
 }
 
 //Average True Range
@@ -32,7 +30,7 @@ function ATR(obj) {
     mapping = dataTable.mapAs({ "high": 1, "open": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
 
     var atr = secondPlot.atr(mapping, obj.period, obj.type).series();
     atr.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -45,7 +43,7 @@ function AOscillator() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
 
     var ao = secondPlot.ao(mapping).series();
     ao.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -55,6 +53,7 @@ function AOscillator() {
 
 //Bollinger Bands
 function BBands(obj) {
+    console.log(obj);
     mapping = dataTable.mapAs({ 'value': 4 });
     var bbands = plot.bbands(mapping, obj.period, obj.deviation, obj.type, obj.type, obj.type);
     bbands.upperSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -69,7 +68,7 @@ function BBandsB() {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     secondPlot.bbandsB(mapping);
 }
 
@@ -78,7 +77,7 @@ function BBandsWidth() {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     secondPlot.bbandsWidth(mapping);
 }
 
@@ -87,7 +86,7 @@ function CMF() {
     mapping = dataTable.mapAs({ "high": 1, "low": 3, "close": 4, "volume": 5, "value": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var cmf = secondPlot.cmf(mapping).series();
     cmf.stroke("#bf360c")
 }
@@ -97,7 +96,7 @@ function CHO() {
     mapping = dataTable.mapAs({ "high": 1, "low": 3, "close": 4, "volume": 5, "value": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var cho = secondPlot.cho(mapping).series();
     cho.stroke("#bf360c")
 }
@@ -107,7 +106,7 @@ function CCI(obj) {
     mapping = dataTable.mapAs({ "high": 1, "low": 3, "close": 4, "volume": 5, "value": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     secondPlot.cci(mapping, obj.period, obj.type).series();
 }
 
@@ -116,7 +115,7 @@ function DMI(obj) {
     mapping = dataTable.mapAs({ "high": 1, "low": 3, "close": 4, "volume": 5, "value": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     secondPlot.dmi(mapping, obj.period, obj.adx, obj.smooth, obj.type, obj.type, obj.type);
 }
 
@@ -125,7 +124,7 @@ function ENV(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var env = secondPlot.env(mapping, obj.period, obj.deviation, obj.ma, obj.type, obj.type);
     env.upperSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     env.lowerSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -144,7 +143,7 @@ function HA() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var ha = secondPlot.ha(mapping).series();
     ha.tooltip().format("{%seriesName}: " + "\n" + "Open: {%open}{decimalsCount:5}" + "\n" + "High: {%high}{decimalsCount:5}" + "\n" + "Low: {%low}{decimalsCount:5}" + "\n" + "Close: {%close}{decimalsCount:5}")
     ha.legendItem().iconType('rising-falling');
@@ -156,7 +155,7 @@ function IKH() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var ikh = secondPlot.ikh(mapping);
     ikh.baseSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     ikh.conversionSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -196,18 +195,17 @@ function Momentum(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4, "value": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var momentum = secondPlot.momentum(mapping, obj.period, obj.type).series();
     momentum.stroke("2 red");
 }
 
 //Money Flow Index
-function MFI() {
+function MFI(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4, "volume": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
-    var mfi = secondPlot.mfi(mapping, 5).series();
+    var mfi = secondPlot.mfi(mapping, obj.period, obj.type).series();
     mfi.stroke("2 red");
 }
 
@@ -216,7 +214,7 @@ function MACD(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     setDecimalPlot2();
 
     var macd = secondPlot.macd(mapping, obj.fast, obj.slow, obj.signal, obj.type, obj.type, obj.type2);
@@ -229,12 +227,11 @@ function MACD(obj) {
 }
 
 //On Balance Volume
-function OBV() {
+function OBV(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4, "volume": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
-    secondPlot.obv(mapping);
+    secondPlot.obv(mapping, obj.type);
 }
 
 //Parabolic SAR (PSAR)
@@ -259,7 +256,7 @@ function PPO() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var ppo = secondPlot.ppo(mapping);
     ppo.ppoSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     ppo.signalSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -272,7 +269,7 @@ function PSY() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     secondPlot.psy(mapping);
 }
 
@@ -281,7 +278,7 @@ function RCI() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     secondPlot.rci(mapping);
 }
 
@@ -290,7 +287,7 @@ function ROC(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var roc14 = secondPlot.roc(mapping, obj.period, obj.type).series();
     roc14.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}")
     roc14.stroke('#bf360c');
@@ -302,17 +299,17 @@ function RSI(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    // secondPlot.yAxis(1).orientation('right');
     var rsi14 = secondPlot.rsi(mapping, obj.period, obj.type).series();
     rsi14.stroke('#bf360c');
 }
 
 //Simple Moving Average
-function SMA() {
+function SMA(obj) {
     mapping = dataTable.mapAs({ 'value': 4 });
-    var sma20 = plot.sma(mapping, 20).series();
-    sma20.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}")
-    sma20.stroke('#bf360c');
+    var sma = plot.sma(mapping, obj.period, obj.type).series();
+    sma.tooltip().format("{%seriesName}: {%value}{decimalsCount:5}")
+    sma.stroke('#bf360c');
 }
 
 //Stochastic Oscillator
@@ -320,7 +317,7 @@ function Stochastic(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4, "value": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var stochastic = secondPlot.stochastic(mapping, obj.period, obj.kma, obj.d, obj.ktype, obj.dtype, obj.type);
     stochastic_k = stochastic.kSeries();
     stochastic_k.stroke("#bf360c");
@@ -333,7 +330,7 @@ function Trix() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var trix = secondPlot.trix(mapping);
     trix.trixSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
     trix.signalSeries().tooltip().format("{%seriesName}: {%value}{decimalsCount:5}");
@@ -345,7 +342,7 @@ function VolumeMA() {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4, "volume": 5 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     secondPlot.volumeMa(mapping);
 }
 
@@ -354,7 +351,7 @@ function WilliamsR(obj) {
     mapping = dataTable.mapAs({ "open": 1, "high": 2, "low": 3, "close": 4 });
     secondPlot = chart.plot(1);
     secondPlot.height('30%');
-    secondPlot.yAxis(1).orientation('right');
+    //secondPlot.yAxis(1).orientation('right');
     var williamsR = secondPlot.williamsR(mapping, obj.period, obj.type).series();
     williamsR.stroke("2 red");
 }
@@ -470,7 +467,6 @@ function changeSeries() {
     });
 };
 
-
 function changeChartSeries(chartSeries, data) {
     var index = 0;
     if (chart.plot(0).getSeriesCount() > 1) {
@@ -535,8 +531,8 @@ function changeIndicator() {
 }
 
 function removeIndicator() {
-    removeLowerIndicator();
     removeUpperIndicator();
+    removeLowerIndicator();
     document.getElementById('indicatorSelect').value = "default";
 }
 

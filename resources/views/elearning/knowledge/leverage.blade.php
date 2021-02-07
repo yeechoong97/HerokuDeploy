@@ -5,10 +5,10 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-<div style="margin: 20px;margin-bottom: 20px;margin-top: 130px;height: 680px;">
-    <div class="row" style="height: 680px;margin-right: 0px;margin-left: 0px;">
+<div class="elearning-container">
+    <div class="row elearning-subcontainer" >
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="margin-bottom: 0px;margin-left: 0px;margin-top: 0px;height: 2980px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3000px;">
             <div class="sidenav-content-details">
             <h3 id="learning-title">Leverage & Margin</h3>
             <p>Margin and leverage are among the most important concepts to understand when trading forex. These essential tools allow forex traders to control trading positions that are substantially greater in size than would be the case without the use of these tools. At the most fundamental level, margin is the amount of money in a trader's account that is required as a deposit in order to open and maintain a leveraged trading position.</p>
@@ -28,7 +28,9 @@
             <h5>Margin Call</h5>
             <p>Margin call is something that you will have to be aware of. If for any reason the broker thinks that your position is in danger e.g. you have a position of $100,00 with a margin of one percent ($1,000) and your losses are approaching your margin ($1,000). He will call you and either ask you to deposit more money, or close your position to limit your risk and his risk.</p>
             <p>Margin call is actually a good thing. It safeguards you and your broker. Some traders become so emotionally involved with their position that they are incapable of making a rational decision. If a margin call is exercised it will safeguard the trader from further losses. If you are going to trade on a margin account, it is imperative that you talk with your broker first to find out what their policies are on this type of accounts.</p>
-            <p>*Adapted from "<b>Sure-Fire Forex Trading</b>" by <b>Mark McRae</b> , "<b>Forex System Research Forex Trading With Candlestick and Pattern</b>" by <b>Forex System Research Company</b> and "<b>Forex Margin and Leverage</b>" by <b>FOREX.com</b> (https://www.forex.com/en/education/resources-by-level/beginner/forex-margin-and-leverage/)</p>
+            <p>*Adapted from  <b>Forex. (2021). Forex Margin and Leverage. https://www.forex.com/en/education/resources-by-level/beginner/forex-margin-and-leverage/</b></p>
+            <p>*Adapted from <b>Company, F. S. R. (2003). Forex Trading With Candlestick And Pattern.</b></p>
+            <p>*Adapted from <b>Mark McRae. (2008). Sure-fire Forex Trading.</b></p>
         </div>
         </div>
     </div>
