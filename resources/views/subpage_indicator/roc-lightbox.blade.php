@@ -16,7 +16,7 @@
             <div class="lower-body">
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Description</b></label>
-                    <label class="mx-left">The Rate of Change oscillator is a momentum indicator that consists of one line. The ROC measures the percentage change in the price from one trading period to the next. If the percentage change is big, the ROC line moves harshly up or down, depending on price changing direction. In other case - if the percentage change is small, the ROC line moves slowly up or down, depending on the price changing direction.</label>
+                    <label class="mx-left">The Rate of Change oscillator is a momentum indicator that consists of one line. The ROC measures the percentage change in the price from one trading period to the next. If the percentage change is big, the ROC line moves harshly up or down, depending on price changing direction. In other case - if the percentage change is small, the ROC line moves slowly up or down, depending on the price changing direction.&ensp;<a href="{{route('learning-roc')}}" target="_blank">Learn More</a></label>
                 </div>
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Parameters</b></label>

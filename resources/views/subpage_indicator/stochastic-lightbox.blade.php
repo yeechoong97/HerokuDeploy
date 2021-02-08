@@ -38,7 +38,7 @@
             <div class="lower-body">
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Description</b></label>
-                    <label class="mx-left">The Slow Stochastic Oscillator is a momentum indicator that consists of two lines - %K and %D, these lines move in the range between 0 and 100. The slow stochastic shows the interrelation of the current closing price to the trading range in the past. If the current closing price is toward the top of the past trading range, %K moves higher. If the current closing price is toward the bottom of the past trading range, %K moves lower.</label>
+                    <label class="mx-left">The Slow Stochastic Oscillator is a momentum indicator that consists of two lines - %K and %D, these lines move in the range between 0 and 100. The slow stochastic shows the interrelation of the current closing price to the trading range in the past. If the current closing price is toward the top of the past trading range, %K moves higher. If the current closing price is toward the bottom of the past trading range, %K moves lower.&ensp;<a href="{{route('learning-stochastic')}}" target="_blank">Learn More</a></label>
                 </div>
                 <br>
                 <div class="description-series">

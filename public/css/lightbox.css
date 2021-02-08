@@ -43,7 +43,8 @@
     border-radius: 10px;
 }
 
-.lightbox .close:before,
+
+/* .lightbox .close:before,
 .lightbox .close:after {
     left: 0;
     right: 0;
@@ -58,19 +59,20 @@
     color: #d6d6d6;
     border-top: 2px solid white;
     transform-origin: center;
-}
+} */
 
 .lightbox .modal-content .modal-header .close {
     color: #e7e7e7;
 }
 
-.lightbox .close:before {
+
+/* .lightbox .close:before {
     transform: rotate(45deg);
 }
 
 .lightbox .close:after {
     transform: rotate(-45deg);
-}
+} */
 
 .lightbox .close:hover,
 .lightbox .close:focus {

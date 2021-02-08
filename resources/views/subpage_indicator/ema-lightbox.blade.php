@@ -16,7 +16,7 @@
             <div class="lower-body">
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Description</b></label>
-                    <label class="mx-left">An Exponential Moving Average is a trending indicator - a single line that shows the weighted mean of the stock price during a specified period of time. This type of moving average that is similar to a Simple Moving Average, except that more weight is given to the latest data.</label>
+                    <label class="mx-left">An Exponential Moving Average is a trending indicator - a single line that shows the weighted mean of the stock price during a specified period of time. This type of moving average that is similar to a Simple Moving Average, except that more weight is given to the latest data.&ensp;<a href="{{route('learning-ma')}}" target="_blank">Learn More</a></label>
                 </div>
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Parameters</b></label>

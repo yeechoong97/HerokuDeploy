@@ -91,9 +91,9 @@ class Common
 		// "PSY" => "Psychological Line (PSY)",
 		// "RCI" => "Rank Correlation Index (RCI)",
 		'ROC'=> "Rate of Change (ROC)",
-		"RSI" => "Relative Strength Index",
-		"SMA" => "Simple Moving Average",
-		"Stochastic" => "Stochastic",
+		"RSI" => "Relative Strength Index (RSI)",
+		"SMA" => "Simple Moving Average (SMA)",
+		"Stochastic" => "Stochastic Oscillator",
 		// "Trix"=> "Triple Exponential Moving Average (TRIX)",
 		// "VolumeMA" => "Volume + Moving Average",
 		"WilliamsR" => "Williams %R"

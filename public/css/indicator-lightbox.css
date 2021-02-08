@@ -44,37 +44,20 @@
 }
 
 .add-body-height {
-    height: 700px !important;
-    margin-top: 4%;
+    height: 650px !important;
+    margin-top: 3%;
 }
 
-.lightbox .close:before,
-.lightbox .close:after {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    content: "";
-    position: absolute;
-    display: block;
-    margin: auto;
-    width: 32px;
-    height: 0;
-    color: #d6d6d6;
-    border-top: 2px solid white;
-    transform-origin: center;
+.decrease-body-height {
+    height: 360px !important;
+}
+
+.decrease-body-height1 {
+    height: 450px !important;
 }
 
 .lightbox .modal-content2 .modal-header .close {
     color: #e7e7e7;
-}
-
-.lightbox .close:before {
-    transform: rotate(45deg);
-}
-
-.lightbox .close:after {
-    transform: rotate(-45deg);
 }
 
 .lightbox .close:hover,
@@ -110,6 +93,10 @@
     height: 19%;
     padding: 3% 3% 0% 4%;
     font-family: Lato, sans-serif;
+}
+
+.add-lower-height {
+    height: 70% !important;
 }
 
 .add-height {

@@ -415,19 +415,19 @@ function appendLightbox(tool)
             break;
         case "SMA":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.sma-lightbox')`;
-        break;
+            break;
         case "ADL":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.adl-lightbox')`;
-        break;
+            break;
         case "OBV":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.obv-lightbox')`;
-        break;
+            break;
         case "MFI":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.mfi-lightbox')`;
-        break;
+            break;
         case "Aroon":
             document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.aroon-lightbox')`;
-        break;
+            break;
     }
 toggleLightboxIndicator(tool);
 appendFuncBtn(tool);

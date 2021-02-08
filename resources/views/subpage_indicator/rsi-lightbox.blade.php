@@ -16,7 +16,7 @@
             <div class="lower-body">
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Description</b></label>
-                    <label class="mx-left">The Relative Strength Index (RSI) oscillator is a momentum indicator that consists of one line that moves in a range between 0 and 100.</label>
+                    <label class="mx-left">The Relative Strength Index (RSI) oscillator is a momentum indicator that consists of one line that moves in a range between 0 and 100.&ensp;<a href="{{route('learning-rsi')}}" target="_blank">Learn More</a></label>
                 </div>
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Parameters</b></label>

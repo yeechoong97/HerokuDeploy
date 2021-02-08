@@ -86,7 +86,6 @@ Route::get('learning/chart/round-bottom','ElearningController@round_bottom')->na
 Route::get('learning/fundamental','ElearningController@fundamental')->name("learning-fundamental");
 Route::get('learning/watch','ElearningController@watch')->name("learning-watch");
 
-
 //Forex Technical Analysis
 Route::get('learning/technical/intro','ElearningController@technical_intro')->name("learning-technical-intro");
 Route::get('learning/technical/support-resistance','ElearningController@support_resistance')->name('learning-support-resistance');

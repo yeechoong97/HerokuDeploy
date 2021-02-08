@@ -1,5 +1,5 @@
 <div id ="MFI_indicator_box" class="lightbox">
-    <div class="modal modal-content2">
+    <div class="modal modal-content2 decrease-body-height1">
         <div class="modal-header">
             <div class="modal-title">Money Flow Index (MFI)</div>
             <span aria-hidden="true" class="close" aria-label="Close" onclick="toggleLightboxIndicator('MFI')">&times;</span>
@@ -13,10 +13,10 @@
                 </div>
             </div>
             <hr>
-            <div class="lower-body">
+            <div class="lower-body decrease-height">
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Description</b></label>
-                    <label class="mx-left">Money flow index (MFI) is an oscillator calculated over an N-day period, ranging from 0 to 100, showing money flow on up days as a percentage of the total of up and down days.</label>
+                    <label class="mx-left">Money flow index (MFI) is an oscillator calculated over an N-day period, ranging from 0 to 100, showing money flow on up days as a percentage of the total of up and down days.&ensp;<a href="{{route('learning-mfi')}}" target="_blank">Learn More</a></label>
                 </div>
                 <br>
                 <div class="description-series">

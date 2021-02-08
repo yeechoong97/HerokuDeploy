@@ -1,7 +1,7 @@
 <div id ="BBands_indicator_box" class="lightbox">
     <div class="modal modal-content2">
         <div class="modal-header">
-            <div class="modal-title">Adaptive Moving Average (BBands)</div>
+            <div class="modal-title">Bollinger Bands (BBands)</div>
             <span aria-hidden="true" class="close" aria-label="Close" onclick="toggleLightboxIndicator('BBands')">&times;</span>
         </div>
 
@@ -20,7 +20,7 @@
             <div class="lower-body">
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Description</b></label>
-                    <label class="mx-left">Bollinger Bands are a volatility indicator that is displayed as two lines (bands): one drawn above a simple moving average of the price and one - below. These bands move closer to the moving average when price volatility is low and move farther away from the moving average when price volatility increases.</label>
+                    <label class="mx-left">Bollinger Bands are a volatility indicator that is displayed as two lines (bands): one drawn above a simple moving average of the price and one - below. These bands move closer to the moving average when price volatility is low and move farther away from the moving average when price volatility increases.&ensp;<a href="{{route('learning-bollinger')}}" target="_blank">Learn More</a></label>
                 </div>
                 <br>
                 <div class="description-series">
