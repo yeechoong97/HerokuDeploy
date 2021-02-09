@@ -1,4 +1,12 @@
 <div class="col-md-6 col-xl-2 offset-xl-0 sidenav">
+    <div>
+        <form method="post" id="searchForm" action="{!! route('learning-search') !!}">
+            {{ method_field('POST') }}
+            {{ csrf_field() }}
+            <input type="text" id="search-text" name="search" class="form-control col-md-15" placeholder="Search">
+            <a class="search-btn"><i class="fas fa-search" onclick="document.getElementById('searchForm').submit();"></i></a>
+        </form>
+    </div>
     <div class="sidenav-menu">
         <a class="dropdown-btn" href="#">Forex Introduction <i class="fas fa-plus"></i></a>
             <div class="dropdown-container">
@@ -63,7 +71,7 @@
                 <a href="{{route('learning-slippage')}}">Slippage</a>
                 <a href="{{route('learning-support-resistance')}}">Support & Resistance</a>
                 <a href="{{route('learning-trend')}}">Trend</a>
-                <a href="{{route('learning-volume')}}">Volume</a>
+                <a href="{{route('learning-volume')}}">Volumes</a>
             </div>
         <a class="dropdown-btn" href="#">Technical Indicators<i class="fas fa-plus"></i></a>
             <div class="dropdown-container">

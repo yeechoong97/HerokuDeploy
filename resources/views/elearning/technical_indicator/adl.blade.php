@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Accumulation Distribution Line</h3>
-                <p>The accumulation/distribution indicator (A/D) is a cumulative indicator that uses volume and price to assess whether a stock is being accumulated or distributed. The A/D measure seeks to identify divergences between the stock price and volume flow. This provides insight into how strong a trend is. If the price is rising but the indicator is falling it suggests that buying or accumulation volume may not be enough to support the price rise and a price decline could be forthcoming.</p>
+                <p>The accumulation/distribution indicator also called as ADL or A/D is a cumulative indicator that uses volume and price to assess whether a stock is being accumulated or distributed. The A/D measure seeks to identify divergences between the stock price and volume flow. This provides insight into how strong a trend is. If the price is rising but the indicator is falling it suggests that buying or accumulation volume may not be enough to support the price rise and a price decline could be forthcoming.</p>
                 <h5>The Accumulation/Distribution Indicator (A/D) Formula</h5>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768860/E-Learning/ADLFormula.png" class="img-padding" >
                 <h5>How to Calculate the A/D Line</h5>

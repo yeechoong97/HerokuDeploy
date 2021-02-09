@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Page;
 
 class ElearningController extends Controller
 {
@@ -11,6 +12,20 @@ class ElearningController extends Controller
         $this->middleware('auth');
     }
 
+    public function search(Request $request)
+    {
+        $pages = Page::where('description','like','%'.$request->search.'%')
+                    ->orWhere('parent','like','%'.$request->search.'%')
+                    ->orderBy('parent','asc')
+                    ->orderBy('value','asc')
+                    ->get();
+        return view('elearning.result',[
+            'result' => $pages,
+            'keyword' => $request->search,
+        ]);
+    }
+
+    //Forex Introduction
     public function intro(){
         return view('elearning.introduction.intro');
     }

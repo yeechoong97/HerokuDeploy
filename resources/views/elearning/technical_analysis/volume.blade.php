@@ -10,7 +10,7 @@
         @include('elearning.side-nav')
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2000px;">
             <div class="sidenav-content-details">
-                <h3 id="learning-title">Volume</h3>
+                <h3 id="learning-title">Volumes</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767463/E-Learning/Volume.jpg" class="img-padding" >
                 <p>Volume is the amount of an asset or security that changes hands over some period of time, often over the course of a day. For instance, stock trading volume would refer to the number of shares of a security traded between its daily open and close. Trading volume, and changes to volume over the course of time, are important inputs for technical traders.</h5>
                 <h5>Understanding Volume</h5>

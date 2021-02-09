@@ -14,7 +14,7 @@
     font-size: 13px;
     width: 90%;
     position: absolute;
-    top: 0px;
+    top: 50px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -159,4 +159,38 @@ ul {
     color: rgb(65, 65, 65);
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
+}
+
+.search-btn {
+    position: absolute;
+    top: 0px;
+    width: 1% !important;
+    margin-left: 70%;
+}
+
+.searched-result-div {
+    margin: 3% 2% 0% 2%;
+    border-bottom: 0.1px solid #dddddd;
+}
+
+.searched-result-div h4 {
+    font-size: 1.2rem;
+}
+
+.searched-result-div h4 a {
+    text-decoration: none;
+}
+
+.searched-result-div p {
+    font-size: 0.9rem;
+}
+
+.keyword {
+    margin-bottom: 0rem;
+    color: #1900ff
+}
+
+.search-warning {
+    text-align: center;
+    margin: 3% 0%;
 }

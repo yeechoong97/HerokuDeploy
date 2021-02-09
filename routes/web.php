@@ -84,7 +84,6 @@ Route::get('learning/chart/round-bottom','ElearningController@round_bottom')->na
 
 //Forex Fundamental Analysis
 Route::get('learning/fundamental','ElearningController@fundamental')->name("learning-fundamental");
-Route::get('learning/watch','ElearningController@watch')->name("learning-watch");
 
 //Forex Technical Analysis
 Route::get('learning/technical/intro','ElearningController@technical_intro')->name("learning-technical-intro");
@@ -113,6 +112,8 @@ Route::get('learning/indicator/adl','ElearningController@adl')->name('learning-a
 Route::get('learning/indicator/obv','ElearningController@obv')->name('learning-obv');
 Route::get('learning/indicator/mfi','ElearningController@mfi')->name('learning-mfi');
 Route::get('learning/indicator/aroon','ElearningController@aroon')->name('learning-aroon');
+
+Route::post('learning/search','ElearningController@search')->name('learning-search');
 
 Auth::routes();
 
