@@ -64,9 +64,9 @@ class OrderController extends Controller
             ->where('orders.user_id',$id)
             ->join('trades', 'orders.ticketID', '=', 'trades.ticketID')
             ->select('orders.user_id','orders.ticketID','orders.pair','orders.type','orders.entry_price','trades.units','trades.exit_price','trades.cost','trades.profit','trades.created_at')
-            ->whereDate('trades.created_at','>=',$request->start)
-            ->whereDate('trades.created_at','<=',$request->end)
-            ->orderBy($request->sort,$request->order)
+            ->whereDate('trades.created_at','>=',$request->data['start'])
+            ->whereDate('trades.created_at','<=',$request->data['end'])
+            ->orderBy($request->data['sort'],$request->data['order'])
             ->paginate(8);
 
             return view('order.order-table',[

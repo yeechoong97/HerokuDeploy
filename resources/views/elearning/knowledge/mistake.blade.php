@@ -12,6 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Common Trading Mistakes</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763759/E-Learning/Mistake.jpg" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Horizon, T. (n.d.). 8 WAYS TO HELP STUDENTS LEARN THROUGH THEIR MISTAKES. Retrieved February 4, 2021, from https://tesolcourse.edu.vn/en/teaching-tips/8-ways-to-help-students-learn-through-their-mistakes/</cite></div>
                 <p>Trading forex can be a rewarding and exciting challenge, but it can also be discouraging if you are not careful. Whether you’re new to forex trading or an experienced veteran, avoiding these trading mistakes can help keep your trades on the right track.</p>
                 <ol>
                     <li><b>Not Doing Your Homework</b></li>

@@ -11,16 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/','MainController@index')->middleware('auth');
 
 Route::get('index','MainController@index')->name("index");
 Route::post('index/store','MainController@create');
 Route::put('index/close','MainController@close');
+Route::post('index/tutorial','MainController@setTutorial');
 
+Route::post('index/chat','MainController@checkSession');
 Route::post('index/data','MainController@getCandle');
 Route::post('index/chart','MainController@changeSeries');
+Route::post('index/session','MainController@setSession');
 
 
 //Order History

@@ -12,6 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Volumes</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767463/E-Learning/Volume.jpg" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Whatbuyusa. (2020). FOREX - Opportunity or trap. https://www.whatbuyusa.com/post/forex-opportunity-or-trap</cite></div>
                 <p>Volume is the amount of an asset or security that changes hands over some period of time, often over the course of a day. For instance, stock trading volume would refer to the number of shares of a security traded between its daily open and close. Trading volume, and changes to volume over the course of time, are important inputs for technical traders.</h5>
                 <h5>Understanding Volume</h5>
                 <p>Every transaction that takes place between a buyer and a seller of a security contributes to the total volume count of that security. One transaction occurs whenever a buyer agrees to purchase what a seller is offering for sale at a certain price. If only five transactions occur in a day, the volume for that day is set at five.</p>

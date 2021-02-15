@@ -8,13 +8,14 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2100px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2200px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Slippage</h3>
                 <h5>What is Slippage</h5>
                 <p>Slippage can be a common occurrence in forex trading but is often misunderstood. Understanding how forex slippage occurs can enable a trader to minimize negative slippage, while potentially maximizing positive slippage. These concepts will be explored in this article to shed some light on the mechanics of slippage in forex, as well as how traders can mitigate its adverse effects.</p>
                 <p>Slippage occurs when a trade order is filled at a price that is different to the requested price. This normally transpires during high periods of volatility as well as periods whereby orders cannot be matched at desired prices.</p>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767329/E-Learning/Slippage.png" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Forex.com. (2021e). What is Slippage? Slippage in Forex Explained. https://www.dailyfx.com/education/forex-trading-basics/what-is-slippage.html</cite></div>
                 <p>Slippage in forex tends to be seen in a negative light, however this normal market occurrence can be a good thing for traders. When forex trading orders are sent out to be filled by a liquidity provider or bank, they are filled at the best available price whether the fill price is above or below the price requested.</p>
                 <p>To put this concept into a numerical example, let’s say we attempt to buy the EUR/USD at the current market rate of 1.3650. When the order is filled, there are three potential outcomes: no slippage, positive slippage or negative slippage. These are explored in more depth below.</p>
                 <h5>Examples of Forex Slippage</h5>

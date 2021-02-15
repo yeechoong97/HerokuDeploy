@@ -40,8 +40,8 @@
                         {{ csrf_field() }}
                         <div class="input-container">
                             <input class="form-control" type="number" name="amount" id="amount_input" placeholder="Enter Amount" onkeyup="validateDepositInput('{{$account->balance}}')" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true"/>
-                            <i class="fas fa-check tick-span" id="tick" style="display:none"></i>
-                            <i class="fas fa-times cross-span" id="cross" style="display:none"></i>
+                            <i class="fas fa-check fa-lg tick-span" id="tick" style="display:none"></i>
+                            <i class="fas fa-times fa-lg cross-span" id="cross" style="display:none"></i>
                         </div>
                         </form>
                     </div>

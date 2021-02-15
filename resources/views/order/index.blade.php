@@ -5,17 +5,17 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <body style="overflow-y:auto">
 <div class="orders-history-container mx-auto">
-        <div class="orders-history-header">Order Details  &ensp;<i class="far fa-question-circle" onclick="toggleOrderLightbox()"></i></div>
+        <div class="orders-history-header">Order Details  &ensp;<i class="far fa-question-circle" onclick="toggleOrderIntro()"></i></div>
             <div class="orders-history-subcontainer">
                 <div class="orders-upper-container">
                     <div class="orders-date-input">
-                        <div class="half-date-input">
+                        <div class="half-date-input" id="start-date-intro">
                             <div class="date-label">Start Date :</div>
-                                <input type="date" id="start-date" class="form-control col-md-5 date-input" value="{{$start}}" min="{{$start}}" max="{{$now}}" onchange="filterDate()" onfocus="savePrevious()" onkeypress="return false" ></input>
+                                <input type="date" id="start-date" class="form-control col-md-5 date-input" value="{{$start}}" min="{{$start}}" max="{{$now}}" onchange="filterDate()" onfocus="savePreviousDate()" onkeypress="return false" ></input>
                             </div>
-                        <div class="half-date-input">
+                        <div class="half-date-input" id="end-date-intro">
                             <div class="date-label">End Date :</div>
-                                <input type="date" id="end-date" class="form-control col-md-5 date-input" value="{{$now}}" min="{{$start}}" max="{{$now}}" onchange="filterDate()" onfocus="savePrevious()" onkeypress="return false" ></input>
+                                <input type="date" id="end-date" class="form-control col-md-5 date-input" value="{{$now}}" min="{{$start}}" max="{{$now}}" onchange="filterDate()" onfocus="savePreviousDate()" onkeypress="return false" ></input>
                             </div>
                         </div>
                     </div>
@@ -31,8 +31,8 @@
                                     <th class="col3" id="th-pair" onclick="sortTable('pair')" >Instrument <span class="fas fa-caret-down" id="span-pair"></span></th>
                                     <th class="col2" id="th-units" onclick="sortTable('units')" >Units <span class="fas fa-caret-down" id="span-units"></span></th>
                                     <th class="col2" id="th-type" onclick="sortTable('type')" >Type <span class="fas fa-caret-down" id="span-type"></span></th>
-                                    <th class="col2">Entry</th>
-                                    <th class="col2">Exit</th>
+                                    <th class="col2" id="th-entry">Entry</th>
+                                    <th class="col2" id="th-exit">Exit</th>
                                     <th class="col3" id="th-cost" onclick="sortTable('cost')" >Spread Cost <span class="fas fa-caret-down" id="span-cost"></span></th>
                                     <th class="col3" id="th-profit" onclick="sortTable('profit')" >Profit/Loss <span class="fas fa-caret-down" id="span-profit"></span></th>
                                 </tr>

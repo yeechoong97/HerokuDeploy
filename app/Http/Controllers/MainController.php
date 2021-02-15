@@ -22,6 +22,7 @@ class MainController extends Controller
 
     public function index()
     {
+
         $id = Auth::user()->user_id;
         $account = Account::with(['order' => function($query){
                     $query->where('status',0)->orderBy('created_at','desc');
@@ -48,6 +49,7 @@ class MainController extends Controller
 
         $response = curl_exec($curl);
         curl_close($curl);       
+
         //Pass the EURUSD data from server to front end
         $data = "";
         $parseResponse = json_decode($response,true);
@@ -104,23 +106,28 @@ class MainController extends Controller
 
     public function create(Request $request)
     {
-        $id = Auth::user()->user_id;
-        $user_leverage = Account::where('user_id',$id)->first()->value('leverage');
-        $arr_leverage = explode(":",$user_leverage);
-        $leverage = intval($arr_leverage[0]);
-        $flag = false;
-        $remaining_unit = $request->unit;
-        $margin = 0;
-        $ticketid = "";
-        $message = "";
+        $userID = Auth::user()->user_id;
+        $flagCheck = false;
+        $marginComputed = 0;
+        $preProfit=0;
+        $multiplyFormula = 10000;
+        $spreadValue = 0;
+        $usedMargin = 0;
+        $ticketID = "";
+        $responseMessage = "";
+        $orderType = "";
+
+        $remainingUnit = $request->orderObject['unit'];
+        $userLeverage = intval($request->orderObject['leverage']);
+        $orderType = ($request->orderObject['type']=="sell") ? "Short" : "Long";
 
         //Loop to check any opposite orders to new order
-        while($flag!=true)
+        while($flagCheck!=true)
         {
             //Retrieve the oldest order 
-            $order = Order::where('user_id',$id)
-            ->where('pair',$request->instrument)
-            ->where('type','!=',$request->type)
+            $order = Order::where('user_id',$userID)
+            ->where('pair',$request->orderObject['instrument'])
+            ->where('type','!=',$orderType)
             ->where('status',0)
             ->oldest()
             ->first();
@@ -128,214 +135,180 @@ class MainController extends Controller
             //Check is there any orders
             if ($order!=null)
             {
-                $existing = $remaining_unit;
-                $remaining_unit = $remaining_unit - $order->available_units;
-                $reduced_unit = 0;
+                $existingUnit = $remainingUnit;
+                $remainingUnit = $remainingUnit - $order->available_units;
+                $reducedUnit = 0;
                 
                 //Check the new order units comparing to exisiting orders
-                if($remaining_unit>0)
+                if($remainingUnit>0)
                 {
-                    $reduced_unit = $order->available_units;
+                    $reducedUnit = $order->available_units;
                     $order->available_units = 0;
                     $order->status = 1;
-                    $flag=false;
+                    $flagCheck=false;
                 }
                 else
                 {
-                    $reduced_unit = $request->unit;
-                    $order->available_units = $order->available_units - $existing;
-                    $flag=true;
-                    $message="Orders have been reduced/closed successfully.";
+                    $reducedUnit = $request->orderObject['unit'];
+                    $order->available_units = $order->available_units - $existingUnit;
+                    $flagCheck=true;
+                    $responseMessage="Orders have been reduced/closed successfully.";
                 }
 
-                $ticketid = $order->ticketID;
-                if ($order->available_units ==0){ $order->status = 1;}
+                $ticketID = $order->ticketID;
+                if ($order->available_units ==0)
+                    $order->status = 1;
 
                 //Calculate the margin
-                $midpoint = (floatval($request->entry) + floatval($request->exit))/2;
-                switch($request->instrument)
+                $midPoint = (floatval($request->orderObject['entry']) + floatval($request->orderObject['exit']))/2;
+                switch($request->orderObject['instrument'])
                 {
                     case "USD/JPY":
-                        $margin = round(($reduced_unit/$leverage),4);
+                        $midPoint = 1;
                         break;
-            
                     case "EUR/JPY":
-                        $temp_sell = $request->EURUSD_sell;
-                        $temp_buy = $request->EURUSD_buy;
-                        $midpoint = (floatval($temp_sell) + floatval($temp_buy))/2;
-                        $margin = round(($reduced_unit/$leverage*$midpoint),4);
-                        break;
-            
-                    default: 
-                        $margin = round(($reduced_unit/$leverage*$midpoint),4);
+                        $EURUSDSell = $request->orderObject['EURUSDSell'];
+                        $EURUSDBuy = $request->orderObject['EURUSDBuy'];
+                        $midPoint = (floatval($EURUSDSell) + floatval($EURUSDBuy))/2;
                         break;
                 }
+                $marginComputed = round(($reducedUnit/$userLeverage*$midPoint),4);
 
-                if($remaining_unit>0)
-                {
-                    $margin = $order->margin;
-                }
-                $order->margin = $order->margin - $margin;
+                if($remainingUnit>0)
+                    $marginComputed = $order->margin;
+                $order->margin = $order->margin - $marginComputed;
                 $order->save();
 
-                $pre_profit=0;
-                $multiply = 10000;
-                $pips = 0;
-
                 //Compute the profit and cost
-                switch($request->instrument)
+                switch($request->orderObject['instrument'])
                 {
-                    case "USD/JPY":
-                        $sell = $request->USDJPY_sell;
-                        $buy = $request->USDJPY_buy;
-                        $midpoint = (floatval($sell) + floatval($buy)) /2;
-                        $pre_profit = 0.01 * $reduced_unit / $midpoint ;
-                        $multiply = 100;
-                        break;
-
                     case "EUR/JPY":
-                        $sell = $request->USDJPY_sell;
-                        $buy = $request->USDJPY_buy;
-                        $midpoint = (floatval($sell) + floatval($buy)) /2;
-                        $pre_profit = 0.01 * $reduced_unit / $midpoint ;
-                        $multiply = 100;
+                    case "USD/JPY":
+                        $USDJPYSell = $request->orderObject['USDJPYSell'];
+                        $USDJPYBuy = $request->orderObject['USDJPYBuy'];
+                        $midPoint = (floatval($USDJPYSell) + floatval($USDJPYBuy)) /2;
+                        $preProfit = 0.01 * $reducedUnit / $midPoint ;
+                        $multiplyFormula = 100;
                         break;
-
                     default:
-                        $pre_profit = 0.0001 * $reduced_unit ;
+                        $preProfit = 0.0001 * $reducedUnit ;
                         break;
                 }
 
-                if($request->type == "Short")
-                {
-                    $pips = ($request->entry - $order->entry_price) * $multiply;
-                }
+                if($orderType == "Short")
+                    $spreadValue = ($request->orderObject['entry'] - $order->entry_price) * $multiplyFormula;
                 else
-                {
-                    $pips = ($order->entry_price - $request->entry) * $multiply;
-                }
+                    $spreadValue = ($order->entry_price - $request->orderObject['entry']) * $multiplyFormula;
 
                 //Insert new trade record
                 $trades = new Trades();
-                $trades->ticketID =  $ticketid;
-                $trades->units = $reduced_unit;
-                $trades->exit_price =  $request->entry;
-                $trades->cost =  $pips;
-                $trades->profit =  $pre_profit * $pips;
+                $trades->ticketID =  $ticketID;
+                $trades->units = $reducedUnit;
+                $trades->exit_price =  $request->orderObject['entry'];
+                $trades->cost =  $spreadValue;
+                $trades->profit =  $preProfit * $spreadValue;
                 $trades->save();
 
                 //Update the account balance and margin
-                $used_margin = 0;
                 $account = Account::with(['order' => function($query){
                             $query->where('status',0);
-                            }])->where('user_id',$id)->first();
+                            }])->where('user_id',$userID)->first();
                 foreach($account->order as $order)
                 {
-                    $used_margin += $order->margin;
+                    $usedMargin += $order->margin;
                 }
-                $account->balance = $account->balance + ($pre_profit * $pips);
-                $account->margin = $account->margin + ($pre_profit * $pips) + $margin;
-                $account->margin_used = $used_margin/($account->margin+ $used_margin)*100;
-                if($account->margin > $account->balance){
+                $account->balance = $account->balance + ($preProfit * $spreadValue);
+                $account->margin = $account->margin + ($preProfit * $spreadValue) + $marginComputed;
+                $account->margin_used = $usedMargin/($account->margin+ $usedMargin)*100;
+                if($account->margin > $account->balance)
                     $account->margin = $account->balance;
-                }
                 $account->save();
             }
             else
             {
-                $last_record_id = Order::orderBy('id','desc')->first();
-                if(!$last_record_id){
-                    $ticketid = "AOD1" ;
-                } 
-                else{
-                    $ticketid = "AOD" . ($last_record_id->id + 1);
-                }
-
-                $margin = $request->margin;
-                if($request->unit != $remaining_unit)
+                $lastRecordID = Order::orderBy('id','desc')->first();
+                $ticketID = (!$lastRecordID) ? "AOD1" : "AOD" . ($lastRecordID->id + 1);
+                $marginComputed = $request->orderObject['margin'];
+                if($request->orderObject['unit'] != $remainingUnit)
                 {
-                    $midpoint = (floatval($request->entry) + floatval($request->exit))/2;
-                    switch($request->instrument)
+                    $midPoint = (floatval($request->orderObject['entry']) + floatval($request->orderObject['exit']))/2;
+                    switch($request->orderObject['instrument'])
                     {
                         case "USD/JPY":
-                            $margin = round(($reduced_unit/$leverage),4);
+                            $midPoint = 1;
                             break;
-                
                         case "EUR/JPY":
-                            $temp_sell = $request->EURUSD_sell;
-                            $temp_buy = $request->EURUSD_buy;
-                            $midpoint = (floatval($temp_sell) + floatval($temp_buy))/2;
-                            $margin = round(($reduced_unit/$leverage*$midpoint),4);
-                            break;
-                
-                        default: 
-                            $margin = round(($reduced_unit/$leverage*$midpoint),4);
+                            $EURUSDSell = $request->orderObject['EURUSDSell'];
+                            $EURUSDBuy = $request->orderObject['EURUSDBuy'];
+                            $midPoint = (floatval($EURUSDSell) + floatval($EURUSDBuy))/2;
                             break;
                     }
+                    $marginComputed = round(($reducedUnit/$userLeverage*$midpoint),4);
                 }
                 $order = new Order();
-                $order->user_id = $id;
-                $order->ticketID = $ticketid;
-                $order->margin = $margin;
-                $order->pair = $request->instrument;
-                $order->total_units = $remaining_unit;
-                $order->available_units = $remaining_unit;
-                $order->type = $request->type;
-                $order->entry_price = $request->entry;
+                $order->user_id = $userID;
+                $order->ticketID = $ticketID;
+                $order->margin = $marginComputed;
+                $order->pair = $request->orderObject['instrument'];
+                $order->total_units = $remainingUnit;
+                $order->available_units = $remainingUnit;
+                $order->type = $orderType;
+                $order->entry_price = $request->orderObject['entry'];
                 $order->save();
 
-                $used_margin = 0;
+                $usedMargin = 0;
                 $account = Account::with(['order' => function($query){
                             $query->where('status',0);
-                            }])->where('user_id',$id)->first();
+                            }])->where('user_id',$userID)->first();
                 foreach($account->order as $order)
                 {
-                    $used_margin += $order->margin;
+                    $usedMargin += $order->margin;
                 }
                 $account->balance = $account->balance ;
-                $account->margin = $account->margin - $margin;
-                $account->margin_used = $used_margin/($account->margin + $used_margin)*100;
+                $account->margin = $account->margin - $marginComputed;
+                $account->margin_used = $usedMargin/($account->margin + $usedMargin)*100;
                 $account->save();
-                $message="New Order has been created successfully.";
-                $flag=true;
+                $responseMessage="New Order has been created successfully.";
+                $flagCheck=true;
             }
         }
-        return response()->json(['message'=> $message]);
+        return response()->json(['message'=> $responseMessage]);
     }
 
     public function close(Request $request)
     {
-        $id = Auth::user()->user_id;
+        $userID = Auth::user()->user_id;
         //Update the order table 
-        $order = Order::where('ticketID',$request->ticketID)->first();
-        $units_used = $order->available_units;
-        if ($request->remaining_units ==0){ $order->status = 1;}
-        $order->available_units = $request->remaining_units;
-        $return_margin = $order->margin - $request->margin;
-        $order->margin = $request->margin;
+        $order = Order::where('ticketID',$request->orderObject['ticketID'])->first();
+        $unitUsed = $order->available_units;
+        if ($request->orderObject['remaining_units'] ==0)
+            $order->status = 1;
+        $order->available_units = $request->orderObject['remaining_units'];
+        $returnedMargin = $order->margin - $request->orderObject['margin'];
+        $order->margin = $request->orderObject['margin'];
         $order->save();
 
         //Insert new trade record
         $trades = new Trades();
-        $trades->ticketID = $request->ticketID;
-        $trades->units = $units_used - $request->remaining_units;
-        $trades->exit_price =  $request->exit;
-        $trades->cost =  $request->cost;
-        $trades->profit =  $request->profit;
+        $trades->ticketID = $request->orderObject['ticketID'];
+        $trades->units = $unitUsed - $request->orderObject['remaining_units'];
+        $trades->exit_price =  $request->orderObject['exit'];
+        $trades->cost =  $request->orderObject['cost'];
+        $trades->profit =  $request->orderObject['profit'];
         $trades->save();
 
         //Update the account balance and margin
-        $margin = 0;
+        $marginTotal = 0;
         $account = Account::with(['order' => function($query){
                     $query->where('status',0);
-                    }])->where('user_id',$id)->first();
+                    }])->where('user_id',$userID)->first();
         foreach($account->order as $order)
         {
-            $margin += $order->margin;
+            $marginTotal += $order->margin;
         }
-        $account->balance = $account->balance + $request->profit;
-        $account->margin = $account->margin + $request->profit + $return_margin;
-        $account->margin_used = $margin/($account->margin + $margin)*100;
+        $account->balance = $account->balance + $request->orderObject['profit'];
+        $account->margin = $account->margin + $request->orderObject['profit'] + $returnedMargin;
+        $account->margin_used = $marginTotal/($account->margin + $marginTotal)*100;
         if($account->margin > $account->balance){
             $account->margin = $account->balance;
         }
@@ -347,9 +320,9 @@ class MainController extends Controller
 
     public function getCandle(Request $request)
     {
-        $instrument = $request->instrument;
-        $interval = $request->interval;
-        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrument."/candles?count=1&price=M&granularity=".$interval."&smooth=true";
+        $chartInstrument = $request->chartObject['instrument'];
+        $chartInterval = $request->chartObject['interval'];
+        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$chartInstrument."/candles?count=1&price=M&granularity=".$chartInterval."&smooth=true";
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
         curl_setopt_array($curl, array(
@@ -380,15 +353,15 @@ class MainController extends Controller
             $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
             $data = $data . $tempResult;
         }
-        $instrument = $parseResponse['instrument'];
-        return response()->json(array('response'=> $data,'instrument'=> $instrument),200);
+        session(['login'=>1]); 
+        return response()->json(array('response'=> $data),200);
     }
 
     public function changeSeries(Request $request)
     {
-        $instrument = $request->instrument;
-        $interval = $request->interval;
-        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrument."/candles?count=500&price=M&granularity=".$interval."&smooth=true";
+        $instrumentSelected = $request->chartObject['instrument'];
+        $intervalSelected = $request->chartObject['interval'];
+        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/".$instrumentSelected."/candles?count=500&price=M&granularity=".$intervalSelected."&smooth=true";
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
         curl_setopt_array($curl, array(
@@ -422,4 +395,16 @@ class MainController extends Controller
         $instrument = $parseResponse['instrument'];
         return response()->json(array('response'=> $data,'instrument'=> $instrument),200);
     }
+
+    function setTutorial(Request $request)
+    {
+        $id = Auth::user()->user_id;
+        $account = Account::where('user_id',$id)->first();
+        $tutorial = 0;
+        if($request->status == "true")
+            $tutorial = 1;
+        $account->tutorial = $tutorial;
+        $account->save();
+    }
+
 }

@@ -12,6 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Order Types</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765170/E-Learning/EntryOrder.jpg" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>https://blog.startmytrade.com/introduction-to-forex-orders-and-its-types/</cite></div>
                 <p>There are many different types of forex orders, which traders use to manage their trades. While these may vary between different brokers, there tends to be several basic FX order types all brokers accept. Knowing what these are and having a firm understanding can help traders to enter and exit the market appropriately. Order types allow for bespoke trading styles that can provide equanimity for the trader. This article will discuss the main forex orders and how they can be utilized on a live trade.</p>
                 <h5>Market Orders</h5>
                 <p>The market order is probably the most basic and often the first FX order type traders come across. Just as the name implies, market orders are traded at market. This means if you want to get into the forex market immediately, you can trade a market order and be entered at the prevailing price. Typically, scalpers and day traders rely on market orders to enter and exit the market quickly, in accordance to their strategy.</p>

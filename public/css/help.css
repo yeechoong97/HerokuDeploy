@@ -42,24 +42,6 @@
     border-radius: 10px;
 }
 
-
-/* .lightbox .close:before,
-.lightbox .close:after {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    content: "";
-    position: absolute;
-    display: block;
-    margin: auto;
-    width: 32px;
-    height: 0;
-    color: #ffffff;
-    border-top: 2px solid white;
-    transform-origin: center;
-} */
-
 .lightbox .modal-content3 .modal-header3 .close {
     color: #ffffff;
     font-size: 30px;

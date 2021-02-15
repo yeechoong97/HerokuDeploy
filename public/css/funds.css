@@ -161,14 +161,12 @@ input::-webkit-inner-spin-button {
 
 .tick-span {
     color: greenyellow;
-    padding: 10px;
-    font-size: 20px;
+    margin: 10px;
 }
 
 .cross-span {
     color: red;
-    padding: 10px;
-    font-size: 20px;
+    margin: 10px;
 }
 
 .error-label {

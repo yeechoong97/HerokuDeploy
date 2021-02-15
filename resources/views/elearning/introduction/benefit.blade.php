@@ -8,10 +8,11 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1700px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1800px;">
           <div class="sidenav-content-details">
             <h3 id="learning-title">Forex Benefits</h3>
             <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612761634/E-Learning/Benefits.jpg" class="img-padding">
+            <div class="img-citation">Image retrieved from <cite>Iboi, G. (2021). What is Forex Trading – Quick Guide to Become a Pro. https://businessfinger.com/what-is-forex-trading-quick-guide-to-become-a-pro/</cite></div>
             <h5>Benefits of Trading Forex</h5>
             <p>There are many benefits and advantages to trading Forex. Here are just a few reasons why so many people are choosing this market as a business opportunity:</p>
               <ol>

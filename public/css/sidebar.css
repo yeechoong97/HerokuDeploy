@@ -77,8 +77,8 @@
 .sidenav .fa-plus,
 .sidenav .fa-minus {
     float: left;
-    padding-right: 8px;
-    padding-top: 5px;
+    margin-right: 8px;
+    margin-top: 4px;
 }
 
 
@@ -131,6 +131,7 @@ ul {
     font-size: 16px;
     line-height: 1.6;
     padding-bottom: 1%;
+    text-align: justify;
 }
 
 .sidenav-content-details li {
@@ -193,4 +194,9 @@ ul {
 .search-warning {
     text-align: center;
     margin: 3% 0%;
+}
+
+.img-citation {
+    margin-bottom: 1rem;
+    font-size: 13px;
 }

@@ -12,6 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Technical Indicator Introduction</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767596/E-Learning/IndicatorTypes.png" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Stockstotrade. (2017). Types of Technical Indicators. https://stockstotrade.com/types-technical-indicators-infographic/</cite></div>
                 <p>Technical indicators are heuristic or pattern-based signals produced by the price, volume, and/or open interest of a security or contract used by traders who follow technical analysis.</p>
                 <p>By analyzing historical data, technical analysts use indicators to predict future price movements. Examples of common technical indicators include the Relative Strength Index, Money Flow Index, Stochastics, MACD and Bollinger Bands</p>
                 <h5>How Technical Indicators Work</h5>

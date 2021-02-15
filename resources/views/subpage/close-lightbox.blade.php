@@ -21,10 +21,10 @@
 
                      <div class="lower-body">
                         <div class="units-container">
-                           <div class="left-units-percentage" id="first-left-units" onclick="openOrderBox('T',25)">25%</div>
-                           <div class="units-percentage" id="second-left-units" onclick="openOrderBox('T',50)">50%</div>
-                           <div class="units-percentage" id="third-left-units" onclick="openOrderBox('T',75)">75%</div>
-                           <div class="right-units-percentage" id="fourth-left-units" onclick="openOrderBox('T',100)">100%</div>
+                           <div class="left-units-percentage" id="first-quarter-units" onclick="openOrderBox('T',25)">25%</div>
+                           <div class="units-percentage" id="half-units" onclick="openOrderBox('T',50)">50%</div>
+                           <div class="units-percentage" id="third-quarter-units" onclick="openOrderBox('T',75)">75%</div>
+                           <div class="right-units-percentage" id="full-units" onclick="openOrderBox('T',100)">100%</div>
                            <input type="hidden" id="hidden_percent" value=100></input>
                         </div>
                         <div class="detail-container">

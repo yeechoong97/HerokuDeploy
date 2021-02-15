@@ -60,4 +60,39 @@ html {
     height: 60px;
     width: 40px;
     margin-bottom: 15px;
+    animation-name: spin;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+@media (min-width: 1200px) {
+    .right-align {
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+        max-width: 90% !important;
+    }
+}
+
+.chat-div {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px;
+}
+
+.chat {
+    cursor: pointer;
 }

@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Commodity Channel Index</h3>
-                <p>Developed by Donald Lambert, the Commodity Channel Index​ (CCI) is a momentum-based oscillator used to help determine when an investment vehicle is reaching a condition of being overbought or oversold.</p>
+                <p>Developed by Donald Lambert, the Commodity Channel Index (CCI) is a momentum-based oscillator used to help determine when an investment vehicle is reaching a condition of being overbought or oversold.</p>
                 <p>This technical indicator is also used to assess price trend direction and strength. This information allows traders to determine if they want to enter or exit a trade, refrain from taking a trade, or add to an existing position. In this way, the indicator can be used to provide trade signals when it acts in a certain way.</p>
                 <h5>Formula For the Commodity Channel Index</h5>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768122/E-Learning/CCIFormula.png" class="img-padding" >

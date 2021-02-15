@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1800px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1900px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Breakout</h3>
                 <p>A breakout refers to when the price of an asset moves above a resistance area, or moves below a support area. Breakouts indicate the potential for the price to start trending in the breakout direction. For example, a breakout to the upside from a chart pattern could indicate the price will start trending higher. Breakouts that occur on high volume (relative to normal volume) show greater conviction which means the price is more likely to trend in that direction.</p>
@@ -20,6 +20,7 @@
                 <p>Traders who use breakouts to initiate trades typically utilize stop loss orders in case the breakout fails. In the case of going long on an upside breakout, a stop loss is typically placed just below the resistance level. In the case of going short on a downside breakout, a stop loss is typically placed just above the support level that has been breached.</p>
                 <h5>Example of a Breakout</h5>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767401/E-Learning/Breakout.png" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Mitchell, C. (2020b). Breakout Definition and Example. https://www.investopedia.com/terms/b/breakout.asp/</cite></div>
                 <p>The chart shows a large increase in volume, associated with an earnings release, as the price breaks through the resistance area of a triangle chart pattern. The breakout was so strong that it caused a price gap. The price continued to move higher and didn't retrace to the original breakout point. That is a sign of a very strong breakout.</p>
                 <p>Traders could have used the breakout to potentially enter long positions and/or get out of short positions. If entering long, a stop loss would be placed just below the resistance level of the triangle (or even below triangle support). Because the price had a large gaping breakout, this stop loss location may not be ideal. After the price continued to move higher following the breakout the stop loss could be trailed up in order to reduce risk or lock in a profit.</p>
                 <p class="citation">*Adapted from <cite>Mitchell, C. (2020b). Breakout Definition and Example. https://www.investopedia.com/terms/b/breakout.asp/</cite></p>

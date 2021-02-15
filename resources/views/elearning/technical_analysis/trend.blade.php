@@ -11,7 +11,8 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2100px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Trend</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767523/E-Learning/Trend.jpg" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1613376303/E-Learning/Trend.jpg" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Bridgr. (2017). Taming the Supply Chain “ Bullwhip Effect ” with IoT. https://medium.com/@Bridgr/taming-the-supply-chain-bullwhip-effect-with-iot-fb5757552f78</cite></div>
                 <p>A trend is the overall direction of a market or an asset's price. In technical analysis, trends are identified by trendlines or price action that highlight when the price is making higher swing highs and higher swing lows for an uptrend, or lower swing lows and lower swing highs for a downtrend.</p>
                 <p>Many traders opt to trade in the same direction as a trend, while contrarians seek to identify reversals or trade against the trend. Uptrends and downtrends occur in all markets, such as stocks, bonds, and futures. Trends also occur in data, such as when monthly economic data rises or falls from month to month.</p>
                 <h5>How Trends Work</h5>

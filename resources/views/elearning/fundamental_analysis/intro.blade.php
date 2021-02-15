@@ -8,10 +8,11 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer" >
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2300px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Fundamental Analysis Introduction</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766943/E-Learning/Fundamental.png" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Bearmac. (2020). A Guide to Fundamental Analysis of Cryptocurrencies. https://www.thecryptovault.net/a-guide-to-fundamental-analysis-of-cryptocurrencies/</cite></div>
                 <p>Fundamental Analysis is a broad term that describes the act of trading based purely on global aspects that influence supply and demand of currencies, commodities, and equities. Many traders will use both fundamental and technical methods to determine when and where to place trades, but they also tend to favor one over the other. However, if you would like to use only fundamental analysis, there are a variety of sources to base your opinion.</p>
                 <h5>Central Banks</h5>
                 <p>Central banks are likely one of the most volatile sources for fundamental trading. The list of actions they can take is vast; they can raise interest rates, lower them (even into negative territory), keep them the same, suggest their stance will change soon, introduce non-traditional policies, intervene for themselves or others, or even revalue their currency. Fundamental analysis of central banks is often a process of poring through statements and speeches by central bankers along with attempting to think like them to predict their next move.</p>

@@ -12,7 +12,7 @@ use App\Common;
     <div class="row upper-row-container" >
         <div class="col-md-6 col-xl-10 offset-xl-0 chart-section" >
             <div class="chart-container-btn">
-                <select class="form-control col-md-2" id="typeSelect" onchange="create()">
+                <select class="form-control col-md-2" id="typeSelect" onchange="createAnnotation()">
                     <option value="default" selected disabled>Annotation Type</option>
                     <option value="reset">Reset Annotation</option>
                     @foreach(Common::$annotation as $key=> $value)
@@ -38,7 +38,7 @@ use App\Common;
                 </select>
                 <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset</button>
                 <div class="question-btn">
-                    <i class="far fa-question-circle"></i>
+                    <i class="far fa-question-circle" onclick="showChartTips()"></i>
                 </div>
 
                 <div class="f_control col-md-1 spread_order_button" onclick="testing()">
@@ -72,27 +72,27 @@ use App\Common;
                         <table class="table" >
                             <thead>
                                 <tr>
-                                    <th colspan="2" class="col" >Account Details &ensp;<i class="far fa-question-circle" onclick="toggleMainHelpLightbox('account')"></i></th>
+                                    <th colspan="2" class="col" >Account Details &ensp;<i class="far fa-question-circle" onclick="showAccountTips()"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr id="currency-intro">
                                     <td>Currency :</td>
                                     <td>USD</td>
                                 </tr>
-                                <tr>
+                                <tr id="balance-intro">
                                     <td>Balance :</td>
                                     <td>${{$account->balance}}</td>
                                 </tr>
-                                <tr>
+                                <tr  id="margin-intro">
                                     <td>Margin :</td>
                                     <td id="account-margin">${{$account->margin}}</td>
                                 </tr>
-                                <tr>
+                                <tr id="margin-used-intro">
                                     <td>Margin Used :</td>
                                     <td id="account-margin-used">{{$account->margin_used}}</td>
                                 </tr>
-                                <tr>
+                                <tr id="leverage-intro">
                                     <td>Leverage :</td>
                                     <td id="account-leverage">{{$account->leverage}}</td>
                                 </tr>
@@ -113,18 +113,18 @@ use App\Common;
                         <table class="table-fixed table" id="all_orders">
                             <thead>
                             <tr>
-                                <th class="col1">TicketID</th>
-                                <th class="col2">Date</th>
-                                <th class="col1">Pair</th>
-                                <th class="col1">Units</th>
-                                <th class="col1">Type</th>
-                                <th class="col1">Margin</th>
-                                <th class="col1">Price</th>
-                                <th class="col1">Current</th>
-                                <th class="col1">Profit(USD)</th>
-                                <th class="col2">Profit(Spread)</th>
-                                <th class="col1">Profit(%)</th>
-                                <th class="col1">Action <i class="far fa-question-circle" onclick="toggleMainHelpLightbox('order')"></i></th>
+                                <th class="col1" id="ticket-intro">TicketID</th>
+                                <th class="col2" id="date-intro">Date</th>
+                                <th class="col1" id="pair-intro">Pair</th>
+                                <th class="col1" id="units-intro">Units</th>
+                                <th class="col1" id="type-intro">Type</th>
+                                <th class="col1" id="margin-order-intro">Margin</th>
+                                <th class="col1" id="price-intro">Price</th>
+                                <th class="col1" id="current-intro">Current</th>
+                                <th class="col1" id="profit-usd-intro">Profit(USD)</th>
+                                <th class="col2" id="profit-spread-intro">Profit(Spread)</th>
+                                <th class="col1" id="profit-intro">Profit(%)</th>
+                                <th class="col1" id="action-intro">Action <i class="far fa-question-circle" onclick="showOrderTips()"></i></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -153,20 +153,20 @@ use App\Common;
         <div class="col-md-6 col-xl-2 offset-xl-0 price-section">
             <div class="price-container bg-white rounded shadow mx-auto">
                 <div class="header">
-                    <h6>Rates &ensp;<i class="far fa-question-circle" onclick="toggleMainHelpLightbox('rates')"></i></h6>
+                    <h6>Rates &ensp;<i class="far fa-question-circle" onclick="showRateTips()"></i></h6>
                 </div>
-                <div class="price mx-auto">
-                    <div class="rates">
-                        <div class="header" id="EUR_USD_header" onclick="changeInstrument('EUR_USD')" style="background-color:#fff7eb">EUR/USD <span class="fas fa-check-circle" id="EUR_USD_span"></span></div>
+                <div class="price mx-auto" >
+                    <div class="rates rate-active" id="EUR_USD_div">
+                        <div class="header" id="EUR_USD_header" onclick="changeInstrument('EUR_USD')">EUR/USD <span class="fas fa-check-circle" id="EUR_USD_span"></span></div>
                             <div class="rates-container">
-                                <div class="sell-rates" id="EUR_USD_Sell" style="background-color:#ffeded"></div>
-                                <div class="buy-rates" id="EUR_USD_Buy" style="background-color:#e0f0ff"></div>
+                                <div class="sell-rates" id="EUR_USD_Sell" ></div>
+                                <div class="buy-rates" id="EUR_USD_Buy" ></div>
                             </div>
-                        <div class="pips" id="EUR_USD_Pips" style="background-color:#f5edff"></div>
+                        <div class="pips" id="EUR_USD_Pips" ></div>
                     </div>
                 </div>
                 <div class="price mx-auto">
-                    <div class="rates">
+                    <div class="rates" id="AUD_USD_div">
                         <div class="header" id="AUD_USD_header" onclick="changeInstrument('AUD_USD')">AUD/USD <span class="fas fa-check-circle" id="AUD_USD_span" style="display:none"> </div>
                             <div class="rates-container">
                                 <div class="sell-rates" id="AUD_USD_Sell"></div>
@@ -176,7 +176,7 @@ use App\Common;
                     </div>
                 </div>
                 <div class="price mx-auto">
-                    <div class="rates">
+                    <div class="rates" id="GBP_USD_div">
                         <div class="header" id="GBP_USD_header" onclick="changeInstrument('GBP_USD')">GBP/USD <span class="fas fa-check-circle" id="GBP_USD_span" style="display:none"></div>
                             <div class="rates-container">
                                 <div class="sell-rates" id="GBP_USD_Sell"></div>
@@ -186,7 +186,7 @@ use App\Common;
                     </div>
                 </div>
                 <div class="price mx-auto">
-                    <div class="rates">
+                    <div class="rates" id="USD_JPY_div">
                         <div class="header" id="USD_JPY_header" onclick="changeInstrument('USD_JPY')">USD/JPY<span class="fas fa-check-circle" id="USD_JPY_span" style="display:none"></div>
                             <div class="rates-container">
                                 <div class="sell-rates" id="USD_JPY_Sell"></div>
@@ -196,7 +196,7 @@ use App\Common;
                     </div>
                 </div>
                 <div class="price mx-auto">
-                    <div class="rates">
+                    <div class="rates" id="EUR_JPY_div">
                         <div class="header" id="EUR_JPY_header" onclick="changeInstrument('EUR_JPY')">EUR/JPY <span class="fas fa-check-circle" id="EUR_JPY_span" style="display:none"></div>
                             <div class="rates-container">
                                 <div class="sell-rates" id="EUR_JPY_Sell"></div>
@@ -209,16 +209,19 @@ use App\Common;
         </div>
     </div>
 </div>
+
 <div id="indicator-lightbox"></div>
+
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
 @include('subpage.main-help-lightbox')
 </body>
-<script type="text/javascript" src="{{ URL::asset('js/indicator.js') }}"></script>   
+<script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/socket.js') }}"></script>   
 <script type="text/javascript">
+
 //Append Temporary Data into Table
-var arrayInstrument = [];
+    let arrayInstrument = [];
 @foreach($tempData as $key=>$value)
     var tempArray = [];
     @foreach($value as $id => $info)
@@ -228,18 +231,25 @@ var arrayInstrument = [];
 @endforeach
 appendTempData(arrayInstrument);
 
+
+
 //Plot Chart
-var token = $('meta[name="csrf-token"]').attr('content');
-var result,mapping,secondPlot = "";
-var result = `{!!$data!!}`;
+const token = $('meta[name="csrf-token"]').attr('content');
+var mapping,secondPlot,chartStreaming;;
+let chartData = `{!!$data!!}`;
 var chart = anychart.stock();
 var plot = chart.plot(0);
 var dataTable = anychart.data.table();
-var streaming;
+
+//Stop the ajax and socket before refresh
+window.onbeforeunload = () => {
+    clearInterval(chartStreaming);
+    socket.off();
+}
 
 anychart.onDocumentReady(function ()
 {
-    dataTable.addData(result);
+    dataTable.addData(chartData);
     mapping = dataTable.mapAs({open: 1, high: 2, low: 3, close: 4 });
 
     // map loaded data for the scroller
@@ -260,31 +270,32 @@ anychart.onDocumentReady(function ()
         case "line":
         case "area":
         case "column":
-        case "stick":
-        case "market":
             return  series.name()+ ": " + validateValue(this.value);
+            break;
         case "candlestick":
         case "ohlc":
             return series.name()   + ": " +  "(O:" + this.open + " / "+ "H:" + this.high + " / " + "L:" +  this.low + " / "+ "C:" + this.close + ")";
             break;
-        case "range-area":
-            return series.name()+ ": (" + "H:"+this.high + ";" + "L:" + this.low +")";
     }
     });
-
 
     var series = plot.candlestick(mapping);
     var instrument = "{{$instrument}}";
     instrument = instrument.replace("_","/");
     series.name(instrument);
-    var title = chart.title();
-    title.enabled(true);
-    title.text(instrument+ " Chart");
-    title.fontSize(24);
-    title.fontWeight('bold');
-    title.fontFamily("San Serif");
-    title.margin(-10,0,-40,0);
-    title.align("right");
+    chart.title({
+        enabled : true,
+        text: `${instrument}`,
+        fontSize: 24,
+        fontWeight: 'bold',
+        fontFamily: 'San Serif',
+        align: "right",
+        margin: {
+            top: -10,
+            bottom: -40,
+        }
+    });
+
     series.legendItem().iconType('rising-falling');
     chart.scroller().candlestick(mapping);
     chart.crosshair().displayMode("float");
@@ -295,36 +306,35 @@ anychart.onDocumentReady(function ()
     document.getElementById("typeSelect").value = "default";
     });
 
-    streaming = setInterval(stream, 1000);
+    //chartStreaming = setInterval(streamChart, 1000);
 });
 
 //Updating chart
-function stream() {
-        var series = document.getElementById('seriesSelect').value;
-        var interval = document.getElementById('intervalSelect').value;
-        var instrument = document.getElementById('instrumentSelect').value;
+function streamChart() {
+        let seriesSelected = document.getElementById('seriesSelect').value;
+        let intervalSelected = document.getElementById('intervalSelect').value;
+        let instrumentSelected = document.getElementById('instrumentSelect').value;
+        let chartObject = {interval: intervalSelected , instrument: instrumentSelected};
         $.ajax({
             type:'POST',
             url:'index/data',
             data: {
                 _token:token,
-                series:series,
-                interval:interval,
-                instrument:instrument,
+                chartObject : chartObject
             },
             success:function(data) {
-            dataTable.addData(data.response);
+                dataTable.addData(data.response);
         }});
 };
 
-function checkTools(tool,obj)
+function checkTools(indicatorSelected,obj)
 {
-    var seriesCheck = chart.getPlotsCount();
-    var status = "False";
-    var upperArray = ["AMA","BBands","EMA","KDJ","KeltnerChannels","MMA","PSAR","PriceChannels","SMA"];
-    for(var i in upperArray)
+    let seriesCheck = chart.getPlotsCount();
+    let status = false;
+    let upperArray = ["BBands","EMA","MMA","PSAR","SMA"];
+    for(let i in upperArray)
     {
-        if(tool == upperArray[i])
+        if(indicatorSelected == upperArray[i])
         {
             status = true;
             break;
@@ -344,96 +354,63 @@ function checkTools(tool,obj)
         else 
         {
             if(upperCheck=1 && status==false)
-                removeUpperIndicator();
-            else
                 removeLowerIndicator();
+            else
+                removeUpperIndicator();
         }
     }
+
     @foreach(Common::$indicatorFunc as $key=> $value)
-        if (tool == "{{$key}}")
+        if (indicatorSelected == "{{$key}}")
         {
             eval("{{$value}}");
             document.getElementById('indicatorSelect').value = "default";
-            toggleLightboxIndicator(tool);
+            toggleLightboxIndicator(indicatorSelected);
         }
     @endforeach
 }
 
-//Stop the ajax and socket before refresh
-window.onbeforeunload = () => {
-    clearInterval(streaming);
-    socket.off();
-}
 
-//Close Lightbox
-window.onclick = function(event) {
-    var lightbox = document.getElementById('main-help-lightbox');
-    if (event.target == lightbox) {
-        toggleMainHelpLightbox('div');
+//Append Tutorial
+window.onload = function(){ 
+    var loginTime = "{{Session::get('login')}}";
+    var tutorialValidate = "{{$account->tutorial}}";
+    if(tutorialValidate == 0 && loginTime == 0)
+    {
+        showTutorial();
+        document.querySelector('.introjs-skipbutton').style.display="none";
     }
-}
-
+} 
 
 function appendLightbox(tool)
 {
-    switch (tool) {
-        case "MACD":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.macd-lightbox')`;
-            break
-        case "RSI":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.rsi-lightbox')`;
-            break;
-        case "BBands":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.bollinger-lightbox')`;
-            break;
-        case "Stochastic":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.stochastic-lightbox')`;
-            break;
-        case "Momentum":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.momentum-lightbox')`;
-            break;
-        case "ROC":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.roc-lightbox')`;
-            break;
-        case "WilliamsR":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.william-lightbox')`;
-            break;
-        case "CCI":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.cci-lightbox')`;
-            break;
-        case "PSAR":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.psar-lightbox')`;
-            break;
-        case "DMI":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.dmi-lightbox')`;
-            break;
-        case "ATR":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.atr-lightbox')`;
-            break;
-        case "EMA":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.ema-lightbox')`;
-            break;
-        case "SMA":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.sma-lightbox')`;
-            break;
-        case "ADL":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.adl-lightbox')`;
-            break;
-        case "OBV":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.obv-lightbox')`;
-            break;
-        case "MFI":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.mfi-lightbox')`;
-            break;
-        case "Aroon":
-            document.getElementById('indicator-lightbox').innerHTML = `@include('subpage_indicator.aroon-lightbox')`;
-            break;
-    }
-toggleLightboxIndicator(tool);
-appendFuncBtn(tool);
+    let toolList = [
+        {title: "MACD", view: `@include('subpage_indicator.macd-lightbox')`},
+        {title: "RSI", view: `@include('subpage_indicator.rsi-lightbox')`},
+        {title: "BBands", view: `@include('subpage_indicator.bollinger-lightbox')`},
+        {title: "Stochastic", view: `@include('subpage_indicator.stochastic-lightbox')`},
+        {title: "Momentum", view: `@include('subpage_indicator.momentum-lightbox')`},
+        {title: "ROC", view: `@include('subpage_indicator.roc-lightbox')`},
+        {title: "WilliamsR", view: `@include('subpage_indicator.william-lightbox')`},
+        {title: "CCI", view: `@include('subpage_indicator.cci-lightbox')`},
+        {title: "PSAR", view: `@include('subpage_indicator.psar-lightbox')`},
+        {title: "DMI", view: `@include('subpage_indicator.dmi-lightbox')`},
+        {title: "ATR", view: `@include('subpage_indicator.atr-lightbox')`},
+        {title: "EMA", view: `@include('subpage_indicator.ema-lightbox')`},
+        {title: "SMA", view: `@include('subpage_indicator.sma-lightbox')`},
+        {title: "ADL", view: `@include('subpage_indicator.adl-lightbox')`},
+        {title: "OBV", view: `@include('subpage_indicator.obv-lightbox')`},
+        {title: "MFI", view: `@include('subpage_indicator.mfi-lightbox')`},
+        {title: "Aroon", view: `@include('subpage_indicator.aroon-lightbox')`}
+    ];
+
+    for (let index in toolList)
+    {
+        if (toolList[index].title === tool)
+        document.getElementById('indicator-lightbox').innerHTML = toolList[index].view;
+    }    
+    toggleLightboxIndicator(tool);
+    appendIndicatorEvent(tool);
 }
-
-
 </script>
-
 @stop

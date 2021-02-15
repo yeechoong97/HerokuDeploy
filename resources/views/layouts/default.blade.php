@@ -16,20 +16,26 @@
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     <link href="{{ asset('css/indicator-lightbox.css') }}" rel="stylesheet">
     <link href="{{ asset('css/help.css') }}" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
     <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" rel="stylesheet" type="text/css">
-    <!-- <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" rel="stylesheet" type="text/css"> -->
-
+    <link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-rtl.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-rtl.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs.min.css" rel="stylesheet">
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!-- <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
-    <!-- <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script> -->
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-stock.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js"></script>
     <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-annotations.min.js"></script>
-    <script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
+    <script src="https://shielded-tor-33805.herokuapp.com/socket.io/socket.io.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/intro.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/intro.min.js"></script>
+
+
 
     <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>   
     <script type="text/javascript" src="{{ URL::asset('js/funds.js') }}"></script>   

@@ -7,7 +7,7 @@
 <div class="elearning-container">
     <div class="row learning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2600px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Forex Vs Stock</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612762204/E-Learning/ForexVsStock.jpg" class="img-padding" >
@@ -53,6 +53,7 @@
                         <li><b>24 Hour Markets</b></li>
                             Forex is an over the counter market meaning that it is not transacted over a traditional exchange. Trading is facilitated through the interbank market. This means that trading can go on all around the world during different countries business hours and trading sessions. Therefore, the forex trader has access to trading virtually 24 hours a day, 5 days a week. Major stock indices on the other hand, trade at different times and are affected by different variables.
                         <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612762243/E-Learning/ForexSession.png" class="img-padding" >
+                        <div class="img-citation">Image retrieved from <cite>DailyFx. (2019). Forex Vs Stocks: Top Differences & How to Trade Them. https://www.dailyfx.com/education/beginner/forex-vs-stocks.html</cite></div>
                         <li><b>Minimal or No Comission</b></li>
                             Most forex brokers charge no commission, instead they make their margin on the spread – which is the difference between the buy price and the sell price. When trading equities (stocks) or a futures contract, or a major index like the S&P 500, often traders must pay the spread along with a commission to a broker.
                         <li><b>Narrow focus vs wide focus</b></li>

@@ -1,9 +1,9 @@
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
-for (var i = 0; i < dropdown.length; i++) {
+for (let i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener("click", function() {
         this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
+        let dropdownContent = this.nextElementSibling;
         if (dropdownContent.innerHTML.includes("href")) {
             if (dropdownContent.style.display === "block") {
                 dropdownContent.style.display = "none";
@@ -18,16 +18,15 @@ for (var i = 0; i < dropdown.length; i++) {
     });
 }
 
-for (var i = 0; i < dropdown.length; i++) {
-    var child = dropdown[i].nextElementSibling;
-    var title = document.getElementById("learning-title").innerHTML;
-    var val = (String(child.innerHTML)).trim();
-    var childNodes = child.childNodes;
-    for (var j = 0; j < childNodes.length; j++) {
-        if (typeof(childNodes[j].innerHTML) != "undefined") {
-            if (childNodes[j].innerHTML.includes(title)) {
-                dropdown[i].click();
-                childNodes[j].classList.add("active");
+for (let index in dropdown) {
+    let child = dropdown[index].nextElementSibling;
+    let title = document.getElementById("learning-title").innerHTML;
+    let childNodes = child.childNodes;
+    for (let jIndex in childNodes) {
+        if (typeof(childNodes[jIndex].innerHTML) != "undefined") {
+            if (childNodes[jIndex].innerHTML.includes(title)) {
+                dropdown[index].click();
+                childNodes[jIndex].classList.add("active");
                 break;
             }
         }

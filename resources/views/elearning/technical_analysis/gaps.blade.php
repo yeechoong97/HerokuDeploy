@@ -8,10 +8,11 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3600px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3800px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Gaps</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612769146/E-Learning/MarketGaps.svg" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Forex.com. (2021b). Understanding Market Gaps and Slippage. https://www.forex.com/en/education/education-themes/trading-concepts/understanding-market-gaps-and-slippage/</cite></div>
                 <p>Gaps are sharp breaks in price with no trading occurring in between. Gaps can happen moving up or moving down. In the forex market, gaps primarily occur over the weekend because it is the only time the forex market closes. Gaps may also occur on very short timeframes such as a one-minute chart or immediately following a major news announcement.</p>
                 <h5>Example of when gappage can occure include:</h5>
                 <ul>
@@ -31,12 +32,15 @@
                     <li><b>Breakway gaps</b></li>
                     Breakway gaps signal a new trend where the asset ‘gaps away’ from the price pattern, as can be seen below where the gap triggers a breakout. If a breakaway gap is accompanied by higher trading volume, it may be worth taking a position long for a breakaway gap up, and short for a breakaway gap down, on the candle following the gap.
                     <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767233/E-Learning/Breakway.png" class="img-padding" >
+                    <div class="img-citation">Image retrieved from <cite>Lobel, B. (2019). Trading the Gap: What are Gaps & How to Trade Them? https://www.dailyfx.com/forex/education/trading_tips/daily_trading_lesson/2019/10/29/gap-trading-strategies.html</cite></div>
                     <li><b>Continuation or runaway gaps</b></li>
                     Continuation or runaway gaps show an acceleration of an already bullish or bearish pattern in the same direction. This can be caused by a news event that confirms the sentiment and furthers the trend. Traders might look to follow the trend and place a stop just below the gap for a bullish runaway gap and just above for a bearish runaway gap.
                     <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767233/E-Learning/Continuation.png" class="img-padding" >
+                    <div class="img-citation">Image retrieved from <cite>Lobel, B. (2019). Trading the Gap: What are Gaps & How to Trade Them? https://www.dailyfx.com/forex/education/trading_tips/daily_trading_lesson/2019/10/29/gap-trading-strategies.html</cite></div>
                     <li><b>Exhaustion gaps</b></li>
                     Exhaustion gaps are, conversely to continuation gaps, where price makes a final gap in the trend direction, but then reverses. This is often caused by a herd mentality of traders rushing to the trend and moving the stock into overbought territory. Therefore, experienced traders will be watching for the reversal and take the contrary position to the prior trend.
                     <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767232/E-Learning/Exhaustion.png" class="img-padding" >
+                    <div class="img-citation">Image retrieved from <cite>Lobel, B. (2019). Trading the Gap: What are Gaps & How to Trade Them? https://www.dailyfx.com/forex/education/trading_tips/daily_trading_lesson/2019/10/29/gap-trading-strategies.html</cite></div>
                 </ol>
                 <h5>What Does It Mean When A Gap Has Been "Filled"</h5>
                 <p>A gap being ‘filled’ refers to the price returning to the original level before the gap happened. This usually means the price action, in the following days or weeks, retraces to the last day before a gap.</p>

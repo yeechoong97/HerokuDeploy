@@ -1,23 +1,23 @@
 //sort the table accordingly
 function sortTable(element) {
-    var list = ["created_at", "units", "pair", "type", "profit", "cost"];
+    var sortList = ["created_at", "units", "pair", "type", "profit", "cost"];
 
-    for (var item in list) {
-        if (list[item] == element) {
-            if (document.getElementById("span-" + list[item]).classList.contains('fa-caret-up')) {
-                document.getElementById("span-" + list[item]).classList.remove('fa-caret-up');
-                document.getElementById("span-" + list[item]).classList.add('fa-caret-down');
+    for (let index in sortList) {
+        if (sortList[index] == element) {
+            if (document.getElementById(`span-${sortList[index]}`).classList.contains('fa-caret-up')) {
+                document.getElementById(`span-${sortList[index]}`).classList.remove('fa-caret-up');
+                document.getElementById(`span-${sortList[index]}`).classList.add('fa-caret-down');
                 document.getElementById("hidden_order").value = "desc";
             } else {
-                document.getElementById("span-" + list[item]).classList.remove('fa-caret-down');
-                document.getElementById("span-" + list[item]).classList.add('fa-caret-up');
+                document.getElementById(`span-${sortList[index]}`).classList.remove('fa-caret-down');
+                document.getElementById(`span-${sortList[index]}`).classList.add('fa-caret-up');
                 document.getElementById("hidden_order").value = "asc";
             }
             document.getElementById("hidden_sort").value = element;
         } else {
-            if (document.getElementById("span-" + list[item]).classList.contains('fa-caret-up')) {
-                document.getElementById("span-" + list[item]).classList.remove('fa-caret-up');
-                document.getElementById("span-" + list[item]).classList.add('fa-caret-down');
+            if (document.getElementById(`span-${sortList[index]}`).classList.contains('fa-caret-up')) {
+                document.getElementById(`span-${sortList[index]}`).classList.remove('fa-caret-up');
+                document.getElementById(`span-${sortList[index]}`).classList.add('fa-caret-down');
             }
         }
     }
@@ -25,9 +25,9 @@ function sortTable(element) {
 }
 
 //Save the previous value of both date for input validation purpose;
-function savePrevious() {
-    var start = document.getElementById("start-date").value;
-    var end = document.getElementById("end-date").value;
+function savePreviousDate() {
+    let start = document.getElementById("start-date").value;
+    let end = document.getElementById("end-date").value;
     document.getElementById('hidden_prev_start').value = start;
     document.getElementById('hidden_prev_end').value = end;
 
@@ -38,44 +38,43 @@ $(document).on('click', '.pagination a', function(event) {
     event.preventDefault();
     page = $(this).attr('href').split('page=')[1];
     $('#hidden_page').val(page);
-
     $('li').removeClass('active');
     $(this).parent().addClass('active');
     filterDate();
 });
 
+//Filter the results according to the date
 function filterDate() {
     var token = $('meta[name="csrf-token"]').attr('content');
-    var start = document.getElementById('start-date').value;
-    var end = document.getElementById('end-date').value;
-    var sort = document.getElementById('hidden_sort').value;
-    var order = document.getElementById('hidden_order').value;
-    var page = document.getElementById('hidden_page').value;
-    var previous_start_date = document.getElementById('hidden_prev_start').value;
-    var previous_end_date = document.getElementById('hidden_prev_end').value;
+    let startDate = document.getElementById('start-date').value;
+    let endDate = document.getElementById('end-date').value;
+    let sortValue = document.getElementById('hidden_sort').value;
+    let sortOrder = document.getElementById('hidden_order').value;
+    let previousStartDate = document.getElementById('hidden_prev_start').value;
+    let previousEndDate = document.getElementById('hidden_prev_end').value;
+    let resultPage = document.getElementById('hidden_page').value;
 
-    switch (sort) {
-        case "pair":
-            sort = "orders." + sort;
-            break;
+    switch (sortValue) {
         case "type":
-            sort = "orders." + sort;
+        case "pair":
+            sortValue = `orders.${sortValue}`;
             break;
         default:
-            sort = "trades." + sort;
+            sortValue = `trades.${sortValue}`;
             break;
     }
+    let orderObject = { 'start': startDate, 'end': endDate, 'sort': sortValue, 'order': sortOrder };
 
-    if (start > end) {
-        alert("Please select a valid range of date");
-        document.getElementById('start-date').value = temp_start;
-        document.getElementById('end-date').value = temp_end;
+    if (startDate > endDate) {
+        appendOrderAlert("Please select a valid range of date");
+        document.getElementById('start-date').value = previousStartDate;
+        document.getElementById('end-date').value = previousEndDate;
     } else {
-        if (previous_start_date != start || previous_end_date != end) {
-            page = 1;
-            document.getElementById('hidden_prev_start').value = start;
-            document.getElementById('hidden_prev_end').value = end;
-            document.getElementById('hidden_page').value = page;
+        if (previousStartDate != startDate || previousEndDate != endDate) {
+            resultPage = 1;
+            document.getElementById('hidden_prev_start').value = startDate;
+            document.getElementById('hidden_prev_end').value = endDate;
+            document.getElementById('hidden_page').value = resultPage;
         }
 
         $.ajax({
@@ -83,11 +82,8 @@ function filterDate() {
             url: '/order/fetch',
             data: {
                 _token: token,
-                start: start,
-                end: end,
-                sort: sort,
-                order: order,
-                page: page,
+                data: orderObject,
+                page: resultPage
             },
             success: function(data) {
                 $('tbody').html('');
@@ -100,27 +96,65 @@ function filterDate() {
     }
 }
 
-function displayMessage() {
-    document.getElementById('alert-box').innerHTML = "No result was found";
+//Alert the message
+function appendOrderAlert(message) {
+    Swal.fire({
+        title: 'Error',
+        icon: 'error',
+        text: message,
+        confirmButtonText: 'OK',
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
 }
 
-function toggleOrderLightbox() {
-
-    var check = document.getElementById('order-history-lightbox').style.display;
-    if (check == "" || check == "none") {
-        // document.getElementById('order-history-lightbox').style.display = "block";
-        $('#order-history-lightbox').fadeIn(300);
-    } else {
-        //document.getElementById('order-history-lightbox').style.display = "none";
-        $('#order-history-lightbox').fadeOut(300);
-    }
-}
-
-
-window.onclick = function(event) {
-    var lightbox = document.getElementById('order-history-lightbox');
-    if (event.target == lightbox) {
-        //lightbox.style.display = "none";
-        $('#order-history-lightbox').fadeOut(300);
-    }
+//Display the Help Message
+function toggleOrderIntro() {
+    introJs().setOptions({
+        steps: [{
+                title: 'Order History',
+                intro: 'In this section, you can view all the completed order details with your account<br/> <br/> <b>Incomplete</b> / <b>Ongoing</b> orders only can be viewed on the home page',
+            },
+            {
+                element: document.querySelector('#start-date-intro'),
+                intro: 'You can specify the start date to filter the orders for the particular range'
+            },
+            {
+                element: document.querySelector('#end-date-intro'),
+                intro: 'You can specify the end date to filter the orders for the particular range',
+            },
+            {
+                element: document.querySelector('#th-pair'),
+                intro: 'The instrument refers to currency pair that used for trading',
+            },
+            {
+                element: document.querySelector('#span-pair'),
+                intro: 'You can sort the results of orders accordingly by clicking this ▼ icon '
+            },
+            {
+                element: document.querySelector('#th-type'),
+                intro: 'The type is referring to go long (buy) or go short (sell) within the order'
+            },
+            {
+                element: document.querySelector('#th-entry'),
+                intro: 'The entry price when executing the order'
+            },
+            {
+                element: document.querySelector('#th-exit'),
+                intro: 'The exit price when closing the order',
+            },
+            {
+                element: document.querySelector('#th-cost'),
+                intro: 'The total spread (entry - exit) cost of the order'
+            },
+            {
+                element: document.querySelector('#th-profit'),
+                intro: 'The total profit or loss of the order'
+            },
+        ],
+    }).start();
 }

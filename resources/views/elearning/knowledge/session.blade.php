@@ -12,6 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Trading Session</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763300/E-Learning/Session.png" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Venketas, W. (2019). Major Forex Trading Sessions from Around the World. https://www.dailyfx.com/education/why-trade-forex/major-forex-trading-sessions.html</cite></div>
                 <p>There are three major forex trading sessions which comprise the 24-hour market: the London session, the US session and the Asian session. Each major geographic market center can exhibit vastly unique traits and tendencies that can allow traders to effectively execute strategies at any time.</p>
                 <p>Although the forex market is the most liquid of all asset classes, there are periods whereby volatility is constant, and others subdued. Understanding these different forex session times can improve the reliability of a forex trading strategy.</p>
                 <h5>Main Trading Sessions</h5>

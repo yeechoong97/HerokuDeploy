@@ -12,6 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Technical Analysis Introduction</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767022/E-Learning/Technical.jpg" class="img-padding" >
+                <div class="img-citation">Image retrieved from <cite>Bestbrokerindia. (2019). Fundamentals of Technical Analysis. https://bestbrokerindia.com/blog/fundamentals-of-technical-analysis/</cite></div>
                 <p>Technical analysis is the study of historical price action in order to identify patterns and determine probabilities of future movements in the market through the use of technical studies, indicators, and other analysis tools.</p>
                 <p>Technical analysis boils down to two things:</p>
                 <ol>
