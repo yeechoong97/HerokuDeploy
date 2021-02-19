@@ -48,14 +48,14 @@ use App\Common;
                     </a>
                 </div>
 
-                <div class="f_control col-md-1 buy_order_button " id ="buy" onclick="openLightbox('buy')">
+                <div class="f_control col-md-1 buy_order_button" id="buy" data-toggle="modal" data-target="#buy-sell-modal" onclick="openLightbox('buy')">
                     <a href="#" class="buy_btn">
                         <span class="span-title-buy">BUY</span>
                         <span class="span-data" id="buy-action"></span>
                     </a>
                 </div>
 
-                <div class="f_control col-md-1 sell_order_button " id ="sell" onclick="openLightbox('sell')">
+                <div class="f_control col-md-1 sell_order_button " id="sell" data-toggle="modal" data-target="#buy-sell-modal" onclick="openLightbox('sell')">
                     <a href="#" class="sell_btn">
                         <span class="span-title-sell">SELL</span>
                         <span class="span-data" id="sell-action"></span>
@@ -141,7 +141,7 @@ use App\Common;
                                     <td class="col1"></td>
                                     <td class="col2"></td>
                                     <td class="col1"></td>
-                                    <td class="col1"><a class="close_position" onclick="openOrderBox('{{$record->ticketID}}',100)"><span class="far fa-times-circle"></span></a></td>
+                                    <td class="col1"><a class="close_position" data-toggle="modal" data-target="#reduce-close-modal" onclick="openOrderBox('{{$record->ticketID}}',100)"><span class="far fa-times-circle"></span></a></td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -211,7 +211,6 @@ use App\Common;
 </div>
 
 <div id="indicator-lightbox"></div>
-
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
 @include('subpage.main-help-lightbox')
@@ -365,7 +364,7 @@ function checkTools(indicatorSelected,obj)
         {
             eval("{{$value}}");
             document.getElementById('indicatorSelect').value = "default";
-            toggleLightboxIndicator(indicatorSelected);
+            document.getElementById('{!!$key!!}-exit-modal').click();
         }
     @endforeach
 }
@@ -374,10 +373,11 @@ function checkTools(indicatorSelected,obj)
 //Append Tutorial
 window.onload = function(){ 
     var loginTime = "{{Session::get('login')}}";
+    var userName = "{{$account->user->name}}";
     var tutorialValidate = "{{$account->tutorial}}";
     if(tutorialValidate == 0 && loginTime == 0)
     {
-        showTutorial();
+        showTutorial(userName);
         document.querySelector('.introjs-skipbutton').style.display="none";
     }
 } 

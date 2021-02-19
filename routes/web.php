@@ -18,11 +18,10 @@ Route::post('index/store','MainController@create');
 Route::put('index/close','MainController@close');
 Route::post('index/tutorial','MainController@setTutorial');
 
-Route::post('index/chat','MainController@checkSession');
 Route::post('index/data','MainController@getCandle');
 Route::post('index/chart','MainController@changeSeries');
-Route::post('index/session','MainController@setSession');
-
+Route::get('index/chat','MainController@chat_index');
+Route::post('index/rate','MainController@getCurrencyRate');
 
 //Order History
 Route::get('order','OrderController@show')->name("order-show");
@@ -36,6 +35,14 @@ Route::put('fund/withdraw','FundController@withdraw_update')->name("withdraw-upd
 Route::get('fund/deposit','FundController@deposit_index')->name("fund-deposit");
 Route::put('fund/deposit','FundController@deposit_update')->name("deposit-update");
 
+
+//Forum
+Route::get('forum','ForumController@index')->name("forum-index");
+Route::get('forum/create','ForumController@create')->name("forum-create");
+Route::post('forum/create','ForumController@store')->name("forum-store");
+Route::get('forum/{id}','ForumController@show')->name("forum-show");
+Route::put('forum/update','ForumController@update')->name("forum-update");
+Route::get('forum/{id}/destroy','ForumController@destroy')->name("forum-destroy");
 //E-learning
 //Forex Introduction
 Route::get('learning/intro/introduction','ElearningController@intro')->name("learning-intro");

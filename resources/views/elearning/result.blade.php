@@ -14,8 +14,8 @@
                 @if(count($result)>0)
                     @foreach($result as $result)
                         <div class="searched-result-div">
-                            <h4>{{$result->parent}} / <a href="{{route( $result->key)}}"> {{$result->value}}</a></h4>
-                            <p>{{$result->description}}</p>
+                            <h4>{{$result['parent']}} / <a href="{{route( $result['key'])}}"> {{$result['value']}}</a></h4>
+                            <p>{{$result['description']}}</p>
                         </div>
                     @endforeach
                 @else

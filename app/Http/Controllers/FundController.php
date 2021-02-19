@@ -56,9 +56,7 @@ class FundController extends Controller
                     $query->where('status',0);
                     }])->where('user_id',$id)->first();
         foreach($account->order as $order)
-        {
             $margin += $order->margin;
-        }
         $account->balance = floatval($account->balance) - floatval($request->amount);
         $account->margin = floatval($account->margin) - floatval($request->amount);
         $account->margin_used = $margin / floatval($account->margin) *100 ;
@@ -83,9 +81,7 @@ class FundController extends Controller
                     $query->where('status',0);
                     }])->where('user_id',$id)->first();
         foreach($account->order as $order)
-        {
             $margin += $order->margin;
-        }
         $account->balance = floatval($account->balance) + floatval($request->amount);
         $account->margin = floatval($account->margin) + floatval($request->amount);
         $account->margin_used = $margin / floatval($account->margin) *100 ;

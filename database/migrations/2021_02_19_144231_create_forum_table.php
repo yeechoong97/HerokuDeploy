@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagesTable extends Migration
+class CreateForumTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('forum', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('key');
-            $table->string('value');
-            $table->string('parent');
-            $table->text('description');
+            $table->string('user_id');
+            $table->string('title');
+            $table->text('contents');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('forum');
     }
 }

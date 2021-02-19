@@ -116,44 +116,44 @@ function appendOrderAlert(message) {
 function toggleOrderIntro() {
     introJs().setOptions({
         steps: [{
-                title: 'Order History',
-                intro: 'In this section, you can view all the completed order details with your account<br/> <br/> <b>Incomplete</b> / <b>Ongoing</b> orders only can be viewed on the home page',
+                title: 'Order History 📑',
+                intro: 'In this section, you can view all the <b>Completed</b> order details with your account.<br/> <br/> <b>Incomplete</b> / <b>Ongoing</b> orders only can be viewed on the home page.',
             },
             {
                 element: document.querySelector('#start-date-intro'),
-                intro: 'You can specify the start date to filter the orders for the particular range'
+                intro: 'You can specify the <b>Start Date</b> to filter the orders for the particular range.'
             },
             {
                 element: document.querySelector('#end-date-intro'),
-                intro: 'You can specify the end date to filter the orders for the particular range',
+                intro: 'You can specify the <b>End Date</b> to filter the orders for the particular range.',
             },
             {
                 element: document.querySelector('#th-pair'),
-                intro: 'The instrument refers to currency pair that used for trading',
+                intro: 'The instrument refers to <b>Currency Pair</b> that used for trading.',
             },
             {
                 element: document.querySelector('#span-pair'),
-                intro: 'You can sort the results of orders accordingly by clicking this ▼ icon '
+                intro: 'You can sort the results of orders accordingly by clicking this ▼ icon. '
             },
             {
                 element: document.querySelector('#th-type'),
-                intro: 'The type is referring to go long (buy) or go short (sell) within the order'
+                intro: 'The type is referring to go <b>Long</b> (<b>Buy</b>) or go <b>Short</b> (<b>Sell</b>) within the order. <a href="/learning/order/long-short" target="_blank">Learn More about Long & Short</a>'
             },
             {
                 element: document.querySelector('#th-entry'),
-                intro: 'The entry price when executing the order'
+                intro: 'The <b>Entry Price</b> of the currency pair when executing the order.'
             },
             {
                 element: document.querySelector('#th-exit'),
-                intro: 'The exit price when closing the order',
+                intro: 'The <b>Exit Price</b> of the currency pair when closing the order.',
             },
             {
                 element: document.querySelector('#th-cost'),
-                intro: 'The total spread (entry - exit) cost of the order'
+                intro: 'The <b>Total Spread</b> (Entry Price - Exit Price) cost of the order. <a href="/learning/knowledge/spread" target="_blank">Learn More about Spread</a>'
             },
             {
                 element: document.querySelector('#th-profit'),
-                intro: 'The total profit or loss of the order'
+                intro: 'The <b>Total Profit</b> or <b>Loss</b> of the order.'
             },
         ],
     }).start();

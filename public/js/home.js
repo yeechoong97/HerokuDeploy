@@ -5,6 +5,10 @@ const arrayPercentage = {
     full: { value: 100, name: "full-units" }
 };
 
+function toggleChat() {
+    window.open('index/chat', "Live Chat", "height=550,width=800");
+}
+
 //Update the font colour in the live streaming box
 function highlight(divHeader, buyingPrice, sellingPrice, fontColor) {
     divHeader.style.color = fontColor;
@@ -90,7 +94,6 @@ function updateTable(instrumentSelected, sellingPrice, buyingPrice) {
 
 //Open the Lightbox
 function openLightbox(lightboxType) {
-    $('#Lightbox').fadeIn(300);
     if (lightboxType == "sell") {
         document.getElementById("order-sell").style.backgroundColor = "#ffb9b9";
         document.getElementById("order-buy").style.backgroundColor = "white";
@@ -130,10 +133,9 @@ function openOrderBox(ticketID, percentageSelected) {
             orderProfit = row.cells[8].innerHTML;
         }
     }
-    $('#Position_box').fadeIn(300);
     document.getElementById('position-ticket-id').innerHTML = ticketID;
     document.getElementById('position-title').innerHTML = instrumentSelected;
-    document.getElementById('units_orders_quantity').innerHTML = orderUnits;
+    document.getElementById('units_orders_quantity').value = orderUnits;
     document.getElementById('position-total-units').value = orderUnits;
     document.getElementById('units-profit').innerHTML = orderProfit;
 
@@ -186,7 +188,7 @@ function updateRemaining() {
         }
     }
     var deductValue = document.getElementById('position-total-units').value;
-    var orderUnit = document.getElementById('units_orders_quantity').innerHTML;
+    var orderUnit = document.getElementById('units_orders_quantity').value;
     document.getElementById('units_remaining').innerHTML = orderUnit - deductValue;
     var profitPercentage = 100 - ((orderUnit - deductValue) / orderUnit * 100);
     document.getElementById('hidden_percent').value = profitPercentage;
@@ -203,19 +205,6 @@ function updateRemaining() {
         document.getElementById('tick-close').style.display = 'inline';
         document.getElementById('cross-close').style.display = 'none';
     }
-}
-
-//Close the lightbox
-function closeLightbox(lightboxContainer) {
-    $(`#${lightboxContainer}`).fadeOut(300);
-    document.getElementById('tick').style.display = 'none';
-    document.getElementById('cross').style.display = 'none';
-    document.getElementById('tick-close').style.display = 'none';
-    document.getElementById('cross-close').style.display = 'none';
-    document.getElementById('order-units').value = "";
-    document.getElementById('margin-value').innerHTML = 0;
-    document.getElementById('order-error-msg').innerHTML = "";
-    document.getElementById('close-error-msg').innerHTML = "";
 }
 
 //Calculate the margin for instrument
@@ -287,92 +276,181 @@ function getLeverage(leverageString) {
     return userLeverage;
 }
 
-//Save the order into database
-function saveOrder() {
+function confirmOrder() {
     var saveStatus = document.getElementById('cross').style.display;
     var orderUnit = document.getElementById("order-units").value;
     if (saveStatus == "inline" || orderUnit <= 0 || orderUnit == "")
         document.getElementById('order-error-msg').innerHTML = "*Please enter valid units in the field provided";
     else {
-        var orderType = document.getElementById("order-type").innerHTML;
-        var entryPrice = document.getElementById(`order-${orderType}-data`).innerHTML;
-        var orderInstrument = document.getElementById("lightbox-title").innerHTML;
-        var USDJPYSell = document.getElementById("USD_JPY_Sell").innerHTML;
-        var USDJPYBuy = document.getElementById("USD_JPY_Buy").innerHTML;
-        var EURJPYSell = document.getElementById("EUR_USD_Sell").innerHTML;
-        var EURJPYBuy = document.getElementById("EUR_USD_Buy").innerHTML;
-        var userLeverage = getLeverage(document.getElementById("account-leverage").innerHTML);
-        var exitPrice = (orderType == "sell") ? document.getElementById("order-buy-data").innerHTML : document.getElementById("order-sell-data").innerHTML;
-        var marginComputed = calculateMargin(orderInstrument, orderUnit, userLeverage, entryPrice, exitPrice);
-        let orderObject = { instrument: orderInstrument, unit: orderUnit, type: orderType, entry: entryPrice, exit: exitPrice, margin: marginComputed, leverage: userLeverage, USDJPYSell: USDJPYSell, USDJPYBuy: USDJPYBuy, EURJPYSell: EURJPYSell, EURJPYBuy: EURJPYBuy }
-
-        $.ajax({
-            type: 'POST',
-            url: '/index/store',
-            data: {
-                _token: token,
-                orderObject: orderObject
-            },
-            success: function(data) {
-                clearInterval(chartStreaming);
-                closeLightbox("Lightbox");
-                appendAlert(data.message);
-                reloadOrderAccount();
-                chartStreaming = setInterval(streamChart, 1000);
-            },
-            error: function(data) {
-                console.log(JSON.stringify(data));
-            }
+        let orderType = document.getElementById("order-type").innerHTML;
+        let entryPrice = document.getElementById(`order-${orderType}-data`).innerHTML;
+        let orderInstrument = document.getElementById("lightbox-title").innerHTML;
+        let marginRequired = document.getElementById('margin-value').innerHTML;
+        let exitPrice = (orderType == "sell") ? document.getElementById("order-buy-data").innerHTML : document.getElementById("order-sell-data").innerHTML;
+        let typeLabel = (orderType == "buy") ? "Buy" : "Sell";
+        var orderPackage = { type: orderType, instrument: orderInstrument, unit: orderUnit, entry: entryPrice, exit: exitPrice, margin: marginRequired }
+        Swal.fire({
+            title: 'Order Confirmation',
+            html: `<table class="table col-md-12 table-bordered table-striped small">
+            <tbody>
+                <tr>
+                    <td class="font-weight-bold">Type</td>
+                    <td>${typeLabel}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Currency</td>
+                    <td>${orderInstrument}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Price</td>
+                    <td>$ ${entryPrice}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Margin</td>
+                    <td>$ ${marginRequired}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Units</td>
+                    <td>${orderUnit}</td>
+                </tr>
+            </tbody>
+        </table>`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Confirm',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed)
+                saveOrder(orderPackage);
         });
     }
 }
 
-//Update the order in the database
-function closePosition() {
+//Save the order into database
+function saveOrder(orderPackage) {
+    var USDJPYSell = document.getElementById("USD_JPY_Sell").innerHTML;
+    var USDJPYBuy = document.getElementById("USD_JPY_Buy").innerHTML;
+    var EURJPYSell = document.getElementById("EUR_USD_Sell").innerHTML;
+    var EURJPYBuy = document.getElementById("EUR_USD_Buy").innerHTML;
+    var userLeverage = getLeverage(document.getElementById("account-leverage").innerHTML);
+    let orderObject = { instrument: orderPackage.instrument, unit: orderPackage.unit, type: orderPackage.type, entry: orderPackage.entry, exit: orderPackage.exit, margin: orderPackage.margin, leverage: userLeverage, USDJPYSell: USDJPYSell, USDJPYBuy: USDJPYBuy, EURJPYSell: EURJPYSell, EURJPYBuy: EURJPYBuy }
+    $.ajax({
+        type: 'POST',
+        url: '/index/store',
+        data: {
+            _token: token,
+            orderObject: orderObject
+        },
+        success: function(data) {
+            clearInterval(chartStreaming);
+            document.getElementById('order-modal-closebtn').click();
+            appendAlert(data.message);
+            reloadOrderAccount();
+            chartStreaming = setInterval(streamChart, 1000);
+        },
+        error: function(data) {
+            console.log(JSON.stringify(data));
+        }
+    });
+}
+
+function confirmClose() {
     var closeStatus = document.getElementById('cross-close').style.display;
     var deductValue = document.getElementById('position-total-units').value;
     if (closeStatus == "inline" || deductValue == "" || deductValue <= 0)
         document.getElementById('close-error-msg').innerHTML = "*Please enter valid units in the field provided";
     else {
-        var ticketID = document.getElementById('position-ticket-id').innerHTML;
-        var remainingUnit = document.getElementById('units_remaining').innerHTML;
-        var orderInstrument = document.getElementById("position-title").innerHTML;
-        var userLeverage = getLeverage(document.getElementById("account-leverage").innerHTML);
-
+        let ticketID = document.getElementById('position-ticket-id').innerHTML;
+        let remainingUnit = document.getElementById('units_remaining').innerHTML;
+        let orderInstrument = document.getElementById("position-title").innerHTML;
+        let userLeverage = getLeverage(document.getElementById("account-leverage").innerHTML);
+        let unitsClosed = document.getElementById('position-total-units').value;
+        let orderProfit = document.getElementById('units-profit').innerHTML;
         var orderTable = document.getElementById("all_orders");
+
         for (i = 1; i < orderTable.rows.length; i++) {
             let row = orderTable.rows[i]
             var id = row.cells[0].innerHTML;
             if (id == ticketID) {
                 entryPrice = row.cells[6].innerHTML;
                 exitPrice = row.cells[7].innerHTML;
-                spreadCost = row.cells[8].innerHTML;
-                orderProfit = row.cells[9].innerHTML;
+                spreadCost = row.cells[9].innerHTML;
             }
         }
-        var marginComputed = calculateMargin(orderInstrument, remainingUnit, userLeverage, entryPrice, exitPrice);
-        let orderObject = { ticketID: ticketID, margin: marginComputed, remaining_units: remainingUnit, entry: entryPrice, exit: exitPrice, cost: spreadCost, profit: orderProfit, leverage: userLeverage }
-
-        $.ajax({
-            type: 'PUT',
-            url: '/index/close',
-            data: {
-                _token: token,
-                orderObject: orderObject,
-            },
-            success: function(data) {
-                clearInterval(chartStreaming);
-                closeLightbox('Position_box');
-                appendAlert(data.message);
-                reloadOrderAccount();
-                chartStreaming = setInterval(streamChart, 1000);
-            },
-            error: function(data) {
-                console.log(JSON.stringify(data));
-            }
+        let marginComputed = calculateMargin(orderInstrument, remainingUnit, userLeverage, entryPrice, exitPrice);
+        let orderObject = { ticketID: ticketID, margin: marginComputed, remaining_units: remainingUnit, entry: entryPrice, exit: exitPrice, cost: spreadCost, profit: orderProfit, leverage: userLeverage };
+        Swal.fire({
+            title: 'Close Confirmation',
+            html: `<table class="table col-md-12 table-bordered table-striped small">
+            <tbody>
+                <tr>
+                    <td class="font-weight-bold">Currency</td>
+                    <td>${orderInstrument}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Entry</td>
+                    <td>$ ${entryPrice}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Exit</td>
+                    <td>$ ${exitPrice}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Units Closed</td>
+                    <td>${unitsClosed}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Remaining Units</td>
+                    <td>${remainingUnit}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Profit</td>
+                    <td>$ ${orderProfit}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Spread</td>
+                    <td> ${spreadCost}</td>
+                </tr>
+            </tbody>
+        </table>`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Confirm',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed)
+                closePosition(orderObject);
         });
     }
 }
+
+
+//Update the order in the database
+function closePosition(orderObject) {
+    $.ajax({
+        type: 'PUT',
+        url: '/index/close',
+        data: {
+            _token: token,
+            orderObject: orderObject,
+        },
+        success: function(data) {
+            clearInterval(chartStreaming);
+            document.getElementById('close-modal-closebtn').click();
+            appendAlert(data.message);
+            reloadOrderAccount();
+            chartStreaming = setInterval(streamChart, 1000);
+        },
+        error: function(data) {
+            console.log(JSON.stringify(data));
+        }
+    });
+}
+
 
 function appendTempData(arrayInstrument) {
     for (var i in arrayInstrument) {
@@ -404,81 +482,9 @@ function appendTempData(arrayInstrument) {
     }
 }
 
-// function toggleMainHelpLightbox(div) {
-//     var check = document.getElementById('main-help-lightbox').style.display;
-//     var array_lightbox = ["account-lightbox", "rates-lightbox", "rates-lightbox1", "order-lightbox", "order-lightbox1", "order-lightbox2", "buy-lightbox", "close-lightbox"];
-//     var array_lightbox_indicator = ["account-lightbox-indicator", "rates-lightbox-indicator", "rates-lightbox-indicator1", "order-lightbox-indicator", "order-lightbox-indicator1", "order-lightbox-indicator2", "buy-lightbox-indicator", "close-lightbox-indicator"]
-//     if (check == "" || check == "none") {
-//         var selected = div + "-lightbox";
-//         document.getElementById(selected).classList.add('active');
-//         document.getElementById(selected + "-indicator").classList.add('active');
-//         $('#main-help-lightbox').fadeIn(300);
-//     } else {
-//         for (var i in array_lightbox) {
-//             document.getElementById(array_lightbox[i]).classList.remove('active');
-//             document.getElementById(array_lightbox_indicator[i]).classList.remove('active');
-//         }
-//         $('#main-help-lightbox').fadeOut(300);
-//     }
-// }
-
 function toggleLightboxIndicator(toolSelected) {
-    var indicatorID = `${toolSelected}_indicator_box`;
-    var checkDisplay = document.getElementById(indicatorID).style.display;
-    if (checkDisplay == "" || checkDisplay == "none") {
-        $(`#${indicatorID}`).fadeIn(300);
-    } else {
-        $(`#${indicatorID}`).fadeOut(300);
-        document.getElementById('indicatorSelect').value = "default";
-    }
-}
-
-function showTutorial() {
-    introJs().setOptions({
-        showProgress: true,
-        steps: [{
-                title: 'Welcome',
-                intro: 'Welcome to ES Forex Trading 👋'
-            },
-            {
-                element: document.querySelector('.navbar-nav'),
-                intro: 'You can navigate to respective page through this navigation bar'
-            },
-            {
-                element: document.querySelector('#chat-intro'),
-                intro: 'This is the <b>Live Chat</b> functionality. You can join a room and chat with other traders'
-            },
-            {
-                element: document.querySelector('.chart-container-btn'),
-                intro: 'You can perform different trading functionalities in this section'
-            },
-            {
-                element: document.querySelector('.account-table'),
-                intro: 'This section displays the summarized details of your trading account',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#container'),
-                intro: 'The visualization of selected currency pair in the chart',
-
-            },
-            {
-                element: document.querySelector('.order-table'),
-                intro: 'All the <b>Ongoing</b> / <b>Incomplete</b> will be previewed in this section'
-            },
-            {
-                element: document.querySelector('.price-container'),
-                intro: 'This section displays the <b>Live Data</b> of the currency pairs'
-            },
-            {
-                title: 'Confirmation',
-                intro: 'Do you want to view all these tutorials every time you login to the system<br/><br/><input type="checkbox" id="tutorial-checkbox" class="float-left mx-2 show-again" onclick="changeTutorialStatus()" /><label class="my-1">Do not show again</label>'
-            }
-        ],
-        'exitOnOverlayClick': false,
-        'exitOnEsc': false,
-        'showBullets': false
-    }).start();
+    $(`#${toolSelected}-modal`).modal();
+    document.getElementById('indicatorSelect').value = "default";
 }
 
 function changeTutorialStatus() {
@@ -510,173 +516,7 @@ function appendAlert(message) {
     });
 }
 
-function showChartTips() {
-    introJs().setOptions({
-        steps: [{
-                element: document.querySelector('#typeSelect'),
-                intro: 'You can select specific drawing tool from here and use it on the chart below'
-            },
-            {
-                element: document.querySelector('#seriesSelect'),
-                intro: 'You can select specific series type from here and then visualize the data accordingly on the chart below'
-            },
-            {
-                element: document.querySelector('#intervalSelect'),
-                intro: 'You can select specific time interval for visualizing the data on the chart'
-            },
-            {
-                element: document.querySelector('#indicatorSelect'),
-                intro: 'You can select the technical indicators from the list and add it into the chart below <br><br> Only maximum <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart'
-            },
-            {
-                element: document.querySelector('.reset-btn'),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart',
-
-            },
-            {
-                element: document.querySelector('#sell'),
-                intro: 'You can sell the currency pair by clicking this <b>Sell</b> button <br/><br/><a href="#">Learn More</a>'
-            },
-            {
-                element: document.querySelector('#buy'),
-                intro: 'You can buy the currency pair by clicking this <b>Buy</b> button'
-            },
-            {
-                element: document.querySelector('.spread_order_button'),
-                intro: 'You can view the spread of the selected currency pair <br/><br/> <b>Spread</b> is the difference between selling and buying price of the currency pair'
-            },
-        ]
-    }).start();
-}
-
-function showAccountTips() {
-    introJs().setOptions({
-        steps: [{
-                element: document.querySelector('#currency-intro'),
-                intro: 'You can select specific drawing tool from here and use it on the chart below',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#balance-intro'),
-                intro: 'You can select specific series type from here and then visualize the data accordingly on the chart below',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#margin-intro'),
-                intro: 'You can select specific time interval for visualizing the data on the chart',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#margin-used-intro'),
-                intro: 'You can select the technical indicators from the list and add it into the chart below <br><br> Only maximum <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#leverage-intro'),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart',
-                position: 'left'
-            }
-        ]
-    }).start();
-}
-
-function showRateTips() {
-    var div = document.querySelector('.rate-active');
-    var unselectedCurrency = "";
-    var selectedCurrency = "";
-    var rateArray = ["EUR_USD", "AUD_USD", "GBP_USD", "USD_JPY", "EUR_JPY"];
-    for (var i in rateArray) {
-        if (div.id.includes(rateArray[i])) {
-            selectedCurrency = rateArray[i];
-        } else if (unselectedCurrency == "") {
-            unselectedCurrency = rateArray[i] + "_div";
-        }
-    }
-    introJs().setOptions({
-        steps: [{
-                element: document.querySelector(`#${div.id}`),
-                intro: 'You can select specific drawing tool from here and use it on the chart below',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#' + unselectedCurrency),
-                intro: 'You can select specific series type from here and then visualize the data accordingly on the chart below',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#' + selectedCurrency + "_header"),
-                intro: 'You can select specific time interval for visualizing the data on the chart',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#' + selectedCurrency + "_Sell"),
-                intro: 'You can select the technical indicators from the list and add it into the chart below <br><br> Only maximum <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#' + selectedCurrency + "_Buy"),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart',
-                position: 'left'
-            },
-            {
-                element: document.querySelector('#' + selectedCurrency + "_Pips"),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart',
-                position: 'left'
-            }
-        ]
-    }).start();
-}
-
-function showOrderTips() {
-    introJs().setOptions({
-        steps: [{
-                element: document.querySelector('#ticket-intro'),
-                intro: 'You can select specific drawing tool from here and use it on the chart below',
-            },
-            {
-                element: document.querySelector('#date-intro'),
-                intro: 'You can select specific series type from here and then visualize the data accordingly on the chart below',
-            },
-            {
-                element: document.querySelector('#pair-intro'),
-                intro: 'You can select specific time interval for visualizing the data on the chart',
-            },
-            {
-                element: document.querySelector('#units-intro'),
-                intro: 'You can select the technical indicators from the list and add it into the chart below <br><br> Only maximum <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart',
-            },
-            {
-                element: document.querySelector('#type-intro'),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart',
-            },
-            {
-                element: document.querySelector('#margin-order-intro'),
-                intro: 'You can select specific drawing tool from here and use it on the chart below',
-            },
-            {
-                element: document.querySelector('#price-intro'),
-                intro: 'You can select specific series type from here and then visualize the data accordingly on the chart below',
-            },
-            {
-                element: document.querySelector('#current-intro'),
-                intro: 'You can select specific time interval for visualizing the data on the chart',
-            },
-            {
-                element: document.querySelector('#profit-usd-intro'),
-                intro: 'You can select the technical indicators from the list and add it into the chart below <br><br> Only maximum <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart',
-            },
-            {
-                element: document.querySelector('#profit-spread-intro'),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart',
-            },
-            {
-                element: document.querySelector('#profit-intro'),
-                intro: 'You can select the technical indicators from the list and add it into the chart below <br><br> Only maximum <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart',
-            },
-            {
-                element: document.querySelector('#action-intro'),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart ❌',
-            },
-        ]
-    }).start();
+function toggleCalculatorLightbox() {
+    introJs().exit();
+    $('#calculator-lightbox').modal();
 }

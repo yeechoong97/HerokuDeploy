@@ -67,44 +67,44 @@ function appendFundAlert(title, type, message) {
 function toggleFundsIntro() {
     introJs().setOptions({
         steps: [{
-                title: 'Funds Management',
-                intro: 'In this section, you can manage your virtual funds and check your account details<br/> <br/>The primary purpose of this section is to provide traders with the opportunity for managing their virtual funds without any monetary cost',
+                title: 'Funds Management 💰',
+                intro: 'In this section, you can manage your virtual funds and check your account details.<br/> <br/>The primary purpose of this section is to provide traders with the opportunity for managing their virtual funds without any monetary cost.',
             },
             {
                 element: document.querySelector('#name-intro'),
-                intro: 'The name registered in this system'
+                intro: 'The name registered in this system.'
             },
             {
                 element: document.querySelector('#currency-intro'),
-                intro: 'The currency type used for trading. In this system, it would be US Dollar (USD)',
+                intro: 'The currency type used for trading. In this system, it would be <b>US Dollar (USD)</b>.<a href="/learning/knowledge/currency" target="_blank">Learn More about Currency Pair</a>',
             },
             {
                 element: document.querySelector('#balance-intro'),
-                intro: 'The current available balance of your account',
+                intro: 'The current <b>Available Balance</b> of your account.',
             },
             {
                 element: document.querySelector('#margin-intro'),
-                intro: 'The current available margin of your account'
+                intro: 'The current <b>Available Margin</b> of your account. <a href="/learning/knowledge/leverage" target="_blank">Learn More about Margin</a>'
             },
             {
                 element: document.querySelector('#margin-used-intro'),
-                intro: 'The margin used in your account in percentage'
+                intro: 'The <b>Margin Used</b> in your account in percentage.'
             },
             {
                 element: document.querySelector('#leverage-intro'),
-                intro: 'The leverage of your account used for trading. The default leverage of account is 30: 1'
+                intro: 'The <b>Leverage</b> of your account used for trading. The default leverage of account is 30: 1. <a href="/learning/knowledge/leverage" target="_blank">Learn More about Leverage</a>'
             },
             {
                 element: document.querySelector('#leverage-edit-intro'),
-                intro: 'You can change the leverage of your account by clicking this <b>Edit</b> button<br/> <br/> However,the leverage only can be changed after all the ongoing orders are completely close',
+                intro: 'You can change the leverage of your account by clicking this <b>Edit</b> button.<br/> <br/> However,the leverage only can be changed after all the ongoing orders are completely close.',
             },
             {
                 element: document.querySelector('#deposit-intro'),
-                intro: 'You can perform funds deposit functionality by clicking this <b>Deposit</b> button'
+                intro: 'You can perform funds deposit functionality by clicking this <b>Deposit</b> button.'
             },
             {
                 element: document.querySelector('#withdraw-intro'),
-                intro: 'You can perform funds withdrawal functionality by clicking this <b>Withdraw</b> button'
+                intro: 'You can perform funds withdrawal functionality by clicking this <b>Withdraw</b> button.'
             },
         ],
     }).start();

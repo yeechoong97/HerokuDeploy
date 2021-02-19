@@ -10,7 +10,7 @@
                         <a class="nav-link" href="{{route('index')}}">Home</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{route('index')}}">Forum</a>
+                        <a class="nav-link" href="{{route('forum-index')}}">Forum</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('learning-intro')}}">Learning Materials</a>
@@ -27,15 +27,18 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                     </form>
+                    <div class="calculator-icon-box notify" id="calculator-intro">
+                        <div class="rectangle" ><a><i class="fas fa-calculator chat" data-toggle="modal" data-target="#calculator-lightbox"></i></a></div>
+                    </div>
                     <div class="chat-icon-box fixed-position notify" id="chat-intro">
                         <div class="circle" ><a><i class="fas fa-comments chat" onclick="toggleChat()"></i></a></div>
-                        <input type="hidden" value="false" id="chat-val" />
                     </div>
                     @endguest
                 </ul>
             </div>
     </div>
 </nav>
+@include('subpage.calculator')
 
-@include('subpage.enter-chat')
-@include('subpage.chat')
+
+

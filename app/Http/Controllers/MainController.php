@@ -26,7 +26,8 @@ class MainController extends Controller
         $id = Auth::user()->user_id;
         $account = Account::with(['order' => function($query){
                     $query->where('status',0)->orderBy('created_at','desc');
-                    }])->where('user_id',$id)->first();
+                    }])
+                    ->with('user')->where('user_id',$id)->first();
         if(!$account) throw new ModelNotFoundException;
 
         $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/instruments/EUR_USD/candles?count=500&price=M&granularity=S5&smooth=true";
@@ -400,11 +401,49 @@ class MainController extends Controller
     {
         $id = Auth::user()->user_id;
         $account = Account::where('user_id',$id)->first();
-        $tutorial = 0;
-        if($request->status == "true")
-            $tutorial = 1;
+        $tutorial = ($request->status == "true")? 1 : 0;
         $account->tutorial = $tutorial;
         $account->save();
+    }
+
+    function chat_index()
+    {
+        return view('subpage.join-chat');
+    }
+
+    function getCurrencyRate(Request $request){
+        $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/pricing?instruments=EUR_USD%2CAUD_USD%2CGBP_USD%2CUSD_JPY%2CEUR_JPY";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer 8821ff866c725c0f3fc2ba5bc9fe9a6e-ad7c4f2e55fecfbfd8bdd5fa72a68697',
+                'Content-Type: application/json'
+            ),
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);    
+        $parseResponse = json_decode($response,true);
+        $resultArray=[];
+        foreach($parseResponse['prices'] as $pResponse)
+        {
+            $tempInstrument = $pResponse['instrument'];
+            $tempSell=$pResponse['closeoutBid'];
+            $tempBuy=$pResponse['closeoutAsk'];
+            $tempResult = [];
+            array_push($tempResult,$tempInstrument,$tempSell,$tempBuy);
+            array_push($resultArray,$tempResult);
+        }
+
+        return response()->json(array('response'=> $resultArray),200);
     }
 
 }

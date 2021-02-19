@@ -7,6 +7,8 @@
     const chatForm = document.getElementById('chat-form');
     const chatContainer = document.getElementById('chat-message');
     const participantList = document.getElementById('participant-list');
+    const token = $('meta[name="csrf-token"]').attr('content');
+    const chatWindow = this.window;
 
     //Join Selected Room
     function enterRoom() {
@@ -23,14 +25,11 @@
     //Leave Room
     function leaveRoom() {
         socketIO.emit('leaveRoom');
-        document.getElementById('chat-val').value = "false";
         document.getElementById('userName').value = "";
         document.getElementById('roomValue').value = "Alpha";
-        $('#chat-box-container').fadeOut(300);
-        $('#chat-enter').fadeIn(300);
+        document.getElementById('chat-box-container').style.display = "none";
+        document.getElementById('chat-enter').style.display = "block";
     }
-
-
 
     //Check if same username exists
     socketIO.on('userExists', function(data) {
@@ -39,12 +38,11 @@
 
     //Setup the user into the chat room
     socketIO.on('userSet', function(data) {
-        document.getElementById('chat-val').value = "true";
+        document.getElementById('chat-box-container').style.display = "block";
+        document.getElementById('chat-enter').style.display = "none";
         document.getElementById('roomName').innerHTML = "Chat Room: " + joinRoom;
         chatContainer.innerHTML = "";
         document.getElementById('chat-error-msg').innerHTML = "";
-        $('#chat-enter').fadeOut(300);
-        $('#chat-box-container').fadeIn(300);
     });
 
     //Welcome Message for new user joining the channel
@@ -121,6 +119,7 @@
             <p class="small text-muted">` + time + `</p>
             </div>
         </div>`
+                alertUser(userRoom);
             }
         }
         //Scroll Down
@@ -142,29 +141,26 @@
                 ).join('')}`;
     })
 
-    function toggleChat()
-    {   
-        var check = document.getElementById('chat-val').value;
-        document.getElementById('chat-error-msg').innerHTML = "";
-        if (check == "false")
-            $('#chat-enter').fadeIn(300);
-        else if(check=="true")
-        {
-            var display = document.getElementById('chat-box-container').style.display;
-            if (display=="none")
-                $('#chat-box-container').fadeIn(300);
-            else 
-                $('#chat-box-container').fadeOut(300);
+    function alertUser(userRoom){
+        if (document.hasFocus() == false) {
+            if (window.Notification && Notification.permission !== "denied") {
+                Notification.requestPermission(function(status) { // status is "granted", if accepted by user
+                    var notifyMessage = new Notification('ES Forex Trading', {
+                        body: `You have received a new message from ${userRoom} room `,
+                    });
+                    notifyMessage.addEventListener('click', function(){
+                        chatWindow.focus();
+                    });
+                });
+            }
         }
-          
-        
     }
 
-    function closeChatBox(lightbox)
-    {
-        $('#'+lightbox).fadeOut(300);
-    }
+window.addEventListener('beforeunload', function (e) {
+    e.returnValue = '';
+    });
 
-    $( function() {
-        $( "#chat-box-drag" ).draggable();
-      } );
+
+function exitChat(){
+    window.close();
+}

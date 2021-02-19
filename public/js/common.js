@@ -221,7 +221,7 @@ function validateValue(value) {
 function createAnnotation() {
     var annotationType = document.getElementById("typeSelect");
     if (annotationType.value === "reset")
-        removeAll();
+        removeAllAnnotations();
     else
         plot.annotations().startDrawing(annotationType.value);
 }

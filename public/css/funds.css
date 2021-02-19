@@ -12,7 +12,7 @@
 
 .funds-header {
     text-align: center;
-    background: linear-gradient(120deg, #fc466b, #3f5efb);
+    background: #007bff;
     color: white;
     padding: 15px;
     font-size: 28px;
@@ -22,7 +22,7 @@
 
 .main-funds-header {
     text-align: center;
-    background: linear-gradient(120deg, #43cea2, #185a9d);
+    background: #007bff;
     color: white;
     padding: 15px;
     font-size: 28px;

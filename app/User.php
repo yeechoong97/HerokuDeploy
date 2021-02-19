@@ -41,4 +41,8 @@ class User extends Authenticatable
     public function account(){
         return $this->hasOne(Account::class,'user_id','user_id');
     }
+
+    public function forum(){
+        return $this->hasMany(Forum::class,'user_id','user_id');
+    }
 }

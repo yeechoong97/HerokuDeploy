@@ -1,10 +1,11 @@
-<div id ="MACD_indicator_box" class="lightbox">
-    <div class="modal modal-content2">
+
+<div class="modal fade" id="MACD-modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
         <div class="modal-header">
             <div class="modal-title">Moving Average Convergence/Divergence (MACD)</div>
-            <span aria-hidden="true" class="close" aria-label="Close" onclick="toggleLightboxIndicator('MACD')">&times;</span>
+            <span aria-hidden="true" class="close" aria-label="Close" data-dismiss="modal">&times;</span>
         </div>
-
         <div class="modal-body-indicator">
             <div class="upper-body">
                 <div class="button-series">
@@ -36,10 +37,12 @@
                 </div>
             </div>
             <hr>
-            <div class="btn-body">
-                <button class="btn form-control btn-primary col-md-2 btn-align-right" id="macd_indicator_btn">Add</button>
-                <button class="btn form-control btn-danger col-md-2 btn-align-right" onclick="toggleLightboxIndicator('MACD')">Cancel</button>
+                <div class="btn-body">
+                    <button class="form-control btn-primary col-md-2 btn-align-right" id="macd_indicator_btn">Add</button>
+                    <button class="form-control btn-danger col-md-2 btn-align-right" id="MACD-exit-modal" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+

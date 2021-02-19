@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Page;
+use App\Common;
 
 class ElearningController extends Controller
 {
@@ -14,13 +15,15 @@ class ElearningController extends Controller
 
     public function search(Request $request)
     {
-        $pages = Page::where('description','like','%'.$request->search.'%')
-                    ->orWhere('parent','like','%'.$request->search.'%')
-                    ->orderBy('parent','asc')
-                    ->orderBy('value','asc')
-                    ->get();
+        $resultArray = [];
+        foreach(Common::$learningPage as $learningpage)
+        {
+            if (stripos($learningpage['description'],$request->search)!==false ||  stripos($learningpage['value'],$request->search)!==false || stripos($learningpage['parent'],$request->search)!==false )
+                array_push($resultArray,$learningpage);
+        }
+        ksort($resultArray);
         return view('elearning.result',[
-            'result' => $pages,
+            'result' => $resultArray,
             'keyword' => $request->search,
         ]);
     }
