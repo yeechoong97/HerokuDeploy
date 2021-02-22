@@ -54,5 +54,6 @@
 </div>
 </body>
 @include('order.order-history-lightbox')
+<script type="text/javascript" src="{{ URL::asset('js/order.js') }}"></script>  
 @stop
 

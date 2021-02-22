@@ -10,6 +10,7 @@ use App\Order;
 use App\Account;
 use App\Trades;
 use Carbon\Carbon;
+use App\Forum;
 use Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -74,5 +75,6 @@ class OrderController extends Controller
                     ])->render();
         }
     }
+
 
 }

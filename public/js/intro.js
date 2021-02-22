@@ -12,7 +12,7 @@ function showTutorial(userName) {
             {
                 element: document.querySelector('#calculator-intro'),
                 intro: 'This is the <b>Calculator</b> functionality. You can perform some calculations for <b>Profit</b> / <b>Pips</b> / <b>Margin</b>.',
-                position: 'right'
+                position: 'left'
             },
             {
                 element: document.querySelector('#chat-intro'),

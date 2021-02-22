@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Forum extends Model
+class Comment extends Model
 {
-    protected $table = 'forum';
+    protected $table = 'comment';
 
     protected $fillable = [
         'forum_id',
+        'comment_id',
         'user_id',
-        'tag',
-        'title',
         'contents'
     ];
 
@@ -20,8 +19,7 @@ class Forum extends Model
         return $this->belongsTo(User::class,'user_id','user_id');
     }
 
-    public function comment(){
-        return $this->hasMany(Comment::class,'forum_id','forum_id')->orderBy('created_at','asc');
+    public function forum(){
+        return $this->belongsTo(Forum::class,'forum_id','forum_id');
     }
-
 }

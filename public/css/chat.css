@@ -50,7 +50,6 @@
     height: 40px;
     width: 100%;
     border-bottom: 0.1rem solid #e0e0e0;
-    cursor: move;
 }
 
 .chat-header h5 {

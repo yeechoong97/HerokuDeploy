@@ -149,3 +149,13 @@
     .forum-title-link:hover {
         color: blue !important;
     }
+    
+    .forum-content p,
+    .forum-content ol li,
+    .forum-content ul li {
+        font-size: 15px;
+    }
+    
+    .small {
+        font-size: 80% !important;
+    }

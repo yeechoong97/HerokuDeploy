@@ -37,12 +37,17 @@ Route::put('fund/deposit','FundController@deposit_update')->name("deposit-update
 
 
 //Forum
-Route::get('forum','ForumController@index')->name("forum-index");
-Route::get('forum/create','ForumController@create')->name("forum-create");
+Route::get('forum/{tag}','ForumController@index')->name("forum-index");
 Route::post('forum/create','ForumController@store')->name("forum-store");
-Route::get('forum/{id}','ForumController@show')->name("forum-show");
+Route::get('forum/{tag}/{id}','ForumController@show')->name("forum-show");
 Route::put('forum/update','ForumController@update')->name("forum-update");
-Route::get('forum/{id}/destroy','ForumController@destroy')->name("forum-destroy");
+Route::get('forum/{tag}/{id}/destroy','ForumController@destroy')->name("forum-destroy");
+
+Route::post('forum/{id}','ForumController@store_comment')->name("comment-store");
+Route::put('forum/comment/update','ForumController@update_comment')->name('comment-update');
+Route::get('forum/comment/destroy/{id}/{tag}','ForumController@destroy_comment')->name('comment-destroy');
+Route::patch('forum/fetch','ForumController@fetchForums');
+
 //E-learning
 //Forex Introduction
 Route::get('learning/intro/introduction','ElearningController@intro')->name("learning-intro");

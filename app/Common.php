@@ -109,6 +109,32 @@ class Common
 		"10 : 1" => "10 : 1",
 	];
 
+    public static $forumTags= [
+        1 => "General Forex Discussion",
+        2 => "Forex News",
+        3 => "Fundamental Analysis",
+        4 => "Technical Analysis",
+        5 => "Forex Education",
+        6 => "Trading System and Strategies",
+        7 => "Forex Signals",
+        8 => "Newbie Questions",
+        9 => "Others"
+    ];
+
+    // public static $allTags= [
+    //     0 => "All Posts",
+    //     1 => "Your Posts",
+    //     2 => "General Forex Discussion",
+    //     3 => "Forex News",
+    //     4 => "Fundamental Analysis",
+    //     5 => "Technical Analysis",
+    //     6 => "Forex Education",
+    //     7 => "Trading System and Strategies",
+    //     8 => "Forex Signals",
+    //     9 => "Newbie Questions",
+    //     10 => "Others"
+    // ];
+
 	public static $learningPage = [
 		[
             'key' => "learning-intro",

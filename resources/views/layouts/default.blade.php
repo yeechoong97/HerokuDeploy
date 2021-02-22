@@ -39,10 +39,8 @@
     <script type="text/javascript" src="{{ URL::asset('js/intro.js') }}"></script> 
     <script type="text/javascript" src="{{ URL::asset('js/calculator.js') }}"></script>  
     <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>   
-    <script type="text/javascript" src="{{ URL::asset('js/funds.js') }}"></script>   
-    <script type="text/javascript" src="{{ URL::asset('js/order.js') }}"></script>   
+    <script type="text/javascript" src="{{ URL::asset('js/funds.js') }}"></script>    
     <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>   
-    <script type="text/javascript" src="{{ URL::asset('js/forum.js') }}"></script> 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
    

@@ -213,7 +213,7 @@ use App\Common;
 <div id="indicator-lightbox"></div>
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
-@include('subpage.main-help-lightbox')
+
 </body>
 <script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/socket.js') }}"></script>   

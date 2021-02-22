@@ -10,7 +10,7 @@
                         <a class="nav-link" href="{{route('index')}}">Home</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{route('forum-index')}}">Forum</a>
+                        <a class="nav-link" href="{{route('forum-index','All Posts')}}">Forum</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('learning-intro')}}">Learning Materials</a>
