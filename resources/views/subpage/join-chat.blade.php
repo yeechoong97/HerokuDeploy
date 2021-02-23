@@ -19,7 +19,8 @@
                 <div class="modal-body remove-padding">
                     <div class="form-group1 mx-auto">
                         <label for="name">Name:</label>
-                        <input class="form-control" type="text" id="userName" name="username" />
+                        <input class="form-control" type="text" id="userName" name="username" value="{{$user->name}}" />
+                        <input type="hidden" id="avatar-name" value="{{$user->avatar}}" />
                     </div>
                     <div class="form-group1 mx-auto">
                         <label for="name">Room:</label>

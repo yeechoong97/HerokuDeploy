@@ -1,10 +1,11 @@
+
 @if(count($forums)>0)
     @foreach($forums as $forum)
     <div class="card mb-2">
         <div class="card-body p-2 p-sm-3">
             <div class="media forum-item">
                 <div class="card-link mr-3">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                    <img src="{{$forum->user->avatar}}" class="rounded-circle" width="50" alt="User" />
                     <small class="d-block text-center text-muted">{{$forum->user->name}}</small>
                 </div>
                 <div class="media-body">

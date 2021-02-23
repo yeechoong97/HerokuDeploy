@@ -37,8 +37,8 @@ use App\Common;
                     @endforeach
                 </select>
                 <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset</button>
-                <div class="question-btn">
-                    <i class="far fa-question-circle" onclick="showChartTips()"></i>
+                <div class="question-btn" id="chart-tips-intro">
+                    <i class="far fa-question-circle text-info" onclick="showChartTips()"></i>
                 </div>
 
                 <div class="f_control col-md-1 spread_order_button" onclick="testing()">

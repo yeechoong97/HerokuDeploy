@@ -49,6 +49,7 @@ function validateDepositInput(balance) {
 
 //Alert the message
 function appendFundAlert(title, type, message) {
+
     Swal.fire({
         title: title,
         icon: type,
@@ -76,7 +77,7 @@ function toggleFundsIntro() {
             },
             {
                 element: document.querySelector('#currency-intro'),
-                intro: 'The currency type used for trading. In this system, it would be <b>US Dollar (USD)</b>.<a href="/learning/knowledge/currency" target="_blank">Learn More about Currency Pair</a>',
+                intro: 'The currency type used for trading. In this system, it would be <b>US Dollar (USD)</b>. <a href="/learning/knowledge/currency" target="_blank">Learn More about Currency Pair</a>',
             },
             {
                 element: document.querySelector('#balance-intro'),

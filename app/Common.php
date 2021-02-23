@@ -121,19 +121,24 @@ class Common
         9 => "Others"
     ];
 
-    // public static $allTags= [
-    //     0 => "All Posts",
-    //     1 => "Your Posts",
-    //     2 => "General Forex Discussion",
-    //     3 => "Forex News",
-    //     4 => "Fundamental Analysis",
-    //     5 => "Technical Analysis",
-    //     6 => "Forex Education",
-    //     7 => "Trading System and Strategies",
-    //     8 => "Forex Signals",
-    //     9 => "Newbie Questions",
-    //     10 => "Others"
-    // ];
+    public static $avatarLists= [
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-1.png" => "Avatar-1",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-2.png" => "Avatar-2",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-3.png" => "Avatar-3",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-4.png" => "Avatar-4",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-5.png" => "Avatar-5",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-6.png" => "Avatar-6",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-7.png" => "Avatar-7",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-8.png" => "Avatar-8",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-9.png" => "Avatar-9",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-10.png" => "Avatar-10",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-11.png" => "Avatar-11",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-12.png" => "Avatar-12",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-13.png" => "Avatar-13",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-14.png" => "Avatar-14",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-15.png" => "Avatar-15",
+        "https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-16.png" => "Avatar-16",
+    ];
 
 	public static $learningPage = [
 		[

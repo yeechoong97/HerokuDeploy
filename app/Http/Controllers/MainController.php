@@ -177,7 +177,7 @@ class MainController extends Controller
 
                 if($remainingUnit>0)
                     $marginComputed = $order->margin;
-                $order->margin = $order->margin - $marginComputed;
+                $order->margin = round(($order->margin - $marginComputed),2);
                 $order->save();
 
                 //Compute the profit and cost
@@ -249,7 +249,7 @@ class MainController extends Controller
                 $order = new Order();
                 $order->user_id = $userID;
                 $order->ticketID = $ticketID;
-                $order->margin = $marginComputed;
+                $order->margin = round($marginComputed,2);
                 $order->pair = $request->orderObject['instrument'];
                 $order->total_units = $remainingUnit;
                 $order->available_units = $remainingUnit;
@@ -286,7 +286,7 @@ class MainController extends Controller
             $order->status = 1;
         $order->available_units = $request->orderObject['remaining_units'];
         $returnedMargin = $order->margin - $request->orderObject['margin'];
-        $order->margin = $request->orderObject['margin'];
+        $order->margin = round($request->orderObject['margin'],1);
         $order->save();
 
         //Insert new trade record
@@ -408,7 +408,10 @@ class MainController extends Controller
 
     function chat_index()
     {
-        return view('subpage.join-chat');
+        $user = Auth::user();
+        return view('subpage.join-chat',[
+            'user'=> $user
+        ]);
     }
 
     function getCurrencyRate(Request $request){

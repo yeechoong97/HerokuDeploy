@@ -19,7 +19,7 @@ class CreateForumTable extends Migration
             $table->string('user_id');
             $table->integer('tag');
             $table->string('title');
-            $table->text('contents')->nullable();
+            $table->text('contents');
             $table->timestamps();
         });
     }

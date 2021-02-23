@@ -78,15 +78,14 @@ class ForumController extends Controller
         $forum->title = $request->title;
         $forum->contents = $request->contents;
         $forum->save();
+        $tagKey="";
         foreach(Common::$forumTags as $key => $value)
             $tagKey= ($key == $request->tag) ? $value : $tagKey;
-        return redirect()->route('forum-index',$tagKey); 
+        return redirect()->route('forum-show',['tag'=>$tagKey,'id'=>$forum->forum_id]); 
     }
 
     public function destroy(Request $request)
     {
-        // $comments = Comment::where('forum_id',$request->id)->get();
-        // $comments->delete();
         $forum = Forum::with('comment')->where('forum_id',$request->id)->first();
         $forum->comment()->delete();
         $forum->delete();

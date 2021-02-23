@@ -33,6 +33,7 @@ function searchForum() {
         success: function(data) {
             $('#main-contents-forum').html('');
             $('#main-contents-forum').html(data);
+            document.documentElement.scrollTop = 0;
         },
         error: function(data) {
             console.log(JSON.stringify(data));
@@ -84,4 +85,39 @@ function appendAlertDeletePost(id, tagValue) {
         if (result.isConfirmed)
             deletePost(id, tagValue);
     });
+}
+
+function validatePost(forumForm) {
+    let forumTitle = document.getElementById('forum-title').value;
+    let forumContents = document.getElementById('forum-summernote').value;
+    let forumTag = document.getElementById('forum-tag').value;
+    let titleError = document.getElementById('error-msg-title');
+    let tagError = document.getElementById('error-msg-select');
+    let contentsError = document.getElementById('error-msg-contents');
+    titleError.innerHTML = (forumTitle == "") ? "*Invalid Forum Title" : "";
+    tagError.innerHTML = (forumTag == "default") ? "*Please select a category" : "";
+    contentsError.innerHTML = (forumContents == "") ? "*Invalid Forum Contents" : "";
+
+    if (titleError.innerHTML == "" && tagError.innerHTML == "" && contentsError.innerHTML == "")
+        document.getElementById(forumForm).submit();
+}
+
+function validateComment(commentForm) {
+    let commentType = (commentForm == "commentCreateForm") ? "create" : "edit";
+    let commentContents = document.getElementById(`comment-${commentType}-summernote`).value;
+    let contentsError = document.getElementById(`error-msg-${commentType}-contents`);
+    contentsError.innerHTML = (commentContents == "" || commentContents == "<p><br></p>") ? "*Invalid Forum Contents" : "";
+
+    if (contentsError.innerHTML == "")
+        document.getElementById(commentForm).submit();
+}
+
+function dismissErrorMessage(messageElement) {
+    document.getElementById(messageElement).innerHTML = "";
+}
+
+function dismissErrorMessageForum() {
+    document.getElementById('error-msg-title').innerHTML = "";
+    document.getElementById('error-msg-select').innerHTML = "";
+    document.getElementById('error-msg-contents').innerHTML = "";
 }

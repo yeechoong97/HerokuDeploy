@@ -10,7 +10,7 @@ use App\Common;
 <div class="main-body p-0 my-3" style="height:95%;border:1px solid #cbd5e0;">
     <div class="inner-wrapper">
         <div class="inner-sidebar">
-            <div class="inner-sidebar-header justify-content-center">
+            <div class="inner-sidebar-header justify-content-center" id="new-post-intro">
                 <a class="btn-primary form-control has-icon remove-decoration" data-toggle="modal" data-target="#createForum" >
                     New Post
                 </a>
@@ -41,6 +41,9 @@ use App\Common;
         </div>
         <div class="inner-main">
             <div class="inner-main-header">
+                <div class="forum-question-btn">
+                    <i class="far fa-question-circle text-info" onclick="showForumTips()"></i>
+                </div>
                 <a class="nav-link nav-icon rounded-circle mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>
                 <select class="custom-select form-control custom-select-sm w-auto mr-1" id="select-filter">
                     <option value="title" selected>Title</option>
@@ -62,7 +65,7 @@ use App\Common;
 
 <script type="text/javascript" src="{{ URL::asset('js/forum.js') }}"></script> 
 <script>
-$('#summernote').summernote({
+$('#forum-summernote').summernote({
     placeholder: 'Enter Contents Here',
     tabsize: 2,
     height: 120,

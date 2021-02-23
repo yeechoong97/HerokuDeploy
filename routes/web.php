@@ -20,7 +20,7 @@ Route::post('index/tutorial','MainController@setTutorial');
 
 Route::post('index/data','MainController@getCandle');
 Route::post('index/chart','MainController@changeSeries');
-Route::get('index/chat','MainController@chat_index');
+Route::get('chat','MainController@chat_index');
 Route::post('index/rate','MainController@getCurrencyRate');
 
 //Order History

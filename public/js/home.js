@@ -6,7 +6,7 @@ const arrayPercentage = {
 };
 
 function toggleChat() {
-    window.open('index/chat', "Live Chat", "height=550,width=800");
+    window.open('/chat', "Live Chat", "height=550,width=800");
 }
 
 //Update the font colour in the live streaming box
@@ -220,7 +220,7 @@ function calculateMargin(instrumentSelected, orderUnit, userLeverage, entryPrice
             midPoint = (parseFloat(EURUSDSell) + parseFloat(EURUSDBuy)) / 2;
             break;
     }
-    return ((orderUnit / userLeverage * midPoint).toFixed(4));
+    return ((orderUnit / userLeverage * midPoint).toFixed(2));
 }
 
 function changeInstrument(instrumentSelected) {

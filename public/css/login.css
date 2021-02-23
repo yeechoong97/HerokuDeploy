@@ -174,3 +174,7 @@
 .login-clean form .register:active {
     background: #eb3b60;
 }
+
+.avatar-border {
+    border: 0.1rem solid #bebebe;
+}

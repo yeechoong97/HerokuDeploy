@@ -23,6 +23,11 @@ function showTutorial(userName) {
                 intro: 'You can perform different trading functionalities in this section.'
             },
             {
+                element: document.querySelector('#chart-tips-intro'),
+                intro: 'This is a <b>Help</b> button. You can view additional information by clicking it.',
+                position: 'bottom'
+            },
+            {
                 element: document.querySelector('.account-table'),
                 intro: 'This section displays the summarized details of your trading account.',
                 position: 'right'
@@ -420,6 +425,70 @@ function showBuyTips() {
                 intro: `<b>Currency</b>: AUD/USD<br/><b>Type</b>: Buy<br/><b>One Pip</b>: 0.0001<br/><b>Entry</b>: 0.77627<br/><b>Exit</b>: 0.77843<br/><b>Units</b>: 20,000<br/><b>Pips</b>: 21.6<br/><br/> Final step, put the information into the profit formula<br/><br/><b>Profit</b><br/>= (One Pip * Units) * Pips<br/>= (0.0001 x 20,000) x 21.6<br/>= <b style="color:green">$43.20</b>`,
                 position: 'right',
             },
+        ]
+    }).start();
+}
+
+function showCalculatorTips() {
+    introJs().setOptions({
+        steps: [{
+                title: `Forex Calculator <i class="fas fa-calculator"></i>`,
+                intro: 'In this section, you can perform some calculation on <b>Margin</b>,<b>Pips Value</b> and <b>Profit</b>.',
+            },
+            {
+                element: document.querySelector('#margin-tab'),
+                intro: 'This is the <b>Margin</b> tab. You can perform calculation for the margin required based on the inputs entered.',
+            },
+            {
+                element: document.querySelector('#pips-tab'),
+                intro: 'This is the <b>Pips Value</b> tab. You can perform calculation for the pips value of the currency pair based on the inputs entered.',
+            },
+            {
+                element: document.querySelector('#profit-tab'),
+                intro: 'This is the <b>Profit</b> tab. You can perform calculation for the profit gained based on the inputs entered.',
+            },
+            {
+                element: document.querySelector('.calculator-left-div'),
+                intro: 'Left section of calculator panel contains some input fields that allows you to enter your input according to your preference.',
+            },
+            {
+                element: document.querySelector('.calculator-right-div'),
+                intro: 'Right section of calculator panel contains the formula for calculation and also a simple example.',
+            },
+            {
+                element: document.querySelector('#calculator-btn-intro'),
+                intro: 'After all the inputs are entered, you can click this <b>Calculate</b> button to perform calculation. The results produced will be displayed in the label below.',
+            },
+        ]
+    }).start();
+}
+
+function showForumTips() {
+    introJs().setOptions({
+        steps: [{
+                title: `Forum  <i class="fab fa-wpforms"></i>`,
+                intro: 'In this section, you can create a new post for discussion purpose. In addition, you also can answer to other traders who have other inquiries as well.',
+            },
+            {
+                element: document.querySelector('#new-post-intro'),
+                intro: 'You can create a new forum post by clicking this <b>New Post</b> button.',
+            },
+            {
+                element: document.querySelector('#select-filter'),
+                intro: 'You can <b>Sort</b> the forum posts according to the title, oldest posts and latest posts.',
+            },
+            {
+                element: document.querySelector('#search-forum-text'),
+                intro: 'You can <b>Search</b> some specific forum posts by entering the keyword.',
+            },
+            {
+                element: document.querySelector('.nav-link-faded'),
+                intro: 'This is the <b>Category</b> of the posts. You also can view your personal forum posts by clicking "Your Posts". ',
+            },
+            {
+                element: document.querySelector('.card'),
+                intro: 'This is the brief description of the forum post. Each post contain the details of <br/>1. <b>Name of author</b><br/>2. <b>Title of forum post</b><br/>3. <b>Duration of post created</b><br/>4. <b>Number of comment</b>',
+            }
         ]
     }).start();
 }

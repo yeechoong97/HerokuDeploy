@@ -8,6 +8,7 @@
     const chatContainer = document.getElementById('chat-message');
     const participantList = document.getElementById('participant-list');
     const token = $('meta[name="csrf-token"]').attr('content');
+    const userAvatar = document.getElementById('avatar-name').value;
     const chatWindow = this.window;
 
     //Join Selected Room
@@ -19,16 +20,15 @@
             document.getElementById('chat-error-msg').innerHTML = "Invalid Name Entered";
             return false;
         }
-        socketIO.emit('joinRoom', { 'userName': joinName, 'userRoom': joinRoom });
+        socketIO.emit('joinRoom', { 'userName': joinName, 'userRoom': joinRoom, 'userAvatar': userAvatar });
     };
 
     //Leave Room
     function leaveRoom() {
         socketIO.emit('leaveRoom');
-        document.getElementById('userName').value = "";
-        document.getElementById('roomValue').value = "Alpha";
         document.getElementById('chat-box-container').style.display = "none";
         document.getElementById('chat-enter').style.display = "block";
+        location.reload();
     }
 
     //Check if same username exists
@@ -129,26 +129,26 @@
     socketIO.on('roomUsers', ({ room, users }) => {
                 participantList.innerHTML =
                     `${users.map(user=>
-            `<div class="list-group-item list-group-item-action rounded-0 rmv-border">
-                    <div class="media"><i class="fas fa-user-alt avatar-size"></i>
-                    <div class="media-body ml-4">
-                        <div class="d-flex align-items-center justify-content-between mb-1">
-                        <h6 class="mb-0">${user.userName}</h6>
-                        </div>
+        `<div class="list-group-item list-group-item-action rounded-0 rmv-border">
+                <div class="media"><img src="${user.userAvatar}" class="rounded-circle" width="20">
+                <div class="media-body ml-1">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                    <h6 class="mb-0">${user.userName}</h6>
                     </div>
-                    </div>
-                </div>`
-                ).join('')}`;
+                </div>
+                </div>
+            </div>`
+            ).join('')}`;
     })
 
-    function alertUser(userRoom){
+    function alertUser(userRoom) {
         if (document.hasFocus() == false) {
             if (window.Notification && Notification.permission !== "denied") {
                 Notification.requestPermission(function(status) { // status is "granted", if accepted by user
                     var notifyMessage = new Notification('ES Forex Trading', {
                         body: `You have received a new message from ${userRoom} room `,
                     });
-                    notifyMessage.addEventListener('click', function(){
+                    notifyMessage.addEventListener('click', function() {
                         chatWindow.focus();
                     });
                 });
@@ -156,11 +156,11 @@
         }
     }
 
-window.addEventListener('beforeunload', function (e) {
-    e.returnValue = '';
+    window.addEventListener('beforeunload', function(e) {
+        e.returnValue = '';
     });
 
 
-function exitChat(){
-    window.close();
-}
+    function exitChat() {
+        window.close();
+    }

@@ -6,6 +6,7 @@ use App\Common;
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">Calculator<span aria-hidden="true" class="close" aria-label="Close" data-dismiss="modal">&times;</span>
+                <span class="close " onclick="showCalculatorTips()">?</span>
                 </div>
             </div>
             <div class="calculator-content">
@@ -42,7 +43,7 @@ use App\Common;
                                 </select>
                             <label class="text-left ml-4 my-2">Trade Units</label>
                                 <input type="number" class="form-control ml-4 col-md-8" id="margin-calculator-units" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true"/>
-                            <button class="form-control col-md-5 ml-5 my-2 btn-success" onclick="computeMargin()">Calculate</button>
+                            <button class="form-control col-md-5 ml-5 my-2 btn-success" id="calculator-btn-intro" onclick="computeMargin()">Calculate</button>
                             <label class="text-left ml-4 my-2"><b>Required Margin</b></label>
                                 <input type="text" class="form-control ml-4 col-md-8" id="margin-calculator-results" disabled /><br/>
                         </div>

@@ -43,12 +43,12 @@ use App\Common;
                     <div class="card-body">
                         <div class="media forum-item">
                             <div class="card-link">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                <img src="{{$forum->user->avatar}}" class="rounded-circle" width="50" alt="User" />
                                 <small class="d-block text-center text-muted">{{$forum->user->name}}</small>
                             </div>
                             <div class="media-body ml-3">
-                                <small class="text-muted ml-2">{{$forum->created_at->format('j M , Y  h:i A')}}</small>
                                 <h5 class="mt-1 font-weight-bold">{{$forum->title}}</h5>
+                                <small class="text-muted ml-2">{{$forum->created_at->format('j M , Y  h:i A')}}</small>
                                 <div class="mt-3 font-size-sm" >{!!$forum->contents!!}</div>
                             </div>
                             <div class="text-muted text-center">
@@ -67,10 +67,10 @@ use App\Common;
                 <div class="card mb-2">
                     <div class="card-body">
                         <div class="media forum-item">
-                            <a href="javascript:void(0)" class="card-link">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                            <div class="card-link">
+                                <img src="{{$forum->comment[$index]->user->avatar}}" class="rounded-circle" width="50" alt="User" />
                                 <small class="d-block text-center text-muted">{!!$forum->comment[$index]->user->name!!}</small>
-                            </a>
+                            </div>
                             <div class="media-body ml-3">
                                 <small class="text-muted ml-2">{{$forum->comment[$index]->created_at->format('j M , Y  h:i A')}}</small>
                                 <div class="mt-3 font-size-sm" >
