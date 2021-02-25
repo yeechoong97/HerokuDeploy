@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2300px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2200px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Order Types</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765170/E-Learning/EntryOrder.jpg" class="img-padding" >

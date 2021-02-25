@@ -7,7 +7,7 @@
 <div class="elearning-container">
     <div class="row learning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2600px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Forex Vs Stock</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612762204/E-Learning/ForexVsStock.jpg" class="img-padding" >

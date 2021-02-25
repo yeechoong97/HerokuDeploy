@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2200px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1900px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Momentum</h3>
                 <p>Momentum is the speed or velocity of price changes in a stock, security, or tradable instrument. Momentum shows the rate of change in price movement over a period of time to help investors determine the strength of a trend. Stocks that tend to move with the strength of momentum are called momentum stocks.</p>

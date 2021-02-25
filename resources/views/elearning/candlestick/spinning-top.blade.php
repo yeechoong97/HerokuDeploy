@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1500px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Spinning Top</h3>
                 <p>A spinning top is a candlestick pattern that has a short real body that's vertically centered between long upper and lower shadows. The candlestick pattern represents indecision about the future direction of the asset. It means that neither buyers nor sellers could gain the upper hand.</p>

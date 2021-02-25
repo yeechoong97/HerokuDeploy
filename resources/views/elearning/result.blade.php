@@ -10,7 +10,7 @@
         @include('elearning.side-nav')
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1000px;">
             <div class="sidenav-content-details">
-                <h3>Search Results for <label class="keyword">{{$keyword}}</label></h3>
+                <h3>Search Results for <label class="keyword" id="searched-keyword">{{$keyword}}</label></h3>
                 @if(count($result)>0)
                     @foreach($result as $result)
                         <div class="searched-result-div">
@@ -19,11 +19,12 @@
                         </div>
                     @endforeach
                 @else
-                    <h2 class="search-warning">No Results Found !</h2>
+                    <h2 class="search-warning text-danger">No result was found !</h2>
                 @endif
             </div>
         </div>
     </div>
 </div>
+<a id="back-to-top" href="#" class="btn-light btn-lg back-to-top bg-secondary" role="button"><i class="fas fa-chevron-up text-white"></i></a>
 <script type="text/javascript" src="{{ URL::asset('js/elearning.js')}}"></script>   
 @stop

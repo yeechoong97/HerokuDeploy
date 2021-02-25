@@ -40,23 +40,27 @@
     socketIO.on('userSet', function(data) {
         document.getElementById('chat-box-container').style.display = "block";
         document.getElementById('chat-enter').style.display = "none";
-        document.getElementById('roomName').innerHTML = "Chat Room: " + joinRoom;
+        document.getElementById('roomName').innerHTML = `Chat Room: ${joinRoom}`;
         chatContainer.innerHTML = "";
         document.getElementById('chat-error-msg').innerHTML = "";
+        chatContainer.innerHTML +=
+            `<div class="media">
+                <p class="text-small mb-0 text-muted mx-auto pb-3 text-center">Welcome ${joinName}.😊 <br/>Hope you enjoy chatting with other traders. Have fun!</p>
+            </div>`
     });
 
     //Welcome Message for new user joining the channel
     socketIO.on('message', function(data) {
         chatContainer.innerHTML +=
             `<div class="media">
-                <p class="text-small mb-0 text-muted mx-auto pb-3">` + data.greeting + `</p>
+                <p class="text-small mb-0 text-muted mx-auto pb-3">${data.greeting}</p>
             </div>`
         participantList.innerHTML +=
             `<div class="list-group-item list-group-item-action rounded-0 rmv-border">
                     <div class="media"><i class="fas fa-user-alt avatar-size"></i>
                     <div class="media-body ml-4">
                         <div class="d-flex align-items-center justify-content-between mb-1">
-                        <h6 class="mb-0">` + data.userName + `</h6>
+                        <h6 class="mb-0">${data.userName}</h6>
                         </div>
                     </div>
                     </div>
@@ -69,7 +73,7 @@
     socketIO.on('leavemsg', function(data) {
         chatContainer.innerHTML +=
             `<div class="media">
-                <p class="text-small mb-0 text-muted mx-auto pb-3">` + data + `</p>
+                <p class="text-small mb-0 text-muted mx-auto pb-3">${data}</p>
             </div>`
             //Scroll Down
         chatContainer.scrollTop = chatContainer.scrollHeight - chatContainer.clientHeight;
@@ -102,9 +106,9 @@
                     `<div class="media w-50 ml-auto mb-3">
         <div class="media-body">
         <div class="bg-primary rounded py-2 px-3 mb-2">
-            <p class="text-small mb-0 text-white">` + message + `</p>
+            <p class="text-small mb-0 text-white">${message}</p>
         </div>
-        <p class="small text-muted sender">` + time + `</p>
+        <p class="small text-muted sender">${time}</p>
         </div>
     </div>`
             } else {
@@ -112,11 +116,11 @@
                     `<div class="media w-50 mb-3">
             <div class="media-body ml-3">
             <div class="bg-light rounded py-2 px-3 mb-2">
-                <div class="chat-name">` +
-                    userName + `</div>
-                <p class="text-small mb-0 text-muted">` + message + `</p>
+                <div class="chat-name">
+                    ${userName}</div>
+                <p class="text-small mb-0 text-muted">${message}</p>
             </div>
-            <p class="small text-muted">` + time + `</p>
+            <p class="small text-muted">${time}</p>
             </div>
         </div>`
                 alertUser(userRoom);

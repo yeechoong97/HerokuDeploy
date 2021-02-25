@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3100px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2900px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Triangle</h3>
                 <p>As you may have noticed, chart pattern names don't leave much to the imagination. This is no different for the triangle patterns, which clearly form the shape of a triangle. The basic construct of this chart pattern is the convergence of two trendlines - flat, ascending or descending - with the price of the security moving between the two trendlines.</p>

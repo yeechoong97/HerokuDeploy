@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2700px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2600px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Triple Top & Triple Bottom</h3>
                 <p>The triple top and triple bottom are reversal patterns that are formulated when a security attempts to move past a key level of support or resistance in the direction of the prevailing trend.</p>

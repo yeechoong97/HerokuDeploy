@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3900px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3600px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Moving Average</h3>
                 <p>In technical analysis, the moving average is an indicator used to represent the average closing price of the market over a specified period of time. Traders often make use of moving averages as it can be a good indication of current market momentum.</p>

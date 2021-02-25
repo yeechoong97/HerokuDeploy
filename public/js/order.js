@@ -96,6 +96,10 @@ function filterDate() {
     }
 }
 
+function changeMonth() {
+    document.getElementById('month-id').submit();
+}
+
 //Alert the message
 function appendOrderAlert(message) {
     Swal.fire({
@@ -111,6 +115,8 @@ function appendOrderAlert(message) {
         }
     });
 }
+
+
 
 //Display the Help Message
 function toggleOrderIntro() {
@@ -154,6 +160,42 @@ function toggleOrderIntro() {
             {
                 element: document.querySelector('#th-profit'),
                 intro: 'The <b>Total Profit</b> or <b>Loss</b> of the order.'
+            },
+        ],
+    }).start();
+}
+
+//Display the Help Message
+function toggleSummaryIntro() {
+    introJs().setOptions({
+        steps: [{
+                title: 'Order Summary 📑',
+                intro: 'In this section, you can check your order summary for every month. Additionally, you can view the total profits and losses that occurred throughout the particular month.',
+            },
+            {
+                element: document.querySelector('#select_month_intro'),
+                intro: 'You can select which <b>Month</b> to view all the details about the order summary within the particular month.<br/><br/>The range of month list is based on:<br/><b>-From the oldest order</b><br/><b>-To the latest order</b>.',
+                position: 'right'
+            },
+            {
+                element: document.querySelector('#total-profit-intro'),
+                intro: 'The <b>Total Profits</b> gained from all the orders within the particular month. (<b>Excluded Loss</b>)',
+            },
+            {
+                element: document.querySelector('#total-loss-intro'),
+                intro: 'The <b>Total Losses</b> gained from all the orders within the particular month. (<b>Excluded Profit</b>)',
+            },
+            {
+                element: document.querySelector('#total-order-intro'),
+                intro: 'The <b>Total Number</b> of orders closed/reduced within the particular month.'
+            },
+            {
+                element: document.querySelector('#summary-table'),
+                intro: 'The table displays the respective profits and losses for every currency pair traded within the particular month.',
+            },
+            {
+                element: document.querySelector('#order-history-intro'),
+                intro: 'You can view <b>All Orders History</b> by clicking this button.',
             },
         ],
     }).start();

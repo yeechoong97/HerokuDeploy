@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2800px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2600px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Parabolic SAR</h3>
                 <p>The parabolic SAR indicator, developed by J. Wells Wilder, is used by traders to determine trend direction and potential reversals in price. The indicator uses a trailing stop and reverse method called "SAR," or stop and reverse, to identify suitable exit and entry points. Traders also refer to the indicator as the parabolic stop and reverse, parabolic SAR, or PSAR.</p>

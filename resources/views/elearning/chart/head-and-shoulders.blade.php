@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3800px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Head And Shoulders</h3>
                 <p>The head-and-shoulders pattern is one of the most popular and reliable chart patterns in technical analysis. And as one might imagine from the name, the pattern looks like a head with two shoulders.</p>

@@ -16,10 +16,13 @@
                         <a class="nav-link" href="{{route('learning-intro')}}">Learning Materials</a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="{{route('order-show')}}">Order History</a>
+                        <a class=" nav-link" href="{{route('order-summary')}}">Orders</a>
                     </li>
                     <li class="nav-item">
                         <a class=" nav-link" href="{{route('fund-index')}}">Funds Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link" href="{{route('profile-index')}}">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class=" nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>

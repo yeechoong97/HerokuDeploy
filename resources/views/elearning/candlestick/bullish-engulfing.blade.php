@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1500px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Bullish Engulfing</h3>
                 <p>A bullish engulfing pattern is a white candlestick that closes higher than the previous day's opening after opening lower than the previous day's close. It can be identified when a small black candlestick, showing a bearish trend, is followed the next day by a large white candlestick, showing a bullish trend, the body of which completely overlaps or engulfs the body of the previous day’s candlestick.</p>

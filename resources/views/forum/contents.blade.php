@@ -1,12 +1,14 @@
-
+<div class="mx-auto justify-content-center">
+    <p class="mx-auto font-weight-bold text-secondary" id="search-keyword-tag"></p>
+</div> 
 @if(count($forums)>0)
     @foreach($forums as $forum)
     <div class="card mb-2">
         <div class="card-body p-2 p-sm-3">
             <div class="media forum-item">
                 <div class="card-link mr-3">
-                    <img src="{{$forum->user->avatar}}" class="rounded-circle" width="50" alt="User" />
-                    <small class="d-block text-center text-muted">{{$forum->user->name}}</small>
+                    <img src="{{$forum->user->avatar}}" class="rounded-circle ml-1" width="50" alt="User" />
+                    <small class="d-block text-center text-muted" style="width:60px">{{$forum->user->name}}</small>
                 </div>
                 <div class="media-body">
                     <h6><a href="{{ route('forum-show',['tag'=>$tagValue,'id'=>$forum->forum_id]) }}"  class="text-body forum-title-link">{{$forum->title}}</a></h6>
@@ -32,7 +34,7 @@
     @endif
 @else
     <div class="mx-auto my-3 justify-content-center">
-    <p class="mx-auto font-weight-bold">No result was found!</p>
+    <p class="mx-auto font-weight-bold text-danger">No result was found!</p>
     </div> 
 @endif
 

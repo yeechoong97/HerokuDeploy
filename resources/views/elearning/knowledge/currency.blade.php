@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2100px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2000px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Currency Pair</h3>
                 <p>A currency pair is the quotation of two different currencies, with the value of one currency being quoted against the other. The first listed currency of a currency pair is called the base currency, and the second currency is called the quote currency.</p>

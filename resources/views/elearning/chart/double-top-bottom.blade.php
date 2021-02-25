@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2800px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2600px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Double Top & Double Bottom</h3>
                 <p>The double top and double bottom are another pair of well-known chart patterns whose names don’t leave much to the imagination. These two reversal patterns illustrate a security's attempt to continue an existing trend. Upon several attempts to move higher, the trend is reversed and a new trend begins. These chart patterns formed will often resemble what looks like a “W” (for a double bottom) or an “M” (double top).</p>

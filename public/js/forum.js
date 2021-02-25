@@ -34,6 +34,7 @@ function searchForum() {
             $('#main-contents-forum').html('');
             $('#main-contents-forum').html(data);
             document.documentElement.scrollTop = 0;
+            document.getElementById('search-keyword-tag').innerHTML = (searchContent.trim() != "") ? `Search results for <b class="text-primary">${searchContent}</b>` : "";
         },
         error: function(data) {
             console.log(JSON.stringify(data));

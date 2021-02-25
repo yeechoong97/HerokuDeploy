@@ -5,7 +5,7 @@ use App\Common;
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title">Calculator<span aria-hidden="true" class="close" aria-label="Close" data-dismiss="modal">&times;</span>
+                <div class="modal-title">Calculator<span aria-hidden="true" class="close" aria-label="Close" data-dismiss="modal" onclick="resetCalculator()">&times;</span>
                 <span class="close " onclick="showCalculatorTips()">?</span>
                 </div>
             </div>
@@ -23,7 +23,7 @@ use App\Common;
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane tab-contents fade show active" id="margin" role="tabpanel" aria-labelledby="margin-tab">
-                        <div class="calculator-left-div">
+                        <div class="calculator-left-div" id="calculator-left-div-intro">
                             <label class="text-left ml-4 my-2">Account Base Currency</label>
                                 <input type="text" id="margin-calculator-base" class="form-control ml-4 col-md-8" value="USD" disabled/>
                             <label class="text-left ml-4 my-2">Currency Pair</label>
@@ -47,14 +47,14 @@ use App\Common;
                             <label class="text-left ml-4 my-2"><b>Required Margin</b></label>
                                 <input type="text" class="form-control ml-4 col-md-8" id="margin-calculator-results" disabled /><br/>
                         </div>
-                        <div class="calculator-right-div">
+                        <div class="calculator-right-div" id="calculator-right-div-intro">
                             <label class="text-left my-2 font-weight-bold">Calculation Formula</label>
                                 <p class="text-left" style="color:blue">Required Margin = Trade Size ÷ Leverage ✕ Account Currency Exchange Rate (if different from the base currency of the pair traded)</p>
                             <hr>
                             <label class="text-left font-weight-bold">Example</label>
                             <label class="text-left my-2">Trading <b style="color:blue">30,000</b> Units of EUR/USD (<b style="color:red">1.13798</b>) using <b style="color:purple">50:1</b> leverage with an account denominated in USD.</label>
-                            <label class="text-left">Trade Size: <b style="color:blue">30,000</b></label>
-                            <label class="text-left">Currency Exchange Rate: <b style="color:red">1.13798</b></label>
+                            <label class="text-left">Trade Size: <b style="color:blue">30,000</b></label><br/>
+                            <label class="text-left">Currency Exchange Rate: <b style="color:red">1.13798</b></label><br/>
                             <label class="text-left">Leverage: <b style="color:purple">50:1</b></label>
                             <br/><br/>
                             <label class="text-left font-weight-bold">Required Margin:</label>
@@ -89,10 +89,10 @@ use App\Common;
                                 <p class="text-left" style="color:blue">Pip Value = (One Pip / Exchange Rate) * Units</p>
                             <hr>
                             <label class="text-left font-weight-bold">Example</label><br/>
-                            <label class="text-left my-2">Account Base Currency : <b>EUR</b></label>
+                            <label class="text-left my-2">Account Base Currency : <b>EUR</b></label><br/>
                             <label class="text-left">Currency Pair : <b>EUR/USD</b></label><br/>
-                            <label class="text-left">One Pip : <b style="color:blue">0.0001</b></label>
-                            <label class="text-left">Currency Rate: <b style="color:red">1.08962</b></label>
+                            <label class="text-left">One Pip : <b style="color:blue">0.0001</b></label><br/>
+                            <label class="text-left">Currency Rate: <b style="color:red">1.08962</b></label><br/>
                             <label class="text-left">Units: <b style="color:purple">100000</b></label>
                             <br/><br/>
                             <label class="text-left font-weight-bold">Pips Value:</label>

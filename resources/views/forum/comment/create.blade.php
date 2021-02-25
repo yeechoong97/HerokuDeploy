@@ -8,7 +8,7 @@ use App\Common;
                 @csrf
                     <div class="modal-header d-flex align-items-center text-white">
                         <h6 class="modal-title mb-0" id="threadModalLabel">New Comment</h6>
-                        <a class="close remove-decoration" data-dismiss="modal" aria-label="Close">
+                        <a class="close remove-decoration" data-dismiss="modal" aria-label="Close" onclick="dismissErrorMessage('error-msg-create-contents')">
                             <span aria-hidden="true">×</span>
                         </a>
                     </div>

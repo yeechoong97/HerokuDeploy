@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2700px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Bollinger Band</h3>
                 <p>A Bollinger Band is a technical analysis tool defined by a set of trendlines plotted two standard deviations (positively and negatively) away from a simple moving average (SMA) of a security's price, but which can be adjusted to user preferences.</p>

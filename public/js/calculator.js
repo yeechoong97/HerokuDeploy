@@ -7,7 +7,7 @@ function computeMargin() {
     let unitsEntered = document.getElementById('margin-calculator-units').value;
     let buyPrice, sellPrice = 0;
     if (instrumentSelected == "default" || leverageSelected == "default") {
-        appendAlertCalculator('Please select input for both leverage and currency pair')
+        appendAlertCalculator('Please select input for both leverage and currency pair.')
         return false;
     } else if (unitsEntered == "" || unitsEntered == 0) {
         appendAlertCalculator('Please enter valid units');
@@ -18,6 +18,7 @@ function computeMargin() {
         buyPrice = (arrayCurrency[index][0] == instrumentSelected) ? arrayCurrency[index][2] : buyPrice;
         sellPrice = (arrayCurrency[index][0] == instrumentSelected) ? arrayCurrency[index][1] : sellPrice;
     }
+    instrumentSelected = instrumentSelected.replace("_", "/");
     let computedMargin = calculateMargin(instrumentSelected, unitsEntered, trimLeverage, buyPrice, sellPrice);
     document.getElementById('margin-calculator-results').value = `$ ${computedMargin}`;
 }
@@ -51,10 +52,10 @@ function computePips() {
     let onePip = 0.0001;
 
     if (instrumentSelected == "default" || baseSelected == "default") {
-        appendAlertCalculator('Please select input for both base currency and currency pair')
+        appendAlertCalculator('Please select input for both base currency and currency pair.')
         return false;
     } else if (unitsEntered == "" || unitsEntered == 0) {
-        appendAlertCalculator('Please enter valid units');
+        appendAlertCalculator('Please enter valid units.');
         return false;
     }
 
@@ -65,11 +66,11 @@ function computePips() {
             case "EUR_USD":
             case "AUD_USD":
             case "GBP_USD":
-                pipsValue = (onePip * unitsEntered).toFixed(5);
+                pipsValue = (onePip * unitsEntered).toFixed(2);
                 break;
             case "USD_JPY":
             case "EUR_JPY":
-                pipsValue = (onePip / retrievePrice('USD_JPY') * unitsEntered * 100).toFixed(5);
+                pipsValue = (onePip / retrievePrice('USD_JPY') * unitsEntered * 100).toFixed(2);
                 break;
         }
         pipsValue = `$ ${pipsValue}`;
@@ -78,11 +79,11 @@ function computePips() {
             case "EUR_USD":
             case "AUD_USD":
             case "GBP_USD":
-                pipsValue = (onePip / retrievePrice('EUR_USD') * unitsEntered).toFixed(5);
+                pipsValue = (onePip / retrievePrice('EUR_USD') * unitsEntered).toFixed(2);
                 break;
             case "USD_JPY":
             case "EUR_JPY":
-                pipsValue = (onePip / retrievePrice('EUR_JPY') * unitsEntered * 100).toFixed(5);
+                pipsValue = (onePip / retrievePrice('EUR_JPY') * unitsEntered * 100).toFixed(2);
                 break;
         }
         pipsValue = `€ ${pipsValue}`;
@@ -91,11 +92,11 @@ function computePips() {
             case "EUR_USD":
             case "AUD_USD":
             case "GBP_USD":
-                pipsValue = (onePip * retrievePrice('USD_JPY') * unitsEntered).toFixed(5);
+                pipsValue = (onePip * retrievePrice('USD_JPY') * unitsEntered).toFixed(2);
                 break;
             case "USD_JPY":
             case "EUR_JPY":
-                pipsValue = (onePip * unitsEntered * 100).toFixed(5);;
+                pipsValue = (onePip * unitsEntered * 100).toFixed(2);;
                 break;
         }
         pipsValue = `¥ ${pipsValue}`;
@@ -111,10 +112,10 @@ function computeProfit() {
     let orderType = document.getElementById('profit-calculator-type').value;
 
     if (instrumentSelected == "default" || orderType == "default") {
-        appendAlertCalculator('Please select input for both base order and currency pair')
+        appendAlertCalculator('Please select input for both base order and currency pair.')
         return false;
     } else if (unitsEntered == "" || unitsEntered == 0 || entryPrice == "" || entryPrice == 0 || exitPrice == "" || exitPrice == 0) {
-        appendAlertCalculator('Please enter valid input');
+        appendAlertCalculator('Please enter valid inputs.');
         return false;
     }
 
@@ -167,6 +168,9 @@ function resetCalculator() {
     document.getElementById('profit-calculator-entry').value = "";
     document.getElementById('profit-calculator-exit').value = "";
     document.getElementById('profit-calculator-type').value = "default";
+    document.getElementById('margin-calculator-results').value = "";
+    document.getElementById('profit-calculator-results').value = "";
+    document.getElementById('pip-calculator-results').value = "";
 }
 
 

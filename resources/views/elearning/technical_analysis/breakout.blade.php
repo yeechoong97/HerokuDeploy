@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1900px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1800px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Breakout</h3>
                 <p>A breakout refers to when the price of an asset moves above a resistance area, or moves below a support area. Breakouts indicate the potential for the price to start trending in the breakout direction. For example, a breakout to the upside from a chart pattern could indicate the price will start trending higher. Breakouts that occur on high volume (relative to normal volume) show greater conviction which means the price is more likely to trend in that direction.</p>

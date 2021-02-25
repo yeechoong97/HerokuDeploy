@@ -20,15 +20,35 @@ for (let i = 0; i < dropdown.length; i++) {
 
 for (let index in dropdown) {
     let child = dropdown[index].nextElementSibling;
-    let title = document.getElementById("learning-title").innerHTML;
-    let childNodes = child.childNodes;
-    for (let jIndex in childNodes) {
-        if (typeof(childNodes[jIndex].innerHTML) != "undefined") {
-            if (childNodes[jIndex].innerHTML.includes(title)) {
-                dropdown[index].click();
-                childNodes[jIndex].classList.add("active");
-                break;
+    let title = (document.getElementById("learning-title") != null) ? document.getElementById("learning-title").innerHTML : document.getElementById('searched-keyword').innerHTML;
+    if (child != undefined) {
+        let childNodes = child.childNodes;
+        for (let jIndex in childNodes) {
+            if (typeof(childNodes[jIndex].innerHTML) != "undefined" && title != "") {
+                if (childNodes[jIndex].innerHTML.includes(title)) {
+                    dropdown[index].click();
+                    childNodes[jIndex].classList.add("active");
+                    childNodes[jIndex].scrollIntoView();
+                    break;
+                }
             }
         }
     }
 }
+
+$(document).ready(function() {
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 50) {
+            $('#back-to-top').fadeIn();
+        } else {
+            $('#back-to-top').fadeOut();
+        }
+    });
+    // scroll body to 0px on click
+    $('#back-to-top').click(function() {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 400);
+        return false;
+    });
+});

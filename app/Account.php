@@ -16,7 +16,6 @@ class Account extends Model
         'margin',
         'margin_used',
         'leverage',
-        'tutorial'
     ];
 
     public function user(){

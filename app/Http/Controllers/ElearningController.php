@@ -16,6 +16,7 @@ class ElearningController extends Controller
     public function search(Request $request)
     {
         $resultArray = [];
+        $request->search = ($request->search==null) ? "" : $request->search;
         foreach(Common::$learningPage as $learningpage)
         {
             if (stripos($learningpage['description'],$request->search)!==false ||  stripos($learningpage['value'],$request->search)!==false || stripos($learningpage['parent'],$request->search)!==false )

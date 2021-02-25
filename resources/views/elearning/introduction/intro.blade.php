@@ -7,7 +7,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1600px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1500px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Introduction to Forex Market</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612761384/E-Learning/ForexIntro.jpg" class="img-padding">
@@ -22,7 +22,6 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript" src="{{ URL::asset('js/elearning.js')}}"></script>   
 
 @stop

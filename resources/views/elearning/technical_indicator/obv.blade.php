@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3300px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3000px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">On-Balance Volume</h3>
                 <p>On-balance volume (OBV) is a technical trading momentum indicator that uses volume flow to predict changes in stock price. Joseph Granville first developed the OBV metric in the 1963 book Granville's New Key to Stock Market Profits.</p>

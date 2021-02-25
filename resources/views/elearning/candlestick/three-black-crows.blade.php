@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1600px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1500px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Three Black Crows</h3>
                 <p>Three black crows is a phrase used to describe a bearish candlestick pattern that may predict the reversal of an uptrend. Candlestick charts show the day's opening, high, low, and closing prices for a particular security. For stocks moving higher the candlestick is white or green. When moving lower, they are black or red.</p>

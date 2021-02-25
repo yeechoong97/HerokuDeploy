@@ -374,7 +374,7 @@ function checkTools(indicatorSelected,obj)
 window.onload = function(){ 
     var loginTime = "{{Session::get('login')}}";
     var userName = "{{$account->user->name}}";
-    var tutorialValidate = "{{$account->tutorial}}";
+    var tutorialValidate = "{{$account->user->tutorial}}";
     if(tutorialValidate == 0 && loginTime == 0)
     {
         showTutorial(userName);

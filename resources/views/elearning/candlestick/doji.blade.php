@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1800px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1700px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Doji</h3>
                 <p>A doji—or more accurately, "dо̄ji"—is a name for a session in which the candlestick for a security has an open and close that are virtually equal and are often components in patterns. Doji candlesticks look like a cross, inverted cross or plus sign. Alone, doji are neutral patterns that are also featured in a number of important patterns.</p>

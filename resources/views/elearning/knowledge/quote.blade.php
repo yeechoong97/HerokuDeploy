@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2800px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2700px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Quotes</h3>
                 <h5>What are Forex Quotes</h5>

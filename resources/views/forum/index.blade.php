@@ -56,7 +56,7 @@ use App\Common;
                 </span>
             </div>
             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show" id="main-contents-forum">
-               @include('forum.contents')
+                @include('forum.contents')
             </div>            
         </div>
     </div>

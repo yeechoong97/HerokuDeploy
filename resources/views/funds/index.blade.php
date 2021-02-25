@@ -6,11 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<body style="overflow:hidden">
 <div class="funds-container mx-auto">
     <div class="main-funds-header">Account Details  &ensp;<i class="far fa-question-circle" onclick="toggleFundsIntro()"></i></div>
         <div class="funds-subcontainer">
-            <div class="funds-left-div">
+            <div class="funds-left-div px-3">
                 <div class="form-group1 mx-auto" id="name-intro">
                     <label for="name">Name :</label>
                     <input class="form-control" type="text" value="{{$account->user->name}}" disabled/>
@@ -28,7 +27,7 @@
                     <input class="form-control" type="text" id="account-margin" value="${{$account->margin}}"  disabled/>
                 </div>
             </div>
-            <div class="funds-right-div">
+            <div class="funds-right-div px-3">
                 <div class="form-group1 mx-auto" id="margin-used-intro">
                     <label for="name">Margin Used :</label>
                     <input class="form-control" type="text" id="account-margin-used" value="{{$account->margin_used}}" disabled/>
@@ -43,10 +42,10 @@
                 <div class="btn-div">
                     <div class="form-group align-btn" id="general-btn-div">
                         <a href="{{ route('fund-deposit') }}" class="btn btn-primary btn-block" id="deposit-intro">Deposit</a>
-                        <a href="{{ route('fund-withdraw') }}" class="btn btn-second btn-block" id="withdraw-intro">Withdraw</a>
+                        <a href="{{ route('fund-withdraw') }}" class="btn btn-primary btn-block" id="withdraw-intro">Withdraw</a>
                     </div>
                     <div class="form-group align-btn" id="leverage-btn-div"  style="display:none" >
-                        <a href="#" class="btn btn-primary btn-block"onclick="submitLeverageForm()">Confirm</a>
+                        <a href="#" class="btn btn-confirm btn-block"onclick="submitLeverageForm()">Confirm</a>
                         <a href="#" class="btn btn-second btn-block" onclick="cancelEdit()">Cancel</a>
                     </div>
                 </div>
@@ -54,8 +53,7 @@
         </div>
     </div>
 </div>
-@include('funds.funds-lightbox')
-</body>
+<script type="text/javascript" src="{{ URL::asset('js/funds.js') }}"></script>  
 <script>
 
 //Display the alert message

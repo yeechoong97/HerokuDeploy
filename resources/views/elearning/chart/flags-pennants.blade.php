@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2200px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2100px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Flags & Pennants</h3>
                 <p>The flag and pennant patterns are two continuation patterns that closely resemble each other, differing only in their shape during the pattern's consolidation period. This is the reason the terms flag and pennant are often used interchangeably. A flag is a rectangular shape, while the pennant looks more like a triangle.</p>

@@ -3,7 +3,7 @@
       <div class="modal-content modal-content-buy-sell" id="buy-sell-modal-content">
          <div class="modal-header">
             <div class="modal-title">Order
-               <span aria-hidden="true" class="close" aria-label="Close" id="order-modal-closebtn" data-dismiss="modal">&times;</span>
+               <span aria-hidden="true" class="close" aria-label="Close" id="order-modal-closebtn" data-dismiss="modal" onclick="clearInput('order-units')">&times;</span>
                <span class="close " onclick="showBuySellTips()">?</span>
             </div>
          </div>
@@ -37,7 +37,7 @@
                </div>
                <div class="px-5 text-center">
                   <span class="unit-remark"><b>*</b>Maximum Units: 1,000,000</span><br/>
-                  <span class="unit-remark ">Learn More about <a href="#" onclick="showSellTips()">Sell</a> and <a href="#" onclick="showBuyTips()">Buy</a></span>
+                  <span class="unit-remark ">Learn Calculation about <a href="#" onclick="showSellTips()">Sell</a> and <a href="#" onclick="showBuyTips()">Buy</a></span>
                </div>
                   <div class="margin-check" id="margin-check-intro">
                      <div class="label">Margin Required: </div>

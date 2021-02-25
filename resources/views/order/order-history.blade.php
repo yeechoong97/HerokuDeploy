@@ -5,7 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <body style="overflow-y:auto">
 <div class="orders-history-container mx-auto">
-        <div class="orders-history-header">Order Details  &ensp;<i class="far fa-question-circle" onclick="toggleOrderIntro()"></i></div>
+        <div class="orders-history-header"><a href="{{route('order-summary')}}" class="remove-decoration text-white"><i class="fas fa-arrow-circle-left float-left my-1 mx-2"></a></i> Order History  &ensp;<i class="far fa-question-circle" onclick="toggleOrderIntro()"></i></div>
             <div class="orders-history-subcontainer">
                 <div class="orders-upper-container">
                     <div class="orders-date-input">
@@ -24,7 +24,7 @@
                 <div class="mx-auto bg-white rounded shadow customization">
                     <div class="table-responsive">
                         <table id="all_orders"  class="table table-fixed">
-                            <thead>
+                            <thead class="thead-dark">
                                 <tr>
                                     <th class="col1">TicketID</th>
                                     <th class="col4" id="th-created_at" onclick="sortTable('created_at')" >Date <span class="fas fa-caret-down" id="span-created_at"></span></th>
@@ -53,7 +53,6 @@
     </div>
 </div>
 </body>
-@include('order.order-history-lightbox')
 <script type="text/javascript" src="{{ URL::asset('js/order.js') }}"></script>  
 @stop
 

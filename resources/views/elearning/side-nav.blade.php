@@ -95,3 +95,4 @@
             </div>
     </div>
 </div>
+<a id="back-to-top" href="#" class="btn-light btn-lg back-to-top bg-secondary" role="button"><i class="fas fa-chevron-up text-white"></i></a>

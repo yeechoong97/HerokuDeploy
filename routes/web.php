@@ -24,7 +24,9 @@ Route::get('chat','MainController@chat_index');
 Route::post('index/rate','MainController@getCurrencyRate');
 
 //Order History
-Route::get('order','OrderController@show')->name("order-show");
+Route::get('order/summary','OrderController@index')->name('order-summary');
+Route::post('order/summary','OrderController@changeMonth')->name('order-change-month');
+Route::get('order/history','OrderController@showHistory')->name("order-show-history");
 Route::get('order/fetch','OrderController@fetch');
 
 //Funds Management
@@ -34,6 +36,12 @@ Route::get('fund/withdraw','FundController@withdraw_index')->name("fund-withdraw
 Route::put('fund/withdraw','FundController@withdraw_update')->name("withdraw-update");
 Route::get('fund/deposit','FundController@deposit_index')->name("fund-deposit");
 Route::put('fund/deposit','FundController@deposit_update')->name("deposit-update");
+
+//User Profile
+Route::get('profile/index','ProfileController@index')->name("profile-index");
+Route::post('profile/avatar','ProfileController@changeAvatar')->name("profile-avatar");
+Route::put('profile/profile/update','ProfileController@updateProfile')->name("profile-update");
+Route::put('profile/password/update','ProfileController@updatePassword')->name('profile-password-update');
 
 
 //Forum

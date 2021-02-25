@@ -27,7 +27,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <input class="form-control @error('phone') is-invalid @enderror" type="number" name="phone" placeholder="Phone Number" required oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;">
+                    <input class="form-control @error('phone') is-invalid @enderror" type="number" name="phone" placeholder="Phone Number (Eg. 0123456789)" required maxlength="11" required autofocus onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)">
                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -103,7 +103,7 @@
                     document.getElementById('dismissModalBtn').click();
                 }
             }
-        </script>
+    </script>
 
 
 @endsection

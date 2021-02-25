@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1300px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1200px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Morning Star</h3>
                 <p>A morning star is a visual pattern consisting of three candlesticks that is interpreted as a bullish sign by technical analysts. A morning star forms following a downward trend and it indicates the start of an upward climb. It is a sign of a reversal in the previous price trend. Traders watch for the formation of a morning star and then seek confirmation that a reversal is indeed occurring using additional indicators.</p>

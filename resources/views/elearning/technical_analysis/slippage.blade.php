@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2200px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2100px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Slippage</h3>
                 <h5>What is Slippage</h5>

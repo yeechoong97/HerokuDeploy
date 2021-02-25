@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2100px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2000px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">The Wedge</h3>
                 <p>The wedge chart pattern signals a reverse of the trend that is currently formed within the wedge itself. Wedges are similar in construction to a symmetrical triangle in that there are two trendlines - support and resistance - which band the price of a security.</p>

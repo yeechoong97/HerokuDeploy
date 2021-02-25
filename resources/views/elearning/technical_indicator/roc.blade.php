@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2700px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Rate Of Change</h3>
                 <p>The Price Rate of Change (ROC) is a momentum-based technical indicator that measures the percentage change in price between the current price and the price a certain number of periods ago. The ROC indicator is plotted against zero, with the indicator moving upwards into positive territory if price changes are to the upside, and moving into negative territory if price changes are to the downside.</p>

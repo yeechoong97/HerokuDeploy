@@ -22,13 +22,15 @@
                         <input class="form-control" type="text" id="userName" name="username" value="{{$user->name}}" />
                         <input type="hidden" id="avatar-name" value="{{$user->avatar}}" />
                     </div>
-                    <div class="form-group1 mx-auto">
+                    <div class="form-group1 mx-auto mt-2">
                         <label for="name">Room:</label>
                         <select class="form-control" id="roomValue" name="roomname">
-                            <option value="Alpha">Alpha</option>
-                            <option value="Beta">Beta</option>
-                            <option value="Charlie">Charlie</option>
-                            <option value="Delta">Delta</option>
+                            <option value="General Discussion">General Discussion</option>
+                            <option value="Forex News">Forex News</option>
+                            <option value="Analysis Discussion">Analysis Discussion</option>
+                            <option value="Education">Education</option>
+                            <option value="Strategy Discussion">Strategy Discussion</option>
+                            <option value="Forex Signals">Forex Signals</option>
                         </select>
                     </div>
                     <div class="chat-name-error" id="chat-error-msg"></div>                       
@@ -38,7 +40,6 @@
             </div>
         </div>
 </div>
-
 @include('subpage.chat-room')
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  

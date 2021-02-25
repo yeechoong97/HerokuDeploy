@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2600px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Stochastic Oscillator</h3>
                 <p>A stochastic oscillator is a momentum indicator comparing a particular closing price of a security to a range of its prices over a certain period of time. The sensitivity of the oscillator to market movements is reducible by adjusting that time period or by taking a moving average of the result. It is used to generate overbought and oversold trading signals, utilizing a 0–100 bounded range of values.</p>

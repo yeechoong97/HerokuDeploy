@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1300px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1200px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Evening Star</h3>
                 <p>An Evening Star is a stock-price chart pattern used by technical analysts to detect when a trend is about to reverse. It is a bearish candlestick pattern consisting of three candles: a large white candlestick, a small-bodied candle, and a red candle.</p>

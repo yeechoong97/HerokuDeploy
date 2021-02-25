@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1900px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1800px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Cup And Handle</h3>
                 <p>A cup-and-handle pattern resembles the shape of a tea cup on a chart. This is a bullish continuation pattern where the upward trend has paused, and traded down, but will continue in an upward direction upon the completion of the pattern. This pattern can range from several months to a year, but its general form remains the same.</p>

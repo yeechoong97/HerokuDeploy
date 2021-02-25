@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3500px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3300px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Chart Types</h3>
                 <h5>Line Chart</h5>

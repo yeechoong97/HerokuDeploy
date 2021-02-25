@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer" >
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2400px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2200px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Fundamental Analysis Introduction</h3>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766943/E-Learning/Fundamental.png" class="img-padding" >

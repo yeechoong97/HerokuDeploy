@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2800px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2600px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Directional Movement Index</h3>
                 <p>The Directional Movement Index, or DMI, is an indicator developed by J. Welles Wilder in 1978 that identifies in which direction the price of an asset is moving. The indicator does this by comparing prior highs and lows and drawing two lines: a positive directional movement line (+DI) and a negative directional movement line (-DI). An optional third line, called directional movement line (DX) shows relative the difference between the lines.</p>

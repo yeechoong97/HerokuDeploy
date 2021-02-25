@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3200px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3000px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Long Position vs Short Position</h3>
                 <p>Understanding the basics of going long or short in forex is fundamental for all beginner traders. Taking a long or short position comes down to whether a trader thinks a currency will appreciate (go up) or depreciate (go down), relative to another currency. Simply put, when a trader thinks a currency will appreciate they will “Go Long” the underlying currency, and when the trader expects the currency to depreciate they will “Go Short” the underlying currency.</p>

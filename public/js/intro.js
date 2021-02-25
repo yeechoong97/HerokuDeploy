@@ -34,7 +34,7 @@ function showTutorial(userName) {
             },
             {
                 element: document.querySelector('#container'),
-                intro: 'The visualization of selected currency pair in the chart.',
+                intro: 'The visualization of selected currency pair in the chart. <b>The datetime of the chart are following the UTC (Coordinated Universal Time) format.',
             },
             {
                 element: document.querySelector('.order-table'),
@@ -430,6 +430,7 @@ function showBuyTips() {
 }
 
 function showCalculatorTips() {
+    document.getElementById('margin-tab').click();
     introJs().setOptions({
         steps: [{
                 title: `Forex Calculator <i class="fas fa-calculator"></i>`,
@@ -448,11 +449,11 @@ function showCalculatorTips() {
                 intro: 'This is the <b>Profit</b> tab. You can perform calculation for the profit gained based on the inputs entered.',
             },
             {
-                element: document.querySelector('.calculator-left-div'),
+                element: document.querySelector('#calculator-left-div-intro'),
                 intro: 'Left section of calculator panel contains some input fields that allows you to enter your input according to your preference.',
             },
             {
-                element: document.querySelector('.calculator-right-div'),
+                element: document.querySelector('#calculator-right-div-intro'),
                 intro: 'Right section of calculator panel contains the formula for calculation and also a simple example.',
             },
             {
@@ -467,7 +468,7 @@ function showForumTips() {
     introJs().setOptions({
         steps: [{
                 title: `Forum  <i class="fab fa-wpforms"></i>`,
-                intro: 'In this section, you can create a new post for discussion purpose. In addition, you also can answer to other traders who have other inquiries as well.',
+                intro: 'In this section, you can create a new post for discussion purposes. In addition, you also can answer other traders who have other inquiries as well.',
             },
             {
                 element: document.querySelector('#new-post-intro'),
@@ -475,7 +476,7 @@ function showForumTips() {
             },
             {
                 element: document.querySelector('#select-filter'),
-                intro: 'You can <b>Sort</b> the forum posts according to the title, oldest posts and latest posts.',
+                intro: 'You can <b>Sort</b> the forum posts according to the title, oldest posts, and latest posts.',
             },
             {
                 element: document.querySelector('#search-forum-text'),
@@ -483,11 +484,11 @@ function showForumTips() {
             },
             {
                 element: document.querySelector('.nav-link-faded'),
-                intro: 'This is the <b>Category</b> of the posts. You also can view your personal forum posts by clicking "Your Posts". ',
+                intro: 'This is the <b>Category</b> of the posts. You also can view your forum posts by clicking "Your Posts". ',
             },
             {
                 element: document.querySelector('.card'),
-                intro: 'This is the brief description of the forum post. Each post contain the details of <br/>1. <b>Name of author</b><br/>2. <b>Title of forum post</b><br/>3. <b>Duration of post created</b><br/>4. <b>Number of comment</b>',
+                intro: 'This is a brief description of the forum post. Each post contain the details of <br/>1. <b>Name of author</b><br/>2. <b>Title of forum post</b><br/>3. <b>Duration of post created</b><br/>4. <b>Number of comment</b>',
             }
         ]
     }).start();

@@ -3,14 +3,14 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<body style="overflow:hidden">
+
 <div class="funds-container mx-auto">
     <div class="funds-header">Withdrawal</div>
         <div class="funds-subcontainer">
-            <div class="funds-left-div">
+            <div class="funds-left-div px-3">
                 <div class="form-group1 mx-auto">
-                     <label for="name">Name :</label>
-                     <input class="form-control" type="text" value="{{$account->user->name}}" disabled/>
+                    <label for="name">Name :</label>
+                    <input class="form-control" type="text" value="{{$account->user->name}}" disabled/>
                 </div>
                 <div class="form-group1 mx-auto">
                     <label for="name">Currency :</label>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="funds-right-div">
+            <div class="funds-right-div px-3">
                 <div class="form-group1 mx-auto">
                     <label for="name">Balance :</label>
                     <input class="form-control" type="text" value="${{$account->balance}}" disabled/>
@@ -49,13 +49,13 @@
                 </div>
                 <div class="btn-div">
                     <div class="form-group align-btn" id="lev-btn-div" >
-                        <a href="#" class="btn btn-primary btn-block" id="submit-btn" onclick="submitForm()">Confirm</a>
-                        <a href="{{ route('fund-index') }}" class="btn btn-second btn-block">Cancel</a>
+                        <a href="#" class="btn btn-confirm btn-block" id="submit-btn" onclick="submitForm()">Confirm</a>
+                        <a href="{{ route('fund-index') }}" class="btn-danger btn-second btn-block">Cancel</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</body>
+<script type="text/javascript" src="{{ URL::asset('js/funds.js') }}"></script>  
 @stop

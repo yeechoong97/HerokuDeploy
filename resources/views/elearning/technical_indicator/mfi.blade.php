@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Money Flow Index</h3>
                 <p>The Money Flow Index (MFI) is a technical oscillator that uses price and volume data for identifying overbought or oversold signals in an asset. It can also be used to spot divergences which warn of a trend change in price. The oscillator moves between 0 and 100.</p>

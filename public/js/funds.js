@@ -93,11 +93,11 @@ function toggleFundsIntro() {
             },
             {
                 element: document.querySelector('#leverage-intro'),
-                intro: 'The <b>Leverage</b> of your account used for trading. The default leverage of account is 30: 1. <a href="/learning/knowledge/leverage" target="_blank">Learn More about Leverage</a>'
+                intro: 'The <b>Leverage</b> of your account used for trading. The default leverage of account is 30:1. <a href="/learning/knowledge/leverage" target="_blank">Learn More about Leverage</a>'
             },
             {
                 element: document.querySelector('#leverage-edit-intro'),
-                intro: 'You can change the leverage of your account by clicking this <b>Edit</b> button.<br/> <br/> However,the leverage only can be changed after all the ongoing orders are completely close.',
+                intro: 'You can change the leverage of your account by clicking this <b>Edit</b> button.<br/> <br/> However, the leverage only can be changed after all the ongoing orders are completely closed.',
             },
             {
                 element: document.querySelector('#deposit-intro'),

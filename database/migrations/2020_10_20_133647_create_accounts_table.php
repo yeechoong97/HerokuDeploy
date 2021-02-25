@@ -19,7 +19,6 @@ class CreateAccountsTable extends Migration
             $table->decimal('margin',8,2);
             $table->decimal('margin_used',8,2);
             $table->string('leverage',6);
-            $table->integer('tutorial')->default(0);
             $table->timestamps();
         });
 

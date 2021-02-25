@@ -8,7 +8,7 @@ use App\Common;
     <div class="inner-wrapper">
         <div class="inner-sidebar">
             <div class="inner-sidebar-header justify-content-center">
-                <a href="{{route('forum-index',$tagValue)}}" class="form-control btn-light has-icon text-center"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                <a href="{{route('forum-index',$tagValue)}}" class="form-control btn-light has-icon text-center remove-decoration"><i class="fa fa-arrow-left mr-2"></i>Back</a>
             </div>
 
             <div class="inner-sidebar-body p-0">
@@ -43,8 +43,8 @@ use App\Common;
                     <div class="card-body">
                         <div class="media forum-item">
                             <div class="card-link">
-                                <img src="{{$forum->user->avatar}}" class="rounded-circle" width="50" alt="User" />
-                                <small class="d-block text-center text-muted">{{$forum->user->name}}</small>
+                                <img src="{{$forum->user->avatar}}" class="rounded-circle ml-1" width="50" alt="User" />
+                                <small class="d-block text-center text-muted" style="width:60px">{{$forum->user->name}}</small>
                             </div>
                             <div class="media-body ml-3">
                                 <h5 class="mt-1 font-weight-bold">{{$forum->title}}</h5>
@@ -53,7 +53,7 @@ use App\Common;
                             </div>
                             <div class="text-muted text-center">
                                 @if($forum->user->user_id===$user_id)
-                                    <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editForum" onclick="editForum('{{$forum->forum_id}}','{{$forum->tag}}',`{{$forum->title}}`,`{!!$forum->contents!!}`)"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editForum" onclick="editForum('{{$forum->forum_id}}','{{$forum->tag}}',`{{$forum->title}}`,`{{$forum->contents}}`)"><i class="fas fa-edit"></i></a>
                                     <a href="#" onclick="appendAlertDeletePost('{{$forum->forum_id}}','{{$tagValue}}')"  class="text-muted mx-1"><i class="fas fa-trash-alt"></i></a>
                                 @endif
                                 <span><i class="far fa-comment mx-1"></i> {{count($forum->comment)}}</span>
@@ -68,8 +68,8 @@ use App\Common;
                     <div class="card-body">
                         <div class="media forum-item">
                             <div class="card-link">
-                                <img src="{{$forum->comment[$index]->user->avatar}}" class="rounded-circle" width="50" alt="User" />
-                                <small class="d-block text-center text-muted">{!!$forum->comment[$index]->user->name!!}</small>
+                                <img src="{{$forum->comment[$index]->user->avatar}}" class="rounded-circle ml-1" width="50" alt="User" />
+                                <small class="d-block text-center text-muted" style="width:60px">{!!$forum->comment[$index]->user->name!!}</small>
                             </div>
                             <div class="media-body ml-3">
                                 <small class="text-muted ml-2">{{$forum->comment[$index]->created_at->format('j M , Y  h:i A')}}</small>
@@ -79,7 +79,7 @@ use App\Common;
                             </div>
                             <div class="text-muted text-center">
                                 @if($forum->comment[$index]->user->user_id===$user_id)
-                                <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editComment" onclick="editComment(`{!!$forum->comment[$index]->comment_id!!}`,'{!!$tagValue!!}',`{{$forum->comment[$index]->contents}}`)"><i class="fas fa-edit"></i></a>
+                                <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editComment" onclick="editComment('{!!$forum->comment[$index]->comment_id!!}','{!!$tagValue!!}',`{{$forum->comment[$index]->contents}}`)"><i class="fas fa-edit"></i></a>
                                 <a href="#" class="text-muted mx-1" onclick="appendAlertDeleteComment('{{$forum->comment[$index]->comment_id}}','{{$tagValue}}')"><i class="fas fa-trash-alt"></i></a>
                                 @endif
                             </div>

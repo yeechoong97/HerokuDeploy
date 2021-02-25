@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2300px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Commodity Channel Index</h3>
                 <p>Developed by Donald Lambert, the Commodity Channel Index (CCI) is a momentum-based oscillator used to help determine when an investment vehicle is reaching a condition of being overbought or oversold.</p>

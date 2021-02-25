@@ -7,6 +7,7 @@ use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Input;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Order;
+use App\User;
 use Carbon\Carbon;
 use App\Account;
 use App\Trades;
@@ -400,10 +401,10 @@ class MainController extends Controller
     function setTutorial(Request $request)
     {
         $id = Auth::user()->user_id;
-        $account = Account::where('user_id',$id)->first();
+        $user = User::where('user_id',$id)->first();
         $tutorial = ($request->status == "true")? 1 : 0;
-        $account->tutorial = $tutorial;
-        $account->save();
+        $user->tutorial = $tutorial;
+        $user->save();
     }
 
     function chat_index()

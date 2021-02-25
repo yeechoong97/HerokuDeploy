@@ -5,7 +5,7 @@
          <div class="modal-header">
             <div class="modal-title">Reduce/Close
                <span aria-hidden="true" class="close" aria-label="Close" id="close-modal-closebtn" data-dismiss="modal">&times;</span>
-               <span class="close " onclick="showCloseTips()()">?</span>
+               <span class="close " onclick="showCloseTips()">?</span>
             </div>
          </div>
          <div class="modal-body">

@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer">
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2500px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">How To Trade</h3>
                 <p>Now that you know a little more about forex, we’ll take a closer look at how to make your first trade. Before you trade you need to follow a few steps.</p>

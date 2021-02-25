@@ -8,7 +8,7 @@
 <div class="elearning-container">
     <div class="row elearning-subcontainer" >
         @include('elearning.side-nav')
-        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3200px;">
+        <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 3100px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Leverage & Margin</h3>
                 <p>Margin and leverage are among the most important concepts to understand when trading forex. These essential tools allow forex traders to control trading positions that are substantially greater in size than would be the case without the use of these tools. At the most fundamental level, margin is the amount of money in a trader's account that is required as a deposit in order to open and maintain a leveraged trading position.</p>
