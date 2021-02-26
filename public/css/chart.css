@@ -22,7 +22,7 @@
     color: white;
     font-family: Lato, sans-serif;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.1vw;
 }
 
 .price-container .header {
@@ -51,7 +51,7 @@
 
 .price-container .price .rates .header {
     height: 30%;
-    font-size: 15px;
+    font-size: 0.9vw;
     background: whitesmoke;
     border-bottom: 0.1rem solid #cecece;
     border-top-left-radius: 0.6rem;
@@ -61,6 +61,7 @@
 }
 
 .price-container .price .rates .rates-container {
+    font-size: 0.9vw;
     height: 50%;
     background: white;
     border-bottom: 0.1rem solid #cecece;
@@ -90,7 +91,7 @@
 .price-container .price .rates .pips {
     height: 20%;
     background: whitesmoke;
-    font-size: 12px;
+    font-size: 0.8vw;
     color: black;
     text-align: center;
     font-weight: bold;
@@ -104,14 +105,15 @@
     height: 38px;
 }
 
-.time {
+
+/* .time {
     width: 120px;
     height: 38px;
     text-align: center;
     color: black;
     font-size: 18px;
     float: right;
-}
+} */
 
 .price-container .price .rates .header:hover {
     cursor: pointer;
@@ -195,7 +197,6 @@
 
 .buy_order_button:hover {
     background: #8fc4fa;
-    /* border: 1px solid #9ecdfc; */
 }
 
 .span-title-sell {
@@ -205,7 +206,7 @@
     word-break: keep-all;
     text-align: center;
     color: red;
-    font-size: 13px;
+    font-size: 0.8vw;
     font-weight: bold;
     font-family: Lato, sans-serif;
 }
@@ -217,7 +218,7 @@
     word-break: keep-all;
     text-align: center;
     color: #005acf;
-    font-size: 13px;
+    font-size: 0.8vw;
     font-weight: bold;
     font-family: Lato, sans-serif;
 }
@@ -229,7 +230,7 @@
     word-break: keep-all;
     text-align: center;
     color: #6300BF;
-    font-size: 13px;
+    font-size: 0.8vw;
     font-weight: bold;
     font-family: Lato, sans-serif;
 }
@@ -239,7 +240,7 @@
     width: 100%;
     height: 50%;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.9vw;
     color: black;
     font-weight: bold;
 }
@@ -271,7 +272,7 @@
 
 .account-table .table th {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.1vw;
     padding: 0.5rem;
     background: #007bff;
     border-top-left-radius: 0.25rem;
@@ -280,9 +281,32 @@
 }
 
 .account-table .table td {
-    font-size: 15px;
+    font-size: 0.9vw;
     padding: 0.5rem;
     width: 50%;
+}
+
+@media screen and (min-width: 1441px) {
+    .account-table .table td,
+    .price-container .price .rates .header,
+    .price-container .price .rates .rates-container,
+    .span-data,
+    .order-table .table thead th,
+    .order-table .table tbody td {
+        font-size: 14px !important;
+    }
+    .span-title-sell,
+    .span-title-buy,
+    .span-title-spread {
+        font-size: 13px;
+    }
+    .price-container .price .rates .pips {
+        font-size: 12px;
+    }
+    .account-table .table th,
+    .price-container h6 {
+        font-size: 16px
+    }
 }
 
 .account-table .table tr td:first-child {
@@ -291,7 +315,7 @@
 }
 
 .account-section {
-    margin-bottom: 350px;
+    margin-bottom: 45vh;
     margin-left: 0px;
     margin-top: 0px;
 }
@@ -325,10 +349,9 @@
 
 .order-table .table th {
     text-align: center;
-    font-size: 17px;
+    font-size: 0.9vw;
     padding: 0.5rem;
     color: white;
-    /* background: linear-gradient(#00b4db, #0083b0); */
     background: #007bff;
 }
 
@@ -341,7 +364,7 @@
 }
 
 .order-table .table tbody td {
-    font-size: 14px;
+    font-size: 0.9vw;
     padding: 0.5rem;
     text-align: center;
     color: black;
@@ -485,7 +508,6 @@
 
 .calculator-right-div {
     width: 55%;
-    /* height: 480px; */
     float: right;
     text-align: left;
     padding-left: 1rem;

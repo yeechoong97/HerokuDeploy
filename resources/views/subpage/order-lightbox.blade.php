@@ -4,13 +4,13 @@
          <div class="modal-header">
             <div class="modal-title">Order
                <span aria-hidden="true" class="close" aria-label="Close" id="order-modal-closebtn" data-dismiss="modal" onclick="clearInput('order-units')">&times;</span>
-               <span class="close " onclick="showBuySellTips()">?</span>
+               <span class="close" onclick="showBuySellTips()">?</span>
             </div>
          </div>
          <div class="modal-body">
             <div class="upper-body">
                <div class="instrument-title" id="lightbox-title">EUR/USD</div>
-                  <div class="order-container">
+                  <div class="order-container" id="order-buy-sell-intro">
                      <div class="order-sell" id="order-sell">
                         <a href="#" class="order-btns" onclick="openLightbox('sell')">
                            <span class="buy-span-title">SELL</span>

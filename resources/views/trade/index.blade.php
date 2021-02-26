@@ -29,7 +29,7 @@ use App\Common;
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
                 </select>
-                <select class="form-control col-md-3"  id="indicatorSelect" onchange ="changeIndicator()">
+                <select class="form-control col-md-2"  id="indicatorSelect" onchange ="changeIndicator()">
                     <option value="default" selected disabled>Add Indicator</option>
                     <option value="reset">Reset Indicator</option>
                     @foreach(Common::$indicator as $key=> $value)
@@ -41,7 +41,7 @@ use App\Common;
                     <i class="far fa-question-circle text-info" onclick="showChartTips()"></i>
                 </div>
 
-                <div class="f_control col-md-1 spread_order_button" onclick="testing()">
+                <div class="f_control col-md-1 spread_order_button">
                     <a href="#" class="spread_btn">
                         <span class="span-title-spread">SPREAD</span>
                         <span class="span-data" id="pips-action"></span>

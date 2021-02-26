@@ -18,7 +18,7 @@ class CreateCommentTable extends Migration
             $table->string('forum_id');
             $table->string('comment_id');
             $table->string('user_id');
-            $table->text('contents');
+            $table->longText('contents');
             $table->timestamps();
         });
     }

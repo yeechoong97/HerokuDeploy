@@ -517,6 +517,21 @@ function appendAlert(message) {
     });
 }
 
+function appendErrorAlert(message) {
+    Swal.fire({
+        title: 'Error',
+        text: message,
+        icon: 'error',
+        confirmButtonText: 'OK',
+        timer: 5000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+}
+
 function toggleCalculatorLightbox() {
     introJs().exit();
     $('#calculator-lightbox').modal();

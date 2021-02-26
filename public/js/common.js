@@ -341,21 +341,18 @@ function removeLowerIndicator() {
 
 function appendIndicatorEvent(indicatorSelected) {
     switch (indicatorSelected) {
-        case "AMA":
-            document.getElementById('ama_indicator_btn').addEventListener("click", function() {
-                var period = document.getElementById('ama_period').value;
-                var fast = document.getElementById('ama_fast').value;
-                var slow = document.getElementById('ama_slow').value;
-                var chartParameter = { "period": parseInt(period), "fast": parseInt(fast), "slow": parseInt(slow), "type": "line" };
-                checkTools("AMA", chartParameter);
-            });
-            break;
         case "MACD":
             document.getElementById('macd_indicator_btn').addEventListener("click", function() {
                 var fast = document.getElementById('macd_fast').value;
                 var slow = document.getElementById('macd_slow').value;
                 var signal = document.getElementById('macd_signal').value;
                 var chartParameter = { "fast": parseInt(fast), "slow": parseInt(slow), "signal": parseInt(signal), "type": "line", "type2": "column" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("MACD", chartParameter);
             });
             break
@@ -363,6 +360,12 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('rsi_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('rsi_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("RSI", chartParameter);
             });
             break;
@@ -371,6 +374,12 @@ function appendIndicatorEvent(indicatorSelected) {
                 var period = document.getElementById('bbands_period').value;
                 var deviation = document.getElementById('bbands_deviation').value;
                 var chartParameter = { "period": parseInt(period), "deviation": parseInt(deviation), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("BBands", chartParameter);
             });
             break;
@@ -382,6 +391,12 @@ function appendIndicatorEvent(indicatorSelected) {
                 var ktype = document.getElementById("stochastic-kma-type").value;
                 var dtype = document.getElementById("stochastic-dma-type").value;
                 var chartParameter = { "period": parseInt(period), "kma": parseInt(kma), "d": parseInt(d), "ktype": ktype, "dtype": dtype, "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type") && !key.includes("ktype") && !key.includes("dtype")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("Stochastic", chartParameter);
             });
             break;
@@ -389,6 +404,12 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('momentum_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('momentum_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("Momentum", chartParameter);
             });
             break;
@@ -396,6 +417,12 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('roc_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('roc_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("ROC", chartParameter);
             });
             break;
@@ -403,6 +430,12 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('william_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('william_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("WilliamsR", chartParameter);
             });
             break;
@@ -410,6 +443,12 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('cci_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('cci_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("CCI", chartParameter);
             });
             break;
@@ -419,7 +458,12 @@ function appendIndicatorEvent(indicatorSelected) {
                 var increment = document.getElementById('psar_increment').value;
                 var max = document.getElementById('psar_max').value;
                 var chartParameter = { "start": parseFloat(start), "increment": parseFloat(increment), "max": parseFloat(max), "type": "marker" };
-                console.log(chartParameter);
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("PSAR", chartParameter);
             });
             break;
@@ -427,8 +471,14 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('dmi_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('dmi_period').value;
                 var adx = document.getElementById('dmi_adx').value;
-                var smooth = document.getElementById('dmi_smooth').value;
-                var chartParameter = { "period": parseInt(period), "adx": parseInt(adx), "smooth": parseInt(smooth), "type": "line" };
+                var smooth = (document.getElementById('dmi_smooth').value == "true") ? true : false;
+                var chartParameter = { "period": parseInt(period), "adx": parseInt(adx), "smooth": smooth, "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type") && !key.includes("smooth")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("DMI", chartParameter);
             });
             break;
@@ -436,36 +486,38 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('atr_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('atr_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("ATR", chartParameter);
-            });
-            break;
-        case "ENV":
-            document.getElementById('env_indicator_btn').addEventListener("click", function() {
-                var period = document.getElementById('env_period').value;
-                var deviation = document.getElementById('env_deviation').value;
-                var ma = document.getElementById('env_ma').value;
-                var chartParameter = { "period": parseInt(period), "deviation": parseInt(deviation), "ma": parseInt(ma), "type": "line" };
-                checkTools("ENV", chartParameter);
             });
             break;
         case "EMA":
             document.getElementById('ema_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('ema_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("EMA", chartParameter);
-            });
-            break;
-        case "MMA":
-            document.getElementById('mma_indicator_btn').addEventListener("click", function() {
-                var period = document.getElementById('mma_period').value;
-                var chartParameter = { "period": parseInt(period), "type": "line" };
-                checkTools("MMA", chartParameter);
             });
             break;
         case "SMA":
             document.getElementById('sma_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('sma_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("SMA", chartParameter);
             });
             break;
@@ -485,6 +537,12 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('mfi_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('mfi_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("MFI", chartParameter);
             });
             break;
@@ -492,6 +550,12 @@ function appendIndicatorEvent(indicatorSelected) {
             document.getElementById('aroon_indicator_btn').addEventListener("click", function() {
                 var period = document.getElementById('aroon_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
+                for (var key in chartParameter) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                        appendErrorAlert("Please enter valid input.");
+                        return false;
+                    }
+                }
                 checkTools("Aroon", chartParameter);
             });
             break;

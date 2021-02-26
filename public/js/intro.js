@@ -52,9 +52,11 @@ function showTutorial(userName) {
         'exitOnOverlayClick': false,
         'exitOnEsc': false,
         'showBullets': false
+    }).onexit(function() {
+        appendBeginnerQuestion();
     }).start();
-}
 
+}
 
 function showChartTips() {
     introJs().setOptions({
@@ -91,6 +93,8 @@ function showChartTips() {
                 intro: 'You can view the spread of the selected currency pair <br/><br/> <b>Spread</b> is the difference between selling and buying price of the currency pair. <a href="/learning/knowledge/spread" target="_blank">Learn More about Spread</a>'
             },
         ]
+    }).onexit(function() {
+        appendBeginnerQuestion();
     }).start();
 }
 
@@ -257,30 +261,37 @@ function showBuySellTips() {
         steps: [{
                 element: document.querySelector('#lightbox-title'),
                 intro: 'This is the <b>Name</b> of the currency pair selected.',
+                position: 'right'
             },
             {
                 element: document.querySelector('#order-sell'),
                 intro: 'This is the <b>Selling</b> price of the currency pair.',
+                position: 'right'
             },
             {
                 element: document.querySelector('#order-buy'),
                 intro: 'This is the <b>Buying</b> price of the currency pair.',
+                position: 'right'
             },
             {
-                element: document.querySelector('.order-spread'),
+                element: document.querySelector('#order-spread-data'),
                 intro: 'This is the <b>Pips</b> of the currency pair. <a href="/learning/knowledge/pips" target="_blank">Learn More about Pips</a>',
+                position: 'right'
             },
             {
                 element: document.querySelector('#order-units'),
                 intro: 'You can enter the <b>Units</b> here according to your preference. However, the maximum units for an order is 1,000,000.',
+                position: 'right'
             },
             {
                 element: document.querySelector('#margin-check-intro'),
                 intro: 'You can view the <b>Margin Required</b> for maintaining the order after you have entered the units in the above input box.',
+                position: 'right'
             },
             {
                 element: document.querySelector('#order-submit-intro'),
                 intro: 'You can submit your order after you entered units and checked the order.',
+                position: 'right'
             },
         ]
     }).start();
@@ -483,13 +494,112 @@ function showForumTips() {
                 intro: 'You can <b>Search</b> some specific forum posts by entering the keyword.',
             },
             {
-                element: document.querySelector('.nav-link-faded'),
+                element: document.querySelector('#tag-list'),
                 intro: 'This is the <b>Category</b> of the posts. You also can view your forum posts by clicking "Your Posts". ',
+                scrollTo: 'tooltip'
             },
             {
-                element: document.querySelector('.card'),
+                element: document.querySelector('#main-contents-forum'),
                 intro: 'This is a brief description of the forum post. Each post contain the details of <br/>1. <b>Name of author</b><br/>2. <b>Title of forum post</b><br/>3. <b>Duration of post created</b><br/>4. <b>Number of comment</b>',
+                scrollTo: 'tooltip'
             }
         ]
+    }).start();
+}
+
+function appendBeginnerQuestion() {
+    Swal.fire({
+        title: 'Question',
+        text: 'Do you want to learn how to execute forex order in this system ?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'No',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed)
+            executeOrderIntro();
+    });
+}
+
+function executeOrderIntro() {
+    introJs().setOptions({
+        steps: [{
+                element: document.querySelector('.account-table'),
+                intro: '1. You have to check your account details such as available balance, available margin, and leverage. <br/><br/>This is to prevent the process of executing forex order would not halt due to the account issue.',
+                position: 'left'
+            },
+            {
+                element: document.querySelector('.price-container'),
+                intro: '2. You have to select the currency pair that you wish to trade from these five major currency pairs.',
+                position: 'left'
+            },
+            {
+                element: document.querySelector('.chart-section-container'),
+                intro: '3. You have to analyze the forex market based on the currency pair you want to trade. For example, you can perform technical analysis to obtain more information regarding the currency pair.',
+                position: 'right'
+            },
+            {
+                intro: '4. After analyzing the forex market, you have to decide the position that you want to execute. ',
+            },
+            {
+                element: document.querySelector('#sell'),
+                intro: '5. If you want to go short (Sell) for the currency pair, you can click this <b>Sell</b> button. ',
+            },
+            {
+                element: document.querySelector('#buy'),
+                intro: '5. If you want to go long (Buy) for the currency pair, you can click this <b>Buy</b> button.<br/><br/>For example, you want to go long (Buy) for this currency pair. ',
+            }
+        ]
+    }).onexit(function() {
+        document.documentElement.scrollTop = 0;
+        document.getElementById('buy').click();
+        setTimeout(function() { buyOrderIntro() }, 500);
+    }).start();
+}
+
+function buyOrderIntro() {
+    introJs().setOptions({
+        steps: [{
+                element: document.getElementById('buy-sell-modal-content'),
+                intro: '6. After you clicked the <b>Buy</b> button, you will be redirected to this small section.',
+            },
+            {
+                element: document.querySelector('#lightbox-title'),
+                intro: '7. You can see the name of the selected currency pair here.',
+                position: 'right'
+            },
+            {
+                element: document.querySelector('#order-buy'),
+                intro: '8. In this case, you want to go long (Buy) for the currency pair. Thus, this <b>Buy</b> box will be colored so that you can differentiate it easily.',
+                position: 'right'
+            },
+            {
+                element: document.querySelector('#order-spread-data'),
+                intro: '9. You also can view the spread of the currency pair here',
+                position: 'right'
+            },
+            {
+                element: document.querySelector('#order-units'),
+                intro: '10. You are required to enter the units for executing the forex order on the selected currency pair.',
+                position: 'right'
+            },
+            {
+                element: document.querySelector('#margin-check-intro'),
+                intro: '11. After that, you can view the margin required for maintaining the order. <br/><br/>The margin will be deducted from your account temporary and returned to you after the order is closed.',
+                position: 'right'
+            },
+            {
+                element: document.querySelector('#order-submit-intro'),
+                intro: '12. Lastly, you have to click this <b>Submit</b> button to complete the trade order.',
+                position: 'right'
+            },
+            {
+                intro: `So, these are the basic steps to execute trade order in this system. If you want to learn more about this process, you may click <a href="learning/knowledge/trade" target="_blank">here</a>. Hope you enjoy trading in this ES Trading System 😄.`,
+            }
+        ]
+    }).onexit(function() {
+        document.getElementById('order-modal-closebtn').click();
     }).start();
 }
