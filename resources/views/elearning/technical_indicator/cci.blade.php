@@ -34,7 +34,7 @@
                 <h5>Limitations of Using the Commodity Channel Index</h5>
                 <p>While often used to spot overbought and oversold conditions, the CCI is highly subjective in this regard. The indicator is unbound and therefore, prior overbought and oversold levels may have little impact in the future.</p>
                 <p>The indicator is also lagging, which means at times it will provide poor signals. A rally to 100 or -100 to signal a new trend may come too late, as the price has had its run and is starting to correct already. Such incidents are called whipsaws; a signal is provided by the indicator but the price doesn't follow through after that signal and money is lost on the trade. If not careful, whipsaws can occur frequently. Therefore, the indicator is best used in conjunction with price analysis and other forms of technical analysis or indicators to help confirm or reject CCI signals.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2021a). Commodity Channel Index (CCI). https://www.investopedia.com/terms/c/commoditychannelindex.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2021a). Commodity Channel Index (CCI). https://www.investopedia.com/terms/c/commoditychannelindex.asp</cite></p>
             </div>
         </div>
     </div>

@@ -20,7 +20,7 @@
                 <p>A hammer should look similar to a "T". This indicates the potential for a hammer candle. A hammer candlestick does not indicate a price reversal to the upside until it is confirmed.</p>
                 <p>Confirmation occurs if the candle following the hammer closes above the closing price of the hammer. Ideally, this confirmation candle shows strong buying. Candlestick traders will typically look to enter long positions or exit short positions during or after the confirmation candle. For those taking new long positions, a stop loss can be placed below the low of the hammer's shadow.</p>
                 <p>Hammers aren't usually used in isolation, even with confirmation. Traders typically utilize price or trend analysis, or technical indicators to further confirm candlestick patterns. Hammers occur on all time frames, including one-minute charts, daily charts, and weekly charts.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2020). Hammer Candlestick. https://www.investopedia.com/terms/h/hammer.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2020). Hammer Candlestick. https://www.investopedia.com/terms/h/hammer.asp</cite></p>
             </div>
         </div>
     </div>

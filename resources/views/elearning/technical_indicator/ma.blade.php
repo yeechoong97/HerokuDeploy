@@ -55,7 +55,7 @@
                     <br><br>
                     A Golden cross is identified when the short-term moving average (such as the 50-day moving average) crosses above the long-term moving average (such as the 200-day moving average), while the Death cross represents the short-term moving average crossing below the long-term moving average. Traders that are long, should view a Death Cross as a time to consider closing the trade while those in short trades should view the Golden Cross as a signal to close out the trade.
                 </ol>
-                <p class="citation">*Adapted from <cite>Costa, T. Da. (2019). Moving Average (MA) Explained for Traders. https://www.dailyfx.com/education/technical-analysis-tools/moving-average.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Costa, T. Da. (2019). Moving Average (MA) Explained for Traders. https://www.dailyfx.com/education/technical-analysis-tools/moving-average.html</cite></p>
             </div>
         </div>
     </div>

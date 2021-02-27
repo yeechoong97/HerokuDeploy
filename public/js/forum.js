@@ -75,7 +75,7 @@ function appendAlertDeleteComment(id, tagValue) {
 function appendAlertDeletePost(id, tagValue) {
     Swal.fire({
         title: 'Confirmation',
-        html: `<p>Are you sure you want to delete this forum post?<p><p>Deleting this forum post will also remove all the comments from this post. Once deleted this post, the comments and post are no longer able to be recovered.</p>`,
+        html: `<p>Are you sure you want to delete this forum post and all comments?<p><p>Once deleted this post, the comments and posts are no longer able to be recovered.</p>`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Confirm',

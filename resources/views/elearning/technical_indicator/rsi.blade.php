@@ -38,7 +38,7 @@
                 <p>The RSI compares bullish and bearish price momentum and displays the results in an oscillator that can be placed beneath a price chart. Like most technical indicators, its signals are most reliable when they conform to the long-term trend.</p>
                 <p>True reversal signals are rare and can be difficult to separate from false alarms. A false positive, for example, would be a bullish crossover followed by a sudden decline in a stock. A false negative would be a situation where there is a bearish crossover, yet the stock accelerated suddenly upward.</p>
                 <p>Since the indicator displays momentum, it can stay overbought or oversold for a long time when an asset has significant momentum in either direction. Therefore, the RSI is most useful in an oscillating market where the asset price is alternating between bullish and bearish movements.</p>
-                <p class="citation">*Adapted from <cite>Fernando, J. (2020). Relative Strength Index (RSI). https://www.investopedia.com/terms/r/rsi.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Fernando, J. (2020). Relative Strength Index (RSI). https://www.investopedia.com/terms/r/rsi.asp</cite></p>
             </div>
         </div>
     </div>

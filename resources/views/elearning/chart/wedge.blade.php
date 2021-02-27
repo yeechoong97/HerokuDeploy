@@ -26,7 +26,7 @@
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766723/E-Learning/RisingWedge.png" class="img-padding" >
                 <p>Again, the price movement is bounded by the two converging trendlines. As the price moves towards the apex of the pattern, momentum is weakening. A move below the lower support would be viewed by traders as a reversal in the upward trend.</p>
                 <p>As the strength of the buyers weakens (exhibited by their inability to take the price higher), the sellers start to gain momentum. The pattern is complete, with the sellers taking control of the security, when the price falls below the supporting trendline.</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

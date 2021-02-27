@@ -37,7 +37,7 @@
                 <h5>Direct Vs Indirect Quotes</h5>
                 <p>Quotes are often displayed in accordance with the “home currency” in mind i.e. the country you reside in. A direct quote for traders in the US, looking to buy Euros, will read EUR/USD and will be relevant to US citizens as the quote is in USD. This direct quote will provide US citizens with the price of one Euro, in terms of their home currency which is 1.20732.</p>
                 <p>The indirect quote is essentially the inverse of the direct currency (1/direct quote = 0.8282). It shows the value of one unit of domestic currency in terms of foreign currency. Indirect quotes can be useful to convert foreign currency purchases abroad into domestic currency.</p>
-                <p class="citation">*Adapted from <cite>Snow, R. (2019). How to Read Currency Pairs: Forex Quotes Explained. https://www.dailyfx.com/education/beginner/how-to-read-currency-pairs.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Snow, R. (2019). How to Read Currency Pairs: Forex Quotes Explained. https://www.dailyfx.com/education/beginner/how-to-read-currency-pairs.html</cite></p>
             </div>
         </div>
     </div>

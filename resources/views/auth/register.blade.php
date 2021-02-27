@@ -9,8 +9,7 @@
             <div class="image-holder"></div>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <!-- <h2 class="text-center"><strong>Register</strong> an account.</h2> -->
-                <div class="form-group">
+                <div class="form-group mt-1">
                     <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="Name" required autofocus>
                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +42,7 @@
                                 @enderror
                 </div>
                 <div class="form-group">
-                    <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="Password">
+                    <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="Password (At least 6 characters)">
                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -63,7 +62,7 @@
                     @enderror
                 </div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Register</button></div>
-                <div class="form-group"><a href="{{ url('/login') }}" class="btn btn-register btn-block">Cancel</a></div>
+                <div class="form-group"><a href="{{ url('/login') }}" class="btn-danger remove-decoration btn-register btn-block">Cancel</a></div>
             </form>
         </div>
     </div>

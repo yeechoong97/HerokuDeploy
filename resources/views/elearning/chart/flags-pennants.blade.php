@@ -26,7 +26,7 @@
                 <p>While the construct of the pause in the trend is different for the flag and pennant, the attributes of the chart patterns themselves are similar. It is vital that the price movement prior to the flag or pennant be a strong, sharp move.</p>
                 <p>Typically, these patterns take less time to form during downtrends than in uptrends. In terms of pattern length, they are generally short-term patterns lasting one to three weeks, but can be formed over longer periods.</p>
                 <p>The volume, as with most breakout signals, should be seen as strong during the breakout to confirm the signal. Upon breakout, the initial price objective is equal to the distance of the prior move added to the breakout point. For example, if a prior sharp up movement was from $30 to $40, then the resulting price objective from a price breakout of $38 would be $48 ($38+$10).</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

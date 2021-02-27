@@ -39,7 +39,7 @@
                 <p>Let’s imagine that you believe that the Euro is bearish. You decide to enter a sell position for one lot of EUR/USD. Because you are selling, your trade is entered at the price of 1.33820.</p>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763630/E-Learning/SellPositionSample.png" class="img-padding" >
                 <p>You look at your position later in the day and discover that the EUR/USD is now at 1.34160/1.34180. Your trade has lost 36 pips. You decide to close your position at the current buy price of 1.34180 and accept your losses.</p>
-                <p class="citation">*Adapted from <cite>Forex.com. (2021c). How to Trade Forex. https://www.forex.com/en/education/resources-by-level/beginner/how-to-trade-forex/</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Forex.com. (2021c). How to Trade Forex. https://www.forex.com/en/education/resources-by-level/beginner/how-to-trade-forex/</cite></p>
             </div>
         </div>
     </div>

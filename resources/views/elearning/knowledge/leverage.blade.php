@@ -29,9 +29,9 @@
                 <h5>Margin Call</h5>
                 <p>Margin call is something that you will have to be aware of. If for any reason the broker thinks that your position is in danger e.g. you have a position of $100,00 with a margin of one percent ($1,000) and your losses are approaching your margin ($1,000). He will call you and either ask you to deposit more money, or close your position to limit your risk and his risk.</p>
                 <p>Margin call is actually a good thing. It safeguards you and your broker. Some traders become so emotionally involved with their position that they are incapable of making a rational decision. If a margin call is exercised it will safeguard the trader from further losses. If you are going to trade on a margin account, it is imperative that you talk with your broker first to find out what their policies are on this type of accounts.</p>
-                <p class="citation">*Adapted from <cite>Forex. (2021). Forex Margin and Leverage. https://www.forex.com/en/education/resources-by-level/beginner/forex-margin-and-leverage/</cite></p>
-                <p class="citation">*Adapted from <cite>Company, F. S. R. (2003). Forex Trading With Candlestick And Pattern.</cite></p>
-                <p class="citation">*Adapted from <cite>Mark McRae. (2008). Sure-fire Forex Trading.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Forex. (2021). Forex Margin and Leverage. https://www.forex.com/en/education/resources-by-level/beginner/forex-margin-and-leverage/</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Company, F. S. R. (2003). Forex Trading With Candlestick And Pattern.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mark McRae. (2008). Sure-fire Forex Trading.</cite></p>
             </div>
         </div>
     </div>

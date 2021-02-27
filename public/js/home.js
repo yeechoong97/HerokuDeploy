@@ -5,6 +5,7 @@ const arrayPercentage = {
     full: { value: 100, name: "full-units" }
 };
 
+
 function toggleChat() {
     window.open('/chat', "Live Chat", "height=550,width=800");
 }
@@ -533,7 +534,7 @@ function appendErrorAlert(message) {
 }
 
 function toggleCalculatorLightbox() {
-    introJs().exit();
+
     $('#calculator-lightbox').modal();
 }
 

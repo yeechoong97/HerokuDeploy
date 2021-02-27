@@ -26,7 +26,7 @@
                 <h5>Resistance</h5>
                 <p>Resistance is an area on a chart that price has risen to but struggled to break above. The diagram above shows how price rises up to the area of resistance and subsequently “bounces” sharply from this level.</p>
                 <p>Resistance is the price level at which supply (selling power) is strong enough to prevent the price from rising further. The rationale behind this is that as the price gets closer and closer to resistance, and becomes more expensive in the process, sellers are more likely to sell and buyers become less likely to buy. In that scenario, supply (sellers) will overcome demand (buyers) and that will prohibit price from going above resistance.</p>
-                <p class="citation">*Adapted from <cite>Snow, R. (2019a). A Guide to Support and Resistance Trading. https://www.dailyfx.com/education/learn-technical-analysis/support-and-resistance-trading.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Snow, R. (2019a). A Guide to Support and Resistance Trading. https://www.dailyfx.com/education/learn-technical-analysis/support-and-resistance-trading.html</cite></p>
             </div>
         </div>
     </div>

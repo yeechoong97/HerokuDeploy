@@ -27,7 +27,7 @@
                     Technical indicators that oscillate between a local minimum and maximum are plotted above or below a price chart. Examples include the stochastic oscillator, MACD or RSI.
                 </ol>
                 <p>Traders often use many different technical indicators when analyzing a security. With thousands of different options, traders must choose the indicators that work best for them and familiarize themselves with how they work. Traders may also combine technical indicators with more subjective forms of technical analysis, such as looking at chart patterns, to come up with trade ideas. Technical indicators can also be incorporated into automated trading systems given their quantitative nature.</p>
-                <p class="citation">*Adapted from <cite>CHEN, J. (2021). Technical Indicator. https://www.investopedia.com/terms/t/technicalindicator.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>CHEN, J. (2021). Technical Indicator. https://www.investopedia.com/terms/t/technicalindicator.asp</cite></p>
             </div>
         </div>
     </div>

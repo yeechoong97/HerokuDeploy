@@ -42,7 +42,7 @@
                 <p>The indicator may also sometimes provide trade signals too late to be of use. The price may have already run a significant distance before the trade signal develops. The price may be due for a retracement when the trade signal is appearing.</p>
                 <p>The number of time periods is also arbitrary. There is no proof that a more recent high or low within the last 25-periods will result in a new and sustained uptrend or downtrend.</p>
                 <p>The indicator is best used in conjunction with price action analysis, fundamentals if long-term trading, and other technical indicators.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2019). Aroon Oscillator. https://www.investopedia.com/terms/a/aroonoscillator.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2019). Aroon Oscillator. https://www.investopedia.com/terms/a/aroonoscillator.asp</cite></p>
             </div>
         </div>
     </div>

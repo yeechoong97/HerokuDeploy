@@ -22,7 +22,7 @@
                 <p>Because the stock both opens lower than it closed on Day 1 and closes higher than it opened on Day 1, the white candlestick in a bullish engulfing pattern represents a day in which bears controlled the price of the stock in the morning only to have bulls decisively take over by the end of the day.</p>
                 <p>The white candlestick of a bullish engulfing pattern typically has a small upper wick, if any. That means the stock closed at or near its highest price, suggesting that the day ended while the price was still surging upward.</p>
                 <p>This lack of an upper wick makes it more likely that the next day will produce another white candlestick that will close higher than the bullish engulfing pattern closed, though it’s also possible that the next day will produce a black candlestick after gapping up at the opening. Because bullish engulfing patterns tend to signify trend reversals, analysts pay particular attention to them.</p>
-                <p class="citation">*Adapted from <cite>Chen, J. (2021a). Bullish Engulfing Pattern. https://www.investopedia.com/terms/b/bullishengulfingpattern.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Chen, J. (2021a). Bullish Engulfing Pattern. https://www.investopedia.com/terms/b/bullishengulfingpattern.asp</cite></p>
             </div>
         </div>
     </div>

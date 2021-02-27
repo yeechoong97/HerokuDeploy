@@ -29,7 +29,7 @@
                     <li><b>Trading from Scratch</b></li>
                     Using your hard-earned capital to test a new trading plan is almost as risky as trading without a plan at all. Before you start trading real money, open a forex practice account and use virtual funds to try out trading plans and get a feel for the trading platform you are using. Although you will not be affected by your emotions the same way you will be when trading your own money, this is also a chance to see how you react to trades not going your way and learn from your mistakes without the risk.
                 </ol>
-                <p class="citation">*Adapted from <cite>Forex.com. (2021a). 5 Common Forex Trading Mistakes. https://www.forex.com/en/education/education-themes/trading-concepts/common-forex-trading-mistakes/</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Forex.com. (2021a). 5 Common Forex Trading Mistakes. https://www.forex.com/en/education/education-themes/trading-concepts/common-forex-trading-mistakes/</cite></p>
             </div>
         </div>
     </div>

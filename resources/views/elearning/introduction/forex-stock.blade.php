@@ -59,7 +59,7 @@
                         <li><b>Narrow focus vs wide focus</b></li>
                             There are eight major currencies traders can focus on, while in the stock universe there are thousands. With only eight economies to focus on and since forex is traded in pairs, traders will look for diverging and converging trends between the currencies to match up a forex pair to trade. Eight currencies are easier to keep an eye on than thousands of stocks.
                     </ol>
-                <p class="citation">*Adapted from <cite>DailyFx. (2019). Forex Vs Stocks: Top Differences & How to Trade Them. https://www.dailyfx.com/education/beginner/forex-vs-stocks.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>DailyFx. (2019). Forex Vs Stocks: Top Differences & How to Trade Them. https://www.dailyfx.com/education/beginner/forex-vs-stocks.html</cite></p>
             </div>
         </div>
     </div>

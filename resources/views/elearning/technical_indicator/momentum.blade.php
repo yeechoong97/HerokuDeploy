@@ -28,7 +28,7 @@
                 <p>When the momentum indicator slides below the zero line and then reverses in an upward direction, it doesn't necessarily mean that the downtrend is over. It merely means that the downtrend is slowing down. The same is true for the plotted momentum above the zero line. It may take a few moves above or below the zero line before a trend is established.</p>
                 <p>It's important to note that many factors drive momentum. Economic growth in the economy, earnings reports, and the Federal Reserve's monetary policy all impact companies and whether their stock prices rise or fall.</p>
                 <p>In other words, momentum isn't a predictor of price movement, but instead, reflective of the overall mood and fundamentals of the market. Also, geopolitical and geofinancial risks can drive momentum and money into-or-away from stocks. Although it's helpful for investors to understand the market's momentum, it's also important to know what factors are driving momentum and ultimately price movements.</p>
-                <p class="citation">*Adapted from <cite>Investopedia.com. (2021). Momentum Indicates Stock Price Strength. https://www.investopedia.com/articles/technical/081501.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Investopedia.com. (2021). Momentum Indicates Stock Price Strength. https://www.investopedia.com/articles/technical/081501.asp</cite></p>
             </div>
         </div>
     </div>

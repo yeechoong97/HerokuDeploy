@@ -36,7 +36,7 @@
                 <h5>Area Chart</h5>
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763423/E-Learning/AreaChart.png" class="img-padding" >
                 <p>Area forex charts type is an offshoot from common line chart, but its displays the price movements by means of areas. Its main advantage is Area charts are very clean and simple to use. Filling the space below the price really highlights the price trend. An area chart clearly displays local price movements, spikes and dips in any trading periods. This charting technique is usually used to display the profitability of investment projects.</p>
-                <p class="citation">*Adapted from <cite>Forex On-Line Manual For Successful Trading. (2019).</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Forex On-Line Manual For Successful Trading. (2019).</cite></p>
             </div>
         </div>
     </div>

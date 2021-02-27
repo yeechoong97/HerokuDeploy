@@ -22,7 +22,7 @@
                 @enderror
             </div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button>
-            <div class="form-group"><a href="{{ url('/register') }}" class="btn btn-register btn-block" type="submit">Register</a>
+            <div class="form-group"><a href="{{ url('/register') }}" class="btn-danger btn-register btn-block remove-decoration" type="submit">Register</a>
         </form>
     </div>
 

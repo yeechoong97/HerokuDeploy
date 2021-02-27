@@ -26,7 +26,7 @@
                 <p>A common way to identify trends is using trendlines, which connect a series of highs (downtrend) or lows (uptrend). Uptrends connect a series of higher lows, creating a support level for future price movements. Downtrends connect a series of lower highs, creating a resistance level for future price movements. In addition to support and resistance, these trendlines show the overall direction of the trend.</p>
                 <p>While trendlines do a good job of showing overall direction, they will often need to be redrawn. For example, during an uptrend, the price may fall below the trendline, yet this doesn't necessarily mean the trend is over. The price may move below the trendline and then continue rising. In such an event, the trendline may need to be redrawn to reflect the new price action.</p>
                 <p>Trendlines should not be relied on exclusively to determine the trend. Most professionals also tend to look at price action and other technical indicators to help determine if a trend is ending or not. In the example above, a drop below the trendline isn't necessarily a sell signal, but if the price also drops below a prior swing low and/or technical indicators are turning bearish, then it might be.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2021b). Trend. https://www.investopedia.com/terms/t/trend.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2021b). Trend. https://www.investopedia.com/terms/t/trend.asp</cite></p>
             </div>
         </div>
     </div>

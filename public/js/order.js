@@ -174,24 +174,24 @@ function toggleSummaryIntro() {
             },
             {
                 element: document.querySelector('#select_month_intro'),
-                intro: 'You can select which <b>Month</b> to view all the details about the order summary within the particular month.<br/><br/>The range of month list is based on:<br/><b>-From the oldest order</b><br/><b>-To the latest order</b>.',
+                intro: 'You can select which <b>Month</b> to view all the details about the order summary within the particular month.<br/><br/>The list of months is based on:<br/><b>-From the oldest order</b><br/><b>-To the latest order</b>.',
                 position: 'right'
             },
             {
                 element: document.querySelector('#total-profit-intro'),
-                intro: 'The <b>Total Profits</b> gained from all the orders within the particular month. (<b>Excluded Loss</b>)',
+                intro: 'The <b>Total Profits</b> (<b>Excluded Loss</b>) gained from all the orders within the month. ',
             },
             {
                 element: document.querySelector('#total-loss-intro'),
-                intro: 'The <b>Total Losses</b> gained from all the orders within the particular month. (<b>Excluded Profit</b>)',
+                intro: 'The <b>Total Losses</b> (<b>Excluded Profit</b>) gained from all the orders within the month. ',
             },
             {
                 element: document.querySelector('#total-order-intro'),
-                intro: 'The <b>Total Number</b> of orders closed/reduced within the particular month.'
+                intro: 'The <b>Total Number</b> of orders closed/reduced within the month.'
             },
             {
                 element: document.querySelector('#summary-table'),
-                intro: 'The table displays the respective profits and losses for every currency pair traded within the particular month.',
+                intro: 'The table displays the respective profits and losses for every currency pair traded within the month.',
             },
             {
                 element: document.querySelector('#order-history-intro'),

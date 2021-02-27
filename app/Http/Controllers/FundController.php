@@ -36,7 +36,7 @@ class FundController extends Controller
         $account = Account::where('user_id',$id)->first();
         $account->leverage = $request->leverage;
         $account->save();
-        return redirect()->route('fund-index')->with('alert', 'Leverage is Updated Successfully!'); 
+        return redirect()->route('fund-index')->with('alert', 'Leverage is updated successfully!'); 
     }
 
     public function withdraw_index()
@@ -61,7 +61,7 @@ class FundController extends Controller
         $account->margin = floatval($account->margin) - floatval($request->amount);
         $account->margin_used = $margin / floatval($account->margin) *100 ;
         $account->save();
-        return redirect()->route('fund-index')->with('alert', 'Balance is Updated Successfully!'); 
+        return redirect()->route('fund-index')->with('alert', 'Balance is updated successfully!'); 
     }
 
     public function deposit_index()
@@ -86,7 +86,7 @@ class FundController extends Controller
         $account->margin = floatval($account->margin) + floatval($request->amount);
         $account->margin_used = $margin / floatval($account->margin) *100 ;
         $account->save();
-        return redirect()->route('fund-index')->with('alert', 'Balance is Updated Successfully!'); 
+        return redirect()->route('fund-index')->with('alert', 'Balance is updated successfully!'); 
     }
 
 }

@@ -56,7 +56,7 @@
                 <p>London is the largest and most important forex trading session in the world, with roughly a 34% market share of the daily forex volume. Most of the world's largest banks keep their dealing desks in London because of the market share. The large number of participants in the London forex market and the high value of the transactions makes the London session more volatile than the other two forex sessions.</p>
                 <h5>US Trading Session</h5>
                 <p>The second largest trading market, New York handles approximately 16% of the world's forex transactions. Many of the transactions in New York occurs during the US/Europe overlap, with transactions slowing as liquidity dries up and European traders exit the forex market.</p>
-                <p class="citation">*Adapted from <cite>Venketas, W. (2019). Major Forex Trading Sessions from Around the World. https://www.dailyfx.com/education/why-trade-forex/major-forex-trading-sessions.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Venketas, W. (2019). Major Forex Trading Sessions from Around the World. https://www.dailyfx.com/education/why-trade-forex/major-forex-trading-sessions.html</cite></p>
             </div>
         </div>
     </div>

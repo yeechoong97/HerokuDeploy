@@ -23,7 +23,7 @@
                 <div class="img-citation">Image retrieved from <cite>Mitchell, C. (2020b). Breakout Definition and Example. https://www.investopedia.com/terms/b/breakout.asp/</cite></div>
                 <p>The chart shows a large increase in volume, associated with an earnings release, as the price breaks through the resistance area of a triangle chart pattern. The breakout was so strong that it caused a price gap. The price continued to move higher and didn't retrace to the original breakout point. That is a sign of a very strong breakout.</p>
                 <p>Traders could have used the breakout to potentially enter long positions and/or get out of short positions. If entering long, a stop loss would be placed just below the resistance level of the triangle (or even below triangle support). Because the price had a large gaping breakout, this stop loss location may not be ideal. After the price continued to move higher following the breakout the stop loss could be trailed up in order to reduce risk or lock in a profit.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2020b). Breakout Definition and Example. https://www.investopedia.com/terms/b/breakout.asp/</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2020b). Breakout Definition and Example. https://www.investopedia.com/terms/b/breakout.asp/</cite></p>
             </div>
         </div>
     </div>

@@ -10,7 +10,6 @@ use App\Common;
             <div class="inner-sidebar-header justify-content-center">
                 <a href="{{route('forum-index',$tagValue)}}" class="form-control btn-light has-icon text-center remove-decoration"><i class="fa fa-arrow-left mr-2"></i>Back</a>
             </div>
-
             <div class="inner-sidebar-body p-0">
                 <div class="p-3 h-100" data-simplebar="init">
                     <div class="simplebar-wrapper" style="margin: -16px;">
@@ -96,6 +95,8 @@ use App\Common;
 @include('forum.edit')
 @include('forum.comment.create')
 @include('forum.comment.edit')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/forum.js') }}"></script> 
 
 <script>

@@ -32,7 +32,7 @@
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766474/E-Learning/DescendingTriangle.png" class="img-padding" >
                 <p>The first part of this pattern is the fall to a low that then finds a level of support, which sends the price to a high. The next move is a second test of the previous support level, which again sends the stock higher - but this time to a lower level than the previous move higher. This is repeated until the price is unable to hold the support level and falls below, resuming the downtrend.</p>
                 <p>This pattern indicates that buyers are trying to take the security higher, but continue to face resistance. After several attempts to push the stock higher, the buyers fade and the sellers overpower them, which sends the price lower.</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

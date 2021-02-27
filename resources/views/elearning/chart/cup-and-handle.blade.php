@@ -23,7 +23,7 @@
                 <p>A more conservative breakout signal would be above the price point of the two peaks in the cup. This is the price where the initial upward trend peaked and the point where the cup's upward move on the right side peaked before entering the handle. A breakout above this point is the strongest signal of a true resumption of the prior trend.</p>
                 <p>As with most chart patterns, volume is vital in the confirmation of the pattern itself and the signal formed. Again, the most important area of focus is the breakout: the stronger the volume on the upward breakout, the clearer the sign that the upward trend will continue. Like the head-and-shoulders pattern, the price may move back to the trendline to test the support.</p>
                 <p>The cup and handle is another time-tested pattern that has created valuable gains for investors. The components mentioned above are not absolutes but help to highlight areas of focus as a security trades in a cup and handle.</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

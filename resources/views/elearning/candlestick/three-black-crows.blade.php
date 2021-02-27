@@ -21,7 +21,7 @@
                 <p>As a visual pattern, it's best to use three black crows as a sign to seek confirmation from other technical indicators. The three black crows pattern and the confidence a trader can put into it depends a lot on how well-formed the pattern appears. The three black crows should ideally be relatively long-bodied bearish candlesticks that close at or near the low price for the period. In other words, the candlesticks should have long, real bodies and short, or nonexistent, shadows. If the shadows are stretching out, then it may simply indicate a minor shift in momentum between the bulls and bears before the uptrend reasserting itself.</p>
                 <p>Volume can make the three black crows pattern more accurate. Volume during the uptrend leading up to the pattern is relatively low, and the three-day, black crow pattern comes with relatively high volume during the sessions. In this scenario, the uptrend was established by a small group of bulls and then reversed by a larger group of bears.</p>
                 <p>Of course, with markets being what they are that could also mean a large number of small bullish traders running into a smaller group of large volume bearish trades. The actual number of market participants matters less than the volume each is bringing to the table.</p>
-                <p class="citation">*Adapted from <cite>Majaski, C. (2021). Three Black Crows. https://www.investopedia.com/terms/t/three_black_crows.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Majaski, C. (2021). Three Black Crows. https://www.investopedia.com/terms/t/three_black_crows.asp</cite></p>
             </div>
         </div>
     </div>

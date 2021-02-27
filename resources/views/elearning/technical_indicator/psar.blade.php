@@ -34,7 +34,7 @@
                 <h5>Limitations of Using the Parabolic Stop and Reverse (SAR) Indicator</h5>
                 <p>The parabolic SAR is always on, and constantly generating signals, whether there is a quality trend or not. Therefore, many signals may be of poor quality because no significant trend is present or develops following a signal.</p>
                 <p>Reversal signals are also generated, eventually, regardless of whether the price actually reverses. This is because a reversal is generated when the SAR catches up to the price due to the acceleration factor in the formula. Therefore, a reversal signal may get a trader out of a trade even though the price hasn't technically reversed.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2021c). Parabolic SAR (Stop and Reverse) Indicator Definition and Uses. https://www.investopedia.com/terms/p/parabolicindicator.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2021c). Parabolic SAR (Stop and Reverse) Indicator Definition and Uses. https://www.investopedia.com/terms/p/parabolicindicator.asp</cite></p>
             </div>
         </div>
     </div>

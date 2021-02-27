@@ -23,7 +23,7 @@
                 <p>The movement of a currency pair determines whether a trader made a profit or loss from his or her positions at the end of the day. A trader who buys the EUR/USD will profit if the Euro increases in value relative to the US Dollar. If the trader bought the Euro for 1.1835 and exited the trade at 1.1901, he or she would make 1.1901 - 1.1835 = 66 pips on the trade.</p>
                 <p>Now, let's consider a trader who buys the Japanese Yen by selling USD/JPY at 112.06. The trader loses 3 pips on the trade if closed at 112.09 but profits by 5 pips if the position is closed at 112.01.</p>
                 <p>While the difference looks small in the multi-trillion dollar foreign exchange market, gains and losses can add up quickly. For example, if a $10 million position in this set-up is closed at 112.01, the trader will book a $10 million x (112.06 - 112.01) = ¥500,000 profit. This profit in US dollars is calculated as ¥500,000/112.01 = $4,463.89.</p>
-                <p class="citation">*Adapted from <cite>Chen, J. (2021). Pip Definition. https://www.investopedia.com/terms/p/pip.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Chen, J. (2021). Pip Definition. https://www.investopedia.com/terms/p/pip.asp</cite></p>
             </div>
         </div>
     </div>

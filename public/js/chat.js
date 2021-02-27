@@ -38,6 +38,7 @@
 
     //Setup the user into the chat room
     socketIO.on('userSet', function(data) {
+        chatIntro();
         document.getElementById('chat-box-container').style.display = "block";
         document.getElementById('chat-enter').style.display = "none";
         document.getElementById('roomName').innerHTML = `Chat Room: ${joinRoom}`;
@@ -167,4 +168,14 @@
 
     function exitChat() {
         window.close();
+    }
+
+    function chatIntro(){
+        introJs().setOptions({
+            steps: [{
+                    title: `Live Chat <i class="far fa-comment-dots"></i>`,
+                    intro: 'Hi there. For your information, our system does not store the conversation of every room. Once you left the room, you cannot view the previous conversation that happened in the room.',
+                }
+            ]
+        }).start();
     }

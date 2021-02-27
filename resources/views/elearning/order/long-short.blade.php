@@ -35,7 +35,7 @@
                 <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612764983/E-Learning/Short.png" class="img-padding" >
                 <div class="img-citation">Image retrieved from <cite>Bradfield, D. (2019). Long vs Short Positions in Forex Trading. https://www.dailyfx.com/education/beginner/long-vs-short-positions-in-forex-trading.html</cite></div>
                 <p>Traders look for sell-signals to enter short positions. A common sell-signal is when the price of the underlying currency reaches for level of resistance. A level of resistance is a price level that the underlying has struggled to break above. In the chart below USD/JPY appreciates to 114.486 and struggles to appreciate further. This level becomes a resistance level and offers traders a sell-signal when the price reaches for 114.486.</p>
-                <p class="citation">*Adapted from <cite>Bradfield, D. (2019). Long vs Short Positions in Forex Trading. https://www.dailyfx.com/education/beginner/long-vs-short-positions-in-forex-trading.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bradfield, D. (2019). Long vs Short Positions in Forex Trading. https://www.dailyfx.com/education/beginner/long-vs-short-positions-in-forex-trading.html</cite></p>
             </div>
         </div>
     </div>

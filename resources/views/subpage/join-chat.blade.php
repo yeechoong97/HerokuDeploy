@@ -11,6 +11,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
 <script src="https://shielded-tor-33805.herokuapp.com/socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+<link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-ltr.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-ltr.min.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs.css" rel="stylesheet">
+<link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/intro.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/intro.min.js"></script> 
+
 <div id ="chat-enter" class="lightbox py-5">
             <div class="modal-content modal adjusted-chat-height my-5 mx-auto">
                 <div class="modal-header">
@@ -27,9 +34,9 @@
                         <select class="form-control" id="roomValue" name="roomname">
                             <option value="General Discussion">General Discussion</option>
                             <option value="Forex News">Forex News</option>
-                            <option value="Analysis Discussion">Analysis Discussion</option>
-                            <option value="Education">Education</option>
-                            <option value="Strategy Discussion">Strategy Discussion</option>
+                            <option value="Analysis Discussion">Forex Analysis</option>
+                            <option value="Education">Forex Education</option>
+                            <option value="Strategy Discussion">Forex Strategy</option>
                             <option value="Forex Signals">Forex Signals</option>
                         </select>
                     </div>

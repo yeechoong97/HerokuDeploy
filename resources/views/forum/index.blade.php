@@ -62,7 +62,8 @@ use App\Common;
     </div>
     <input type="hidden" name="hidden_page" id="hidden_page_number" value="1" />
 @include('forum.create')
-
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/forum.js') }}"></script> 
 <script>
 $('#forum-summernote').summernote({

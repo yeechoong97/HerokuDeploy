@@ -37,9 +37,10 @@ function retrieveRate(elementSelected) {
             let currencyRate = 0;
             for (var index in arrayCurrency)
                 currencyRate = (arrayCurrency[index][0] == instrumentSelected) ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
-            if (elementSelected == "profit")
+            if (elementSelected == "profit") {
                 document.getElementById(`${elementSelected}-calculator-entry`).value = currencyRate;
-            else
+                document.getElementById('profit-calculator-exit').value = "";
+            } else
                 document.getElementById(`${elementSelected}-calculator-rate`).innerHTML = `Currency Rate: <b style="color:green">${currencyRate}</b>`;
         }
     });
@@ -112,7 +113,7 @@ function computeProfit() {
     let orderType = document.getElementById('profit-calculator-type').value;
 
     if (instrumentSelected == "default" || orderType == "default") {
-        appendAlertCalculator('Please select input for both base order and currency pair.')
+        appendAlertCalculator('Please select input for both order type and currency pair.')
         return false;
     } else if (unitsEntered == "" || unitsEntered == 0 || entryPrice == "" || entryPrice == 0 || exitPrice == "" || exitPrice == 0) {
         appendAlertCalculator('Please enter valid inputs.');

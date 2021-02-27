@@ -36,7 +36,7 @@
                 <p>One potential problem with using the ROC indicator is that its calculation gives equal weight to the most recent price and the price from n periods ago, despite the fact that some technical analysts consider more recent price action to be of more importance in determining likely future price movement.</p>
                 <p>The indicator is also prone to whipsaws, especially around the zero line. This is because when the price consolidates the price changes shrink, moving the indicator toward zero. Such times can result in multiple false signals for trend trades, but does help confirm the price consolidation.</p>
                 <p>While the indicator can be used for divergence signals, the signals often occur far too early. When the ROC starts to diverge, the price can still run in the trending direction for some time. Therefore, divergence should not be acted on as a trade signal, but could be used to help confirm a trade if other reversal signals are present from other indicators and analysis methods.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2020d). Price Rate Of Change Indicator (ROC). https://www.investopedia.com/terms/p/pricerateofchange.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2020d). Price Rate Of Change Indicator (ROC). https://www.investopedia.com/terms/p/pricerateofchange.asp</cite></p>
             </div>
         </div>
     </div>

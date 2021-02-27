@@ -232,6 +232,12 @@ function removeAllAnnotations() {
     document.getElementById("typeSelect").value = "default"
 }
 
+// Remove selected annotation
+function removeSelectedAnnotation() {
+    var selectedAnnotation = plot.annotations().getSelectedAnnotation();
+    plot.annotations().removeAnnotation(selectedAnnotation);
+}
+
 //reset chart
 function resetChart() {
     clearInterval(chartStreaming);
@@ -268,9 +274,11 @@ function changeChartSeries(chartSeries, data) {
     if (countPlot > 1) {
         for (let index = 0; index < countPlot; index++) {
             let upperChartPlot = chart.plot(0).getSeriesAt(index).name();
-            if (upperChartPlot.includes("USD") || upperChartPlot.includes("EUR"))
+            // console.log(upperChartPlot);
+            if (upperChartPlot.includes("USD") || upperChartPlot.includes("EUR")) {
                 removePlotIndex = index;
-            break;
+                break;
+            }
         }
     }
     plot.removeSeriesAt(removePlotIndex);
@@ -281,8 +289,8 @@ function changeChartSeries(chartSeries, data) {
     switch (chartSeries) {
         case "area":
             var series = chart.plot(0).area(mapping);
-            series.stroke('purple');
-            series.fill('#c778ff');
+            series.stroke('#a1a1a1');
+            series.fill('#bfbfbf');
             break;
         case "line":
             var series = chart.plot(0).line(mapping);
@@ -290,8 +298,8 @@ function changeChartSeries(chartSeries, data) {
             break;
         case "column":
             var series = chart.plot(0).column(mapping);
-            series.stroke('purple');
-            series.fill('#c778ff');
+            series.stroke('#a1a1a1');
+            series.fill('#bfbfbf');
             break;
         case "candlestick":
             var series = chart.plot(0).candlestick(mapping);
@@ -315,6 +323,17 @@ function changeIndicator() {
     if (toolSelected == "reset")
         removeIndicator();
     else
+        toggleIndicator(toolSelected);
+}
+
+function toggleIndicator(toolSelected) {
+    var upperIndicator = document.getElementById('hidden_upper_indicator').value;
+    var lowerIndicator = document.getElementById('hidden_lower_indicator').value;
+    if (upperIndicator == toolSelected)
+        removeUpperIndicator();
+    else if (lowerIndicator == toolSelected)
+        removeLowerIndicator();
+    else
         appendLightbox(toolSelected);
 }
 
@@ -325,6 +344,8 @@ function removeIndicator() {
 }
 
 function removeUpperIndicator() {
+    document.getElementById('hidden_upper_indicator').value = "";
+    document.getElementById('indicatorSelect').value = "default";
     while (chart.plot(0).getSeriesCount() > 1) {
         var count = 0;
         if (plot.getSeriesAt(count).name().includes("USD") == true || plot.getSeriesAt(count).name().includes("EUR") == true)
@@ -334,12 +355,16 @@ function removeUpperIndicator() {
 }
 
 function removeLowerIndicator() {
+    document.getElementById('hidden_lower_indicator').value = "";
+    document.getElementById('indicatorSelect').value = "default";
     chart.plot(1).enabled(!chart.plot(1).enabled());
     chart.plot(1).dispose();
 }
 
 
 function appendIndicatorEvent(indicatorSelected) {
+    var upperIndicator = document.getElementById('hidden_upper_indicator');
+    var lowerIndicator = document.getElementById('hidden_lower_indicator');
     switch (indicatorSelected) {
         case "MACD":
             document.getElementById('macd_indicator_btn').addEventListener("click", function() {
@@ -354,6 +379,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("MACD", chartParameter);
+                lowerIndicator.value = "MACD";
             });
             break
         case "RSI":
@@ -367,6 +393,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("RSI", chartParameter);
+                lowerIndicator.value = "RSI";
             });
             break;
         case "BBands":
@@ -381,6 +408,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("BBands", chartParameter);
+                upperIndicator.value = "BBands";
             });
             break;
         case "Stochastic":
@@ -398,6 +426,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("Stochastic", chartParameter);
+                lowerIndicator.value = "Stochastic";
             });
             break;
         case "Momentum":
@@ -411,6 +440,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("Momentum", chartParameter);
+                lowerIndicator.value = "Momentum";
             });
             break;
         case "ROC":
@@ -424,6 +454,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("ROC", chartParameter);
+                lowerIndicator.value = "ROC";
             });
             break;
         case "WilliamsR":
@@ -437,6 +468,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("WilliamsR", chartParameter);
+                lowerIndicator.value = "WilliamsR";
             });
             break;
         case "CCI":
@@ -450,6 +482,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("CCI", chartParameter);
+                lowerIndicator.value = "CCI";
             });
             break;
         case "PSAR":
@@ -465,6 +498,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("PSAR", chartParameter);
+                upperIndicator.value = "PSAR";
             });
             break;
         case "DMI":
@@ -480,6 +514,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("DMI", chartParameter);
+                lowerIndicator.value = "DMI";
             });
             break;
         case "ATR":
@@ -493,6 +528,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("ATR", chartParameter);
+                lowerIndicator.value = "ATR";
             });
             break;
         case "EMA":
@@ -506,6 +542,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("EMA", chartParameter);
+                upperIndicator.value = "EMA";
             });
             break;
         case "SMA":
@@ -519,18 +556,21 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("SMA", chartParameter);
+                upperIndicator.value = "SMA";
             });
             break;
         case "ADL":
             document.getElementById('adl_indicator_btn').addEventListener("click", function() {
                 var chartParameter = { "type": "line" };
                 checkTools("ADL", chartParameter);
+                lowerIndicator.value = "ADL";
             });
             break;
         case "OBV":
             document.getElementById('obv_indicator_btn').addEventListener("click", function() {
                 var chartParameter = { "type": "line" };
                 checkTools("OBV", chartParameter);
+                lowerIndicator.value = "OBV";
             });
             break;
         case "MFI":
@@ -544,6 +584,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("MFI", chartParameter);
+                lowerIndicator.value = "MFI";
             });
             break;
         case "Aroon":
@@ -557,6 +598,7 @@ function appendIndicatorEvent(indicatorSelected) {
                     }
                 }
                 checkTools("Aroon", chartParameter);
+                lowerIndicator.value = "Aroon";
             });
             break;
     }

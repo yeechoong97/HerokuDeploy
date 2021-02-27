@@ -36,7 +36,7 @@
                 <h5>Limitations of the Money Flow Index</h5>
                 <p>The MFI is capable of producing false signals. This is when the indicator does something that indicates a good trading opportunity is present, but then the price doesn't move as expected resulting in a losing trade. A divergence may not result in a price reversal, for instance.</p>
                 <p>The indicator may also fail to warn of something important. For example, while a divergence may result in a price reversing some of the time, divergence won't be present for all price reversals. Because of this, it is recommended that traders use other forms of analysis and risk control and not rely exclusively on one indicator.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2020d). Money Flow Index - MFI Definition and Uses. https://www.investopedia.com/terms/m/mfi.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2020d). Money Flow Index - MFI Definition and Uses. https://www.investopedia.com/terms/m/mfi.asp</cite></p>
             </div>
         </div>
     </div>

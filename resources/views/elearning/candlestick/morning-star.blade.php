@@ -18,7 +18,7 @@
                 <p>The important thing to note about the morning star is that the middle candle can be red or green as the buyers and sellers start to balance out over the session.</p>
                 <h5>An Example of How to Trade a Morning Star</h5>
                 <p>Morning star patterns can be used as a visual sign for the start of a trend reversal from bearish to bullish, but they become more important when other technical indicators back them up as previously mentioned. Another important factor is the volume that is contributing to the pattern formation. Generally a trader wants to see volume increasing throughout the three sessions making up the pattern, with the third day seeing the most volume. High volume on the third day is often seen as a confirmation of the pattern (and a subsequent uptrend) regardless of other indicators. A trader will take up a bullish position in the stock/commodity/pair/etc. as the morning star forms in the third session and ride the uptrend until there are indications of another reversal.</p>
-                <p class="citation">*Adapted from <cite>Chen, J. (2020b). Morning Star Definition. https://www.investopedia.com/terms/m/morningstar.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Chen, J. (2020b). Morning Star Definition. https://www.investopedia.com/terms/m/morningstar.asp</cite></p>
             </div>
         </div>
     </div>

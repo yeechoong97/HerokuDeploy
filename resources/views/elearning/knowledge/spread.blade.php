@@ -28,7 +28,7 @@
                 <p>A higher than normal spread generally indicates one of two things, high volatility in the market or low liquidity due to out-of-hours trading. Before news events, or during big shock (Brexit, US Elections), spreads can widen greatly.</p>
                 <h5>Low spread</h5>
                 <p>A low spread means there is a small difference between the bid and the ask price. It is preferable to trade when spreads are low like during the major forex sessions. A low spread generally indicates that volatility is low and liquidity is high.</p>
-                <p class="citation">*Adapted from <cite>Bradfield, D. (2019b). What Does a Forex Spread Tell Traders? https://www.dailyfx.com/education/forex-trading-basics/what-does-a-spread-tell-forex-traders.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bradfield, D. (2019b). What Does a Forex Spread Tell Traders? https://www.dailyfx.com/education/forex-trading-basics/what-does-a-spread-tell-forex-traders.html</cite></p>
             </div>
         </div>
     </div>

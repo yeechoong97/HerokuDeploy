@@ -8,7 +8,7 @@ use App\Common;
             {{ method_field('PUT') }}
             @csrf
                 <div class="modal-header d-flex align-items-center text-white">
-                    <h6 class="modal-title mb-0" id="threadModalLabel">Edit Discussion</h6>
+                    <h6 class="modal-title mb-0" id="threadModalLabel">Edit Forum Post</h6>
                     <a class="close remove-decoration" data-dismiss="modal" aria-label="Close" onclick="dismissErrorMessageForum()">
                         <span aria-hidden="true">×</span>
                     </a>

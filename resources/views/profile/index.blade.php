@@ -46,7 +46,7 @@
                 </div>
                 <div class="btn-div">
                     <div class="form-group d-inline" id="general-btn-div">
-                        <a href="#" class="btn btn-second btn-block" data-toggle="modal" data-target="#editPassword">Edit Password</a>
+                        <a href="#" class="btn-danger btn-second btn-block" data-toggle="modal" data-target="#editPassword">Edit Password</a>
                     </div>
                 </div>
             </div>
@@ -88,6 +88,7 @@
 @include('profile.edit-password')
 @include('profile.edit-profile')
 
+<script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/profile.js') }}"></script>
 <script>
 //Display the alert message

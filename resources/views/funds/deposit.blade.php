@@ -12,8 +12,8 @@
                     <input class="form-control" type="text" value="{{$account->user->name}}" disabled/>
                 </div>
                 <div class="form-group1 mx-auto">
-                    <label for="name">Currency :</label>
-                    <input class="form-control" type="text" value="USD" disabled/>
+                    <label for="name">Margin Available:</label>
+                    <input class="form-control" type="text" value="${{$account->margin}}" disabled/>
                 </div>
                 <div class="form-group1 mx-auto">
                     <div class="beautiful bs-callout bs-callout-info">
@@ -21,7 +21,7 @@
                         <ul class="notice-list">
                             <li>Maximum Account Balance is 1,00,000.00</li>
                             <li>Maximum Deposit Amount is 50,000.00</li>
-                            <li>Fees are <strong>NOT</strong> required For Deposit Process</li>
+                            <li><strong>NO</strong> real monetary cost required</li>
                         </ul>
                     </div>
                 </div>
@@ -38,13 +38,13 @@
                         {{ method_field('PUT') }}
                         {{ csrf_field() }}
                         <div class="input-container">
-                            <input class="form-control" type="number" name="amount" id="amount_input" placeholder="Enter Amount" onkeyup="validateDepositInput('{{$account->balance}}')" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true"/>
+                            <input class="form-control" type="number" name="amount" id="amount_input" placeholder="Enter Amount" onkeyup="validateDepositInput('{{$account->balance}}')" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" autofocus/>
                             <i class="fas fa-check fa-lg tick-span" id="tick" style="display:none"></i>
                             <i class="fas fa-times fa-lg cross-span" id="cross" style="display:none"></i>
                         </div>
                         </form>
                     </div>
-                    <div class="error-label" id="error-msg"></div>
+                    <div class="error-label small" id="error-msg"></div>
                 </div>
                 <div class="btn-div">
                     <div class="form-group align-btn" id="lev-btn-div" >

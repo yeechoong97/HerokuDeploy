@@ -26,8 +26,8 @@
                 <p>Every candlestick pattern has four sets of data that help to define its shape. Based on this shape, analysts are able to make assumptions about price behavior. Each candlestick is based on an open, high, low, and close. The time period or tick interval used does not matter. The filled or hollow bar created by the candlestick pattern is called the body. The lines that extend out of the body are called shadows. A stock that closes higher than its opening will have a hollow candlestick. If the stock closes lower, the body will have a filled candlestick. One of the most important candlestick formations is called the doji.</p>
                 <p>A doji, referring to both singular and plural form, is created when the open and close for a stock are virtually the same. Doji tend to look like a cross or plus sign and have small or nonexistent bodies. From an auction theory perspective, doji represent indecision on the side of both buyers and sellers. Everyone is equally matched, so the price goes nowhere; buyers and sellers are in a standoff.</p>
                 <p>Some analysts interpret this as a sign of reversal. However, it may also be a time when buyers or sellers are gaining momentum for a continuation trend. Doji are commonly seen in periods of consolidation and can help analysts identify potential price breakouts.</p>
-                <p class="citation">*Adapted from <cite>Chen, J. (2020). Doji Definition. https://www.investopedia.com/terms/d/doji.asp</cite></p>
-                <p class="citation">*Adapted from <cite>Forex.com. (2021d). The Doji Candlestick Formation. https://www.forex.com/en/education/education-themes/technical-analysis/doji-candlestick-formation/</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Chen, J. (2020). Doji Definition. https://www.investopedia.com/terms/d/doji.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Forex.com. (2021d). The Doji Candlestick Formation. https://www.forex.com/en/education/education-themes/technical-analysis/doji-candlestick-formation/</cite></p>
             </div>
         </div>
     </div>

@@ -57,7 +57,7 @@
                 <h5>Limitations Of OBV</h5>
                 <p>One limitation of OBV is that it is a leading indicator, meaning that it may produce predictions, but there is little it can say about what has actually happened in terms of the signals it produces. Because of this, it is prone to produce false signals. It can therefore be balanced by lagging indicators. Add a moving average line to the OBV to look for OBV line breakouts; you can confirm a breakout in the price if the OBV indicator makes a concurrent breakout.</p>
                 <p>Another note of caution in using the OBV is that a large spike in volume on a single day can throw off the indicator for quite a while. For instance, a surprise earnings announcement, being added or removed from an index, or massive institutional block trades can cause the indicator to spike or plummet, but the spike in volume may not be indicative of a trend.</p>
-                <p class="citation">*Adapted from <cite>Hayes, A. (2020b). On-Balance Volume (OBV) Definition. https://www.investopedia.com/terms/o/onbalancevolume.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Hayes, A. (2020b). On-Balance Volume (OBV) Definition. https://www.investopedia.com/terms/o/onbalancevolume.asp</cite></p>
             </div>
         </div>
     </div>

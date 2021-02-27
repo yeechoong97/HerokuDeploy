@@ -27,7 +27,7 @@
                 <h5>Minor and Exotic Pairs</h5>
                 <p>Currency pairs that are not associated with the U.S. dollar are referred to as minor currencies or crosses. These pairs have slightly wider spreads and are not as liquid as the majors, but they are sufficiently liquid markets nonetheless. The crosses that trade the most volume are among the currency pairs in which the individual currencies are also majors. Some examples of crosses include the EUR/GBP, GBP/JPY and EUR/CHF.</p>
                 <p>Exotic currencies pairs include currencies of emerging markets. These pairs are not as liquid, and the spreads are much wider. An example of an exotic currency pair is the USD/SGD (U.S. dollar/Singapore dollar).</p>
-                <p class="citation">*Adapted from <cite>CHEN, J. (2020). Currency Pair Definition. https://www.investopedia.com/terms/c/currencypair.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>CHEN, J. (2020). Currency Pair Definition. https://www.investopedia.com/terms/c/currencypair.asp</cite></p>
             </div>
         </div>
     </div>

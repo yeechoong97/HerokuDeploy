@@ -39,7 +39,7 @@
                 <h5>Limitations of the Directional Movement Index</h5>
                 <p>The directional movement index (DMI) is part of a larger system called the Average Directional Movement Index (ADX). The trend direction of DMI can be incorporated with the strength readings of the ADX. Readings above 20 on the ADX means the price is trending strongly. Whether using ADX or not, the indicator is still prone to producing lots of false signals.</p>
                 <p>+DI and -DI readings and crossovers are based on historical prices and don't necessarily reflect what will happen in the future. A crossover can occur, but the price may not respond, resulting in a losing trade. The lines may also crisscross, resulting in multiple signals but no trend in the price. This can be somewhat avoided by only taking trades in the larger trend direction based on long-term price charts, or incorporating ADX readings to help isolate strong trends.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2021b). Directional Movement Index (DMI). https://www.investopedia.com/terms/d/dmi.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2021b). Directional Movement Index (DMI). https://www.investopedia.com/terms/d/dmi.asp</cite></p>
             </div>
         </div>
     </div>

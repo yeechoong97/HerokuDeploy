@@ -30,7 +30,7 @@
                 <h5>Meaning Behind Triple Tops and Bottoms</h5>
                 <p>The significance of these two formations is that an established trend has hit a major section of support/resistance, which stops the trend's ability to continue. This is an indication that the buying or selling pressure that is supporting the trend is beginning to weaken. It also is an indication that the opposite pressure is gaining strength.</p>
                 <p>The chart pattern is signaling that there is a shift in the supply and demand of the security and of the balance between buyers and sellers. When a reversal signal is formed in a triple top, there is a shift from buyers moving the security upward to sellers moving the security downward.</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

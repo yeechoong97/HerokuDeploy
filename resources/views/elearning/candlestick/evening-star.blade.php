@@ -19,7 +19,7 @@
                 <p>Each candlestick consists of a candle and two wicks. The length of the candle is a function of the range between the highest and lowest price during that trading day. A long candle indicates a large change in price, while a short candle indicates a small change in price. In other words, long candlestick bodies are indicative of intense buying or selling pressure, depending on the direction of the trend. At the same time, short candlesticks are indicative of little price movement.</p>
                 <p>The Evening Star pattern is considered a very strong indicator of future price declines. Its pattern forms over a period of three days, in which the first day consists of a large white candle signifying a continued rise in prices; the second day consists of a smaller candle that shows a more modest increase in price, while the third day shows a large red candle that opens at a price below the previous day and then closes near the middle of the first day.</p>
                 <p>The Evening Star pattern is considered a reliable indicator that a downward trend has begun. However, it can be difficult to discern amidst the noise of stock-price data. To help identify it reliably, traders often use price oscillators and trendlines to confirm whether an Evening Star pattern has in fact occurred.</p>
-                <p class="citation">*Adapted from <cite>Fernando, J. (2021). Evening Star. https://www.investopedia.com/terms/e/eveningstar.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Fernando, J. (2021). Evening Star. https://www.investopedia.com/terms/e/eveningstar.asp</cite></p>
             </div>
         </div>
     </div>

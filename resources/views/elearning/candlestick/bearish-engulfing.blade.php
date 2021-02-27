@@ -19,7 +19,7 @@
                 <p>Before acting on the pattern, traders typically wait for the second candle to close, and then take action on the following candle. Actions include selling a long position once a bearish engulfing pattern occurs, or potentially entering a short position.</p>
                 <p>If entering a new short position, a stop loss can be placed above the high of the two-bar pattern.</p>
                 <p>Astute traders consider the overall picture when utilizing bearish engulfing patterns. For example, taking a short trade may not be wise if the uptrend is very strong. Even the formation of a bearish engulfing pattern may not be enough to halt the advance for long. Yet, if the overall trend is down, and the price has just seen a pullback to the upside, a bearish engulfing pattern may provide a good shorting opportunity since the trade aligns with the longer-term downtrend.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2020a). Bearish Engulfing Pattern Definition and Tactics. https://www.investopedia.com/terms/b/bearishengulfingp.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2020a). Bearish Engulfing Pattern Definition and Tactics. https://www.investopedia.com/terms/b/bearishengulfingp.asp</cite></p>
             </div>
         </div>
     </div>

@@ -86,7 +86,7 @@ function editLeverage(){
         document.getElementById('general-btn-div').style.display = "none";
         document.getElementById('leverage-btn-div').style.display = "block";
     @else
-        appendFundAlert('Error','error','You are not allowed to edit leverage unless all of your orders are completed.');
+        appendFundAlert('Error','error','You are not allowed to edit leverage unless all of your orders are closed.');
     @endif
 }
 

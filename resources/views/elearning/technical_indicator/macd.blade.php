@@ -42,7 +42,7 @@
                     <li>Selecting EMA parameters</li>
                     <li>Using an appropriate time frame, as MACD may function differently across time frames</li>
                 </ul>
-                <p class="citation">*Adapted from <cite>Venketas, W. (2019c). What the MACD Indicator is and How it Works. https://www.dailyfx.com/education/technical-analysis-tools/macd-indicator.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Venketas, W. (2019c). What the MACD Indicator is and How it Works. https://www.dailyfx.com/education/technical-analysis-tools/macd-indicator.html</cite></p>
             </div>
         </div>
     </div>

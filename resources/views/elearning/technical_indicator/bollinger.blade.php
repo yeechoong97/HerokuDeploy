@@ -29,7 +29,7 @@
                 <h5>Limitations of Bollinger Bands</h5>
                 <p>Bollinger Bands are not a standalone trading system. They are simply one indicator designed to provide traders with information regarding price volatility. John Bollinger suggests using them with two or three other non-correlated indicators that provide more direct market signals. He believes it is crucial to use indicators based on different types of data. Some of his favored technical techniques are moving average divergence/convergence (MACD), on-balance volume and relative strength index (RSI).</p>
                 <p>Because they are computed from a simple moving average, they weight older price data the same as the most recent, meaning that new information may be diluted by outdated data. Also, the use of 20-day SMA and 2 standard deviations is a bit arbitrary and may not work for everyone in every situation. Traders should adjust their SMA and standard deviation assumptions accordingly and monitor them.</p>
-                <p class="citation">*Adapted from <cite>Hayes, A. (2020a). Bollinger Band® Definition. https://www.investopedia.com/terms/b/bollingerbands.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Hayes, A. (2020a). Bollinger Band® Definition. https://www.investopedia.com/terms/b/bollingerbands.asp</cite></p>
             </div>
         </div>
     </div>

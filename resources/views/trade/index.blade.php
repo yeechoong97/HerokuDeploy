@@ -12,31 +12,34 @@ use App\Common;
     <div class="row upper-row-container" >
         <div class="col-md-6 col-xl-10 offset-xl-0 chart-section" >
             <div class="chart-container-btn">
-                <select class="form-control col-md-2" id="typeSelect" onchange="createAnnotation()">
-                    <option value="default" selected disabled>Annotation Type</option>
+                <select class="form-control col-md-2" style="max-width:11%" id="typeSelect" onchange="createAnnotation()">
+                    <option value="default" selected disabled>Annotation</option>
                     <option value="reset">Reset Annotation</option>
                     @foreach(Common::$annotation as $key=> $value)
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
                 </select>
-                <select class="form-control col-md-1" id="seriesSelect" onchange ="changeSeries()">
+                <select class="form-control col-md-1" style="max-width:11%" id="seriesSelect" onchange ="changeSeries()">
                     @foreach(Common::$series as $key=> $value)
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
                 </select>
-                <select class="form-control col-md-1" id="intervalSelect" onchange ="changeSeries()">
+                <select class="form-control col-md-1" style="max-width:11%" id="intervalSelect" onchange ="changeSeries()">
                     @foreach(Common::$interval as $key=> $value)
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
                 </select>
-                <select class="form-control col-md-2"  id="indicatorSelect" onchange ="changeIndicator()">
+                <select class="form-control col-md-2" style="max-width:13%"  id="indicatorSelect" onchange ="changeIndicator()">
                     <option value="default" selected disabled>Add Indicator</option>
                     <option value="reset">Reset Indicator</option>
                     @foreach(Common::$indicator as $key=> $value)
                     <option value="{{$key}}">{{$value}}</option>
                     @endforeach
                 </select>
+                <input type="hidden" id="hidden_upper_indicator" value=""/>
+                <input type="hidden" id="hidden_lower_indicator" value="" />
                 <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset</button>
+                <button class="form-control" style="width:40px" id="remove-annotation-intro" onclick="removeSelectedAnnotation()"><i class="fas fa-trash-alt"></i></button>
                 <div class="question-btn" id="chart-tips-intro">
                     <i class="far fa-question-circle text-info" onclick="showChartTips()"></i>
                 </div>
@@ -62,7 +65,7 @@ use App\Common;
                     </a>
                 </div>
             </div>
-        <div id="container" class="chart-section-container bg-white rounded shadow"></div>
+        <div id="container" class="chart-section-container bg-white rounded shadow loading"></div>
         <input type="hidden" value="EUR_USD" id="instrumentSelect"/>
     </div>
         <div class="col-md-6 col-xl-2 offset-xl-0 account-section">
@@ -90,7 +93,7 @@ use App\Common;
                                 </tr>
                                 <tr id="margin-used-intro">
                                     <td>Margin Used :</td>
-                                    <td id="account-margin-used">{{$account->margin_used}}</td>
+                                    <td id="account-margin-used">{{$account->margin_used}} %</td>
                                 </tr>
                                 <tr id="leverage-intro">
                                     <td>Leverage :</td>
@@ -121,9 +124,9 @@ use App\Common;
                                 <th class="col1" id="margin-order-intro">Margin</th>
                                 <th class="col1" id="price-intro">Price</th>
                                 <th class="col1" id="current-intro">Current</th>
-                                <th class="col1" id="profit-usd-intro">Profit(USD)</th>
-                                <th class="col2" id="profit-spread-intro">Profit(Spread)</th>
-                                <th class="col1" id="profit-intro">Profit(%)</th>
+                                <th class="col1" id="profit-usd-intro">Profit (USD)</th>
+                                <th class="col2" id="profit-spread-intro">Profit (Spread)</th>
+                                <th class="col1" id="profit-intro">Profit (%)</th>
                                 <th class="col1" id="action-intro">Action <i class="far fa-question-circle" onclick="showOrderTips()"></i></th>
                             </tr>
                             </thead>
@@ -211,13 +214,33 @@ use App\Common;
 </div>
 
 <div id="indicator-lightbox"></div>
+<div class="preloader">
+  <img src="https://raw.githubusercontent.com/maximakymenko/page-preloader-tutorial/1a6d6ceb32d501dd02fb2ebcd840c1d2e6f9c202/spinner.svg" alt="spinner">
+</div>
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
 
 </body>
+<script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>   
+<script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
 <script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/socket.js') }}"></script>   
 <script type="text/javascript">
+
+const preloader = document.querySelector('.preloader');
+const fadeEffect = setInterval(() => {
+        if (!preloader.style.opacity) {
+            preloader.style.opacity = 1;
+        }
+        if (preloader.style.opacity > 0) {
+            preloader.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+            preloader.style.display = "none";
+        }
+        }, 100);
+
+document.addEventListener('DOMContentLoaded', (event) => {fadeEffect});
 
 //Append Temporary Data into Table
     let arrayInstrument = [];
@@ -330,7 +353,7 @@ function checkTools(indicatorSelected,obj)
 {
     let seriesCheck = chart.getPlotsCount();
     let status = false;
-    let upperArray = ["BBands","EMA","MMA","PSAR","SMA"];
+    let upperArray = ["BBands","EMA","PSAR","SMA"];
     for(let i in upperArray)
     {
         if(indicatorSelected == upperArray[i])

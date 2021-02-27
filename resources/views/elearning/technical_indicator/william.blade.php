@@ -33,7 +33,7 @@
                 <h5>Limitations of Using the Williams %R</h5>
                 <p>Overbought and oversold readings on the indicator don't mean a reversal will occur. Overbought readings actually help confirm an uptrend, since a strong uptrend should regularly see prices that are pushing to or past prior highs (what the indicator is calculating).</p>
                 <p>The indicator can also be too responsive, meaning it gives many false signals. For example, the indicator may be in oversold territory and starts to move higher, but the price fails to do so. This is because the indicator is only looking at the last 14 periods. As periods go by, the current price relative to the highs and lows in the lookback period changes, even if the price hasn't really moved.</p>
-                <p class="citation">*Adapted from <cite>Mitchell, C. (2020e). Williams %R Definition and Uses. https://www.investopedia.com/terms/w/williamsr.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Mitchell, C. (2020e). Williams %R Definition and Uses. https://www.investopedia.com/terms/w/williamsr.asp</cite></p>
             </div>
         </div>
     </div>

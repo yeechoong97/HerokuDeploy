@@ -30,7 +30,7 @@
                 <p>Another problem that can occur is the second testing point, where the top or bottom actually breaks the level that the first top or bottom test created. If this occurs, it can give a signal that the previous trend will continue - instead of reverse - as the pattern suggests. However, don’t be too quick to abandon the pattern as it could still materialize.</p>
                 <p>If the price does, in fact, move above the prior test, look to see if the move was accompanied by large volume, suggesting a trend continuation. For example, if on the second test of a double bottom the price falls below the support line on heavy volume, it is a good sign the downward trend will continue and not reverse. If the volume is very weak, it could just be a last attempt to continue the downward trend, but the trend will ultimately reverse.</p>
                 <p>The double tops and double bottoms are strong reversal patterns that can provide trading opportunities. But it is important to be careful with these patterns as the price can often move either way. Consequently, it's important that the trade is implemented once the support/resistance line is broken.</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

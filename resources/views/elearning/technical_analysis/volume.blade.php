@@ -24,7 +24,7 @@
                 <p>Volume is one of the most important measures of the strength of a security for traders and technical analysts. From an auction perspective, when buyers and sellers become particularly active at a certain price, it means there is a high volume.</p>
                 <p>Analysts use bar charts to quickly determine the level of volume. Bar charts also make it easier to identify trends in volume. When the bars on a bar chart are higher than average, it's a sign of high volume or strength at a particular market price. By examining bar charts, analysts can use volume as a way to confirm a price movement. If volume increases when the price moves up or down, it is considered a price movement with strength.</p>
                 <p>If traders want to confirm a reversal on a level of support–or floor–they look for high buying volume. Conversely, if traders are looking to confirm a break in the level of support, they look for low volume from buyers. If traders want to confirm a reversal on a level of resistance–or ceiling– they look for high selling volume. Conversely, if traders are looking to confirm a break in the level of resistance, they look for high volume from buyers.</p>
-                <p class="citation">*Adapted from <cite>Hayes, A. (2020). Volume. https://www.investopedia.com/terms/v/volume.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Hayes, A. (2020). Volume. https://www.investopedia.com/terms/v/volume.asp</cite></p>
             </div>
         </div>
     </div>

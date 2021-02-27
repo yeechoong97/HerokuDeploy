@@ -33,7 +33,7 @@
                 <p>So as forex traders, if we go in and attempt to buy 100k EUR/USD at 1.3650, but there are not enough people (or no one at all) willing to sell their Euros for 1.3650 USD, our order will need to look at the next best available price(s) and buy those Euros at a higher price, giving us negative slippage.</p>
                 <p>If there were a flood of people wanting to sell their Euros at the time our order was submitted, we might be able to find a seller willing to sell them at a price lower than what we had initially requested, giving us positive slippage.</p>
                 <p>Forex slippage can also occur on normal stop losses whereby the stop loss level cannot be honored. There are however “guaranteed stop losses” which differ from normal stop losses. Guaranteed stop losses will be honored at the specified level and filled by the broker no matter what the circumstances in the underlying market. Essentially, the broker will take on any loss that may have resulted from slippage. This being said, guaranteed stops generally come with a premium charge if they are triggered.</p>
-                <p class="citation">*Adapted from <cite>Forex.com. (2021e). What is Slippage? Slippage in Forex Explained. https://www.dailyfx.com/education/forex-trading-basics/what-is-slippage.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Forex.com. (2021e). What is Slippage? Slippage in Forex Explained. https://www.dailyfx.com/education/forex-trading-basics/what-is-slippage.html</cite></p>
             </div>
         </div>
     </div>

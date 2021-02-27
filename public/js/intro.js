@@ -34,7 +34,7 @@ function showTutorial(userName) {
             },
             {
                 element: document.querySelector('#container'),
-                intro: 'The visualization of selected currency pair in the chart. <b>The datetime of the chart are following the UTC (Coordinated Universal Time) format.',
+                intro: 'The visualization of selected currency pair in the chart.The datetime of the chart are following the <b>UTC (Coordinated Universal Time)</b> format.',
             },
             {
                 element: document.querySelector('.order-table'),
@@ -55,30 +55,37 @@ function showTutorial(userName) {
     }).onexit(function() {
         appendBeginnerQuestion();
     }).start();
-
 }
 
 function showChartTips() {
     introJs().setOptions({
         steps: [{
                 element: document.querySelector('#typeSelect'),
-                intro: 'You can select specific drawing tool from here and plot it on the chart below for further analysis.'
+                intro: 'You can select a specific drawing tool from here and plot it on the chart below for further analysis.'
             },
             {
                 element: document.querySelector('#seriesSelect'),
-                intro: 'You can select specific chart type from here and then visualize the data accordingly on the chart below. <a href="/learning/knowledge/chart" target="_blank">Learn More about Chart Type</a>'
+                intro: 'You can select a specific chart type from here and then visualize the data accordingly on the chart below. <a href="/learning/knowledge/chart" target="_blank">Learn More about Chart Type</a>'
             },
             {
                 element: document.querySelector('#intervalSelect'),
-                intro: 'You can select specific time interval for visualizing the data on the chart.'
+                intro: 'You can select a specific time interval for visualizing the currency pair data on the chart.'
             },
             {
                 element: document.querySelector('#indicatorSelect'),
-                intro: 'You can select the technical indicators from the list and add it into the chart below <br><br> Only maximum <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart. <a href="/learning/indicator/intro" target="_blank">Learn More about Technical Indicator</a> '
+                intro: 'You can select the technical indicators from the list and add it into the chart below. <br><br> Only a maximum of <b>Two</b> indicators can be plotted on the chart concurrently which is within and below the chart. <a href="/learning/indicator/intro" target="_blank">Learn More about Technical Indicator</a> '
+            },
+            {
+                element: document.querySelector('#indicatorSelect'),
+                intro: 'You also can remove the indicator from the chart by clicking the indicator name from this list again.'
             },
             {
                 element: document.querySelector('.reset-btn'),
-                intro: 'You can reset the chart and remove all the annotations and indicators plotted on the chart.',
+                intro: 'You can reset the chart by removing all the annotations and indicators plotted on the chart.',
+            },
+            {
+                element: document.querySelector('#remove-annotation-intro'),
+                intro: 'You can remove the <b>Selected Annotation</b> that is plotted on the chart.',
             },
             {
                 element: document.querySelector('#sell'),
@@ -93,7 +100,7 @@ function showChartTips() {
                 intro: 'You can view the spread of the selected currency pair <br/><br/> <b>Spread</b> is the difference between selling and buying price of the currency pair. <a href="/learning/knowledge/spread" target="_blank">Learn More about Spread</a>'
             },
         ]
-    }).onexit(function() {
+    }).oncomplete(function() {
         appendBeginnerQuestion();
     }).start();
 }
@@ -102,12 +109,12 @@ function showAccountTips() {
     introJs().setOptions({
         steps: [{
                 element: document.querySelector('#currency-intro'),
-                intro: 'The currency type used for trading. In this system, it would be <b>US Dollar (USD)</b>.<a href="/learning/knowledge/currency" target="_blank"> Learn More about Currency Pair</a>',
+                intro: 'The currency type used for trading. In this system, it would be <b>US Dollar (USD)</b>.',
                 position: 'left'
             },
             {
                 element: document.querySelector('#balance-intro'),
-                intro: 'The current <b>Available Balance</b> of your account. The balance of your account will only affect by <b>Profit</b> / <b>Loss</b> occurred by order.',
+                intro: 'The current <b>Available Balance</b> of your account. The balance of your account will only affect by the <b>Profit</b> / <b>Loss</b> that occurred by order.',
                 position: 'left'
             },
             {
@@ -117,12 +124,12 @@ function showAccountTips() {
             },
             {
                 element: document.querySelector('#margin-used-intro'),
-                intro: 'The <b>Margin Used</b> in your account in percentage. <br/><u>For calculation:</u><br/> (Used Margin) ÷ (Available Margin+Used Margin) ✕ 100 ',
+                intro: 'The <b>Margin Used</b> in your account in percentage.<br/><br/><u>For calculation:</u><br/> (Used Margin) ÷ (Available Margin+Used Margin) ✕ 100 ',
                 position: 'left'
             },
             {
                 element: document.querySelector('#leverage-intro'),
-                intro: 'The <b>Leverage</b> of your account used for trading.<br/> In short, leverage allows you to control larger positions with a smaller amount of actual trading funds. <a href="/learning/knowledge/leverage" target="_blank">Learn More about Leverage</a>',
+                intro: 'The <b>Leverage</b> of your account is required for trading.<br/> In short, leverage allows you to control larger positions with a smaller amount of actual trading funds. <a href="/learning/knowledge/leverage" target="_blank">Learn More about Leverage</a>',
                 position: 'left'
             }
         ]
@@ -178,8 +185,9 @@ function showRateTips() {
                 position: 'left'
             },
             {
+                title: "Cont.",
                 element: document.querySelector(`#${selectedCurrency}_Pips`),
-                intro: '<b>Cont.</b><br/><b style="color:purple">Pips</b> = (<b style="color:blue">Buy</b> - <b style="color:red">Sell</b>) ÷ <b>0.0001</b><br/><br/><b>Example</b><br/><b style="color:purple">1.4</b> = (<b style="color:blue">1.20732</b> - <b style="color:red">1.20718</b>) ÷ <b>0.0001</b>',
+                intro: '<b style="color:purple">Pips</b> = (<b style="color:blue">Buy</b> - <b style="color:red">Sell</b>) ÷ <b>0.0001</b><br/><br/><b>Example</b><br/><b style="color:purple">1.4</b> = (<b style="color:blue">1.20732</b> - <b style="color:red">1.20718</b>) ÷ <b>0.0001</b>',
                 position: 'left'
             },
             {
@@ -188,8 +196,9 @@ function showRateTips() {
                 position: 'left'
             },
             {
+                title: "Cont.",
                 element: document.querySelector(`#${selectedCurrency}_Pips`),
-                intro: '<b>Cont.</b><br/><b style="color:purple">Pips</b> = (<b style="color:blue">Buy</b> - <b style="color:red">Sell</b>) ÷ <b>0.01</b><br/><br/><b>Example</b><br/><b style="color:purple">1.2</b> = (<b style="color:blue">127.573</b> - <b style="color:red">127.561</b>) ÷ <b>0.01</b><br/>',
+                intro: '<b style="color:purple">Pips</b> = (<b style="color:blue">Buy</b> - <b style="color:red">Sell</b>) ÷ <b>0.01</b><br/><br/><b>Example</b><br/><b style="color:purple">1.2</b> = (<b style="color:blue">127.573</b> - <b style="color:red">127.561</b>) ÷ <b>0.01</b><br/>',
                 position: 'left'
             },
             {
@@ -246,11 +255,11 @@ function showOrderTips() {
             },
             {
                 element: document.querySelector('#profit-intro'),
-                intro: 'This is the <b>Profit/Loss</b> in <b>Percentage</b> of your order. <br/>For your information, <br/><b style="color:red">Red</b> = <b style="color:red">Loss</b><br/><b style="color:green">Green</b> = <b style="color:green">Profit</b>. <br/><a href="#" onclick="toggleCalculatorLightbox()">Learn More in Calculating Profit</a>',
+                intro: `This is the <b>Profit/Loss</b> in <b>Percentage</b> of your order. <br/>For your information, <br/><b style="color:red">Red</b> = <b style="color:red">Loss</b><br/><b style="color:green">Green</b> = <b style="color:green">Profit</b>.`,
             },
             {
                 element: document.querySelector('#action-intro'),
-                intro: 'Each order contains a ❌ button. The primary function of this button is to allow traders to <b>Close</b> the order according to their preference.',
+                intro: 'Each order contains a ❌ button. The primary function of this button is to allow traders to <b>Close</b> / <b>Reduce</b> the order accordingly.',
             },
         ]
     }).start();
@@ -349,25 +358,25 @@ function showSellTips() {
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Sell: Calculation💰",
-                intro: `Let's take an example, you want to go short(<b style="color:red">Sell</b>) on <b>EUR/USD</b> currency pair. In this system, your account base currency is USD. One Pip is <b>0.0001</b>.<br/><br/><b>Type</b>: Sell<br/><b>Currency</b>: EUR/USD<br/><b>One Pip</b>: 0.0001 `,
+                intro: `Let's take an example. You want to go short(<b style="color:red">Sell</b>) on <b>EUR/USD</b> currency pair. In this system, your account's base currency is USD. One Pip is <b>0.0001</b>.<br/><br/><b>Type</b>: Sell<br/><b>Currency</b>: EUR/USD<br/><b>One Pip</b>: 0.0001 `,
                 position: 'left',
             },
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Sell: Calculation💰",
-                intro: 'Then, you sell it at the price of <b>1.20837</b> with <b>10,000</b> units. After one week, the price has dropped to 1.20518 and you managed to close the order with the price of <b>1.20518</b>. <br/><br/><b>Entry Price</b>: 1.20837<br/><b>Exit Price</b>: 1.20518<br/><b>Units</b>: 10,000',
+                intro: 'Then, you sell it at the price of <b>1.20837</b> with <b>10,000</b> units. After one week, the price has dropped to 1.20518, and you managed to close the order with the price of <b>1.20518</b>. <br/><br/><b>Entry Price</b>: 1.20837<br/><b>Exit Price</b>: 1.20518<br/><b>Units</b>: 10,000',
                 position: 'left',
             },
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Sell: Calculation💰",
-                intro: `As the exit price is lower than the entry price and the order type is sell, thus you will gain profit from the order. Let's compile all the order information and calculate the profit of this order.`,
+                intro: `The exit price is lower than the entry price, and the order is selling type. Thus you will gain profit from the order. Let's compile all the order information and calculate the profit of this order.`,
                 position: 'left',
             },
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Sell: Calculation💰",
-                intro: `<b>Currency</b>: EUR/USD<br/><b>Type</b>: Sell<br/><b>One Pip</b>: 0.0001<br/><b>Entry</b>: 1.20837<br/><b>Exit</b>: 1.20518<br/><b>Units</b>: 10,000<br/><br/>Firstly, we need to calculate pips value of this order.`,
+                intro: `<b>Currency</b>: EUR/USD<br/><b>Type</b>: Sell<br/><b>One Pip</b>: 0.0001<br/><b>Entry</b>: 1.20837<br/><b>Exit</b>: 1.20518<br/><b>Units</b>: 10,000<br/><br/>Firstly, we need to calculate the pips value of this order.`,
                 position: 'left',
             },
             {
@@ -403,25 +412,25 @@ function showBuyTips() {
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Buy: Calculation💰",
-                intro: `Let's take an example, you want to go long(<b style="color:blue">Buy</b>) on <b>AUD/USD</b> currency pair. In this system, your account base currency is USD. One Pip is <b>0.0001</b>.<br/><br/><b>Type</b>: Buy<br/><b>Currency</b>: AUD/USD<br/><b>One Pip</b>: 0.0001 `,
+                intro: `Let's take an exampl. You want to go long(<b style="color:blue">Buy</b>) on <b>AUD/USD</b> currency pair. In this system, your account's base currency is USD. One Pip is <b>0.0001</b>.<br/><br/><b>Type</b>: Buy<br/><b>Currency</b>: AUD/USD<br/><b>One Pip</b>: 0.0001 `,
                 position: 'right',
             },
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Buy: Calculation💰",
-                intro: 'Then, you buy it at the price of <b>0.77627</b> with <b>20,000</b> units. After one week, the price has escalated to 0.77843 and you managed to close the order with the price of <b>0.77843</b>. <br/><br/><b>Entry Price</b>: 0.77627<br/><b>Exit Price</b>: 0.77843<br/><b>Units</b>: 20,000',
+                intro: 'Then, you buy it at the price of <b>0.77627</b> with <b>20,000</b> units. After one week, the price has escalated to 0.77843, and you managed to close the order with the price of <b>0.77843</b>. <br/><br/><b>Entry Price</b>: 0.77627<br/><b>Exit Price</b>: 0.77843<br/><b>Units</b>: 20,000',
                 position: 'right',
             },
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Buy: Calculation💰",
-                intro: `As the exit price is higher than the entry price and the order type is buy, thus you will gain profit from the order. Let's compile all the order information and calculate the profit of this order.`,
+                intro: `The exit price is higher than the entry price, and the order is buying type. Thus you will gain profit from the order. Let's compile all the order information and calculate the profit of this order.`,
                 position: 'right',
             },
             {
                 element: document.querySelector('#buy-sell-modal-content'),
                 title: "Buy: Calculation💰",
-                intro: `<b>Currency</b>: AUD/USD<br/><b>Type</b>: Buy<br/><b>One Pip</b>: 0.0001<br/><b>Entry</b>: 0.77627<br/><b>Exit</b>: 0.77843<br/><b>Units</b>: 20,000<br/><br/>Firstly, we need to calculate pips value of this order.`,
+                intro: `<b>Currency</b>: AUD/USD<br/><b>Type</b>: Buy<br/><b>One Pip</b>: 0.0001<br/><b>Entry</b>: 0.77627<br/><b>Exit</b>: 0.77843<br/><b>Units</b>: 20,000<br/><br/>Firstly, we need to calculate the pips value of this order.`,
                 position: 'right',
             },
             {
@@ -445,31 +454,31 @@ function showCalculatorTips() {
     introJs().setOptions({
         steps: [{
                 title: `Forex Calculator <i class="fas fa-calculator"></i>`,
-                intro: 'In this section, you can perform some calculation on <b>Margin</b>,<b>Pips Value</b> and <b>Profit</b>.',
+                intro: 'In this section, you can perform some calculation on<br/><br/>1. <b>Margin</b><br/>2. <b>Pips Value</b><br/>3. <b>Profit</b>',
             },
             {
                 element: document.querySelector('#margin-tab'),
-                intro: 'This is the <b>Margin</b> tab. You can perform calculation for the margin required based on the inputs entered.',
+                intro: 'This is the <b>Margin</b> tab. You can perform the calculation for the margin required based on the inputs entered.',
             },
             {
                 element: document.querySelector('#pips-tab'),
-                intro: 'This is the <b>Pips Value</b> tab. You can perform calculation for the pips value of the currency pair based on the inputs entered.',
+                intro: 'This is the <b>Pips Value</b> tab. You can perform the calculation for the pips value of the currency pair based on the inputs entered.',
             },
             {
                 element: document.querySelector('#profit-tab'),
-                intro: 'This is the <b>Profit</b> tab. You can perform calculation for the profit gained based on the inputs entered.',
+                intro: 'This is the <b>Profit</b> tab. You can perform the calculation for the profit gained based on the inputs entered.',
             },
             {
                 element: document.querySelector('#calculator-left-div-intro'),
-                intro: 'Left section of calculator panel contains some input fields that allows you to enter your input according to your preference.',
+                intro: 'The left section of the calculator panel allows you to enter your input according to your preference.',
             },
             {
                 element: document.querySelector('#calculator-right-div-intro'),
-                intro: 'Right section of calculator panel contains the formula for calculation and also a simple example.',
+                intro: 'The right section of the calculator panel contains the calculation formula and also a simple example.',
             },
             {
                 element: document.querySelector('#calculator-btn-intro'),
-                intro: 'After all the inputs are entered, you can click this <b>Calculate</b> button to perform calculation. The results produced will be displayed in the label below.',
+                intro: 'After all the inputs are entered, you can click this <b>Calculate</b> button to perform the calculation. The results produced will be displayed in the label below.',
             },
         ]
     }).start();
@@ -479,7 +488,7 @@ function showForumTips() {
     introJs().setOptions({
         steps: [{
                 title: `Forum  <i class="fab fa-wpforms"></i>`,
-                intro: 'In this section, you can create a new post for discussion purposes. In addition, you also can answer other traders who have other inquiries as well.',
+                intro: 'In this section, you can create a new post for discussion purposes. Besides, you also can answer other traders who have inquiries as well.',
             },
             {
                 element: document.querySelector('#new-post-intro'),
@@ -487,7 +496,7 @@ function showForumTips() {
             },
             {
                 element: document.querySelector('#select-filter'),
-                intro: 'You can <b>Sort</b> the forum posts according to the title, oldest posts, and latest posts.',
+                intro: `You can <b>Sort</b> the forum posts according:<br/><br/>•<b> Title</b><br/>•<b> Oldest Posts</b><br/>•<b> Latest Posts</b>`,
             },
             {
                 element: document.querySelector('#search-forum-text'),
@@ -509,7 +518,7 @@ function showForumTips() {
 
 function appendBeginnerQuestion() {
     Swal.fire({
-        title: 'Question',
+        title: 'Order Execution',
         text: 'Do you want to learn how to execute forex order in this system ?',
         icon: 'question',
         showCancelButton: true,
@@ -526,77 +535,94 @@ function appendBeginnerQuestion() {
 function executeOrderIntro() {
     introJs().setOptions({
         steps: [{
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('.account-table'),
-                intro: '1. You have to check your account details such as available balance, available margin, and leverage. <br/><br/>This is to prevent the process of executing forex order would not halt due to the account issue.',
+                intro: '1. You have to check your account details such as available balance, available margin, and leverage. <br/><br/>This is to prevent the process of executing forex orders would not halt due to the account issue.',
                 position: 'left'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('.price-container'),
-                intro: '2. You have to select the currency pair that you wish to trade from these five major currency pairs.',
+                intro: '2. You have to select the currency pair that you want to trade from these five major currency pairs.',
                 position: 'left'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('.chart-section-container'),
-                intro: '3. You have to analyze the forex market based on the currency pair you want to trade. For example, you can perform technical analysis to obtain more information regarding the currency pair.',
+                intro: '3. You have to analyze the forex market based on the currency pair you want to trade. For example, you can perform technical analysis to obtain more information for the currency pair.',
                 position: 'right'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 intro: '4. After analyzing the forex market, you have to decide the position that you want to execute. ',
+                scrollTo: 'tooltip'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#sell'),
                 intro: '5. If you want to go short (Sell) for the currency pair, you can click this <b>Sell</b> button. ',
+                scrollTo: 'tooltip'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#buy'),
                 intro: '5. If you want to go long (Buy) for the currency pair, you can click this <b>Buy</b> button.<br/><br/>For example, you want to go long (Buy) for this currency pair. ',
+                scrollTo: 'tooltip'
             }
         ]
-    }).onexit(function() {
+    }).oncomplete(function() {
         document.documentElement.scrollTop = 0;
         document.getElementById('buy').click();
-        setTimeout(function() { buyOrderIntro() }, 500);
+        setTimeout(function() { buyOrderIntro() }, 800);
     }).start();
 }
 
 function buyOrderIntro() {
     introJs().setOptions({
         steps: [{
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.getElementById('buy-sell-modal-content'),
-                intro: '6. After you clicked the <b>Buy</b> button, you will be redirected to this small section.',
+                intro: '6. After you clicked the <b>Buy</b> button, you will be redirected to this order section.',
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#lightbox-title'),
                 intro: '7. You can see the name of the selected currency pair here.',
                 position: 'right'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#order-buy'),
                 intro: '8. In this case, you want to go long (Buy) for the currency pair. Thus, this <b>Buy</b> box will be colored so that you can differentiate it easily.',
                 position: 'right'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#order-spread-data'),
-                intro: '9. You also can view the spread of the currency pair here',
+                intro: '9. You also can view the spread of the currency pair here.',
                 position: 'right'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#order-units'),
                 intro: '10. You are required to enter the units for executing the forex order on the selected currency pair.',
                 position: 'right'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#margin-check-intro'),
-                intro: '11. After that, you can view the margin required for maintaining the order. <br/><br/>The margin will be deducted from your account temporary and returned to you after the order is closed.',
+                intro: '11. After that, you can view the margin required to maintain the order. <br/><br/>The margin will be deducted from your account temporarily and returned to you after the order is closed.',
                 position: 'right'
             },
             {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#order-submit-intro'),
                 intro: '12. Lastly, you have to click this <b>Submit</b> button to complete the trade order.',
                 position: 'right'
             },
             {
-                intro: `So, these are the basic steps to execute trade order in this system. If you want to learn more about this process, you may click <a href="learning/knowledge/trade" target="_blank">here</a>. Hope you enjoy trading in this ES Trading System 😄.`,
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
+                intro: `So, these are the basic steps to execute trade orders in this system. If you want to learn more about this process, you may <a href="learning/knowledge/trade" target="_blank">Click Here</a>. Hope you enjoy trading in this ES Trading System 😄.`,
             }
         ]
     }).onexit(function() {

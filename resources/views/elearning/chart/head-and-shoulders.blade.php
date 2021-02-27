@@ -39,7 +39,7 @@
                 <p>This is measured based on the height of the chart pattern, which is essentially the distance in price between the peak of the head and the neckline. For example, let's say that in a head-and-shoulders top, the peak of the head is formed at $50 and the neckline was established at $40 - a difference of $10.</p>
                 <p>The price objective is calculated by subtracting the price at which the pattern breaks the neckline ($40) by the difference between the head and the neckline ($10). Based on this example, the price objective is $30 ($40-$10).</p>
                 <p>This price objective is not an absolute and is used as a guideline to the attractiveness of a trade. The larger the difference between the objective and the price at the neckline, the more worth the trade has, as it will yield greater returns.</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

@@ -31,7 +31,7 @@
                 <li><b>"Mini" Trading</b></li>
                   One might think that getting started as a currency trader would cost a lot of money. The fact is, it doesn't. Online Forex Firms now offer 'mini' trading accounts with a minimum account deposit of only $200-$500 with no commission trading. This makes Forex much more accessible to the average individual, without large, start-up capital.
               </ol>
-            <p class="citation">*Adapted from <cite>Bortucene, E., & Macy, C. (2003). The Day Trade Forex System : The ULTIMATE Step-By-Step Guide to Online The Day Trade Forex System : The ULTIMATE Step-By-Step Guide to Online Currency Trading. In New York.</cite></p>
+            <p class="citatio blockquote-footer">Adapted from <cite>Bortucene, E., & Macy, C. (2003). The Day Trade Forex System : The ULTIMATE Step-By-Step Guide to Online The Day Trade Forex System : The ULTIMATE Step-By-Step Guide to Online Currency Trading. In New York.</cite></p>
           </div>
         </div>
     </div>

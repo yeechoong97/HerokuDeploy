@@ -50,8 +50,8 @@
                     <li><b>Support and resistance</b> isn’t left behind when a price moves up or down sharply.</li>
                     <li><b>Patterns</b>: Price patterns dictate the likelihood of a gap being filled. For example, price reversals seen with exhaustion gaps are likely to be filled as this type of gap signals the end of a price trend.</li>
                 </ul>
-                <p class="citation">*Adapted from <cite>Lobel, B. (2019). Trading the Gap: What are Gaps & How to Trade Them? https://www.dailyfx.com/forex/education/trading_tips/daily_trading_lesson/2019/10/29/gap-trading-strategies.html</cite></p>
-                <p class="citation">*Adapted from <cite>Forex.com. (2021b). Understanding Market Gaps and Slippage. https://www.forex.com/en/education/education-themes/trading-concepts/understanding-market-gaps-and-slippage/</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Lobel, B. (2019). Trading the Gap: What are Gaps & How to Trade Them? https://www.dailyfx.com/forex/education/trading_tips/daily_trading_lesson/2019/10/29/gap-trading-strategies.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Forex.com. (2021b). Understanding Market Gaps and Slippage. https://www.forex.com/en/education/education-themes/trading-concepts/understanding-market-gaps-and-slippage/</cite></p>
             </div>
         </div>
     </div>

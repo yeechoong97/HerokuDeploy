@@ -38,7 +38,7 @@
                     You can also use a protective stop order to close a trade when the market moves a specified amount against your position. If you bought the EUR/USD at 1.1500 and wanted to limit your risk to 50 pips, you would place your protective sell stop 50 pips below your entry or at the 1.1450 level.<br><br>
                     If you sold the EUR/USD at 1.1400 and wanted to limit your risk to 50 pips, you would place your protective buy stop 50 pips above your entry or at the 1.1450 level.
                 </ol>
-                <p class="citation">*Adapted from <cite>Venketas, W. (2019b). Types of Forex Orders. https://www.dailyfx.com/education/forex-trading-basics/forex-order-types.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Venketas, W. (2019b). Types of Forex Orders. https://www.dailyfx.com/education/forex-trading-basics/forex-order-types.html</cite></p>
             </div>
         </div>
     </div>

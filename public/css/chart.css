@@ -52,7 +52,8 @@
 .price-container .price .rates .header {
     height: 30%;
     font-size: 0.9vw;
-    background: whitesmoke;
+    /* background: whitesmoke; */
+    background: white;
     border-bottom: 0.1rem solid #cecece;
     border-top-left-radius: 0.6rem;
     border-top-right-radius: 0.6rem;
@@ -90,7 +91,8 @@
 
 .price-container .price .rates .pips {
     height: 20%;
-    background: whitesmoke;
+    /* background: whitesmoke; */
+    background: white;
     font-size: 0.8vw;
     color: black;
     text-align: center;
@@ -104,16 +106,6 @@
     width: 120px;
     height: 38px;
 }
-
-
-/* .time {
-    width: 120px;
-    height: 38px;
-    text-align: center;
-    color: black;
-    font-size: 18px;
-    float: right;
-} */
 
 .price-container .price .rates .header:hover {
     cursor: pointer;
@@ -192,7 +184,6 @@
 
 .sell_order_button:hover {
     background: #fdaeae;
-    /* border: 1px solid #ffb9b9; */
 }
 
 .buy_order_button:hover {
@@ -438,6 +429,7 @@
 
 .chart-container-btn .reset-btn {
     margin-left: 0.5px;
+    max-width: 6.33333%;
 }
 
 .chart-error-label {
@@ -511,4 +503,18 @@
     float: right;
     text-align: left;
     padding-left: 1rem;
+}
+
+.preloader {
+    align-items: center;
+    background: rgba(241, 247, 252, 1);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.3s linear;
+    width: 100%;
+    z-index: 9999;
 }

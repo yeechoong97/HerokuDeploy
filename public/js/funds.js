@@ -11,11 +11,12 @@ function submitForm() {
 }
 
 //Check the input
-function validateWithdrawalInput(balance) {
+function validateWithdrawalInput(balance, margin) {
     var amountInput = parseFloat(document.getElementById('amount_input').value);
     var accountBalance = parseFloat(balance);
+    var accountMargin = parseFloat(margin);
 
-    if (amountInput < accountBalance && amountInput != 0 && (accountBalance - amountInput) >= 100.00) {
+    if (amountInput < accountBalance && amountInput < accountMargin && amountInput != 0 && (accountBalance - amountInput) >= 100.00 && (accountMargin - amountInput) >= 100.00) {
         document.getElementById('cross').style.display = 'none';
         document.getElementById('tick').style.display = 'inline';
     } else if (amountInput >= accountBalance || (accountBalance - amountInput) < 100.00) {
@@ -69,7 +70,7 @@ function toggleFundsIntro() {
     introJs().setOptions({
         steps: [{
                 title: 'Funds Management 💰',
-                intro: 'In this section, you can manage your virtual funds and check your account details.<br/> <br/>The primary purpose of this section is to provide traders with the opportunity for managing their virtual funds without any monetary cost.',
+                intro: 'In this section, you can manage your virtual funds and check your account details.<br/> <br/>Hence, traders have the opportunity to manage their virtual funds without any monetary cost.',
             },
             {
                 element: document.querySelector('#name-intro'),
@@ -97,7 +98,7 @@ function toggleFundsIntro() {
             },
             {
                 element: document.querySelector('#leverage-edit-intro'),
-                intro: 'You can change the leverage of your account by clicking this <b>Edit</b> button.<br/> <br/> However, the leverage only can be changed after all the ongoing orders are completely closed.',
+                intro: 'You can change the leverage of your account by clicking this <b>Edit</b> button.<br/> <br/> However, the leverage only can be changed after all the ongoing orders are closed.',
             },
             {
                 element: document.querySelector('#deposit-intro'),

@@ -32,7 +32,7 @@
                 <h5>Limitations of the Average True Range (ATR)</h5>
                 <p>There are two main limitations to using the ATR indicator. The first is that ATR is a subjective measure, meaning that it is open to interpretation. There is no single ATR value that will tell you with any certainty that a trend is about to reverse or not. Instead, ATR readings should always be compared against earlier readings to get a feel of a trend's strength or weakness.</p>
                 <p>Second, ATR only measures volatility and not the direction of an asset's price. This can sometimes result in mixed signals, particularly when markets are experiencing pivots or when trends are at turning points. For instance, a sudden increase in the ATR following a large move counter to the prevailing trend may lead some traders to think the ATR is confirming the old trend; however, this may not actually be the case.</p>
-                <p class="citation">*Adapted from <cite>Hayes, A. (2021). Average True Range (ATR). https://www.investopedia.com/terms/a/atr.asp</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Hayes, A. (2021). Average True Range (ATR). https://www.investopedia.com/terms/a/atr.asp</cite></p>
             </div>
         </div>
     </div>

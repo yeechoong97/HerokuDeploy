@@ -20,7 +20,7 @@
                 <p>The way in which the price moves from peak to low and from low to second peak may cause some confusion as the long-term nature of the pattern can display several different price movements. The price movement does not necessarily move in a straight line but will often have many ups and downs. However, the general direction of the price movement (either up or down) is important, depending on the stage of the pattern.</p>
                 <p>Volume is one of the most important confirming measures for this pattern where volume should be high at the initial peak (or start of the pattern) and weaken as the price movement heads toward the low. As the price moves away from the low to the price level set by the initial peak, volume should be rising.</p>
                 <p>Breakouts in chart patterns should be accompanied by a large increase in volume, which helps to strengthen the signal formed by the breakout. Once the price moves above the peak that was established at the start of the chart pattern, the downward trend is considered to have reversed and a buy signal is formed.</p>
-                <p class="citation">*Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Bottom, D., Langager, B. C., & Murphy, C. (2007). Analyzing Chart Patterns. 1–31.</cite></p>
             </div>
         </div>
     </div>

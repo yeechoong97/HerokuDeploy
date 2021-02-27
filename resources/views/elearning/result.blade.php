@@ -10,11 +10,11 @@
         @include('elearning.side-nav')
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1000px;">
             <div class="sidenav-content-details">
-                <h3>Search Results for <label class="keyword" id="searched-keyword">{{$keyword}}</label></h3>
+                <h3>Search results for <label class="keyword" id="searched-keyword">{{$keyword}}</label></h3>
                 @if(count($result)>0)
                     @foreach($result as $result)
                         <div class="searched-result-div">
-                            <h4>{{$result['parent']}} / <a href="{{route( $result['key'])}}"> {{$result['value']}}</a></h4>
+                            <h4><b>{{$result['parent']}}</b> / <a href="{{route( $result['key'])}}"> {{$result['value']}}</a></h4>
                             <p>{{$result['description']}}</p>
                         </div>
                     @endforeach

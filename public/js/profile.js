@@ -35,8 +35,10 @@ function dismissErrorMessagePassword() {
     currentPassword.value = "";
     newPassword.value = "";
     confirmPassword.value = "";
-    messageCurrentPassword.innerHTML = "";
-    messageNewPassword.innerHTML = "";
+    if (messageCurrentPassword != null)
+        messageCurrentPassword.innerHTML = "";
+    if (messageNewPassword != null)
+        messageNewPassword.innerHTML = "";
 }
 
 function assignProfileValue(name, email, phone) {

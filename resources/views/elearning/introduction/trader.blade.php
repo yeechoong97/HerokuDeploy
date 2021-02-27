@@ -70,7 +70,7 @@
                     </tbody>
                 </table>
                 <br>
-                <p class="citation">*Adapted from <cite>Lobel, B. (2019b). What Type of Forex Trader Are You? https://www.dailyfx.com/education/find-your-trading-style/types-of-forex-traders.html</cite></p>
+                <p class="citation blockquote-footer">Adapted from <cite>Lobel, B. (2019b). What Type of Forex Trader Are You? https://www.dailyfx.com/education/find-your-trading-style/types-of-forex-traders.html</cite></p>
             </div>
         </div>
     </div>
