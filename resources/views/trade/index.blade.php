@@ -223,7 +223,6 @@ use App\Common;
 <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>   
 <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
 <script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
-<script type="text/javascript" src="{{ URL::asset('js/socket.js') }}"></script>   
 <script type="text/javascript">
 
 const preloader = document.querySelector('.preloader');
@@ -239,7 +238,16 @@ const fadeEffect = setInterval(() => {
         }
         }, 100);
 
-document.addEventListener('DOMContentLoaded', (event) => {fadeEffect});
+document.addEventListener('DOMContentLoaded', (event) => {
+    fadeEffect;
+    jsLoad();
+});
+
+function jsLoad(){
+    let script = document.createElement('script');
+    script.src ="{{ URL::asset('js/socket.js') }}";
+    document.body.appendChild(script);
+}
 
 //Append Temporary Data into Table
     let arrayInstrument = [];
