@@ -79,7 +79,7 @@ function filterDate() {
 
         $.ajax({
             type: 'GET',
-            url: '/order/fetch',
+            url: 'order/fetch',
             data: {
                 _token: token,
                 data: orderObject,

@@ -339,7 +339,7 @@ function saveOrder(orderPackage) {
     let orderObject = { instrument: orderPackage.instrument, unit: orderPackage.unit, type: orderPackage.type, entry: orderPackage.entry, exit: orderPackage.exit, margin: orderPackage.margin, leverage: userLeverage, USDJPYSell: USDJPYSell, USDJPYBuy: USDJPYBuy, EURJPYSell: EURJPYSell, EURJPYBuy: EURJPYBuy }
     $.ajax({
         type: 'POST',
-        url: '/index/store',
+        url: 'index/store',
         data: {
             _token: token,
             orderObject: orderObject
@@ -434,7 +434,7 @@ function confirmClose() {
 function closePosition(orderObject) {
     $.ajax({
         type: 'PUT',
-        url: '/index/close',
+        url: 'index/close',
         data: {
             _token: token,
             orderObject: orderObject,
@@ -494,7 +494,7 @@ function changeTutorialStatus() {
     var token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
         type: 'POST',
-        url: '/index/tutorial',
+        url: 'index/tutorial',
         data: {
             _token: token,
             status: tutorialStatus

@@ -18,7 +18,6 @@ class AccountSeeder extends Seeder
                 'margin' =>  50000.00,
                 'margin_used' =>  0.00,
                 'leverage' => '30 : 1',
-                'tutorial' => 0
             ],
             [
                 'user_id' => 'EST2',
@@ -26,7 +25,6 @@ class AccountSeeder extends Seeder
                 'margin' =>  50000.00,
                 'margin_used' =>  0.00,
                 'leverage' => '30 : 1',
-                'tutorial' => 0
             ],
             [
                 'user_id' => 'EST3',
@@ -34,7 +32,6 @@ class AccountSeeder extends Seeder
                 'margin' =>  50000.00,
                 'margin_used' =>  0.00,
                 'leverage' => '30 : 1',
-                'tutorial' => 0
             ],
             [
                 'user_id' => 'EST4',
@@ -42,7 +39,6 @@ class AccountSeeder extends Seeder
                 'margin' =>  50000.00,
                 'margin_used' =>  0.00,
                 'leverage' => '30 : 1',
-                'tutorial' => 0
             ],
             [
                 'user_id' => 'EST5',
@@ -50,7 +46,6 @@ class AccountSeeder extends Seeder
                 'margin' =>  50000.00,
                 'margin_used' =>  0.00,
                 'leverage' => '30 : 1',
-                'tutorial' => 0
             ],
             [
                 'user_id' => 'EST6',
@@ -58,7 +53,6 @@ class AccountSeeder extends Seeder
                 'margin' =>  50000.00,
                 'margin_used' =>  0.00,
                 'leverage' => '30 : 1',
-                'tutorial' => 0
             ],
             [
                 'user_id' => 'EST7',
@@ -66,7 +60,6 @@ class AccountSeeder extends Seeder
                 'margin' =>  50000.00,
                 'margin_used' =>  0.00,
                 'leverage' => '30 : 1',
-                'tutorial' => 0
             ]
         ]);
     }

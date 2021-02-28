@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
                 'avatar'=> 'https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-1.png',
                 'phone' => '0123456789',
                 'email' =>  'Benjamin@gmail.com',
+                'tutorial' => 0,
                 'password' => Hash::make('password'),
             ],
             [
@@ -29,6 +30,7 @@ class UserSeeder extends Seeder
                 'avatar'=> 'https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-5.png',
                 'phone' => '0123456789',
                 'email' =>  'Jasmine@gmail.com',
+                'tutorial' => 0,
                 'password' => Hash::make('password'),
             ],
             [
@@ -38,6 +40,7 @@ class UserSeeder extends Seeder
                 'avatar'=> 'https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-2.png',
                 'phone' => '0123456789',
                 'email' =>  'Jennie@gmail.com',
+                'tutorial' => 0,
                 'password' => Hash::make('password'),
             ],
             [
@@ -47,6 +50,7 @@ class UserSeeder extends Seeder
                 'avatar'=> 'https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-14.png',
                 'phone' => '0123456789',
                 'email' =>  'Leslie@gmail.com',
+                'tutorial' => 0,
                 'password' => Hash::make('password'),
             ],
             [
@@ -56,6 +60,7 @@ class UserSeeder extends Seeder
                 'avatar'=> 'https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-11.png',
                 'phone' => '0123456789',
                 'email' =>  'Carolyn@gmail.com',
+                'tutorial' => 0,
                 'password' => Hash::make('password'),
             ],
             [
@@ -65,6 +70,7 @@ class UserSeeder extends Seeder
                 'avatar'=> 'https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-7.png',
                 'phone' => '0123456789',
                 'email' =>  'Charlie@gmail.com',
+                'tutorial' => 0,
                 'password' => Hash::make('password'),
             ],
             [
@@ -74,6 +80,7 @@ class UserSeeder extends Seeder
                 'avatar'=> 'https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-16.png',
                 'phone' => '0123456789',
                 'email' =>  'Christine@gmail.com',
+                'tutorial' => 0,
                 'password' => Hash::make('password'),
             ]
         ]);
