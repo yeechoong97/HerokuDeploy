@@ -6,7 +6,9 @@ use App\Common;
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-
+<div class="preloader">
+  <img src="https://raw.githubusercontent.com/maximakymenko/page-preloader-tutorial/1a6d6ceb32d501dd02fb2ebcd840c1d2e6f9c202/spinner.svg" alt="spinner">
+</div>
 <body style="overflow-x:hidden">
 <div class="upper-container">
     <div class="row upper-row-container" >
@@ -214,9 +216,6 @@ use App\Common;
 </div>
 
 <div id="indicator-lightbox"></div>
-<div class="preloader">
-  <img src="https://raw.githubusercontent.com/maximakymenko/page-preloader-tutorial/1a6d6ceb32d501dd02fb2ebcd840c1d2e6f9c202/spinner.svg" alt="spinner">
-</div>
 @include('subpage.close-lightbox')
 @include('subpage.order-lightbox')
 
