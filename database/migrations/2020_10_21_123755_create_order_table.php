@@ -14,7 +14,8 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->string('ticketID')->primary();
+            $table->bigIncrements('id');
+            $table->string('ticketID');
             $table->string('user_id');
             $table->string('type',5);
             $table->string('pair');

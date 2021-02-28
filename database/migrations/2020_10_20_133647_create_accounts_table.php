@@ -14,7 +14,8 @@ class CreateAccountsTable extends Migration
     public function up()
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->string('user_id')->primary();
+            $table->bigIncrements('id');
+            $table->string('user_id');
             $table->decimal('balance',8,2);
             $table->decimal('margin',8,2);
             $table->decimal('margin_used',8,2);
