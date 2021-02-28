@@ -57,7 +57,7 @@ class ForumController extends Controller
         $forum->save();
         foreach(Common::$forumTags as $key => $value)
             $tagKey= ($key == $request->tag) ? $value : $tagKey;
-        return redirect()->route('forum-index',$tagKey); 
+        return redirect()->route('forum-show',['tag'=>$tagKey,'id'=>$forum->forum_id]);  
     }
 
     public function show(Request $request)
