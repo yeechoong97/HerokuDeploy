@@ -240,14 +240,7 @@ const fadeEffect = setInterval(() => {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     fadeEffect;
-    jsLoad();
 });
-
-function jsLoad(){
-    let script = document.createElement('script');
-    script.src ="{{ URL::asset('js/socket.js') }}";
-    document.body.appendChild(script);
-}
 
 //Append Temporary Data into Table
     let arrayInstrument = [];
@@ -410,7 +403,14 @@ window.onload = function(){
         showTutorial(userName);
         document.querySelector('.introjs-skipbutton').style.display="none";
     }
+    jsLoad();
 } 
+
+function jsLoad(){
+    let script = document.createElement('script');
+    script.src ="{{ URL::asset('js/socket.js') }}";
+    document.body.appendChild(script);
+}
 
 function appendLightbox(tool)
 {
