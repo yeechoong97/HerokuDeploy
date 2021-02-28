@@ -6,9 +6,6 @@ const arrayPercentage = {
 };
 
 
-function toggleChat() {
-    window.open('/chat', "Live Chat", "height=550,width=800");
-}
 
 //Update the font colour in the live streaming box
 function highlight(divHeader, buyingPrice, sellingPrice, fontColor) {

@@ -1,3 +1,7 @@
+function toggleChat() {
+    window.open('/chat', "Live Chat", "height=550,width=800");
+}
+
 function showTutorial(userName) {
     introJs().setOptions({
         showProgress: true,
