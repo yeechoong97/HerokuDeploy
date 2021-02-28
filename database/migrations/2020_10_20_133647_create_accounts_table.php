@@ -22,7 +22,6 @@ class CreateAccountsTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER Table accounts add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT FIRST;');
     }
 
     /**

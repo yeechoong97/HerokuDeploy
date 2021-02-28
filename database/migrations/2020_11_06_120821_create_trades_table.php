@@ -22,7 +22,6 @@ class CreateTradesTable extends Migration
             $table->decimal('profit');
             $table->timestamps();
 
-            $table->foreign('ticketID')->references('ticketID')->on('orders');
         });
     }
 
