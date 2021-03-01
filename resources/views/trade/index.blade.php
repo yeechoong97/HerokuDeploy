@@ -222,7 +222,8 @@ use App\Common;
 </body>
 <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>   
 <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
-<script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
+<!-- <script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script> -->
+<script src="https://do-rates-eha7b.ondigitalocean.app/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 
 const preloader = document.querySelector('.preloader');
@@ -258,7 +259,15 @@ appendTempData(arrayInstrument);
 //Plot Chart
 const token = $('meta[name="csrf-token"]').attr('content');
 var mapping,secondPlot,chartStreaming;;
-let chartData = `{!!$data!!}`;
+let chartData = [];
+var tempChartData = "{{$data}}";
+var tempChartArray = tempChartData.split(",");
+for(var i = 0;i<tempChartArray.length;i++)
+{
+    resultArray = [tempChartArray[i],parseFloat(tempChartArray[i+1]),parseFloat(tempChartArray[i+2]),parseFloat(tempChartArray[i+3]),parseFloat(tempChartArray[i+4]),parseInt(tempChartArray[i+5])];
+    chartData.push(resultArray);
+    i += 5;
+}
 var chart = anychart.stock();
 var plot = chart.plot(0);
 var dataTable = anychart.data.table();
@@ -328,7 +337,7 @@ anychart.onDocumentReady(function ()
     document.getElementById("typeSelect").value = "default";
     });
 
-    //chartStreaming = setInterval(streamChart, 1000);
+    chartStreaming = setInterval(streamChart, 1000);
 });
 
 //Updating chart
