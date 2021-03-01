@@ -7,6 +7,7 @@
     const chatForm = document.getElementById('chat-form');
     const chatContainer = document.getElementById('chat-message');
     const participantList = document.getElementById('participant-list');
+    const numberParticipant = document.getElementById('user_number');
     const token = $('meta[name="csrf-token"]').attr('content');
     const userAvatar = document.getElementById('avatar-name').value;
     const chatWindow = this.window;
@@ -144,6 +145,7 @@
                 </div>
             </div>`
             ).join('')}`;
+            numberParticipant.innerHTML = `Room Users: ${users.length}`;
     })
 
     function alertUser(userRoom) {
