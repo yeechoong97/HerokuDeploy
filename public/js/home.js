@@ -330,10 +330,10 @@ function confirmOrder() {
 function saveOrder(orderPackage) {
     var USDJPYSell = document.getElementById("USD_JPY_Sell").innerHTML;
     var USDJPYBuy = document.getElementById("USD_JPY_Buy").innerHTML;
-    var EURJPYSell = document.getElementById("EUR_USD_Sell").innerHTML;
-    var EURJPYBuy = document.getElementById("EUR_USD_Buy").innerHTML;
+    var EURUSDSell = document.getElementById("EUR_USD_Sell").innerHTML;
+    var EURUSDBuy = document.getElementById("EUR_USD_Buy").innerHTML;
     var userLeverage = getLeverage(document.getElementById("account-leverage").innerHTML);
-    let orderObject = { instrument: orderPackage.instrument, unit: orderPackage.unit, type: orderPackage.type, entry: orderPackage.entry, exit: orderPackage.exit, margin: orderPackage.margin, leverage: userLeverage, USDJPYSell: USDJPYSell, USDJPYBuy: USDJPYBuy, EURJPYSell: EURJPYSell, EURJPYBuy: EURJPYBuy }
+    let orderObject = { instrument: orderPackage.instrument, unit: orderPackage.unit, type: orderPackage.type, entry: orderPackage.entry, exit: orderPackage.exit, margin: orderPackage.margin, leverage: userLeverage, USDJPYSell: USDJPYSell, USDJPYBuy: USDJPYBuy, EURUSDSell: EURUSDSell, EURUSDBuy: EURUSDBuy }
     $.ajax({
         type: 'POST',
         url: 'index/store',
@@ -537,4 +537,14 @@ function toggleCalculatorLightbox() {
 
 function clearInput(inputElement) {
     document.getElementById(inputElement).value = "";
+    document.getElementById('margin-value').innerHTML = "0.00";
+    document.getElementById('order-error-msg').innerHTML = "";
+    document.getElementById('tick').style.display = "none";
+    document.getElementById('cross').style.display = "none";
+}
+
+function clearCloseInput() {
+    document.getElementById('cross-close').style.display = "none";
+    document.getElementById('tick-close').style.display = "none";
+    document.getElementById('close-error-msg').innerHTML = "";
 }

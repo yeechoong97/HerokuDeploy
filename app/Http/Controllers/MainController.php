@@ -256,7 +256,7 @@ class MainController extends Controller
                             $midPoint = (floatval($EURUSDSell) + floatval($EURUSDBuy))/2;
                             break;
                     }
-                    $marginComputed = round(($reducedUnit/$userLeverage*$midpoint),4);
+                    $marginComputed = round(($reducedUnit/$userLeverage*$midPoint),4);
                 }
                 $order = new Order();
                 $order->user_id = $userID;

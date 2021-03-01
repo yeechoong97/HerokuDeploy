@@ -192,7 +192,7 @@ use App\Common;
                 </div>
                 <div class="price mx-auto">
                     <div class="rates" id="USD_JPY_div">
-                        <div class="header" id="USD_JPY_header" onclick="changeInstrument('USD_JPY')">USD/JPY<span class="fas fa-check-circle" id="USD_JPY_span" style="display:none"></div>
+                        <div class="header" id="USD_JPY_header" onclick="changeInstrument('USD_JPY')">USD/JPY <span class="fas fa-check-circle" id="USD_JPY_span" style="display:none"></div>
                             <div class="rates-container">
                                 <div class="sell-rates" id="USD_JPY_Sell"></div>
                                 <div class="buy-rates" id="USD_JPY_Buy"></div>
