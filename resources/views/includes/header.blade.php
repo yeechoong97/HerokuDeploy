@@ -16,7 +16,7 @@
                         <a class="nav-link" href="{{route('learning-intro')}}">Learning Materials</a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="{{route('order-summary')}}">Orders</a>
+                        <a class=" nav-link" href="{{route('order-summary')}}">Order Summary</a>
                     </li>
                     <li class="nav-item">
                         <a class=" nav-link" href="{{route('fund-index')}}">Funds Management</a>
