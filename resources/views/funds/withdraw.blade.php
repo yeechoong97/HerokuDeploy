@@ -21,7 +21,7 @@
                         <h5>Info</h5>
                         <ul class="notice-list">
                             <li>Minimum Account Balance is 100.00</li>
-                            <li>Minimum Margin Balance is 100.00</li>
+                            <li>Minimum Available Margin is 100.00</li>
                             <li>Maximum Withdrawal Amount is 50,000.00</li>
                             <li><strong>NO</strong> real monetary cost required</li>
                         </ul>

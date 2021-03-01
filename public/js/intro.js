@@ -564,13 +564,18 @@ function executeOrderIntro() {
             {
                 title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#sell'),
-                intro: '5. If you want to go short (Sell) for the currency pair, you can click this <b>Sell</b> button. ',
+                intro: '5. If you want to go short (Sell) for the currency pair, you can click this <b>Sell</b> button.<br/><br/>For example,<br/>Sell EUR/USD is equal:<br/><b>Selling EUR to buy USD</b> ',
                 scrollTo: 'tooltip'
             },
             {
                 title: 'Order Execution <i class="fas fa-book-open"></i>',
                 element: document.querySelector('#buy'),
-                intro: '5. If you want to go long (Buy) for the currency pair, you can click this <b>Buy</b> button.<br/><br/>For example, you want to go long (Buy) for this currency pair. ',
+                intro: '5. If you want to go long (Buy) for the currency pair, you can click this <b>Buy</b> button.<br/><br/>For example,<br/>Buy EUR/USD is equal:<br/><b>Buying EUR to sell USD</b>',
+                scrollTo: 'tooltip'
+            },
+            {
+                title: 'Order Execution <i class="fas fa-book-open"></i>',
+                intro: `Let's say you want go long (Buy) for this currency pair for this tutorial example.`,
                 scrollTo: 'tooltip'
             }
         ]
