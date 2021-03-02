@@ -10,7 +10,7 @@ jobs:
         run: copy('.env.example', '.env');"
 
       - name: Install Dependencies
-        run: composer update --prefer-dist
+        run: composer update --ignore-platform-reqs --prefer-dist
 
       - name: Generate key
         run: php artisan key:generate
