@@ -28,7 +28,7 @@ function retrieveRate(elementSelected) {
     var token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
         type: 'POST',
-        url: 'index/rate',
+        url: '/index/rate',
         data: {
             _token: token,
         },

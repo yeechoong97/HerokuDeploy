@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group1 mx-auto" id="margin-intro">
                     <label for="name">Phone</label>
-                    <input class="form-control" type="text" value="{{$user->email}}"  disabled/>
+                    <input class="form-control" type="text" value="{{$user->phone}}"  disabled/>
                 </div>
                 <div class="btn-div">
                     <div class="form-group d-inline" id="general-btn-div">
