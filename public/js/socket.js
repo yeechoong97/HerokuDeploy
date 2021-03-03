@@ -1,4 +1,4 @@
-const socket = io('mighty-headland-26950.herokuapp.com', {
+const socket = io('do-rates-eha7b.ondigitalocean.app', {
     transports: ['websocket'],
     upgrade: false
 });
