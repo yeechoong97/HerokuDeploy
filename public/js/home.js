@@ -140,8 +140,8 @@ function openOrderBox(ticketID, percentageSelected) {
     for (let key in arrayPercentage) {
         if (percentageSelected == arrayPercentage[key].value) {
             document.getElementById(arrayPercentage[key].name).style.backgroundColor = "#9ecdfc";
-            document.getElementById('position-total-units').value = orderUnits * (percentageSelected / 100);
-            document.getElementById('units_remaining').innerHTML = orderUnits - (orderUnits * (percentageSelected / 100));
+            document.getElementById('position-total-units').value = Math.round(orderUnits * (percentageSelected / 100));
+            document.getElementById('units_remaining').innerHTML = (orderUnits - Math.round(orderUnits * (percentageSelected / 100)));
             document.getElementById('units-profit').innerHTML = (orderProfit * (percentageSelected / 100)).toFixed(2);
         } else {
             document.getElementById(arrayPercentage[key].name).style.backgroundColor = "white";

@@ -25,8 +25,6 @@ class CreateOrderTable extends Migration
             $table->double('entry_price');
             $table->integer('status')->default(0);
             $table->timestamps();
-
-
         });
 
         
