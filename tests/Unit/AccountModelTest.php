@@ -42,7 +42,6 @@ class AccountModelTest extends TestCase
     */
     public function testAccountBelongsToUser()
     {
-        parent::setUp();
         $account = factory(Account::class)->create();
         $user = factory(User::class)->create(['user_id'=> $account->user_id]);
         $this->assertInstanceOf(User::class,$account->user);
@@ -53,7 +52,6 @@ class AccountModelTest extends TestCase
     */
     public function testAccountHasManyOrder()
     {
-        parent::setUp();
         $account = factory(Account::class)->create();
         $order = factory(Order::class)->create(['user_id'=> $account->user_id]);
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection',$account->order);
