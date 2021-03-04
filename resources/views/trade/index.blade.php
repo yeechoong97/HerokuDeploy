@@ -223,7 +223,7 @@ use App\Common;
 <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>   
 <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
 <!-- <script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script> -->
-<script src="https://do-rates-eha7b.ondigitalocean.app/socket.io/socket.io.js"></script>
+<script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 
 const preloader = document.querySelector('.preloader');
