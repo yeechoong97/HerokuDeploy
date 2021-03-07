@@ -12,7 +12,7 @@ class ForumSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('forum')->insert([
+        DB::table('forums')->insert([
             [
                 'forum_id' => 'FOM1',
                 'user_id' => 'EST1',

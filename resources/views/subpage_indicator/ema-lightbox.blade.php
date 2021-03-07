@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title">Exponential moving average (EMA)</div>
+                <div class="modal-title">Exponential Moving Average (EMA)</div>
                 <span aria-hidden="true" class="close" aria-label="Close" data-dismiss="modal">&times;</span>
             </div>
             <div class="modal-body-indicator">

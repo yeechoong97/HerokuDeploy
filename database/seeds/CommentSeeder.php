@@ -12,7 +12,7 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comment')->insert([
+        DB::table('comments')->insert([
             [
                 'forum_id' => 'FOM1',
                 'comment_id' => 'COM1',
