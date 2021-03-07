@@ -136,7 +136,7 @@ class ForumControllerTest extends TestCase
         $forum = factory(Forum::class)->create(['user_id'=>$this->user->user_id]);
         $response = $this->get('forum/'.$tag.'/'.$forum->forum_id.'/destroy');
         $response->assertStatus(302);
-        $this->assertDatabaseMissing('forum', ['forum_id' => $forum->forum_id]);
+        $this->assertDatabaseMissing('forums', ['forum_id' => $forum->forum_id]);
     }
         /**
      * @runInSeparateProcess
@@ -222,7 +222,7 @@ class ForumControllerTest extends TestCase
             'forum_id' => $comment->forum_id
         ]);
         $response->assertStatus(302);
-        $this->assertDatabaseMissing('comment', ['comment_id' => $comment->comment_id]);
+        $this->assertDatabaseMissing('comments', ['comment_id' => $comment->comment_id]);
     }
         /**
      * @runInSeparateProcess

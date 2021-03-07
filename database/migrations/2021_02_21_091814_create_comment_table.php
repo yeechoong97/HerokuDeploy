@@ -13,7 +13,7 @@ class CreateCommentTable extends Migration
      */
     public function up()
     {
-        Schema::create('comment', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('forum_id');
             $table->string('comment_id');

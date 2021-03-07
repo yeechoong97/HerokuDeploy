@@ -35,7 +35,7 @@ class AccountModelTest extends TestCase
                 'margin',
                 'margin_used',
                 'leverage',
-          ]), 1);
+        ]), 1);
     }
     /**
      * @runInSeparateProcess

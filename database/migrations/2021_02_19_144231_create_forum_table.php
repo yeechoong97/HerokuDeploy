@@ -13,7 +13,7 @@ class CreateForumTable extends Migration
      */
     public function up()
     {
-        Schema::create('forum', function (Blueprint $table) {
+        Schema::create('forums', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('forum_id');
             $table->string('user_id');

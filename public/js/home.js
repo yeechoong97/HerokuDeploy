@@ -491,7 +491,7 @@ function changeTutorialStatus() {
     var token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
         type: 'POST',
-        url: 'index/tutorial',
+        url: '/index/tutorial',
         data: {
             _token: token,
             status: tutorialStatus
