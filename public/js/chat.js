@@ -24,23 +24,6 @@
         socketIO.emit('joinRoom', { 'userName': joinName, 'userRoom': joinRoom, 'userAvatar': userAvatar });
     };
 
-    //Validate when leave room
-    function validateLeaveRoom() {
-        Swal.fire({
-            title: 'Leave Room',
-            text: 'Are you sure you want to leave this chatroom?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Confirm',
-            cancelButtonColor: '#d33',
-            cancelButtonText: 'Cancel',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed)
-                leaveRoom();
-        });
-    }
-
     //Leave Room
     function leaveRoom() {
         socketIO.emit('leaveRoom');
@@ -183,6 +166,23 @@
     // window.addEventListener('beforeunload', function(e) {
     //     e.returnValue = '';
     // });
+
+    //Validate when leave room
+    function checkLeaveRoom() {
+        Swal.fire({
+            title: 'Leave Room',
+            text: 'Are you sure you want to leave this chatroom?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Confirm',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed)
+                leaveRoom();
+        });
+        }
 
 
     function exitChat() {
