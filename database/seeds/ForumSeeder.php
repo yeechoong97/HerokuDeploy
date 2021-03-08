@@ -33,7 +33,7 @@ class ForumSeeder extends Seeder
                 'forum_id' => 'FOM3',
                 'user_id' => 'EST3',
                 'tag' =>  '1',
-                'title' => 'How difficult forex trading is for you?',
+                'title' => 'What you thinks about Forex Trading?',
                 'contents' =>  '<p>There is not a single forex trader who did not make mistakes during their trading career especially in the beginning of trading. Most of the beginners will fail to learn from their mistakes except a small percentage of traders who will make the mistakes and learn from them. This is what will separate successful traders from failures.</p>',
                 'created_at' => Carbon::now()->subDay(8)->format('Y-m-d H:i:s')
             ],

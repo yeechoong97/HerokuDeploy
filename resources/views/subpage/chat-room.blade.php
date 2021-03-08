@@ -8,7 +8,7 @@
 <div class="col-3 px-0">
     <div class="bg-white">
     <div class="bg-gray px-4 pt-2 bg-light leave-border">
-        <a href="#" id="join-btn"class="form-control btn-danger col-md-10 mx-auto text-center" onclick="leaveRoom()">Leave</a>
+        <a href="#" id="join-btn"class="form-control btn-danger col-md-10 mx-auto text-center" onclick="validateLeaveRoom()">Leave</a>
         <span class="text-center small px-3 pt-2 text-muted" id="user_number"></span>
     </div>
 

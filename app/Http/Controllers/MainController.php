@@ -281,7 +281,7 @@ class MainController extends Controller
                 $account->margin = $account->margin - $marginComputed;
                 $account->margin_used = $usedMargin/($account->margin + $usedMargin)*100;
                 $account->save();
-                $responseMessage="New Order has been created successfully.";
+                $responseMessage="New order has been created successfully.";
                 $flagCheck=true;
             }
         }
