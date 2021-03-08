@@ -24,6 +24,7 @@
         socketIO.emit('joinRoom', { 'userName': joinName, 'userRoom': joinRoom, 'userAvatar': userAvatar });
     };
 
+    //Validate when leave room
     function validateLeaveRoom() {
         Swal.fire({
             title: 'Leave Room',
