@@ -163,6 +163,10 @@
         }
     }
 
+    window.addEventListener('beforeunload', function(e) {
+        e.returnValue = '';
+    });
+
     //Validate when leave room
     function checkLeaveRoom() {
         Swal.fire({
