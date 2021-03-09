@@ -8,7 +8,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <body style="overflow:hidden">
 <div class="funds-container mx-auto">
-    <div class="main-funds-header">Order Summary &ensp;<i class="far fa-question-circle" onclick="toggleSummaryIntro()"></i></div>
+    <div class="main-funds-header">Trading Summary &ensp;<i class="far fa-question-circle" onclick="toggleSummaryIntro()"></i></div>
         <div class="funds-subcontainer">               
             <div class="my-3 px-5 float-left" style="width:50%">
                 <div class="form-group" id="select_month_intro">

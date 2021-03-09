@@ -16,10 +16,10 @@
                         <a class="nav-link" href="{{route('learning-intro')}}">Learning Materials</a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="{{route('order-summary')}}">Order Summary</a>
+                        <a class=" nav-link" href="{{route('order-summary')}}">Trading Summary</a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="{{route('fund-index')}}">Funds Management</a>
+                        <a class=" nav-link" href="{{route('fund-index')}}">Fund Management</a>
                     </li>
                     <li class="nav-item">
                         <a class=" nav-link" href="{{route('profile-index')}}">Profile</a>
