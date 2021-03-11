@@ -1,4 +1,4 @@
-    var socketIO = io('chatnodejs-8msfb.ondigitalocean.app', {
+    var socketIO = io('evening-lowlands-70291.herokuapp.com', {
         transports: ['websocket'],
         upgrade: false
     });
