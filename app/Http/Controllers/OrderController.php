@@ -83,7 +83,7 @@ class OrderController extends Controller
                             else
                                 $USD_JPY[1] += abs($trade->profit);
                             break;
-                        case "EUR/USD":
+                        case "EUR/JPY":
                             if($trade->profit>=0)
                                 $EUR_JPY[0] += $trade->profit;
                             else
@@ -96,6 +96,7 @@ class OrderController extends Controller
             $totalProfit = $EUR_USD[0] + $AUD_USD[0] + $GBP_USD[0] + $USD_JPY[0] + $EUR_JPY[0];
             $totalLoss = $EUR_USD[1] + $AUD_USD[1] + $GBP_USD[1] + $USD_JPY[1] + $EUR_JPY[1];
             array_push($arrayResult,$numberOfOrders,$totalProfit,$totalLoss,$EUR_USD,$AUD_USD,$GBP_USD,$USD_JPY,$EUR_JPY);
+
             return view('order.summary',[
                 'user'=>$user,
                 'monthlySummary' => $arrayResult,
