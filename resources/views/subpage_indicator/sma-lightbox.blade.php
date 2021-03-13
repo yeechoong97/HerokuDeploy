@@ -18,7 +18,7 @@
                 <div class="lower-body">
                     <div class="description-series">
                         <label class="mx-left"><b class="l-size">Description</b></label>
-                        <label class="mx-left">A Simple Moving Average is a trending indicator that is displayed as a single line that shows the mean price during a specified period of time. For example, a 20-day SMA shows the average stock price during the last 20 trading periods (including the current period).&ensp;<a href="{{route('learning-ma')}}" target="_blank">Learn More</a></label>
+                        <label class="mx-left">A Simple Moving Average is a trending indicator that is displayed as a single line that shows the mean price during a specified period of time. For example, a 20-day SMA shows the average stock price during the last 20 trading periods (including the current period).&ensp;<a href="{{route('learning-ma')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <br>
                     <div class="description-series">

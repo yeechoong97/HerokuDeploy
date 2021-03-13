@@ -143,7 +143,7 @@ function toggleOrderIntro() {
             },
             {
                 element: document.querySelector('#th-type'),
-                intro: 'The type is referring to go <b>Long</b> (<b>Buy</b>) or go <b>Short</b> (<b>Sell</b>) within the order. <a href="/learning/order/long-short" target="_blank">Learn More about Long & Short</a>'
+                intro: 'The type is referring to go <b>Long</b> (<b>Buy</b>) or go <b>Short</b> (<b>Sell</b>) within the order. <a href="/learning/order/long-short" target="_blank" rel="noopener">Learn More about Long & Short</a>'
             },
             {
                 element: document.querySelector('#th-entry'),
@@ -155,7 +155,7 @@ function toggleOrderIntro() {
             },
             {
                 element: document.querySelector('#th-cost'),
-                intro: 'The <b>Total Spread</b> (Entry Price - Exit Price) cost of the order. <a href="/learning/knowledge/spread" target="_blank">Learn More about Spread</a>'
+                intro: 'The <b>Total Spread</b> (Entry Price - Exit Price) cost of the order. <a href="/learning/knowledge/spread" target="_blank" rel="noopener">Learn More about Spread</a>'
             },
             {
                 element: document.querySelector('#th-profit'),

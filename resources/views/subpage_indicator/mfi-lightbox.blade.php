@@ -17,7 +17,7 @@
                 <div class="lower-body decrease-height">
                     <div class="description-series">
                         <label class="mx-left"><b class="l-size">Description</b></label>
-                        <label class="mx-left">Money flow index (MFI) is an oscillator calculated over an N-day period, ranging from 0 to 100, showing money flow on up days as a percentage of the total of up and down days.&ensp;<a href="{{route('learning-mfi')}}" target="_blank">Learn More</a></label>
+                        <label class="mx-left">Money flow index (MFI) is an oscillator calculated over an N-day period, ranging from 0 to 100, showing money flow on up days as a percentage of the total of up and down days.&ensp;<a href="{{route('learning-mfi')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <br>
                     <div class="description-series">

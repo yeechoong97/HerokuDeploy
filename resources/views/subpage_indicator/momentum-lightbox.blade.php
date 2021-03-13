@@ -16,7 +16,7 @@
                 <div class="lower-body">
                     <div class="description-series">
                         <label class="mx-left"><b class="l-size">Description</b></label>
-                        <label class="mx-left">The Momentum indicator is a speed of movement indicator, that is designed to identify the speed (or strength) of a price movement. The momentum indicator compares the most recent closing price to a previous closing price and may be used as a trend-following oscillator (similar to the Moving Average Convergence Divergence (MACD)).&ensp;<a href="{{route('learning-momentum')}}" target="_blank">Learn More</a></label>
+                        <label class="mx-left">The Momentum indicator is a speed of movement indicator, that is designed to identify the speed (or strength) of a price movement. The momentum indicator compares the most recent closing price to a previous closing price and may be used as a trend-following oscillator (similar to the Moving Average Convergence Divergence (MACD)).&ensp;<a href="{{route('learning-momentum')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <div class="description-series">
                         <label class="mx-left"><b class="l-size">Parameters</b></label>

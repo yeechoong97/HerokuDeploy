@@ -25,7 +25,7 @@
             <div class="lower-body">
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Description</b></label>
-                    <label class="mx-left">The Moving Average Convergence/Divergence (MACD) is a momentum indicator that consists of two lines - an indicator line and a signal line. The indicator line displays the difference between two exponential moving averages with different smoothing factors, and the signal line displays an exponential moving average of the difference between mentioned two exponential moving averages.&ensp;<a href="{{route('learning-macd')}}" target="_blank">Learn More</a></label>
+                    <label class="mx-left">The Moving Average Convergence/Divergence (MACD) is a momentum indicator that consists of two lines - an indicator line and a signal line. The indicator line displays the difference between two exponential moving averages with different smoothing factors, and the signal line displays an exponential moving average of the difference between mentioned two exponential moving averages.&ensp;<a href="{{route('learning-macd')}}" target="_blank" rel="noopener">Learn More</a></label>
                 </div>
                 <div class="description-series">
                     <label class="mx-left"><b class="l-size">Parameters</b></label>
