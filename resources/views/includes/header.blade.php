@@ -31,10 +31,10 @@
                     @csrf
                     </form>
                     <div class="calculator-icon-box notify" id="calculator-intro">
-                        <div class="rectangle"><a href="#" name="calculatorbox"><i class="fas fa-calculator chat" data-toggle="modal" data-target="#calculator-lightbox"></i></a></div>
+                        <div class="rectangle"><a href="#"><i class="fas fa-calculator chat" data-toggle="modal" data-target="#calculator-lightbox"></i></a></div>
                     </div>
                     <div class="chat-icon-box fixed-position notify" id="chat-intro">
-                        <div class="circle" ><a href="#" name="chatbox"><i class="fas fa-comments chat" onclick="toggleChat()"></i></a></div>
+                        <div class="circle" ><a href="#"><i class="fas fa-comments chat" onclick="toggleChat()"></i></a></div>
                     </div>
                     @endguest
                 </ul>

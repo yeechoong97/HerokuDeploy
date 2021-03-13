@@ -55,15 +55,6 @@ class MainController extends Controller
         //Pass the EURUSD data from server to front end
         $data = "";
         $parseResponse = json_decode($response,true);
-   
-        // foreach($parseResponse['candles'] as $pResponse)
-        // {
-        //     $tempDate = substr($pResponse['time'],0,-7);
-        //     $tempDate = $tempDate."Z";
-        //     $myDate = strtotime($tempDate);
-        //     $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
-        //     $data = $data . $tempResult;
-        // }
         foreach($parseResponse['candles'] as $pResponse)
         {
             $tempDate = substr($pResponse['time'],0,-7);
@@ -396,14 +387,6 @@ class MainController extends Controller
         $data = "";        
         $parseResponse = json_decode($response,true);
 
-        // foreach($parseResponse['candles'] as $pResponse)
-        // {
-        //     $tempDate = substr($pResponse['time'],0,-7);
-        //     $tempDate = $tempDate."Z";
-        //     $myDate = strtotime($tempDate);
-        //     $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
-        //     $data = $data . $tempResult;
-        // }
         foreach($parseResponse['candles'] as $pResponse)
         {
             $tempDate = substr($pResponse['time'],0,-7);

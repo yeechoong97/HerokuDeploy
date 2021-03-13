@@ -12,12 +12,10 @@
 */
 
 Route::get('/','MainController@index')->middleware('auth');
-
 Route::get('index','MainController@index')->name("index");
 Route::post('index/store','MainController@create');
 Route::put('index/close','MainController@close');
 Route::post('/index/tutorial','MainController@setTutorial');
-
 Route::post('index/data','MainController@getCandle');
 Route::post('index/chart','MainController@changeSeries');
 Route::get('chat','MainController@chat_index');
@@ -42,7 +40,6 @@ Route::get('profile/index','ProfileController@index')->name("profile-index");
 Route::post('profile/avatar','ProfileController@changeAvatar')->name("profile-avatar");
 Route::put('profile/profile/update','ProfileController@updateProfile')->name("profile-update");
 Route::put('profile/password/update','ProfileController@updatePassword')->name('profile-password-update');
-
 
 //Forum
 Route::get('forum/{tag}','ForumController@index')->name("forum-index");
