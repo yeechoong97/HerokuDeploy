@@ -41,7 +41,7 @@ use App\Common;
                 <input type="hidden" id="hidden_upper_indicator" value=""/>
                 <input type="hidden" id="hidden_lower_indicator" value="" />
                 <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset</button>
-                <button class="form-control" style="width:40px" id="remove-annotation-intro" onclick="removeSelectedAnnotation()"><i class="fas fa-trash-alt"></i></button>
+                <button class="form-control" name="remove-annotation" style="width:40px" id="remove-annotation-intro" onclick="removeSelectedAnnotation()"><i class="fas fa-trash-alt"></i></button>
                 <div class="question-btn" id="chart-tips-intro">
                     <i class="far fa-question-circle text-info" onclick="showChartTips()"></i>
                 </div>

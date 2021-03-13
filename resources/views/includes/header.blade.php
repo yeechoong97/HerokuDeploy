@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
     <div class="container right-align">
-        <a href="{{route('index')}}"><img src="{{asset('Logo.png')}}" class="navbar-brand logo navbar-logo" alt=""></a>     
+        <a href="{{route('index')}}" name="home"><img src="{{asset('Logo.png')}}" class="navbar-brand logo navbar-logo" alt=""></a>     
             <a class="navbar-brand logo" href="{{route('index')}}">ES FOREX Trading</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="nav navbar-nav ml-auto">
@@ -31,10 +31,10 @@
                     @csrf
                     </form>
                     <div class="calculator-icon-box notify" id="calculator-intro">
-                        <div class="rectangle" ><a><i class="fas fa-calculator chat" data-toggle="modal" data-target="#calculator-lightbox"></i></a></div>
+                        <div class="rectangle"><a href="#" name="calculatorbox"><i class="fas fa-calculator chat" data-toggle="modal" data-target="#calculator-lightbox"></i></a></div>
                     </div>
                     <div class="chat-icon-box fixed-position notify" id="chat-intro">
-                        <div class="circle" ><a><i class="fas fa-comments chat" onclick="toggleChat()"></i></a></div>
+                        <div class="circle" ><a href="#" name="chatbox"><i class="fas fa-comments chat" onclick="toggleChat()"></i></a></div>
                     </div>
                     @endguest
                 </ul>
