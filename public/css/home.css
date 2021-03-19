@@ -100,3 +100,9 @@ html {
     cursor: pointer;
     color: white;
 }
+
+.remove-decoration {
+    text-decoration: none !important;
+    text-align: center;
+    cursor: pointer;
+}

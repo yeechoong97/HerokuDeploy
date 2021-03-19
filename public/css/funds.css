@@ -246,3 +246,7 @@ input::-webkit-inner-spin-button {
     width: 100%;
     margin-bottom: 15px;
 }
+
+.show-again {
+    margin-top: 0.65em;
+}
