@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/','MainController@index')->middleware('auth');
 Route::get('index','MainController@index')->name("index");
 Route::post('index/store','MainController@create');
@@ -132,6 +131,5 @@ Route::get('learning/indicator/mfi','ElearningController@mfi')->name('learning-m
 Route::get('learning/indicator/aroon','ElearningController@aroon')->name('learning-aroon');
 
 Route::post('learning/search','ElearningController@search')->name('learning-search');
-
 Auth::routes();
 
