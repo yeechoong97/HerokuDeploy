@@ -552,7 +552,7 @@ function appendIndicatorEvent(indicatorSelected) {
                 var period = document.getElementById('sma_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
                 for (var key in chartParameter) {
-                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] === 0) && !key.includes("type")) {
                         appendErrorAlert("Please enter valid input.");
                         return false;
                     }
@@ -580,7 +580,7 @@ function appendIndicatorEvent(indicatorSelected) {
                 var period = document.getElementById('mfi_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
                 for (var key in chartParameter) {
-                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] === 0) && !key.includes("type")) {
                         appendErrorAlert("Please enter valid input.");
                         return false;
                     }
@@ -594,7 +594,7 @@ function appendIndicatorEvent(indicatorSelected) {
                 var period = document.getElementById('aroon_period').value;
                 var chartParameter = { "period": parseInt(period), "type": "line" };
                 for (var key in chartParameter) {
-                    if ((isNaN(chartParameter[key]) || chartParameter[key] == 0) && !key.includes("type")) {
+                    if ((isNaN(chartParameter[key]) || chartParameter[key] === 0) && !key.includes("type")) {
                         appendErrorAlert("Please enter valid input.");
                         return false;
                     }

@@ -3,7 +3,7 @@ function submitForm() {
     var amountInput = parseFloat(document.getElementById('amount_input').value);
     var statusDisplay = document.getElementById('cross').style.display;
 
-    if (amountInput <= 0 || isNaN(amountInput) == true || statusDisplay == "inline" || amountInput == "") {
+    if (amountInput <= 0 || isNaN(amountInput) === true || statusDisplay === "inline" || amountInput === "") {
         document.getElementById('error-msg').innerHTML = "*Invalid amount is entered";
     } else {
         document.getElementById("myForm").submit();
@@ -16,7 +16,7 @@ function validateWithdrawalInput(balance, margin) {
     var accountBalance = parseFloat(balance);
     var accountMargin = parseFloat(margin);
 
-    if (amountInput < accountBalance && amountInput < accountMargin && amountInput != 0 && (accountBalance - amountInput) >= 100.00 && (accountMargin - amountInput) >= 100.00) {
+    if (amountInput < accountBalance && amountInput < accountMargin && amountInput !== 0 && (accountBalance - amountInput) >= 100.00 && (accountMargin - amountInput) >= 100.00) {
         document.getElementById('cross').style.display = 'none';
         document.getElementById('tick').style.display = 'inline';
     } else if (amountInput >= accountBalance || (accountBalance - amountInput) < 100.00) {
@@ -34,7 +34,7 @@ function validateDepositInput(balance) {
     var amountInput = parseFloat(document.getElementById('amount_input').value);
     var accountBalance = parseFloat(balance);
 
-    if (amountInput <= 50000 && amountInput != 0 && (accountBalance + amountInput) <= 100000.00) {
+    if (amountInput <= 50000 && amountInput !== 0 && (accountBalance + amountInput) <= 100000.00) {
         document.getElementById('cross').style.display = 'none';
         document.getElementById('tick').style.display = 'inline';
     } else if (amountInput >= accountBalance || (accountBalance + amountInput) > 100000.00) {
@@ -50,7 +50,6 @@ function validateDepositInput(balance) {
 
 //Alert the message
 function appendFundAlert(title, type, message) {
-
     Swal.fire({
         title: title,
         icon: type,

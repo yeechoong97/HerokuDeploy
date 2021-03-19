@@ -20,11 +20,11 @@ for (let i = 0; i < dropdown.length; i++) {
 
 for (let index in dropdown) {
     let child = dropdown[index].nextElementSibling;
-    let title = (document.getElementById("learning-title") != null) ? document.getElementById("learning-title").innerHTML : "";
-    if (child != undefined) {
+    let title = (document.getElementById("learning-title") !== null) ? document.getElementById("learning-title").innerHTML : "";
+    if (child !== undefined) {
         let childNodes = child.childNodes;
         for (let jIndex in childNodes) {
-            if (typeof(childNodes[jIndex].innerHTML) != "undefined" && title != "") {
+            if (typeof(childNodes[jIndex].innerHTML) !== "undefined" && title !== "") {
                 if (childNodes[jIndex].innerHTML.includes(title)) {
                     dropdown[index].click();
                     childNodes[jIndex].classList.add("active");

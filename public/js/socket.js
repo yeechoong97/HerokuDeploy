@@ -8,9 +8,9 @@ const socket = io('mighty-headland-26950.herokuapp.com/', {
 socket.on('news', function(data) {
     var strLines = data.split("\n");
     for (var i in strLines) {
-        if (strLines[i] != "") {
+        if (strLines[i] !== "") {
             var json = JSON.parse(strLines[i]);
-            if (json.type == "PRICE") {
+            if (json.type === "PRICE") {
                 var JSONInstrument = json.instrument;
                 var componentID = ["_Sell", "_Buy", "_Pips", "_header"];
                 for (i = 0; i < componentID.length; i++) {
@@ -35,10 +35,10 @@ socket.on('news', function(data) {
 
                 var instrument = document.getElementById("instrumentSelect").value;
                 var multiply = 10000;
-                if (JSONInstrument.includes("JPY") == true) { multiply = 100; }
+                if (JSONInstrument.includes("JPY") === true) { multiply = 100; }
                 pips.innerHTML = ((json.asks[0].price - json.bids[0].price) * multiply).toFixed(1);
 
-                if (JSONInstrument == instrument) {
+                if (JSONInstrument === instrument) {
                     document.getElementById("sell-action").innerHTML = json.bids[0].price;
                     document.getElementById("buy-action").innerHTML = json.asks[0].price;
                     document.getElementById("pips-action").innerHTML = ((json.asks[0].price - json.bids[0].price) * multiply).toFixed(1);
