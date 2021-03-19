@@ -17,7 +17,7 @@
                   </div>
                   <div class="second-units-title">Units to Close</div>
                   <div class="close-check">
-                     <input type="number" id="position-total-units" class="form-control col-md-8 position-order-units" placeholder="Enter Units" onkeyup="updateRemaining()" onclick="updateRemaining()" maxlength="7" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"></input>
+                     <input type="text" id="position-total-units" class="form-control col-md-8 position-order-units" placeholder="Enter Units" onkeyup="updateRemaining()" onclick="updateRemaining()" maxlength="7" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"></input>
                      <span class="fas fa-check tick-close" id="tick-close" style="display:none"></span>    
                      <span class="fas fa-times cross-close" id="cross-close" style="display:none"></span>      
                   </div>
