@@ -28,7 +28,7 @@
     <div class="input-group" style="height:44px;">
         <input type="text" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light" id="chat_msg">
         <div class="input-group-append">
-            <button id="button-addon2"  class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+            <button id="button-addon2"  class="btn btn-link"> <span class="fa fa-paper-plane"></span></button>
         </div>
     </div>
     </form>

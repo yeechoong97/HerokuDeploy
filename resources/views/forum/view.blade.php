@@ -8,7 +8,7 @@ use App\Common;
     <div class="inner-wrapper">
         <div class="inner-sidebar">
             <div class="inner-sidebar-header justify-content-center">
-                <a href="{{route('forum-index',$tagValue)}}" class="form-control btn-light has-icon text-center remove-decoration"><i class="fa fa-arrow-left mr-2"></i>Back</a>
+                <a href="{{route('forum-index',$tagValue)}}" class="form-control btn-light has-icon text-center remove-decoration"><span class="fa fa-arrow-left mr-2"></span>Back</a>
             </div>
             <div class="inner-sidebar-body p-0">
                 <div class="p-3 h-100" data-simplebar="init">
@@ -19,10 +19,10 @@ use App\Common;
                                 <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;">
                                     <div class="simplebar-content p-3" >
                                         <nav class="nav nav-pills nav-gap-y-1 flex-column" id="tag-list">
-                                            <a href="{{route('forum-index','All Posts')}}" class="nav-link nav-link-faded has-icon"><i class="fas fa-tag mr-2"></i>All Posts</a>
-                                            <a href="{{route('forum-index','Your Posts')}}" class="nav-link nav-link-faded has-icon"><i class="fas fa-tag mr-2"></i>Your Posts</a>
+                                            <a href="{{route('forum-index','All Posts')}}" class="nav-link nav-link-faded has-icon"><span class="fas fa-tag mr-2"></span>All Posts</a>
+                                            <a href="{{route('forum-index','Your Posts')}}" class="nav-link nav-link-faded has-icon"><span class="fas fa-tag mr-2"></span>Your Posts</a>
                                             @foreach(Common::$forumTags as $key => $value)
-                                            <a href="{{route('forum-index',$value)}}" class="nav-link nav-link-faded has-icon"><i class="fas fa-tag mr-2"></i>{{$value}}</a>
+                                            <a href="{{route('forum-index',$value)}}" class="nav-link nav-link-faded has-icon"><span class="fas fa-tag mr-2"></span>{{$value}}</a>
                                             @endforeach
                                             <input type="hidden" id="tag-id" value="{{$tagValue}}" />
                                         </nav>
@@ -52,10 +52,10 @@ use App\Common;
                             </div>
                             <div class="text-muted text-center">
                                 @if($forum->user->user_id===$user_id)
-                                    <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editForum" onclick="editForum('{{$forum->forum_id}}','{{$forum->tag}}',`{{$forum->title}}`,`{{$forum->contents}}`)"><i class="fas fa-edit"></i></a>
-                                    <a href="#" onclick="appendAlertDeletePost('{{$forum->forum_id}}','{{$tagValue}}')"  class="text-muted mx-1"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editForum" onclick="editForum('{{$forum->forum_id}}','{{$forum->tag}}',`{{$forum->title}}`,`{{$forum->contents}}`)"><span class="fas fa-edit"></span></a>
+                                    <a href="#" onclick="appendAlertDeletePost('{{$forum->forum_id}}','{{$tagValue}}')"  class="text-muted mx-1"><span class="fas fa-trash-alt"></span></a>
                                 @endif
-                                <span><i class="far fa-comment mx-1"></i> {{count($forum->comment)}}</span>
+                                <span><span class="far fa-comment mx-1"></span> {{count($forum->comment)}}</span>
                             </div>
                         </div>
                     </div>
@@ -78,8 +78,8 @@ use App\Common;
                             </div>
                             <div class="text-muted text-center">
                                 @if($forum->comment[$index]->user->user_id===$user_id)
-                                <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editComment" onclick="editComment('{!!$forum->comment[$index]->comment_id!!}','{!!$tagValue!!}',`{{$forum->comment[$index]->contents}}`)"><i class="fas fa-edit"></i></a>
-                                <a href="#" class="text-muted mx-1" onclick="appendAlertDeleteComment('{{$forum->comment[$index]->comment_id}}','{{$tagValue}}')"><i class="fas fa-trash-alt"></i></a>
+                                <a href="#" class="text-muted mx-1" data-toggle="modal" data-target="#editComment" onclick="editComment('{!!$forum->comment[$index]->comment_id!!}','{!!$tagValue!!}',`{{$forum->comment[$index]->contents}}`)"><span class="fas fa-edit"></span></a>
+                                <a href="#" class="text-muted mx-1" onclick="appendAlertDeleteComment('{{$forum->comment[$index]->comment_id}}','{{$tagValue}}')"><span class="fas fa-trash-alt"></span></a>
                                 @endif
                             </div>
                         </div>

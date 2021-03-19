@@ -14,7 +14,7 @@
                 <h5>What is a Spread</h5>
                 <p>Every market has a spread and so does forex. A spread is simply defined as the price difference between where a trader may purchase or sell an underlying asset. Traders that are familiar with equities will synonymously call this the Bid: Ask spread.</p>
                 <p>Below we can see an example of the forex spread being calculated for the EUR/USD. First, we will find the buy price at 1.20732 and then subtract the sell price of 1.20718. What we are left with after this process is a reading of 0.00014. Traders should remember that the pip value is then identified on the EUR/USD as the 4th digit after the decimal, making the final spread calculated as 1.4 pips.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763113/E-Learning/Spread.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763113/E-Learning/Spread.png" class="img-padding" alt="spread">
                 <h5>How To Calculate The Forex Spread And Costs</h5>
                 <p>Before we calculate the cost of a spread, remember that the spread is just the ask price less (minus) the bid price of a currency pair. So, in our example above, 1.20732-1.20718 = 0.00014 or 1.4 pips.</p>
                 <p>Using the quotes above, we know we can currently buy the EUR/USD at 1.20732 and close the transaction at a sell price of 1.20718. That means as soon as our trade is open, a trader would incur 1.4 pips of spread.</p>

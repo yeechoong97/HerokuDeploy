@@ -13,7 +13,7 @@
                 <h3 id="learning-title">Accumulation Distribution Line</h3>
                 <p>The accumulation/distribution indicator also called as ADL or A/D is a cumulative indicator that uses volume and price to assess whether a stock is being accumulated or distributed. The A/D measure seeks to identify divergences between the stock price and volume flow. This provides insight into how strong a trend is. If the price is rising but the indicator is falling it suggests that buying or accumulation volume may not be enough to support the price rise and a price decline could be forthcoming.</p>
                 <h5>The Accumulation/Distribution Indicator (A/D) Formula</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768860/E-Learning/ADLFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768860/E-Learning/ADLFormula.png" class="img-padding" alt="adl-formula">
                 <h5>How to Calculate the A/D Line</h5>
                 <ol>
                     <li>Start by calculating the multiplier. Note the most recent period's close, high, and low to calculate</li>
@@ -25,7 +25,7 @@
                 <p>The A/D line helps to show how supply and demand factors are influencing price. A/D can move in the same direction as price changes or it may move in the opposite direction.</h5>
                 <p>The multiplier in the calculation provides a gauge for how strong the buying or selling was during a particular period. It does this by determining whether the price closed in the upper or lower portion of its range. This is then multiplied by the volume. Therefore, when a stock closes near the high of the period's range and has high volume, it will result in a large A/D jump. Alternatively, if the price finishes near the high of the range but volume is low, or the volume is high but the price finishes more toward the middle of the range, the A/D will not move up as much.</p>
                 <p>The same concepts apply when the price closes in the lower portion of the period's price range. Both volume and where the price closes within the period's range determine how much the A/D will decline by.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768860/E-Learning/ADL.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768860/E-Learning/ADL.png" class="img-padding" alt="adl">
                 <p>The A/D line is used to help assess price trends and potentially spot forthcoming reversals. If a security's price is in a downtrend while the A/D line is in an uptrend, the indicator shows there may be buying pressure and the security's price may reverse to the upside. Conversely, if a security's price is in an uptrend while the A/D line is in a downtrend, the indicator shows there may be selling pressure, or higher distribution. This warns that the price may be due for a decline.</p>
                 <p>In both cases, the steepness of the A/D line provides insight into the trend. A strongly rising A/D line confirms a strongly rising price. Similarly, if the price is falling and the A/D is also falling, then there is still plenty of distribution and prices are likely to continue to decline.</p>
                 <h5>Limitations of Using the Accumulation/Distribution Indicator (A/D)</h5>

@@ -13,7 +13,7 @@
                 <h3 id="learning-title">Evening Star</h3>
                 <p>An Evening Star is a stock-price chart pattern used by technical analysts to detect when a trend is about to reverse. It is a bearish candlestick pattern consisting of three candles: a large white candlestick, a small-bodied candle, and a red candle.</p>
                 <p>Evening Star patterns are associated with the top of a price uptrend, signifying that the uptrend is nearing its end. The opposite of the Evening Star is the Morning Star pattern, which is viewed as a bullish indicator.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765848/E-Learning/EveningStar.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765848/E-Learning/EveningStar.png" class="img-padding" alt="evening-star">
                 <h5>What Does a Evening Star Tell You?</h5>
                 <p>A candlestick pattern is a way of condensely presenting certain information about a stock. Specifically, it represents the open, high, low, and close price for the stock over a given time period.</p>
                 <p>Each candlestick consists of a candle and two wicks. The length of the candle is a function of the range between the highest and lowest price during that trading day. A long candle indicates a large change in price, while a short candle indicates a small change in price. In other words, long candlestick bodies are indicative of intense buying or selling pressure, depending on the direction of the trend. At the same time, short candlesticks are indicative of little price movement.</p>

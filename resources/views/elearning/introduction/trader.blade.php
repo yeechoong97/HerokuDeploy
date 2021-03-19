@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Forex Trader Types</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612761501/E-Learning/TraderTypes.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612761501/E-Learning/TraderTypes.png" class="img-padding" alt="trader-types">
                 <h5>Types of Traders</h5>
                 <p>Forex traders tend to fit into one of the following six trading types: scalper, day trader, swing trader, position trader, algorithmic trader, and event-driven trader. Read about the separate types below and discover the character traits that are optimal for each.</p>
                 <h5>1. Scalper</h5>
@@ -33,7 +33,7 @@
                 <p>Event-driven traders look to fundamental analysis over technical charts to inform their decisions. They’ll seek to benefit from spikes caused by political or economic events, such as Non-Farm Payroll data, GDP, employment figures, and elections.</p>
                 <p>This type of trading will suit a person who likes to keep up with world news, and who will understand how events can impact markets. Inquisitive, curious and forward-thinking, you will be skilled at processing new information and predicting how global and localized events may play out.</p>
                 <h5>Summary of Different Types of Forex Trader</h5>
-                <table class="table col-md-8 table-bordered table-striped">
+                <table class="table col-md-8 table-bordered table-striped" aria-label="TraderTypes">
                     <thead>
                         <tr>
                         <th scope="col">Type</th>

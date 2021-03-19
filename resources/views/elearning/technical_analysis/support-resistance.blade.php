@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Support & Resistance</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767102/E-Learning/ResistanceSupport.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767102/E-Learning/ResistanceSupport.png" class="img-padding" alt="resistance-support">
                 <p>Support and resistance is a powerful pillar in trading and most strategies have some type of support/resistance (S/R) analysis built into them. Support and resistance tends to develop around key areas that price has regularly approached and rebounded thereafter. </p>
                 <h5>What is Support and Resistance</h5>
                 <p>Support and resistance is one of the most widely followed technical analysis techniques in the financial markets. It is a simple method to analyze a chart quickly to determine three points of interest to a trader:</p>

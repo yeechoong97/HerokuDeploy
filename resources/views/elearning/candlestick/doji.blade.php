@@ -15,11 +15,11 @@
                 <p>A doji candlestick forms when a security's open and close are virtually equal for the given time period and generally signals a reversal pattern for technical analysts. In Japanese, "doji" means blunder or mistake, referring to the rarity of having the open and close price be exactly the same.</p>
                 <p>Depending on where the open/close line falls, a doji can be described as a gravestone, long-legged, or dragonfly.</p>
                 <ul>
-                    <li><b>Gravestone doji</b> indicate that buyers initially pushed prices higher, but by the end of the session sellers take control driving prices back down to the session low</li>
-                    <li><b>Long-legged doji</b> represent a more significant amount of indecision as neither buyers nor sellers take control.</li>
-                    <li><b>Dragonfly doji</b> indicate that sellers initially drove prices higher, but by the end of the session buyers take control driving prices back up to the session high.</li>
+                    <li><strong>Gravestone doji</strong> indicate that buyers initially pushed prices higher, but by the end of the session sellers take control driving prices back down to the session low</li>
+                    <li><strong>Long-legged doji</strong> represent a more significant amount of indecision as neither buyers nor sellers take control.</li>
+                    <li><strong>Dragonfly doji</strong> indicate that sellers initially drove prices higher, but by the end of the session buyers take control driving prices back up to the session high.</li>
                 </ul>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765483/E-Learning/Doji.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765483/E-Learning/Doji.png" class="img-padding" alt="doji">
                 <h5>What Does a Doji Tell You?</h5>
                 <p>Technical analysts believe that all known information about the stock is reflected in the price, which is to say the price is efficient. Still, past price performance has nothing to do with future price performance, and the actual price of a stock may have nothing to with its real or intrinsic value. Therefore, technical analysts use tools to help sift through the noise to find the highest probability trades.</p>
                 <p>One tool that was developed by a Japanese rice trader named Honma from the town of Sakata in the 18th century, and it was introduced to the West in the 1990s by Steve Nison: the candlestick chart.</p>

@@ -5,7 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <body style="overflow-y:auto">
 <div class="orders-history-container mx-auto">
-        <div class="orders-history-header"><a href="{{route('order-summary')}}" class="remove-decoration text-white"><i class="fas fa-arrow-circle-left float-left my-1 mx-2"></a></i> Order History  &ensp;<i class="far fa-question-circle" onclick="toggleOrderIntro()"></i></div>
+        <div class="orders-history-header"><a href="{{route('order-summary')}}" class="remove-decoration text-white"><span class="fas fa-arrow-circle-left float-left my-1 mx-2"></span></a> Order History  &ensp;<span class="far fa-question-circle" onclick="toggleOrderIntro()"></span></div>
             <div class="orders-history-subcontainer">
                 <div class="orders-upper-container">
                     <div class="orders-date-input">
@@ -23,10 +23,10 @@
             <div class="row">
                 <div class="mx-auto bg-white rounded shadow customization">
                     <div class="table-responsive">
-                        <table id="all_orders"  class="table table-fixed">
+                        <table id="all_orders"  class="table table-fixed" aria-label="orders-history-table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th class="col1">TicketID</th>
+                                    <th class="col1" scope="col">TicketID</th>
                                     <th class="col4" id="th-created_at" onclick="sortTable('created_at')" >Date <span class="fas fa-caret-down" id="span-created_at"></span></th>
                                     <th class="col3" id="th-pair" onclick="sortTable('pair')" >Instrument <span class="fas fa-caret-down" id="span-pair"></span></th>
                                     <th class="col2" id="th-units" onclick="sortTable('units')" >Units <span class="fas fa-caret-down" id="span-units"></span></th>

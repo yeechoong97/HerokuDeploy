@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1700px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Chart Patterns Introduction</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1613375007/E-Learning/ChartPattern.jpg" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1613375007/E-Learning/ChartPattern.jpg" class="img-padding" alt="chart-pattern">
                 <div class="img-citation">Image retrieved from <cite>Blackwellglobal. (n.d.). The 5 Most Popular Forex Chart Patterns.</cite></div>
                 <p>For many analysts, the chart of a security is the starting point for all future analysis. Even staunch critics of technical analysis use charts to some extent. And for good reason: charts can provide a lot of information in a small amount of time.</p>
                 <p>Taking a look at the five-year chart of a company, you can quickly determine how well shareholders have done over the period. Based on the movements represented on the chart, one can tell if a company's share value has grown over the period or lagged.</p>

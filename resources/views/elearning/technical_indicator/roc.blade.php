@@ -13,9 +13,9 @@
                 <h3 id="learning-title">Rate Of Change</h3>
                 <p>The Price Rate of Change (ROC) is a momentum-based technical indicator that measures the percentage change in price between the current price and the price a certain number of periods ago. The ROC indicator is plotted against zero, with the indicator moving upwards into positive territory if price changes are to the upside, and moving into negative territory if price changes are to the downside.</p>
                 <p>The indicator can be used to spot divergences, overbought and oversold conditions, and centerline crossovers.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768193/E-Learning/ROC.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768193/E-Learning/ROC.png" class="img-padding" alt="roc">
                 <h5>Formula For the Rate Of Change</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768193/E-Learning/ROCFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768193/E-Learning/ROCFormula.png" class="img-padding" alt="roc-formula">
                 <h5>How to Calculate the Price Rate of Change Indicator</h5>
                 <p>The main step in calculating the ROC, is picking the "n" value. Short-term traders may choose a small n value, such as nine. Longer-term investors may choose a value such as 200. The n value is how many periods ago the current price is being compared to. Smaller values will see the ROC react more quickly to price changes, but that can also mean more false signals. A larger value means the ROC will react slower, but the signals could be more meaningful when they occur.</p>
                 <ol>

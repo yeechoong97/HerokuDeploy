@@ -175,14 +175,11 @@ function setDecimalPlot2() {
             case "stick":
             case "marker":
                 return series.name() + ": " + validateValue(this.value);
-                break;
             case "candlestick":
             case "ohlc":
                 return series.name() + ": " + "(O:" + validateValue(this.open) + " / " + "H:" + validateValue(this.high) + " / " + "L:" + validateValue(this.low) + " / " + "C:" + validateValue(this.close) + ")";
-                break;
             case "range-area":
                 return series.name() + ": (" + "H:" + validateValue(this.high) + ";" + "L:" + validateValue(this.low) + ")";
-                break;
         }
     });
     secondPlot.yAxis(1, false)
@@ -199,14 +196,11 @@ function setDecimalPlot1() {
             case "stick":
             case "marker":
                 return series.name() + ": " + validateValue(this.value);
-                break;
             case "candlestick":
             case "ohlc":
                 return series.name() + ": " + "(O:" + validateValue(this.open) + " / " + "H:" + validateValue(this.high) + " / " + "L:" + validateValue(this.low) + " / " + "C:" + validateValue(this.close) + ")";
-                break;
             case "range-area":
                 return series.name() + ": (" + "H:" + validateValue(this.high) + ";" + "L:" + validateValue(this.low) + ")";
-                break;
         }
     });
 }

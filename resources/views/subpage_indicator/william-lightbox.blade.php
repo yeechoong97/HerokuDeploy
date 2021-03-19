@@ -20,12 +20,12 @@
                 <hr>
                 <div class="lower-body decrease-height">
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Description</b></label>
+                        <label class="mx-left"><strong class="l-size">Description</strong></label>
                         <label class="mx-left">Williams %R, or just %R, is a momentum indicator showing the current closing price in relation to the high and low of the past N days (for a given N). It was developed by trader and author Larry Williams and is used in the stock and commodities markets.&ensp;<a href="{{route('learning-william')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <br>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Parameters</b></label>
+                        <label class="mx-left"><strong class="l-size">Parameters</strong></label>
                         <label class="mx-left">There is only one parameter - the period.</label>
                     </div>
                 </div>

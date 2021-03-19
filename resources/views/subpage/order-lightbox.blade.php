@@ -36,7 +36,7 @@
                      <span class="fas fa-times cross-check" id="cross" style="display:none"></span>      
                </div>
                <div class="px-5 text-center">
-                  <span class="unit-remark"><b>*</b>Maximum Units: 1,000,000</span><br/>
+                  <span class="unit-remark"><strong>*</strong>Maximum Units: 1,000,000</span><br/>
                   <span class="unit-remark ">Learn Calculation about <a href="#" onclick="showSellTips()">Sell</a> and <a href="#" onclick="showBuyTips()">Buy</a></span>
                </div>
                   <div class="margin-check" id="margin-check-intro">

@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1500px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Pips</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612762909/E-Learning/Pips.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612762909/E-Learning/Pips.png" class="img-padding" alt="pips">
                 <h5>What is a Pip</h5>
                 <p>Pip is an acronym for "percentage in point" or" price interest point." A pip is the smallest price move that an exchange rate can make based on forex market convention. Most currency pairs are priced out to four decimal places and the pip change is the last (fourth) decimal point. A pip is thus equivalent to 1/100 of 1% or one basis point. For example, the smallest move the USD/CAD currency pair can make is $0.0001 or one basis point.</p>
                 <h5>How Pips Work</h5>

@@ -24,10 +24,10 @@ use App\Common;
                                 <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;">
                                     <div class="simplebar-content p-3" >
                                         <nav class="nav nav-pills nav-gap-y-1 flex-column" id="tag-list">
-                                            <a href="{{route('forum-index','All Posts')}}" class="nav-link nav-link-faded has-icon"><i class="fas fa-tag mr-2"></i>All Posts</a>
-                                            <a href="{{route('forum-index','Your Posts')}}" class="nav-link nav-link-faded has-icon"><i class="fas fa-tag mr-2"></i>Your Posts</a>
+                                            <a href="{{route('forum-index','All Posts')}}" class="nav-link nav-link-faded has-icon"><span class="fas fa-tag mr-2"></span>All Posts</a>
+                                            <a href="{{route('forum-index','Your Posts')}}" class="nav-link nav-link-faded has-icon"><span class="fas fa-tag mr-2"></span>Your Posts</a>
                                             @foreach(Common::$forumTags as $key => $value)
-                                            <a href="{{route('forum-index',$value)}}" class="nav-link nav-link-faded has-icon"><i class="fas fa-tag mr-2"></i>{{$value}}</a>
+                                            <a href="{{route('forum-index',$value)}}" class="nav-link nav-link-faded has-icon"><span class="fas fa-tag mr-2"></span>{{$value}}</a>
                                             @endforeach
                                             <input type="hidden" id="tag-id" value="{{$tagValue}}" />
                                         </nav>
@@ -42,9 +42,9 @@ use App\Common;
         <div class="inner-main">
             <div class="inner-main-header">
                 <div class="forum-question-btn">
-                    <i class="far fa-question-circle text-info" onclick="showForumTips()"></i>
+                    <span class="far fa-question-circle text-info" onclick="showForumTips()"></span>
                 </div>
-                <a class="nav-link nav-icon rounded-circle mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>
+                <a class="nav-link nav-icon rounded-circle mr-3 d-md-none" href="#" data-toggle="inner-sidebar"><span class="material-icons">arrow_forward_ios</span></a>
                 <select class="custom-select form-control custom-select-sm w-auto mr-1" id="select-filter">
                     <option value="title" selected>Title</option>
                     <option value="latest">Latest</option>
@@ -52,7 +52,7 @@ use App\Common;
                 </select>
                 <span class="input-icon input-icon-sm ml-auto" style="width:30%">
                         <input type="text" id="search-forum-text" name="search" class="form-control col-md-10 float-left" placeholder="Search">
-                        <a class="float-right mr-3 my-2 remove-decoration" id="searchBtn"><i class="fas fa-search"></i></a>
+                        <a class="float-right mr-3 my-2 remove-decoration" id="searchBtn"><span class="fas fa-search"></span></a>
                 </span>
             </div>
             <div class="inner-main-body p-2 p-sm-3 collapse forum-content show" id="main-contents-forum">

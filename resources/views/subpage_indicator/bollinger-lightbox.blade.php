@@ -19,16 +19,16 @@
                 <hr>
                 <div class="lower-body">
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Description</b></label>
+                        <label class="mx-left"><strong class="l-size">Description</strong></label>
                         <label class="mx-left">Bollinger Bands are a volatility indicator that is displayed as two lines (bands): one drawn above a simple moving average of the price and one - below. These bands move closer to the moving average when price volatility is low and move farther away from the moving average when price volatility increases.&ensp;<a href="{{route('learning-bollinger')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <br>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Parameters</b></label>
+                        <label class="mx-left"><strong class="l-size">Parameters</strong></label>
                         <label class="mx-left">Bollinger Bands parameters can be adjusted. The default parameters are: 20 periods for the simple moving average and 2 for the standard deviations (the distance between each band and the SMA). Increasing the number of periods - decreases the volatility of the SMA, and decreasing their number - increases the volatility of the SMA. Increasing the number of standard deviations moves the bands farther away from the SMA, and decreasing - moves the bands closer to the SMA. Bollinger Bands parameters are the period and the deviation.</label>
                     </div>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Function</b></label>
+                        <label class="mx-left"><strong class="l-size">Function</strong></label>
                         <label class="mx-left">Bollinger Bands are used to determine how volatile a stock is. Stocks move between levels of high and low volatility, and when the Bollinger bands grip a stock, it is a sign that the stock is consolidating and that a breakout is inevitable. When the Bollinger bands widen, it is a sign that the stock has burst out into a new trend.</label>
                     </div>
                 </div>

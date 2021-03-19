@@ -14,7 +14,7 @@
                 @if(count($result)>0)
                     @foreach($result as $result)
                         <div class="searched-result-div">
-                            <h4><b>{{$result['parent']}}</b> / <a href="{{route( $result['key'])}}"> {{$result['value']}}</a></h4>
+                            <h4><strong>{{$result['parent']}}</strong> / <a href="{{route( $result['key'])}}"> {{$result['value']}}</a></h4>
                             <p>{{$result['description']}}</p>
                         </div>
                     @endforeach
@@ -25,6 +25,6 @@
         </div>
     </div>
 </div>
-<a id="back-to-top" href="#" class="btn-light btn-lg back-to-top bg-secondary" role="button"><i class="fas fa-chevron-up text-white"></i></a>
+<a id="back-to-top" href="#" class="btn-light btn-lg back-to-top bg-secondary" role="button"><span class="fas fa-chevron-up text-white"></span></a>
 <script type="text/javascript" src="{{ URL::asset('js/elearning.js')}}"></script>   
 @stop

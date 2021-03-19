@@ -13,9 +13,9 @@
                 <h3 id="learning-title">Money Flow Index</h3>
                 <p>The Money Flow Index (MFI) is a technical oscillator that uses price and volume data for identifying overbought or oversold signals in an asset. It can also be used to spot divergences which warn of a trend change in price. The oscillator moves between 0 and 100.</p>
                 <p>Unlike conventional oscillators such as the Relative Strength Index (RSI), the Money Flow Index incorporates both price and volume data, as opposed to just price. For this reason, some analysts call MFI the volume-weighted RSI.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768997/E-Learning/MFI.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768997/E-Learning/MFI.png" class="img-padding" alt="mfi">
                 <h5>The Formulas for the Money Flow Index Are:</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768997/E-Learning/MFIFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768997/E-Learning/MFIFormula.png" class="img-padding" alt="mfi-formula">
                 <p>When the price advances from one period to the next Raw Money Flow is positive and it is added to Positive Money Flow. When Raw Money Flow is negative because the price dropped that period, it is added to Negative Money Flow.</p>
                 <h5>How to Calculate the Money Flow Index</h5>
                 <p>There are several steps for calculating the Money Flow Index. If doing it by hand, using a spreadsheet is recommended.</p>

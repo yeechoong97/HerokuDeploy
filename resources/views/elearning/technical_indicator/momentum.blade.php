@@ -16,14 +16,14 @@
                 <p>Since momentum can be quite powerful and indicate a strong trend, investors need to recognize when they're investing with or against the momentum of a stock or the overall market.</p>
                 <h5>Understanding Momentum</h5>
                 <p>Momentum measures the rate of the rise or fall in stock prices. For trending analysis, momentum is a useful indicator of strength or weakness in the issue's price. History has shown that momentum is far more useful during rising markets than falling markets because markets rise more often than they fall. In other words, bull markets tend to last longer than bear markets.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768453/E-Learning/Momentum.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768453/E-Learning/Momentum.png" class="img-padding" alt="momentum">
                 <p>Momentum is analogous to a train whereby the train slowly accelerates when it starts moving, but during the ride, the train stops accelerating. However, the train moves but at a higher velocity because all of the momentum built up from accelerating is propelling it forward. At the end of the ride, the train decelerates as it slows down.</p>
                 <p>In the markets, some investors might get in and buy a stock early while the price is beginning to accelerate higher, but once the fundamentals kick in and it's clear to market participants that the stock has upward potential, the price takes off. For momentum investors, the most profitable part of the ride is when prices are moving at a high velocity.</p>
                 <p>Of course, once the revenue and earnings are realized, the market usually adjusts its expectations and the price retraces or comes back down to reflect the financial performance of the company.</p>
                 <h5>Calculating Momentum</h5>
                 <p>There are many charting software programs and investing websites that can measure momentum for a stock so that investors don't have to calculate it anymore. However, it's important to understand what goes into those calculations to better understand what variables are used in determining a stock's momentum or trend.</p>
-                <p><b>The formula for momentum is: </b></p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768453/E-Learning/MomentumFormula.png" class="img-padding" >
+                <p><strong>The formula for momentum is: </strong></p>
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768453/E-Learning/MomentumFormula.png" class="img-padding" alt="momentum-formula">
                 <h5>Special Considerations</h5>
                 <p>When the momentum indicator slides below the zero line and then reverses in an upward direction, it doesn't necessarily mean that the downtrend is over. It merely means that the downtrend is slowing down. The same is true for the plotted momentum above the zero line. It may take a few moves above or below the zero line before a trend is established.</p>
                 <p>It's important to note that many factors drive momentum. Economic growth in the economy, earnings reports, and the Federal Reserve's monetary policy all impact companies and whether their stock prices rise or fall.</p>

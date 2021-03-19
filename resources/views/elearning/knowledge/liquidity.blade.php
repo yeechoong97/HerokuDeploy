@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1400px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Liquidity</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763179/E-Learning/Liquidity.jpg" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763179/E-Learning/Liquidity.jpg" class="img-padding" alt="liquidity">
                 <div class="img-citation">Image retrieved from <cite>Warren Venketas. (2019). The Importance of Liquidity in Forex Trading. https://www.dailyfx.com/education/why-trade-forex/the-importance-of-forex-liquidity.html</cite></div>
                 <h5>What is Liquidity</h5>
                 <p>Liquidity refers to how active a market is. It is determined by how many traders are actively trading and the total volume they’re trading. One reason the foreign exchange market is so liquid is because it is tradable 24 hours a day during weekdays. It is also a very deep market, with nearly $6 trillion turnover each day. Although liquidity fluctuates as financial centres around the world open and close throughout the day, there are usually relatively high volumes of forex trading going on all the time.</p>

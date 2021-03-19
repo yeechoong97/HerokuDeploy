@@ -12,9 +12,9 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Aroon</h3>
                 <p>The Aroon Oscillator is a trend-following indicator that uses aspects of the Aroon Indicator (Aroon Up and Aroon Down) to gauge the strength of a current trend and the likelihood that it will continue. Readings above zero indicate that an uptrend is present, while readings below zero indicate that a downtrend is present. Traders watch for zero line crossovers to signal potential trend changes. They also watch for big moves, above 50 or below -50 to signal strong price moves.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612769066/E-Learning/Aroon.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612769066/E-Learning/Aroon.png" class="img-padding" alt="aroon">
                 <h5>The Formula for the Aroon Oscillator is</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612769066/E-Learning/AroonFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612769066/E-Learning/AroonFormula.png" class="img-padding" alt="aroon-formula">
                 <h5>How to Calculate the Aroon Oscillator</h5>
                 <ol>
                     <li>Calculate Aroon Up by finding how many periods it has been since the last 25-period high. Subtract this from 25, then divide the result by 25. Multiply by 100.</li>

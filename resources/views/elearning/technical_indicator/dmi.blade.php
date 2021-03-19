@@ -14,7 +14,7 @@
                 <p>The Directional Movement Index, or DMI, is an indicator developed by J. Welles Wilder in 1978 that identifies in which direction the price of an asset is moving. The indicator does this by comparing prior highs and lows and drawing two lines: a positive directional movement line (+DI) and a negative directional movement line (-DI). An optional third line, called directional movement line (DX) shows relative the difference between the lines.</p>
                 <p>When +DI is above -DI, there is more upward pressure than downward pressure in the price. If -DI is above +DI, then there is more downward pressure in the price. This indicator may help traders assess the trend direction. Crossovers between the lines are also sometimes used as trade signals to buy or sell.</p>
                 <h5>The Formulas For the Directional Movement Index (DMI) Are:</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768525/E-Learning/DMIFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768525/E-Learning/DMIFormula.png" class="img-padding" alt="dmi-formula">
                 <h5>Calculating the Directional Movement Index (DMI)</h5>
                 <ol>
                     <li>Calculate +DM, -DM, and True Range (TR) for each period. Typically 14 periods are used.</li>
@@ -31,7 +31,7 @@
                 </ol>
                 <h5>What Does the Directional Movement Index (DMI) Tell You</h5>
                 <p>The DMI is primarily used to help assess trend direction and provide trade signals.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768525/E-Learning/DMI.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768525/E-Learning/DMI.png" class="img-padding" alt="dmi">
                 <p>Crossovers are the main trade signals. A long trade is taken when the +DI crosses above -DI and an uptrend could be underway. A sell signal occurs when the -DI drops below -DI. A short trade is initiated when -DI drops below +DI because a downtrend could be underway.</p>
                 <p>While this method may produce some good signals, it will also produce some bad ones since a trend may not necessarily develop after entry.</p>
                 <p>The indicator can also be used as a trend or trade confirmation tool. If the +DI is well above -DI, the trend has strength to the upside and this would help confirm current long trades or new long trade signals based on other entry methods. If -DI is well above +DI this confirms the strong downtrend or short positions.</p>

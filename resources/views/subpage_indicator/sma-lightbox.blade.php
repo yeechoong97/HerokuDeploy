@@ -17,16 +17,16 @@
                 <hr>
                 <div class="lower-body">
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Description</b></label>
+                        <label class="mx-left"><strong class="l-size">Description</strong></label>
                         <label class="mx-left">A Simple Moving Average is a trending indicator that is displayed as a single line that shows the mean price during a specified period of time. For example, a 20-day SMA shows the average stock price during the last 20 trading periods (including the current period).&ensp;<a href="{{route('learning-ma')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <br>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Parameters</b></label>
+                        <label class="mx-left"><strong class="l-size">Parameters</strong></label>
                         <label class="mx-left">SMA period parameter can be adjusted. The default parameter is 20 periods. Increasing the number of periods will decrease the volatility, and decreasing the number of periods will increase the volatility.</label>
                     </div>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Usage</b></label>
+                        <label class="mx-left"><strong class="l-size">Usage</strong></label>
                         <label class="mx-left">Simple Moving Averages are used by traders to detect the trend of the stock and to identify possible levels of support and resistance. If the Simple Moving Average is trending higher and the price is above it, the stock is considered to be in an uptrend, in other case - if it is trending lower and the price is below it, the stock is considered to be in a downtrend. Also, when the price is above an uptrending SMA line, the Simple Moving Average can act as a possible support level. In the same way, when the price below a downtrending SMA line - the Simple Moving Average can act as a possible resistance level.</label>
                     </div>
                 </div>

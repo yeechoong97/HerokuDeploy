@@ -11,21 +11,21 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2100px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Technical Analysis Introduction</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767022/E-Learning/Technical.jpg" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767022/E-Learning/Technical.jpg" class="img-padding" alt="technical">
                 <div class="img-citation">Image retrieved from <cite>Bestbrokerindia. (2019). Fundamentals of Technical Analysis. https://bestbrokerindia.com/blog/fundamentals-of-technical-analysis/</cite></div>
                 <p>Technical analysis is the study of historical price action in order to identify patterns and determine probabilities of future movements in the market through the use of technical studies, indicators, and other analysis tools.</p>
                 <p>Technical analysis boils down to two things:</p>
                 <ol>
-                    <li><b>Identifying trend</b></li>
-                    <li><b>Identifying support/resistance through the use of price charts and/or timeframes</b></li>
+                    <li><strong>Identifying trend</strong></li>
+                    <li><strong>Identifying support/resistance through the use of price charts and/or timeframes</strong></li>
                 </ol>
                 <p>Markets can only do three things: move up, down, or sideways.</p>
                 <p>Prices typically move in a zigzag fashion, and as a result, price action has only two states:</p>
                 <ul>
-                    <li><b>Range</b> - when prices zigzag sideways</li>
-                    <li><b>Trend</b> - prices either zigzag higher (up trend, or bull trend), or prices zigzag lower (down trend, or bear trend)</li>
+                    <li><strong>Range</strong> - when prices zigzag sideways</li>
+                    <li><strong>Trend</strong> - prices either zigzag higher (up trend, or bull trend), or prices zigzag lower (down trend, or bear trend)</li>
                 </ul>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767032/E-Learning/TechnicalAnalysisChart.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767032/E-Learning/TechnicalAnalysisChart.png" class="img-padding" alt="technical-analysis-chart">
                 <h5>Why is Technical Analysis Important</h5>
                 <p>Technical analysis of a market can help you determine not only when and where to enter a market, but much more importantly, when and where to get out.</p>
                 <h5>How can you use technical analysis</h5>

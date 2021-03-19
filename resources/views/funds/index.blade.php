@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="funds-container mx-auto">
-    <div class="main-funds-header">Account Details  &ensp;<i class="far fa-question-circle" onclick="toggleFundsIntro()"></i></div>
+    <div class="main-funds-header">Account Details  &ensp;<span class="far fa-question-circle" onclick="toggleFundsIntro()"></span></div>
         <div class="funds-subcontainer">
             <div class="funds-left-div px-3">
                 <div class="form-group1 mx-auto" id="name-intro">

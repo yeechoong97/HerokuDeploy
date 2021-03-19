@@ -19,15 +19,15 @@
                 <hr>
                 <div class="lower-body">
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Description</b></label>
+                        <label class="mx-left"><strong class="l-size">Description</strong></label>
                         <label class="mx-left">The Relative Strength Index (RSI) oscillator is a momentum indicator that consists of one line that moves in a range between 0 and 100.&ensp;<a href="{{route('learning-rsi')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Parameters</b></label>
+                        <label class="mx-left"><strong class="l-size">Parameters</strong></label>
                         <label class="mx-left">The RSI parameters are adjustable. The default parameter is 14 periods for the time frame. Increasing the number of periods for the time frame decreases the volatility of the RSI, and decreasing the number of periods for the time frame decreases it.</label>
                     </div>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Function</b></label>
+                        <label class="mx-left"><strong class="l-size">Function</strong></label>
                         <label class="mx-left">The RSI oscillator is used to determine is there bullish or bearish momentum behind a stock. The RSI line moving higher shows bullish momentum, and the RSI line moving lower shows bearish momentum. Also, the RSI line above 70 shows the market may be overbought, and the RSI line below 30 - the market may be oversold.</label>
                     </div>
                 </div>

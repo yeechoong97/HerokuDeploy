@@ -4,18 +4,18 @@
             {{ method_field('POST') }}
             {{ csrf_field() }}
             <input type="text" id="search-text" name="search" class="form-control col-md-15" placeholder="Search">
-            <a class="search-btn"><i class="fas fa-search" onclick="document.getElementById('searchForm').submit();"></i></a>
+            <a class="search-btn"><span class="fas fa-search" onclick="document.getElementById('searchForm').submit();"></span></a>
         </form>
     </div>
     <div class="sidenav-menu">
-        <a class="dropdown-btn" href="#">Forex Introduction <i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">Forex Introduction <span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
             <a href="{{route('learning-intro')}}">Introduction to Forex Market</a>
             <a href="{{route('learning-trader')}}">Forex Trader Types</a>
             <a href="{{route('learning-stock')}}">Forex Vs Stock</a>
             <a href="{{route('learning-benefit')}}">Forex Benefits</a>
             </div>
-        <a class="dropdown-btn" href="#">FOREX Knowledge<i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">FOREX Knowledge<span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
                 <a href="{{route('learning-currency')}}">Currency Pair</a>
                 <a href="{{route('learning-leverage')}}">Leverage & Margin</a>
@@ -28,13 +28,13 @@
                 <a href="{{route('learning-trade')}}">How To Trade</a>
                 <a href="{{route('learning-mistake')}}">Common Trading Mistakes</a>
             </div>
-        <a class="dropdown-btn" href="#">FOREX Order<i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">FOREX Order<span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
                 <a href="{{route('learning-long-short')}}">Long Position vs Short Position</a>
                 <a href="{{route('learning-bullish-bearish')}}">Bearish & Bullish</a>
                 <a href="{{route('learning-types')}}">Order Types</a>
             </div>
-        <a class="dropdown-btn" href="#">Candlestick Patterns<i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">Candlestick Patterns<span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
                 <a href="{{route('learning-candlestick')}}">Candlestick Introduction</a>
                 <a href="{{route('learning-bearish-engulfing')}}">Bearish Engulfing</a>
@@ -47,7 +47,7 @@
                 <a href="{{route('learning-three-white-soldiers')}}">Three White Soldiers</a>
                 <a href="{{route('learning-three-black-crows')}}">Three Black Crows</a>
             </div>
-        <a class="dropdown-btn" href="#">Chart Patterns<i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">Chart Patterns<span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
                 <a href="{{route('learning-chart-intro')}}">Chart Patterns Introduction</a>
                 <a href="{{route('learning-cup-and-handle')}}">Cup And Handle</a>
@@ -59,11 +59,11 @@
                 <a href="{{route('learning-triangle')}}">Triangle</a>
                 <a href="{{route('learning-triple-top-bottom')}}">Triple Top & Triple Bottom</a>
             </div>
-        <a class="dropdown-btn" href="#">Fundamental Analysis<i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">Fundamental Analysis<span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
                 <a href="{{route('learning-fundamental')}}">Fundamental Analysis Introduction</a>
             </div>
-        <a class="dropdown-btn" href="#">Technical Analysis<i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">Technical Analysis<span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
                 <a href="{{route('learning-technical-intro')}}">Technical Analysis Introduction</a>
                 <a href="{{route('learning-breakout')}}">Breakout</a>
@@ -73,7 +73,7 @@
                 <a href="{{route('learning-trend')}}">Trend</a>
                 <a href="{{route('learning-volume')}}">Volumes</a>
             </div>
-        <a class="dropdown-btn" href="#">Technical Indicators<i class="fas fa-plus"></i></a>
+        <a class="dropdown-btn" href="#">Technical Indicators<span class="fas fa-plus"></span></a>
             <div class="dropdown-container">
                 <a href="{{route('learning-indicator-intro')}}">Technical Indicator Introduction</a>
                 <a href="{{route('learning-adl')}}">Accumulation Distribution Line</a>
@@ -95,4 +95,4 @@
             </div>
     </div>
 </div>
-<a id="back-to-top" href="#" class="btn-light btn-lg back-to-top bg-secondary" role="button"><i class="fas fa-chevron-up text-white"></i></a>
+<a id="back-to-top" href="#" class="btn-light btn-lg back-to-top bg-secondary" role="button"><span class="fas fa-chevron-up text-white"></span></a>

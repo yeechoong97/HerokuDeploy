@@ -16,12 +16,12 @@
                 <p>The flag or pennant is considered to be flying at half-mast, as the distance of the initial price movement is thought to be roughly equal to the proceeding price move. The reason these patterns form is that after a large price movement, the market consolidates, or pauses, before resuming the initial trend.</p>
                 <h5>The Flag</h5>
                 <p>The flag pattern forms what looks like a rectangle. The rectangle is formed by two parallel trendlines that act as support and resistance for the price until the price breaks out. In general, the flag will not be perfectly flat but will have its trendlines sloping.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766605/E-Learning/Flag.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766605/E-Learning/Flag.png" class="img-padding" alt="flag">
                 <p>In general, the slope of the flag should move in the opposite direction of the initial sharp price movement; so if the initial movement were up, the flag should be downward sloping.</p>
                 <p>The buy or sell signal is formed once the price breaks through the support or resistance level, with the trend continuing in the prior direction. This breakthrough should be on heavier volume to improve the signal of the chart pattern.</p>
                 <h5>The Pennant</h5>
                 <p>The pennant forms what looks like a symmetrical triangle, where the support and resistance trendlines converge towards each other. The pennant pattern does not need to follow the same rules found in triangles, where they should test each support or resistance line several times. Also, the direction of the pennant is not as important as it is in the flag; however, the pennant is generally flat.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766605/E-Learning/Pennant.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766605/E-Learning/Pennant.png" class="img-padding" alt="pennant">
                 <h5>General Ideas</h5>
                 <p>While the construct of the pause in the trend is different for the flag and pennant, the attributes of the chart patterns themselves are similar. It is vital that the price movement prior to the flag or pennant be a strong, sharp move.</p>
                 <p>Typically, these patterns take less time to form during downtrends than in uptrends. In terms of pattern length, they are generally short-term patterns lasting one to three weeks, but can be formed over longer periods.</p>

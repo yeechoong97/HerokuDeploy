@@ -14,17 +14,17 @@
                 <h5>What is Slippage</h5>
                 <p>Slippage can be a common occurrence in forex trading but is often misunderstood. Understanding how forex slippage occurs can enable a trader to minimize negative slippage, while potentially maximizing positive slippage. These concepts will be explored in this article to shed some light on the mechanics of slippage in forex, as well as how traders can mitigate its adverse effects.</p>
                 <p>Slippage occurs when a trade order is filled at a price that is different to the requested price. This normally transpires during high periods of volatility as well as periods whereby orders cannot be matched at desired prices.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767329/E-Learning/Slippage.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767329/E-Learning/Slippage.png" class="img-padding" alt="slippage">
                 <div class="img-citation">Image retrieved from <cite>Forex.com. (2021e). What is Slippage? Slippage in Forex Explained. https://www.dailyfx.com/education/forex-trading-basics/what-is-slippage.html</cite></div>
                 <p>Slippage in forex tends to be seen in a negative light, however this normal market occurrence can be a good thing for traders. When forex trading orders are sent out to be filled by a liquidity provider or bank, they are filled at the best available price whether the fill price is above or below the price requested.</p>
                 <p>To put this concept into a numerical example, let’s say we attempt to buy the EUR/USD at the current market rate of 1.3650. When the order is filled, there are three potential outcomes: no slippage, positive slippage or negative slippage. These are explored in more depth below.</p>
                 <h5>Examples of Forex Slippage</h5>
                 <ul>
-                    <li><b>No Slippage</b></li>
+                    <li><strong>No Slippage</strong></li>
                     The order is submitted, and the best available buy price being offered is 1.3650 (exactly what we requested), the order is then filled at 1.3650.
-                    <li><b>Positive Slippage</b></li>
+                    <li><strong>Positive Slippage</strong></li>
                     The order is submitted, and the best available buy price being offered suddenly changes to 1.3640 (10 pips below our requested price), the order is then filled at this better price of 1.3640.
-                    <li><b>Negative Slippage</b></li>
+                    <li><strong>Negative Slippage</strong></li>
                     The order is submitted, and the best available buy price being offered suddenly changes to 1.3660 (10 pips above our requested price), the order is then filled at this price of 1.3660.
                 </ul>
                 <p>Anytime we are filled at a price different to the price requested on the deal ticket, it is called slippage.</p>

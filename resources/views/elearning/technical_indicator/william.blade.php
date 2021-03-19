@@ -12,9 +12,9 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">William %R</h3>
                 <p>Williams %R, also known as the Williams Percent Range, is a type of momentum indicator that moves between 0 and -100 and measures overbought and oversold levels. The Williams %R may be used to find entry and exit points in the market. The indicator is very similar to the Stochastic oscillator and is used in the same way. It was developed by Larry Williams and it compares a stock’s closing price to the high-low range over a specific period, typically 14 days or periods.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768728/E-Learning/William.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768728/E-Learning/William.png" class="img-padding" alt="william">
                 <h5>The Formula for the Williams %R is :</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768728/E-Learning/WilliamFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768728/E-Learning/WilliamFormula.png" class="img-padding" alt="william-formula">
                 <h5>How to Calculate the Williams %R</h5>
                 <p>The Williams %R is calculated based on price, typically over the last 14 periods.</p>
                 <ol>

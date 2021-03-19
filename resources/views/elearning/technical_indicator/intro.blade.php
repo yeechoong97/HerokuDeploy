@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1800px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Technical Indicator Introduction</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767596/E-Learning/IndicatorTypes.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767596/E-Learning/IndicatorTypes.png" class="img-padding" alt="indicator-types">
                 <div class="img-citation">Image retrieved from <cite>Stockstotrade. (2017). Types of Technical Indicators. https://stockstotrade.com/types-technical-indicators-infographic/</cite></div>
                 <p>Technical indicators are heuristic or pattern-based signals produced by the price, volume, and/or open interest of a security or contract used by traders who follow technical analysis.</p>
                 <p>By analyzing historical data, technical analysts use indicators to predict future price movements. Examples of common technical indicators include the Relative Strength Index, Money Flow Index, Stochastics, MACD and Bollinger Bands</p>
@@ -21,9 +21,9 @@
                 <p>Technical indicators, also known as "technicals," are focused on historical trading data, such as price, volume, and open interest, rather than the fundamentals of a business, like earnings, revenue, or profit margins. Technical indicators are commonly used by active traders, since they're designed to analyze short-term price movements, but long-term investors may also use technical indicators to identify entry and exit points.</p>
                 <h5>Types of Indicators</h5>
                 <ol>
-                    <li><b>Overlays</b></li>
+                    <li><strong>Overlays</strong></li>
                     Technical indicators that use the same scale as prices are plotted over the top of the prices on a stock chart. Examples include moving averages and Bollinger Bands.
-                    <li><b>Oscillators</b></li>
+                    <li><strong>Oscillators</strong></li>
                     Technical indicators that oscillate between a local minimum and maximum are plotted above or below a price chart. Examples include the stochastic oscillator, MACD or RSI.
                 </ol>
                 <p>Traders often use many different technical indicators when analyzing a security. With thousands of different options, traders must choose the indicators that work best for them and familiarize themselves with how they work. Traders may also combine technical indicators with more subjective forms of technical analysis, such as looking at chart patterns, to come up with trade ideas. Technical indicators can also be incorporated into automated trading systems given their quantitative nature.</p>

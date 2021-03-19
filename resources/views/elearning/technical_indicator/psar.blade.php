@@ -15,7 +15,7 @@
                 <p>The parabolic SAR indicator appears on a chart as a series of dots, either above or below an asset's price, depending on the direction the price is moving. A dot is placed below the price when it is trending upward, and above the price when it is trending downward.</p>
                 <h5>The Formula for the Parabolic SAR Indicator is :</h5>
                 <p>A rising PSAR has a slightly different formula than a falling PSAR.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768802/E-Learning/PSARFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768802/E-Learning/PSARFormula.png" class="img-padding" alt="psar-formula">
                 <h5>How to Calculate the Parabolic SAR Indicator</h5>
                 <p>There are lots of things to track when using the parabolic stop and reverse indicator. One thing to constantly keep in mind is that if the SAR is initially rising, and the price has a close below the rising SAR value, then the trend is now down and the falling SAR formula will be used. If the price rises above the falling SAR value, then switch to the rising formula.</p>
                 <ol>
@@ -24,7 +24,7 @@
                     <li>Use an AF of 0.02 initially, and increase by 0.02 for each new extreme high (rising) or low (falling). The maximum AF value is 0.2.</li>
                     <li>Ideally, utilize a spreadsheet where the high and low price, SAR, EP, and AF can be tracked on a period-by-period basis.</li>
                 </ol>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768802/E-Learning/PSAR.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612768802/E-Learning/PSAR.png" class="img-padding" alt="psar">
                 <h5>What Does the Parabolic Stop and Reverse (SAR) Tell You?</h5>
                 <p>The parabolic indicator generates buy or sell signals when the position of the dots moves from one side of the asset's price to the other. For example, a buy signal occurs when the dots move from above the price to below the price, while a sell signal occurs when the dots move from below the price to above the price.</p>
                 <p>Traders also use the PSAR dots to set trailing stop loss orders. For example, if the price is rising, and the PSAR is also rising, the PSAR can be used as a possible exit if long. If the price drops below the PSAR, exit the long trade.</p>

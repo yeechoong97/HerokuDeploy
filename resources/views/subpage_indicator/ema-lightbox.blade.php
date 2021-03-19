@@ -16,15 +16,15 @@
                 <hr>
                 <div class="lower-body">
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Description</b></label>
+                        <label class="mx-left"><strong class="l-size">Description</strong></label>
                         <label class="mx-left">An Exponential Moving Average is a trending indicator - a single line that shows the weighted mean of the stock price during a specified period of time. This type of moving average that is similar to a Simple Moving Average, except that more weight is given to the latest data.&ensp;<a href="{{route('learning-ma')}}" target="_blank" rel="noopener">Learn More</a></label>
                     </div>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Parameters</b></label>
+                        <label class="mx-left"><strong class="l-size">Parameters</strong></label>
                         <label class="mx-left">EMA period parameter can be adjusted. The default parameter is 20 periods. Increasing the number of periods will decrease the volatility, and decreasing the number of periods will increase the volatility.EMA indicator has only one parameter: the period.</label>
                     </div>
                     <div class="description-series">
-                        <label class="mx-left"><b class="l-size">Function</b></label>
+                        <label class="mx-left"><strong class="l-size">Function</strong></label>
                         <label class="mx-left">Exponential Moving Averages are used by traders to detect the trend of the stock and to identify possible levels of support and resistance. If the Exponential Moving Average is trending higher and the price is above it, the stock is considered to be in an uptrend, in other case - if it is trending lower and the price is below it, the stock is considered to be in a downtrend. Also, when the price is above an uptrending EMA line, the Exponential Moving Average can act as a possible support level. In the same way, when the price below a downtrending EMA line - the Exponential Moving Average can act as a possible resistance level.</label>
                     </div>
                 </div>

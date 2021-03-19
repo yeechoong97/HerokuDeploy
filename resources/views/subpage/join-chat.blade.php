@@ -12,12 +12,6 @@
 <!-- <script src="https://chatnodejs-8msfb.ondigitalocean.app/socket.io/socket.io.js"></script> -->
 <script src="https://evening-lowlands-70291.herokuapp.com/socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-<!-- <link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-rtl.css" rel="stylesheet">
-<link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-rtl.min.css" rel="stylesheet">
-<link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs.css" rel="stylesheet">
-<link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs.min.css" rel="stylesheet">
-<script src="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/intro.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/intro.min.js"></script>  -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs-rtl.css" integrity="sha512-3eskNfJHA0L8y9EWaHqgxCJ+A3geYz7sWgr9YZ9Tp7oFtquhPbeM+TawucTX8Ze8/Z67rwTEbUe1EzoOE3SnyA==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs-rtl.min.css" integrity="sha512-CBhAm6vyK8E1WXomkztwQZ4Lq9mHE1PjWWXOICo5S5/deArabmCDoytC4+on0xxMdGhWJHBRTQdozFwZb9saYw==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs.css" integrity="sha512-i+WzzATeaDcwcfi5CfLn63qBxrKqiQvDLC+IChU1zVlaPguPgJlddOR07nU28XOoIOno9WPmJ+3ccUInpmHxBg==" crossorigin="anonymous" />
@@ -25,11 +19,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/intro.min.js" integrity="sha512-iOr/b/615LMvxO8c+OWeMYfM5+KL/1gvjRtR8XIParS70gXVARiaRJWZN435d24F+RTPs9RVI1usPtLIfgtzGw==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/intro.js" integrity="sha512-3FU3wmuqkdVSlkbilARthlThrcm55nEaOO1QPUq+4n/lM8dfbEEspyk4RWs5ETf0Q7CiEVc3dtts7q4NLY2ulg==" crossorigin="anonymous"></script>
 
-
 <div id ="chat-enter" class="lightbox py-5">
             <div class="modal-content modal adjusted-chat-height my-5 mx-auto">
                 <div class="modal-header">
-                    <div class="modal-title mx-auto"><b>Chat</b></div>
+                    <div class="modal-title mx-auto"><strong>Chat</strong></div>
                 </div>
                 <div class="modal-body remove-padding">
                     <div class="form-group1 mx-auto">

@@ -12,7 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Hammer</h3>
                 <p>A hammer is a price pattern in candlestick charting that occurs when a security trades significantly lower than its opening, but rallies within the period to close near opening price. This pattern forms a hammer-shaped candlestick, in which the lower shadow is at least twice the size of the real body. The body of the candlestick represents the difference between the open and closing prices, while the shadow shows the high and low prices for the period.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765570/E-Learning/Hammer.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765570/E-Learning/Hammer.png" class="img-padding" alt="hammer" >
                 <h5>What Does the Hammer Tell You</h5>
                 <p>A hammer occurs after a security has been declining, suggesting the market is attempting to determine a bottom.</p>
                 <p>Hammers signal a potential capitulation by sellers to form a bottom, accompanied by a price rise to indicate a potential reversal in price direction. This happens all during the one period, where the price falls after the open but then regroups to close near the open.</p>

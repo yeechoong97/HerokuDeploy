@@ -11,7 +11,7 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 2200px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Fundamental Analysis Introduction</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766943/E-Learning/Fundamental.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612766943/E-Learning/Fundamental.png" class="img-padding" alt="fundamental-analysis">
                 <div class="img-citation">Image retrieved from <cite>Bearmac. (2020). A Guide to Fundamental Analysis of Cryptocurrencies. https://www.thecryptovault.net/a-guide-to-fundamental-analysis-of-cryptocurrencies/</cite></div>
                 <p>Fundamental Analysis is a broad term that describes the act of trading based purely on global aspects that influence supply and demand of currencies, commodities, and equities. Many traders will use both fundamental and technical methods to determine when and where to place trades, but they also tend to favor one over the other. However, if you would like to use only fundamental analysis, there are a variety of sources to base your opinion.</p>
                 <h5>Central Banks</h5>

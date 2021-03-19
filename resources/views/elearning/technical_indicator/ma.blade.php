@@ -13,7 +13,7 @@
                 <h3 id="learning-title">Moving Average</h3>
                 <p>In technical analysis, the moving average is an indicator used to represent the average closing price of the market over a specified period of time. Traders often make use of moving averages as it can be a good indication of current market momentum.</p>
                 <p>The two most commonly used moving averages are the simple moving average (SMA) and the exponential moving average (EMA). The difference between these moving averages is that the simple moving average does not give any weighting to the averages in the data set whereas the exponential moving average will give more weighting to current prices.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767792/E-Learning/SMA.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767792/E-Learning/SMA.png" class="img-padding" alt="sma">
                 <h5>How Do You Calculate Moving Average?</h5>
                 <p>As explained above, the most common moving averages are the simple moving average (SMA) and the exponential moving average (EMA). Almost all charting packages will have a moving average as a technical indicator.</p>
                 <p>The simple moving average is simply the average of all the data points in the series divided by the number of points.</p>
@@ -21,11 +21,11 @@
                 <p>The EMA was developed to correct this problem as it will give more weighting to the most recent prices. This makes the EMA more sensitive to the current trends in the market and is useful when determining trend direction.</p>
                 <p>The mathematic formula for each can be found below:</p>
                 <h5>Simple Moving Average</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767792/E-Learning/SMAFormula.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767792/E-Learning/SMAFormula.png" class="img-padding" alt="sma-formula">
                 <p>For example, looking at a 5-day SMA on a daily chart of EUR/USD and the closing prices over the 5 days are as follows:</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767792/E-Learning/SMACalculation.png" class="img-padding" > 
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767792/E-Learning/SMACalculation.png" class="img-padding" alt="sma-calculation"> 
                 <h5>Exponential Moving Average</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767791/E-Learning/EMAFormula.png" class="img-padding" > 
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767791/E-Learning/EMAFormula.png" class="img-padding" alt="ema-formula"> 
                 <p>Steps for calculating EMA: </p>
                 <ol>
                     <li>Calculate the SMA for the particular time period</li>
@@ -39,16 +39,16 @@
                 <h5>How Do You Interpret Moving Averages</h5>
                 <p>There are 3 ways in which trader's use the moving average</p>
                 <ol>
-                    <li><b>To determine the direction of the trend</b></li>
+                    <li><strong>To determine the direction of the trend</strong></li>
                     When prices are trending higher, the moving average will adjust by also moving higher to reflect the increasing prices. This could be interpreted as a bullish signal, where traders may prefer buying opportunities.
                     <br><br>
                     The opposite would be true if the price was consistently trading below the moving average indicator, where traders would then prefer selling opportunities due to the market signaling a downward trend.
-                    <li><b>To determine support and resitance levels</b></li>
+                    <li><strong>To determine support and resitance levels</strong></li>
                     The moving average can be used to determine support and resistance levels once a trader has placed a trade.
                     <br><br>
                     If the trader sees the moving average trending higher, they may enter the market on a retest of the moving average. Likewise, if the trader is already long in an uptrend market, then the moving average can be used as a stop loss level. The opposite is true for down trends. The charts below are examples of how the moving average can be used as a both a support and a resistance level.
-                    <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767791/E-Learning/SupportResistance.png" class="img-padding" > 
-                    <li><b>Using multiple oving averages for long-term and short-term market trends</b></li>
+                    <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612767791/E-Learning/SupportResistance.png" class="img-padding" alt="support-resistance"> 
+                    <li><strong>Using multiple oving averages for long-term and short-term market trends</strong></li>
                     It is common for traders to make use of multiple moving average indicators on a single chart, as depicted in the chart below. This allows traders to simultaneously assess the short and long-term trends in the market. As price crosses above or below these plotted levels on the graph it can be interpreted as either strength or weakness for a specific currency pair.This method of using more than one indicator can be extremely useful in trending markets and is similar to using the MACD oscillator.
                     <br><br>
                     When making use of multiple moving averages, many traders will look to see when the lines will cross. This phenomenon is referred to as ‘The Golden Cross’ when a bullish pattern is formed and ‘The Death Cross’ when the pattern is bearish.

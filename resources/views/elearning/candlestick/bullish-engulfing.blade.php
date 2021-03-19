@@ -14,7 +14,7 @@
                 <p>A bullish engulfing pattern is a white candlestick that closes higher than the previous day's opening after opening lower than the previous day's close. It can be identified when a small black candlestick, showing a bearish trend, is followed the next day by a large white candlestick, showing a bullish trend, the body of which completely overlaps or engulfs the body of the previous day’s candlestick.</p>
                 <p>A bullish engulfing pattern may be contrasted with a bearish engulfing pattern.</p>
                 <h5>Understanding a Bullish Engulfing Pattern</h5>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765907/E-Learning/BullishEngulfing.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765907/E-Learning/BullishEngulfing.png" class="img-padding" alt="bullish-engulfing">
                 <p>The bullish engulfing pattern is a two-candle reversal pattern. The second candle completely ‘engulfs’ the real body of the first one, without regard to the length of the tail shadows.</p>
                 <p>This pattern appears in a downtrend and is a combination of one dark candle followed by a larger hollow candle. On the second day of the pattern, the price opens lower than the previous low, yet buying pressure pushes the price up to a higher level than the previous high, culminating in an obvious win for the buyers.</p>
                 <h5>What Does a Bullish Engulfing Pattern Tell You</h5>

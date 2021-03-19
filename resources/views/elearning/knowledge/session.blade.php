@@ -11,19 +11,19 @@
         <div class="col-md-6 col-xl-10 offset-xl-0 sidenav-con" style="height: 1800px;">
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Trading Session</h3>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763300/E-Learning/Session.png" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612763300/E-Learning/Session.png" class="img-padding" alt="session">
                 <div class="img-citation">Image retrieved from <cite>Venketas, W. (2019). Major Forex Trading Sessions from Around the World. https://www.dailyfx.com/education/why-trade-forex/major-forex-trading-sessions.html</cite></div>
                 <p>There are three major forex trading sessions which comprise the 24-hour market: the London session, the US session and the Asian session. Each major geographic market center can exhibit vastly unique traits and tendencies that can allow traders to effectively execute strategies at any time.</p>
                 <p>Although the forex market is the most liquid of all asset classes, there are periods whereby volatility is constant, and others subdued. Understanding these different forex session times can improve the reliability of a forex trading strategy.</p>
                 <h5>Main Trading Sessions</h5>
                 <p>Customarily, the forex market is divided into three market sessions:</p>
                 <ul>
-                    <li><b>Asian session (Tokyo)</b></li>
-                    <li><b>European session (London)</b></li>
-                    <li><b>US session (New York)</b></li>
+                    <li><strong>Asian session (Tokyo)</strong></li>
+                    <li><strong>European session (London)</strong></li>
+                    <li><strong>US session (New York)</strong></li>
                 </ul>
                 <p>The forex market is seen as highly functional/dynamic during these trading sessions as major banks, institutions and retail traders are operational. Noting the specific times of each trading session will assist forex traders in developing their trading strategies around this data.</p>
-                <table class="table col-md-7 table-bordered table-striped">
+                <table class="table col-md-7 table-bordered table-striped" aria-label="ForexSession">
                     <thead>
                         <tr>
                         <th scope="col">Session</th>

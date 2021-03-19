@@ -41,9 +41,9 @@ use App\Common;
                 <input type="hidden" id="hidden_upper_indicator" value=""/>
                 <input type="hidden" id="hidden_lower_indicator" value="" />
                 <button class="form-control col-md-1 reset-btn" onclick="resetChart()">Reset</button>
-                <button class="form-control" name="remove-annotation" style="width:40px" id="remove-annotation-intro" onclick="removeSelectedAnnotation()"><i class="fas fa-trash-alt"></i></button>
+                <button class="form-control" name="remove-annotation" style="width:40px" id="remove-annotation-intro" onclick="removeSelectedAnnotation()"><span class="fas fa-trash-alt"></span></button>
                 <div class="question-btn" id="chart-tips-intro">
-                    <i class="far fa-question-circle text-info" onclick="showChartTips()"></i>
+                    <span class="far fa-question-circle text-info" onclick="showChartTips()"></span>
                 </div>
 
                 <div class="f_control col-md-1 spread_order_button">
@@ -74,10 +74,10 @@ use App\Common;
             <div class="row account">
                 <div class="mx-auto bg-white rounded shadow customization">
                     <div class="table-responsive account-table" id="account_table">
-                        <table class="table" >
+                        <table class="table" aria-label="account-table">
                             <thead>
                                 <tr>
-                                    <th colspan="2" class="col" >Account Details &ensp;<i class="far fa-question-circle" onclick="showAccountTips()"></i></th>
+                                    <th colspan="2" class="col" scope="col">Account Details &ensp;<span class="far fa-question-circle" onclick="showAccountTips()"></span></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -115,7 +115,7 @@ use App\Common;
             <div class="row order">
                 <div class="mx-auto bg-white rounded shadow order-customization">
                     <div class="order-table table-responsive" id="table_all_orders">
-                        <table class="table-fixed table" id="all_orders">
+                        <table class="table-fixed table" id="all_orders" aria-label="all-orders">
                             <thead>
                             <tr>
                                 <th class="col1" id="ticket-intro">TicketID</th>
@@ -129,7 +129,7 @@ use App\Common;
                                 <th class="col1" id="profit-usd-intro">Profit (USD)</th>
                                 <th class="col2" id="profit-spread-intro">Profit (Spread)</th>
                                 <th class="col1" id="profit-intro">Profit (%)</th>
-                                <th class="col1" id="action-intro">Action <i class="far fa-question-circle" onclick="showOrderTips()"></i></th>
+                                <th class="col1" id="action-intro">Action <span class="far fa-question-circle" onclick="showOrderTips()"></span></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -158,7 +158,7 @@ use App\Common;
         <div class="col-md-6 col-xl-2 offset-xl-0 price-section">
             <div class="price-container bg-white rounded shadow mx-auto">
                 <div class="header">
-                    <h6>Rates &ensp;<i class="far fa-question-circle" onclick="showRateTips()"></i></h6>
+                    <h6>Rates &ensp;<span class="far fa-question-circle" onclick="showRateTips()"></span></h6>
                 </div>
                 <div class="price mx-auto" >
                     <div class="rates rate-active" id="EUR_USD_div">

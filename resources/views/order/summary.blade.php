@@ -8,7 +8,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <body style="overflow:hidden">
 <div class="funds-container mx-auto">
-    <div class="main-funds-header">Trading Summary &ensp;<i class="far fa-question-circle" onclick="toggleSummaryIntro()"></i></div>
+    <div class="main-funds-header">Trading Summary &ensp;<span class="far fa-question-circle" onclick="toggleSummaryIntro()"></span></div>
         <div class="funds-subcontainer">               
             <div class="my-3 px-5 float-left" style="width:50%">
                 <div class="form-group" id="select_month_intro">
@@ -40,12 +40,12 @@
                 </div>
             </div>
             <div class="my-4 px-5 text-center table-responsive float-right" style="width:50%">
-                <table class="table col-md-15 table-bordered" id="summary-table">
+                <table class="table col-md-15 table-bordered" id="summary-table" aria-label="summary-table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Instrument</th>
-                            <th>Profit ($)</th>
-                            <th>Loss ($)</th>
+                            <th scope="col">Instrument</th>
+                            <th scope="col">Profit ($)</th>
+                            <th scope="col">Loss ($)</th>
                         </tr>
                     </thead>
                     <tbody>

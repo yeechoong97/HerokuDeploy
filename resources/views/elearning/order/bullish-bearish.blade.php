@@ -12,7 +12,7 @@
             <div class="sidenav-content-details">
                 <h3 id="learning-title">Bearish & Bullish</h3>
                 <p>Simply put, a bear market is one in which prices are heading down and a bull market is used to describe conditions in which prices are rising.</p>
-                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765102/E-Learning/BullishBearish.jpg" class="img-padding" >
+                <img src ="https://res.cloudinary.com/fyp202105/image/upload/v1612765102/E-Learning/BullishBearish.jpg" class="img-padding" alt="bullish-bearish">
                 <div class="img-citation">Image retrieved from <cite>Sather, A. (2019). Real Data Shows What the Best Times to Be Bullish and Bearish Have Been. https://einvestingforbeginners.com/bullish-vs-bearish-stock-market-data/</cite></div>
                 <h5>What Happens in a Bull Market?</h5>
                 <p>When the bulls reign in the market, people are looking to invest money; confidence is high and the acceptance of risk generally goes up.</p>

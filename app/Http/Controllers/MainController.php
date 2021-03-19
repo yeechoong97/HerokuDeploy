@@ -268,7 +268,6 @@ class MainController extends Controller
                 {
                     $usedMargin += $order->margin;
                 }
-                $account->balance = $account->balance ;
                 $account->margin = $account->margin - $marginComputed;
                 $account->margin_used = $usedMargin/($account->margin + $usedMargin)*100;
                 $account->save();

@@ -24,15 +24,15 @@
             <hr>
             <div class="lower-body">
                 <div class="description-series">
-                    <label class="mx-left"><b class="l-size">Description</b></label>
+                    <label class="mx-left"><strong class="l-size">Description</strong></label>
                     <label class="mx-left">The Moving Average Convergence/Divergence (MACD) is a momentum indicator that consists of two lines - an indicator line and a signal line. The indicator line displays the difference between two exponential moving averages with different smoothing factors, and the signal line displays an exponential moving average of the difference between mentioned two exponential moving averages.&ensp;<a href="{{route('learning-macd')}}" target="_blank" rel="noopener">Learn More</a></label>
                 </div>
                 <div class="description-series">
-                    <label class="mx-left"><b class="l-size">Parameters</b></label>
+                    <label class="mx-left"><strong class="l-size">Parameters</strong></label>
                     <label class="mx-left">MACD parameters can be adjusted. The default parameters are 26 for the slow exponential moving average, 12 for the fast exponential moving average and 20 for the signal line. Decreasing any of the parameters decreases the volatility of the related line, and increasing them - increases the volatility of the related line.</label>
                 </div>
                 <div class="description-series">
-                    <label class="mx-left"><b class="l-size">Function</b></label>
+                    <label class="mx-left"><strong class="l-size">Function</strong></label>
                     <label class="mx-left">The MACD is used to determine is there bullish or bearish momentum behind a stock. When the indicator line is above the signal line, the MACD shows bullish momentum, and the indicator line below the signal line in the MACD shows bearish momentum.</label>
                 </div>
             </div>

@@ -22,7 +22,7 @@
                     @endif
                 </div>
                 <div class="text-muted small text-center align-self-center">
-                    <span><i class="far fa-comment mx-1"></i>{{count($forum->comment)}}</span>
+                    <span><span class="far fa-comment mx-1"></span>{{count($forum->comment)}}</span>
                 </div>
             </div>
         </div>
