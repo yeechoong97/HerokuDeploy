@@ -59,9 +59,7 @@ function computePips() {
         appendAlertCalculator('Please enter valid units.');
         return false;
     }
-
     let pipsValue = 0;
-
     if (baseSelected == "USD") {
         switch (instrumentSelected) {
             case "EUR_USD":
@@ -119,10 +117,8 @@ function computeProfit() {
         appendAlertCalculator('Please enter valid inputs.');
         return false;
     }
-
     let multiplyFormula = 10000;
     let preProfit = 0;
-
     switch (instrumentSelected) {
         case "USD_JPY":
         case "EUR_JPY":
@@ -141,17 +137,13 @@ function computeProfit() {
         totalProfit = (exitPrice > entryPrice) ? `$ ${totalProfit}` : `$ -${totalProfit}`;
     else
         totalProfit = (exitPrice < entryPrice) ? `$ ${totalProfit}` : `$ -${totalProfit}`;
-
     document.getElementById('profit-calculator-results').value = totalProfit;
 }
 
-
-
 function retrievePrice(instrumentSelected) {
     let currencyRate = 0;
-    for (var index in arrayCurrency) {
+    for (var index in arrayCurrency)
         currencyRate = (arrayCurrency[index][0] == instrumentSelected) ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
-    }
     return currencyRate;
 }
 

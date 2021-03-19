@@ -98,7 +98,6 @@ function validatePost(forumForm) {
     titleError.innerHTML = (forumTitle == "") ? "*Invalid Forum Title" : "";
     tagError.innerHTML = (forumTag == "default") ? "*Please select a category" : "";
     contentsError.innerHTML = (forumContents == "") ? "*Invalid Forum Contents" : "";
-
     if (titleError.innerHTML == "" && tagError.innerHTML == "" && contentsError.innerHTML == "")
         document.getElementById(forumForm).submit();
 }
@@ -108,7 +107,6 @@ function validateComment(commentForm) {
     let commentContents = document.getElementById(`comment-${commentType}-summernote`).value;
     let contentsError = document.getElementById(`error-msg-${commentType}-contents`);
     contentsError.innerHTML = (commentContents == "" || commentContents == "<p><br></p>") ? "*Invalid Forum Contents" : "";
-
     if (contentsError.innerHTML == "")
         document.getElementById(commentForm).submit();
 }

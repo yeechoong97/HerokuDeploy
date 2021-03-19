@@ -5,8 +5,6 @@ const arrayPercentage = {
     full: { value: 100, name: "full-units" }
 };
 
-
-
 //Update the font colour in the live streaming box
 function highlight(divHeader, buyingPrice, sellingPrice, fontColor) {
     divHeader.style.color = fontColor;
@@ -23,7 +21,6 @@ function highlight(divHeader, buyingPrice, sellingPrice, fontColor) {
 function updateTable(instrumentSelected, sellingPrice, buyingPrice) {
     var orderTable = document.getElementById("all_orders");
     instrumentSelected = instrumentSelected.replace("_", "/");
-
     //Update the order record in the table
     for (i = 1; i < orderTable.rows.length; i++) {
         let row = orderTable.rows[i]
@@ -35,7 +32,6 @@ function updateTable(instrumentSelected, sellingPrice, buyingPrice) {
         var decimalPlacement = 1;
         var multiplyFormula = 10000;
         var totalProfit, preProfit = 0;
-
         //Check the input with switch case for dedicated formula
         let USDJPYSell = document.getElementById("USD_JPY_Sell").innerHTML;
         let USDJPYBuy = document.getElementById("USD_JPY_Buy").innerHTML;
@@ -119,7 +115,6 @@ function openOrderBox(ticketID, percentageSelected) {
         ticketID = document.getElementById('position-ticket-id').innerHTML;
         document.getElementById('hidden_percent').value = percentageSelected;
     }
-
     var orderTable = document.getElementById("all_orders");
     for (i = 1; i < orderTable.rows.length; i++) {
         let row = orderTable.rows[i]
@@ -143,9 +138,8 @@ function openOrderBox(ticketID, percentageSelected) {
             document.getElementById('position-total-units').value = Math.round(orderUnits * (percentageSelected / 100));
             document.getElementById('units_remaining').innerHTML = (orderUnits - Math.round(orderUnits * (percentageSelected / 100)));
             document.getElementById('units-profit').innerHTML = (orderProfit * (percentageSelected / 100)).toFixed(2);
-        } else {
+        } else
             document.getElementById(arrayPercentage[key].name).style.backgroundColor = "white";
-        }
     }
 }
 
@@ -191,11 +185,9 @@ function updateRemaining() {
     var profitPercentage = 100 - ((orderUnit - deductValue) / orderUnit * 100);
     document.getElementById('hidden_percent').value = profitPercentage;
     document.getElementById('units-profit').innerHTML = (orderProfit * (profitPercentage / 100)).toFixed(2);
-
     for (var key in arrayPercentage) {
         document.getElementById(arrayPercentage[key].name).style.backgroundColor = (profitPercentage == arrayPercentage[key].value) ? "#9ecdfc" : "white";
     }
-
     if (deductValue > parseInt(orderUnit) || deductValue == 0 || deductValue == "") {
         document.getElementById('tick-close').style.display = 'none';
         document.getElementById('cross-close').style.display = 'inline';
@@ -367,7 +359,6 @@ function confirmClose() {
         let unitsClosed = document.getElementById('position-total-units').value;
         let orderProfit = document.getElementById('units-profit').innerHTML;
         var orderTable = document.getElementById("all_orders");
-
         for (i = 1; i < orderTable.rows.length; i++) {
             let row = orderTable.rows[i]
             var id = row.cells[0].innerHTML;
@@ -426,7 +417,6 @@ function confirmClose() {
     }
 }
 
-
 //Update the order in the database
 function closePosition(orderObject) {
     $.ajax({
@@ -453,21 +443,18 @@ function closePosition(orderObject) {
 function appendTempData(arrayInstrument) {
     for (var i in arrayInstrument) {
         var componentID = ["_Sell", "_Buy", "_Pips"];
-        for (var j in componentID) {
+        for (var j in componentID)
             componentID[j] = arrayInstrument[i][0] + componentID[j];
-        }
         var sellingPrice = document.getElementById(componentID[0]);
         var buyingPrice = document.getElementById(componentID[1]);
         var spreadValue = document.getElementById(componentID[2]);
         var instrumentSelected = "EUR_USD";
         var multiplyFormula = 10000;
-
         if (arrayInstrument[i][0].includes("JPY") == true)
             multiplyFormula = 100;
         spreadValue.innerHTML = ((arrayInstrument[i][2] - arrayInstrument[i][1]) * multiplyFormula).toFixed(1);
         sellingPrice.innerHTML = arrayInstrument[i][1];
         buyingPrice.innerHTML = arrayInstrument[i][2];
-
         if (arrayInstrument[i][0] == instrumentSelected) {
             document.getElementById("sell-action").innerHTML = arrayInstrument[i][1];
             document.getElementById("buy-action").innerHTML = arrayInstrument[i][2];

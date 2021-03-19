@@ -16,7 +16,6 @@ socket.on('news', function(data) {
                 for (i = 0; i < componentID.length; i++) {
                     componentID[i] = JSONInstrument + componentID[i];
                 }
-
                 var sell = document.getElementById(componentID[0]);
                 var buy = document.getElementById(componentID[1]);
                 var pips = document.getElementById(componentID[2]);
@@ -37,7 +36,6 @@ socket.on('news', function(data) {
                 var multiply = 10000;
                 if (JSONInstrument.includes("JPY") === true) { multiply = 100; }
                 pips.innerHTML = ((json.asks[0].price - json.bids[0].price) * multiply).toFixed(1);
-
                 if (JSONInstrument === instrument) {
                     document.getElementById("sell-action").innerHTML = json.bids[0].price;
                     document.getElementById("buy-action").innerHTML = json.asks[0].price;

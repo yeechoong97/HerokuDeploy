@@ -78,26 +78,21 @@
             </div>`
             //Scroll Down
         chatContainer.scrollTop = chatContainer.scrollHeight - chatContainer.clientHeight;
-
     })
 
     //Send Message
     chatForm.addEventListener('submit', e => {
         e.preventDefault();
         var message = e.target.elements.chat_msg.value;
-
         message = message.trim();
         if (!message) {
             return false;
         }
-
         //Send Message
         socketIO.emit('chatMessage', { message, joinName });
         e.target.elements.chat_msg.value = "";
         e.target.elements.chat_msg.focus();
-
     });
-
 
     //Receive Message from other user
     socketIO.on('newMsg', function({ userName, userRoom, message, time }) {

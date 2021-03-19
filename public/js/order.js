@@ -1,7 +1,6 @@
 //sort the table accordingly
 function sortTable(element) {
     var sortList = ["created_at", "units", "pair", "type", "profit", "cost"];
-
     for (let index in sortList) {
         if (sortList[index] == element) {
             if (document.getElementById(`span-${sortList[index]}`).classList.contains('fa-caret-up')) {
@@ -53,7 +52,6 @@ function filterDate() {
     let previousStartDate = document.getElementById('hidden_prev_start').value;
     let previousEndDate = document.getElementById('hidden_prev_end').value;
     let resultPage = document.getElementById('hidden_page').value;
-
     switch (sortValue) {
         case "type":
         case "pair":
@@ -64,7 +62,6 @@ function filterDate() {
             break;
     }
     let orderObject = { 'start': startDate, 'end': endDate, 'sort': sortValue, 'order': sortOrder };
-
     if (startDate > endDate) {
         appendOrderAlert("Please select a valid range of date");
         document.getElementById('start-date').value = previousStartDate;
@@ -76,7 +73,6 @@ function filterDate() {
             document.getElementById('hidden_prev_end').value = endDate;
             document.getElementById('hidden_page').value = resultPage;
         }
-
         $.ajax({
             type: 'GET',
             url: '/order/fetch',

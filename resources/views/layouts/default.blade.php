@@ -24,7 +24,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs-rtl.min.css" integrity="sha512-CBhAm6vyK8E1WXomkztwQZ4Lq9mHE1PjWWXOICo5S5/deArabmCDoytC4+on0xxMdGhWJHBRTQdozFwZb9saYw==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs.css" integrity="sha512-i+WzzATeaDcwcfi5CfLn63qBxrKqiQvDLC+IChU1zVlaPguPgJlddOR07nU28XOoIOno9WPmJ+3ccUInpmHxBg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs.min.css" integrity="sha512-631ugrjzlQYCOP9P8BOLEMFspr5ooQwY3rgt8SMUa+QqtVMbY/tniEUOcABHDGjK50VExB4CNc61g5oopGqCEw==" crossorigin="anonymous" />
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
 
+<body class="body-background">
+<div class="">
+    <header class="">
+        @include('includes.header')
+    </header>
+            @yield('content')
+    <footer class="row">
+        @include('includes.footer')
+    </footer>
+</div>
+</body>
     <script type="text/javascript" src="{{ URL::asset('js/intro.js') }}"></script> 
     <script type="text/javascript" src="{{ URL::asset('js/calculator.js') }}"></script>  
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.6/dist/sweetalert2.all.min.js" integrity="sha384-cBSLl8QUzUYEENH3ekFxzQ+mNnUW0Rv2b5PUUV6TtsjlwX6ywxH3Im6qtXhbagVc" crossorigin="anonymous"></script>
@@ -43,21 +56,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js" integrity="sha384-rx0BV63HhgGIr8YUlDXei/T7jwJ1aYuvH84xT11XN/SHH1jnCs7YohLWx+0Hut5v" crossorigin="anonymous"></script>
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
-
-<body class="body-background">
-<div class="">
-    <header class="">
-        @include('includes.header')
-    </header>
-            @yield('content')
-    <footer class="row">
-        @include('includes.footer')
-    </footer>
-</div>
-</body>
-
 </html>
 
 
