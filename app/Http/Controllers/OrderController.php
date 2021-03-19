@@ -186,7 +186,7 @@ class OrderController extends Controller
                         else
                             $USD_JPY[1] += abs($trade->profit);
                         break;
-                    case "EUR/USD":
+                    case "EUR/JPY":
                         if($trade->profit>=0)
                             $EUR_JPY[0] += $trade->profit;
                         else
