@@ -14,7 +14,7 @@ function validateProfile() {
     let regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let regexName = /^[a-zA-Z\s]*$/;
     messageEmail.innerHTML = (profileEmail.value.match(regexEmail) ? "" : "Invalid email is entered");
-    messageName.innerHTML = (profileName.value.match(regexName)) ? "" : "Invalid name is entered";
+    messageName.innerHTML = (profileName.value.match(regexName) && profileName.value != "") ? "" : "Invalid name is entered";
     messagePhone.innerHTML = (profilePhone.value.length < 10) ? "Invalid phone number is entered" : "";
     if (messageEmail.innerHTML == "" && messageName.innerHTML == "" && messagePhone.innerHTML == "")
         document.getElementById('profileEditForm').submit();
