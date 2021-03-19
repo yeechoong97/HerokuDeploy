@@ -16,21 +16,21 @@ use App\Common;
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="Old Password">Current Password</label>
-                        <input type="password" id="current-password" class="form-control" name="current_password" placeholder="Enter current password" value="" required autofocus/>
+                        <input type="password" id="current-password" class="form-control" name="current_password" placeholder="" value="" required autofocus/>
                         @error('current_password')
                             <div class="text-danger small mx-1 mt-1" id="error-msg-current-password">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="New Password">New Password</label>
-                        <input type="password" id="new-password" class="form-control" name="password" placeholder="Enter new password" value="" required autofocus/>
+                        <input type="password" id="new-password" class="form-control" name="password" placeholder="At least 6 characters" value="" required autofocus/>
                         @error('password')
                         <div class="text-danger small mx-1 mt-1" id="error-msg-new-password">{{$message}}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="Confirm Password">Confirm Password</label>
-                        <input type="password" id="confirm-password"  class="form-control" name="password_confirmation" placeholder="Enter confirm password"  value="" required autofocus/>
+                        <input type="password" id="confirm-password"  class="form-control" name="password_confirmation" placeholder=""  value="" required autofocus/>
                     </div>
                 </div>
                 <div class="modal-footer">

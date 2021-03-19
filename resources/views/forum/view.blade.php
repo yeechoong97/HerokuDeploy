@@ -39,7 +39,7 @@ use App\Common;
         <div class="inner-main">
             <div class="inner-main-body p-2 p-sm-3 forum-content">
                 @foreach($forums as $forum)
-                <div class="card mb-3">
+                <div class="card mb-2">
                     <div class="card-body">
                         <div class="media forum-item">
                             <div class="card-link">
