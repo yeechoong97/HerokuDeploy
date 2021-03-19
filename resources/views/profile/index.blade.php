@@ -92,6 +92,7 @@
 
 <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/profile.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
 <script>
 //Display the alert message
 @if($errors->any())
@@ -104,18 +105,6 @@ window.onload = function() {
     if(exist)
     appendProfileAlert(msg);
 }
-
-let profileName = document.getElementById('profile-name');
-let profilePhone = document.getElementById('profile-phone');
-let profileEmail = document.getElementById('profile-email');
-let messageName = document.getElementById('error-msg-name');
-let messagePhone = document.getElementById('error-msg-phone');
-let messageEmail = document.getElementById('error-msg-email');
-let currentPassword = document.getElementById('current-password');
-let newPassword = document.getElementById('new-password');
-let confirmPassword = document.getElementById('confirm-password');
-let messageCurrentPassword = document.getElementById('error-msg-current-password');
-let messageNewPassword = document.getElementById('error-msg-new-password');
 
 </script>
 @stop

@@ -1,3 +1,15 @@
+let profileName = document.getElementById('profile-name');
+let profilePhone = document.getElementById('profile-phone');
+let profileEmail = document.getElementById('profile-email');
+let messageName = document.getElementById('error-msg-name');
+let messagePhone = document.getElementById('error-msg-phone');
+let messageEmail = document.getElementById('error-msg-email');
+let currentPassword = document.getElementById('current-password');
+let newPassword = document.getElementById('new-password');
+let confirmPassword = document.getElementById('confirm-password');
+let messageCurrentPassword = document.getElementById('error-msg-current-password');
+let messageNewPassword = document.getElementById('error-msg-new-password');
+
 function validateProfile() {
     let regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let regexName = /^[a-zA-Z\s]*$/;
