@@ -223,6 +223,12 @@ use App\Common;
 <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>   
 <script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
 <script src="https://mighty-headland-26950.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js" integrity="sha384-0gXGTz/tBVgjh6A4quL+s/hguKQl89dE8KvkugzXlYULoh//f3XfOhU0oENHkIAJ" crossorigin="anonymous"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js" integrity="sha384-gwyymOUwBjZeBlxG4h2aWpibl0PpwvRE4xfGd6z+cPlwtMv9S3ls6fESCm/83FIY" crossorigin="anonymous"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-stock.min.js" integrity="sha384-EipjguUjfJz8ICBl7RXzdLMUzAmUiPakm52M0jwRgD3HcZXp02N2wI5+U0+7gB5P" crossorigin="anonymous"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js" integrity="sha384-MjvdhJD1JvNJkJYeQFjUXT7xSAuGw4uP8O6+C2i/e2nCXZqnfFOC9WwO0EZ7ujNj" crossorigin="anonymous"></script>
+<script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-annotations.min.js" integrity="sha384-tPDIlLMU5AutTu0NWf+PHo4ADSGWE/GL1IxDDSxsdl+lJtoI8dBM/bi5GpqIBRIx" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
 
 const preloader = document.querySelector('.preloader');
