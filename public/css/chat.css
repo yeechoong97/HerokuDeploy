@@ -1,5 +1,3 @@
-/* Enter Chat */
-
 .adjusted-chat-height {
     height: 350px !important;
     width: 300px !important;
@@ -18,9 +16,6 @@
     height: 100%;
     text-align: center;
 }
-
-
-/* Chatroom */
 
 .chat-container {
     top: 0px;
@@ -86,7 +81,6 @@
 }
 
 .minimize {
-    /* float: right; */
     color: white !important;
     padding: 5px 10px;
     cursor: pointer;

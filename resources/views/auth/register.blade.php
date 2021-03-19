@@ -3,7 +3,7 @@
 <?php 
     use App\Common;
 ?>
-
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 <div class="register-photo">
         <div class="form-container">
             <div class="image-holder"></div>

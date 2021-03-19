@@ -3,6 +3,7 @@
 <?php
 use App\Common;
 ?>
+<link href="{{ asset('css/forum.css') }}" rel="stylesheet">
 <div class="container" style="height:1250px;margin-top:130px;">
 <div class="main-body p-0 my-3" style="height:95%;border:1px solid #cbd5e0;">
     <div class="inner-wrapper">

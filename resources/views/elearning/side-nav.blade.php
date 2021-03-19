@@ -1,3 +1,4 @@
+<link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 <div class="col-md-6 col-xl-2 offset-xl-0 sidenav">
     <div>
         <form method="post" id="searchForm" action="{!! route('learning-search') !!}">
