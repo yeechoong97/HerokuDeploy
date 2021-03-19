@@ -2,7 +2,7 @@
 function submitForm() {
     var amountInput = parseFloat(document.getElementById('amount_input').value);
     var statusDisplay = document.getElementById('cross').style.display;
-    if (amountInput <= 0 || isNaN(amountInput) === true || statusDisplay === "inline" || amountInput === "")
+    if (amountInput <= 0 || isNaN(amountInput) === true || statusDisplay === "inline" || amountInput == "")
         document.getElementById('error-msg').innerHTML = "*Invalid amount is entered";
     else
         document.getElementById("myForm").submit();

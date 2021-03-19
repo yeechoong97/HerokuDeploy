@@ -178,3 +178,9 @@
 .avatar-border {
     border: 0.1rem solid #bebebe;
 }
+
+.remove-decoration {
+    text-decoration: none !important;
+    text-align: center;
+    cursor: pointer;
+}
