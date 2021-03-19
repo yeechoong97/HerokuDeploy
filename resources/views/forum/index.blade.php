@@ -5,7 +5,6 @@ use App\Common;
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" /> -->
 <div class="container" style="height:1250px;margin-top:130px;">
 <div class="main-body p-0 my-3" style="height:95%;border:1px solid #cbd5e0;">
     <div class="inner-wrapper">
@@ -63,7 +62,7 @@ use App\Common;
     <input type="hidden" name="hidden_page" id="hidden_page_number" value="1" />
 @include('forum.create')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js" integrity="sha384-llmpdW/XN7NR6OnZQFvy2xN3KRv+Br5lpV3IEJYCJITjcjlfdSdxb0R3hAhfPsGq" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ URL::asset('js/forum.js') }}"></script> 
 <script>
 $('#forum-summernote').summernote({

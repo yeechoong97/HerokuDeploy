@@ -96,7 +96,7 @@ use App\Common;
 @include('forum.comment.create')
 @include('forum.comment.edit')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js" integrity="sha384-llmpdW/XN7NR6OnZQFvy2xN3KRv+Br5lpV3IEJYCJITjcjlfdSdxb0R3hAhfPsGq" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ URL::asset('js/forum.js') }}"></script> 
 
 <script>
