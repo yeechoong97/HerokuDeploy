@@ -120,3 +120,7 @@ function dismissErrorMessageForum() {
     document.getElementById('error-msg-select').innerHTML = "";
     document.getElementById('error-msg-contents').innerHTML = "";
 }
+
+function navigatePost(postTag, postID) {
+    window.location.href = `forum/${postTag}/${postID}`;
+}
