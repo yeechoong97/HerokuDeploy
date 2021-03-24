@@ -52,7 +52,6 @@
 .price-container .price .rates .header {
     height: 30%;
     font-size: 0.9vw;
-    /* background: whitesmoke; */
     background: white;
     border-bottom: 0.1rem solid #cecece;
     border-top-left-radius: 0.6rem;
@@ -91,7 +90,6 @@
 
 .price-container .price .rates .pips {
     height: 20%;
-    /* background: whitesmoke; */
     background: white;
     font-size: 0.8vw;
     color: black;
