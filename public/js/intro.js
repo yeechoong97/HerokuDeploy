@@ -1,9 +1,11 @@
+var chatWindow;
+
 function toggleChat() {
-    window.open('/chat', "Live Chat", "height=550,width=800");
+    chatWindow = window.open('/chat', "Live Chat", "height=550,width=800");
 }
 
 $(window).on('unload', function() {
-    closeAll();
+    chatWindow.close();
 });
 
 function showTutorial(userName) {
