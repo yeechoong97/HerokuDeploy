@@ -170,3 +170,11 @@
         border-radius: 30rem;
         float: left
     }
+    
+    .post-click {
+        cursor: pointer;
+    }
+    
+    .post-click:hover {
+        background-color: rgb(240, 240, 240) !important;
+    }
