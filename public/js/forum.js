@@ -122,5 +122,5 @@ function dismissErrorMessageForum() {
 }
 
 function navigatePost(postTag, postID) {
-    window.location.href = `forum/${postTag}/${postID}`;
+    window.location.href = `/forum/${postTag}/${postID}`;
 }
