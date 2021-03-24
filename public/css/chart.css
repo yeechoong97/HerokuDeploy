@@ -450,19 +450,19 @@
 }
 
 .rate-active .header {
-    background-color: #fff7eb !important;
+    background-color: #fdeed6 !important;
 }
 
 .rate-active .sell-rates {
-    background-color: #ffeded !important;
+    background-color: #ffdada !important;
 }
 
 .rate-active .buy-rates {
-    background-color: #e0f0ff !important;
+    background-color: #c1e0fd !important;
 }
 
 .rate-active .pips {
-    background-color: #f5edff !important;
+    background-color: #e5d1ff !important;
 }
 
 .introjs-tooltip {
