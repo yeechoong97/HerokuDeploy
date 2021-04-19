@@ -32,8 +32,9 @@ function calculateMarginTutorial(instrumentSelected, orderUnit, userLeverage, en
             midPoint = 1;
             break;
         case "EUR/JPY":
-            retrieve_EURJPY_Rate()
-            midPoint = currencyRate
+            retrieve_EURJPY_Rate();
+            console.log(currencyRate);
+            midPoint = currencyRate;
             break;
     }
     return ((orderUnit / userLeverage * midPoint).toFixed(2));
@@ -52,6 +53,7 @@ function retrieve_EURJPY_Rate() {
             arrayCurrency = data.response;
             for (var index in arrayCurrency) {
                 currencyRate = (arrayCurrency[index][0] == "EUR_USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
+                break;
             }
         }
     });
