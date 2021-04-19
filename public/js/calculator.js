@@ -49,9 +49,9 @@ function retrieve_EURJPY_Rate() {
             arrayCurrency = data.response;
             let currencyRate = 0;
             for (var index in arrayCurrency) {
-                console.log(arrayCurrency[index][0])
-                currencyRate = (arrayCurrency[index][0] == "EUR/USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
+                currencyRate = (arrayCurrency[index][0] == "EUR_USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
             }
+            console.log(currencyRate)
             return currencyRate
         }
     });
