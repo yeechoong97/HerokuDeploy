@@ -49,7 +49,7 @@ function retrieve_EURJPY_Rate() {
             arrayCurrency = data.response;
             let currencyRate = 0;
             for (var index in arrayCurrency)
-                currencyRate = (arrayCurrency[index][0] == "EUR_USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
+                currencyRate = (arrayCurrency[index][0] == "EUR/USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
             return currencyRate
         }
     });
