@@ -19,8 +19,40 @@ function computeMargin() {
         sellPrice = (arrayCurrency[index][0] == instrumentSelected) ? arrayCurrency[index][1] : sellPrice;
     }
     instrumentSelected = instrumentSelected.replace("_", "/");
-    let computedMargin = calculateMargin(instrumentSelected, unitsEntered, trimLeverage, buyPrice, sellPrice);
+    let computedMargin = calculateMarginTutorial(instrumentSelected, unitsEntered, trimLeverage, buyPrice, sellPrice);
     document.getElementById('margin-calculator-results').value = `$ ${computedMargin}`;
+}
+
+//Calculate the margin for instrument
+function calculateMarginTutorial(instrumentSelected, orderUnit, userLeverage, entryPrice, exitPrice) {
+    var midPoint = (parseFloat(entryPrice) + parseFloat(exitPrice)) / 2;
+    switch (instrumentSelected) {
+        case "USD/JPY":
+            midPoint = 1;
+            break;
+        case "EUR/JPY":
+            midPoint = retrieve_EURJPY_Rate()
+            break;
+    }
+    return ((orderUnit / userLeverage * midPoint).toFixed(2));
+}
+
+function retrieve_EURJPY_Rate() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        type: 'POST',
+        url: '/calculator/rate',
+        data: {
+            _token: token,
+        },
+        success: function(data) {
+            arrayCurrency = data.response;
+            let currencyRate = 0;
+            for (var index in arrayCurrency)
+                currencyRate = (arrayCurrency[index][0] == "EUR_USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
+            return currencyRate
+        }
+    });
 }
 
 function retrieveRate(elementSelected) {
