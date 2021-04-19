@@ -27,9 +27,9 @@
     //Leave Room
     function leaveRoom() {
         socketIO.emit('leaveRoom');
+        document.getElementById('chat-box-container').style.display = "none";
+        document.getElementById('chat-enter').style.display = "block";
         location.reload();
-        // document.getElementById('chat-box-container').style.display = "none";
-        // document.getElementById('chat-enter').style.display = "block";
     }
 
     //Check if same username exists
