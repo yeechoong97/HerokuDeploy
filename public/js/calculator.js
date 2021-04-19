@@ -1,4 +1,5 @@
 var arrayCurrency;
+var currencyRate = 0;
 
 function computeMargin() {
     let instrumentSelected = document.getElementById('margin-calculator-instrument').value;
@@ -31,7 +32,8 @@ function calculateMarginTutorial(instrumentSelected, orderUnit, userLeverage, en
             midPoint = 1;
             break;
         case "EUR/JPY":
-            midPoint = retrieve_EURJPY_Rate()
+            retrieve_EURJPY_Rate()
+            midPoint = currencyRate
             break;
     }
     return ((orderUnit / userLeverage * midPoint).toFixed(2));
@@ -48,13 +50,11 @@ function retrieve_EURJPY_Rate() {
         },
         success: function(data) {
             arrayCurrency = data.response;
-            let currencyRate = 0;
             for (var index in arrayCurrency) {
                 currencyRate = (arrayCurrency[index][0] == "EUR_USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
             }
         }
     });
-    return currencyRate
 }
 
 function retrieveRate(elementSelected) {
@@ -68,7 +68,7 @@ function retrieveRate(elementSelected) {
         },
         success: function(data) {
             arrayCurrency = data.response;
-            let currencyRate = 0;
+            currencyRate = 0;
             for (var index in arrayCurrency)
                 currencyRate = (arrayCurrency[index][0] == instrumentSelected) ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
             if (elementSelected == "profit") {
