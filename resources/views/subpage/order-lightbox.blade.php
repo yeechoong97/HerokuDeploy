@@ -31,7 +31,7 @@
                </div>
             <div class="lower-body">
                <div class="unit-check">
-                     <input type="number" id="order-units" class="form-control col-md-8 units" placeholder="Enter Units" onwheel="javascript: return false" onkeyup="validateUnits()" maxlength="7" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"></input> 
+                     <input type="number" id="order-units" class="form-control col-md-8 units" placeholder="Enter Units" onwheel="javascript: return false" onkeyup="validateUnits()" maxlength="7" onkeydown="javascript: return event.keyCode == 69 || event.keyCode==109 || event.keyCode==38 || event.keyCode==40 || event.keyCode==190 || event.keyCode==110 || event.keyCode==107 || event.keyCode==187 || event.keyCode==189 || event.keyCode == 13 ? false : true" oninput="this.value=this.value.slice(0,this.maxLength)"></input> 
                      <span class="fas fa-check tick-check" id="tick" style="display:none"></span>    
                      <span class="fas fa-times cross-check" id="cross" style="display:none"></span>      
                </div>

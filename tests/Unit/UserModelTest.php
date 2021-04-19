@@ -31,7 +31,7 @@ class UserModelTest extends TestCase
         $this->assertTrue( 
             Schema::hasColumns('user', [
                 'name','user_id','username','phone','avatar','email', 'tutorial','password',
-          ]), 1);
+        ]), 1);
     }
     /**
      * @runInSeparateProcess
