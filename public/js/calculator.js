@@ -41,7 +41,7 @@ function calculateMarginTutorial(instrumentSelected, orderUnit, userLeverage, en
 
 function retrieve_EURJPY_Rate() {
     var token = $('meta[name="csrf-token"]').attr('content');
-
+    currencyRate = 0;
     $.ajax({
         type: 'POST',
         url: '/calculator/rate',
@@ -52,7 +52,7 @@ function retrieve_EURJPY_Rate() {
             arrayCurrency = data.response;
             for (var index in arrayCurrency) {
                 currencyRate = (arrayCurrency[index][0] == "EUR_USD") ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
-                console.log(currencyRate);
+                console.log(arrayCurrency[index][0]);
             }
         }
     });
