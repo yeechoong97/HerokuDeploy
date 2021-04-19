@@ -1,5 +1,4 @@
 var arrayCurrency;
-var currencyRate = 0;
 
 function computeMargin() {
     let instrumentSelected = document.getElementById('margin-calculator-instrument').value;
@@ -20,8 +19,12 @@ function computeMargin() {
         sellPrice = (arrayCurrency[index][0] == instrumentSelected) ? arrayCurrency[index][1] : sellPrice;
     }
     instrumentSelected = instrumentSelected.replace("_", "/");
-    let computedMargin = calculateMarginTutorial(instrumentSelected, unitsEntered, trimLeverage, buyPrice, sellPrice);
-    document.getElementById('margin-calculator-results').value = `$ ${computedMargin}`;
+    if (instrumentSelected == "EUR/JPY") {
+        retrieve_EURJPY_Rate(unitsEntered, trimLeverage);
+    } else {
+        let computedMargin = calculateMarginTutorial(instrumentSelected, unitsEntered, trimLeverage, buyPrice, sellPrice);
+        document.getElementById('margin-calculator-results').value = `$ ${computedMargin}`;
+    }
 }
 
 //Calculate the margin for instrument
@@ -31,19 +34,13 @@ function calculateMarginTutorial(instrumentSelected, orderUnit, userLeverage, en
         case "USD/JPY":
             midPoint = 1;
             break;
-        case "EUR/JPY":
-            currencyRate = 0;
-            retrieve_EURJPY_Rate();
-            console.log(currencyRate);
-            midPoint = currencyRate;
-            break;
     }
     return ((orderUnit / userLeverage * midPoint).toFixed(2));
 }
 
-function retrieve_EURJPY_Rate() {
+function retrieve_EURJPY_Rate(orderUnit, userLeverage) {
     var token = $('meta[name="csrf-token"]').attr('content');
-    currencyRate = 0;
+    var midPoint = 0;
     $.ajax({
         type: 'POST',
         url: '/calculator/rate',
@@ -54,7 +51,9 @@ function retrieve_EURJPY_Rate() {
             arrayCurrency = data.response;
             for (var index in arrayCurrency) {
                 if (arrayCurrency[index][0] == "EUR_USD") {
-                    currencyRate = ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5);
+                    midPoint = ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5);
+                    var margin = ((orderUnit / userLeverage * midPoint).toFixed(2));
+                    document.getElementById('margin-calculator-results').value = `$ ${margin}`;
                 }
             }
         }
@@ -72,7 +71,7 @@ function retrieveRate(elementSelected) {
         },
         success: function(data) {
             arrayCurrency = data.response;
-            currencyRate = 0;
+            var currencyRate = 0;
             for (var index in arrayCurrency)
                 currencyRate = (arrayCurrency[index][0] == instrumentSelected) ? ((parseFloat(arrayCurrency[index][1]) + parseFloat(arrayCurrency[index][2])) / 2).toFixed(5) : currencyRate;
             if (elementSelected == "profit") {
