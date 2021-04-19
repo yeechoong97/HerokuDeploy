@@ -31,7 +31,8 @@ function calculateMarginTutorial(instrumentSelected, orderUnit, userLeverage, en
             midPoint = 1;
             break;
         case "EUR/JPY":
-            midPoint = parseFloat(retrieve_EURJPY_Rate())
+            midPoint = retrieve_EURJPY_Rate()
+            console.log(midPoint)
             break;
     }
     return ((orderUnit / userLeverage * midPoint).toFixed(2));
