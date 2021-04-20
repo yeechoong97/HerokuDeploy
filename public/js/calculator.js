@@ -27,6 +27,12 @@ function computeMargin() {
     }
 }
 
+function getLeverage(leverageString) {
+    arrayLeverage = leverageString.split(":");
+    var userLeverage = parseInt(arrayLeverage[0]);
+    return userLeverage;
+}
+
 //Calculate the margin for instrument
 function calculateMarginTutorial(instrumentSelected, orderUnit, userLeverage, entryPrice, exitPrice) {
     var midPoint = (parseFloat(entryPrice) + parseFloat(exitPrice)) / 2;
