@@ -14,7 +14,7 @@
     <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
     <link href="{{ asset('css/indicator-lightbox.css') }}" rel="stylesheet">
     <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" integrity="sha384-+aW5itA66F54/p2ZNEBKEfi872KLCkw8NIleRJhAooq8x6sZNv+HR8l8I0nJtTNM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.10.0/css/anychart-ui.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs-rtl.css" integrity="sha512-3eskNfJHA0L8y9EWaHqgxCJ+A3geYz7sWgr9YZ9Tp7oFtquhPbeM+TawucTX8Ze8/Z67rwTEbUe1EzoOE3SnyA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs-rtl.min.css" integrity="sha512-CBhAm6vyK8E1WXomkztwQZ4Lq9mHE1PjWWXOICo5S5/deArabmCDoytC4+on0xxMdGhWJHBRTQdozFwZb9saYw==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.2.1/introjs.css" integrity="sha512-i+WzzATeaDcwcfi5CfLn63qBxrKqiQvDLC+IChU1zVlaPguPgJlddOR07nU28XOoIOno9WPmJ+3ccUInpmHxBg==" crossorigin="anonymous" />
